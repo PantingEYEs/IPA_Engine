@@ -1,0 +1,45 @@
+{
+  "version": "v0.0.1-dev",
+  "artifact": "ipa-engine-v0.0.1-dev-android-arm64-v8a.aar",
+  "artifact_bytes": 29239937,
+  "artifact_sha256": "b22396473a316750617b28cbf611d823aa7ef8c92133052ddea92e6d3f70f887",
+  "platform": "Android",
+  "abi": "arm64-v8a",
+  "min_sdk": 26,
+  "java_language_level": 8,
+  "entry_point": "com.ipaengine.graph.GraphEngine",
+  "includes_sources": false,
+  "includes_test_apks": false,
+  "includes_dictionary": true,
+  "dictionary": {
+    "format": "IPADWG01",
+    "format_version": 2,
+    "index_bits": 24,
+    "bytes": 28986769,
+    "sha256": "382123e8cd1895400d3cc70f928ebf17010842120e01ffb37144a00a696d2bd9",
+    "ipa_keys": 1024289,
+    "unique_texts": 768387,
+    "pronunciation_postings": 1281101,
+    "regions": [
+      "en-US",
+      "en-GB",
+      "zh-CN",
+      "zh-TW",
+      "ja-JP"
+    ]
+  },
+  "api_documentation": "../../README.md",
+  "source_notices": "THIRD_PARTY_NOTICES.json",
+  "validation": {
+    "device": "SM-G998U1",
+    "sdk": 35,
+    "native_mapping_cases": 5014,
+    "native_queries": 500000,
+    "native_p95_ms": 0.006979,
+    "wrapper_queries": 10000,
+    "wrapper_p95_ms": 0.286407,
+    "paced_soak_seconds": 180,
+    "paced_soak_queries": 1800,
+    "note": "Previous completed measurements, not rerun by this packager; no IME UI integration or long-term power qualification."
+  }
+}
