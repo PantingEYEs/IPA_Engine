@@ -416,3 +416,5 @@ python3 scripts/prepare_model_data.py --max-per-region 6000
 ## IPA Board 独立资源更新
 
 仓库根目录 `board-update.json` 提供客户端更新元数据，指向不可覆盖的预发布目录。客户端可单独更新引擎 DEX/JNI 或预先编译的压缩 `.ipad` 词典；不进行端上编译。仅更新词典时保留引擎字段，新词典必须兼容旧引擎，客户端会在切换前用已安装引擎验证。当前产物支持 ARM64、IPADWG01 v2，来源与校验值见对应目录。
+
+更新清单另需 `artifactCommit` 指向已发布产物的 40 位 Git 提交 SHA。先发布不可覆盖的完整产物目录，再复制 client.json 至根目录 board-update.json 并填写 artifactCommit，最后发布清单。客户端直接读取清单，不依赖 GitHub REST API；所有二进制按固定产物提交及 SHA-256 验证。
