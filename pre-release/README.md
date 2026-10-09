@@ -1,11 +1,18 @@
-# 编译依赖库预发布产物
+# 编译产物预发布目录
 
-当前版本：**v0.0.2-dev**。`v0.0.2-dev/` 只包含编译后的 Android AAR、发布元数据、来源许可记录与 SHA-256 校验值，不含源代码、训练数据、模型、测试 APK 或构建工具。
+当前引擎版本：**v0.0.2-dev**。发布目录只包含编译结果、批次说明、来源许可与校验值，不含源码、训练资料、模型、测试 APK 或构建工具。全部历史目录不可变，修改资源使用新批次，已有包不覆盖或删除。
 
-将 `v0.0.2-dev/ipa-engine-v0.0.2-dev-android-arm64-v8a.aar` 复制到输入法工程的 `app/libs/` 并添加本地 Gradle 依赖。AAR 自带完整 24 位词典，目标 Android API 26+、`arm64-v8a`。调用入口为 `com.ipaengine.graph.GraphEngine`。
+| 目录 | 消费方式 |
+| --- | --- |
+| [v0.0.2-dev-client.1](v0.0.2-dev-client.1/README.md) | IPA Board 独立更新批次：配套 `classes.dex` 与 ARM64 JNI，以及裸 IPADWG01 v2 词典。客户端由根 [board-update.json](../board-update.json) 发现并校验，直接消费各资源。 |
+| [v0.0.2-dev](v0.0.2-dev/release.json) | 构建时 Gradle 依赖：`ipa-engine-v0.0.2-dev-android-arm64-v8a.aar`，自带完整 24 位词典。 |
+| [v0.0.1-dev-client.1](v0.0.1-dev-client.1/README.md) | 历史客户端批次，继续保留。 |
+| [v0.0.1-dev](v0.0.1-dev/release.json) | 历史严格模式 AAR，已有实机报告。 |
 
-完整调用方式、候选字段和宿主责任直接写在发布目录根 [README](../README.md) 中。发布文件信息见版本目录的 `release.json`，校验值见 `SHA256SUMS`；数据来源及许可记录见 `THIRD_PARTY_NOTICES.json`。
+两个新包使用同一已构建 v0.0.2-dev 引擎与完整 24 位词典，目标 API 26+、arm64-v8a，入口 `com.ipaengine.graph.GraphEngine`。DEX 从相应 AAR 的 `classes.jar` 转换，JNI 必须与它配套。此次词典字节及 SHA-256 不变，客户端的独立 `dictionaryVersion` 继续为 v0.0.1-dev-lexicon。
 
-预发布版本目录不覆盖已有不同内容。本地开发项目的 `scripts/package_pre_release.py` 从已有构建及验证报告包装结果，新版明确标记桌面验证范围，不重新运行模型或手机测试。
+IPA Board 不解包 AAR、不编译资料库、不扫描 VERSION 或 GitHub Releases。客户端唯一入口位于仓库根；清单路径以远程仓库根为基准，二进制下载固定在 `artifactCommit`，不能只改 AAR 版本或文件名完成更新。
 
-v0.0.1-dev 保留作为已完成实机验证的严格模式历史包；v0.0.2-dev 默认支持顺序省略与数字音高值，新版只完成桌面正确性/JNI检查和Android交叉编译，未复测手机性能。
+发布遵守“完整产物先推送、入口另一次提交后推送”的两阶段顺序；`artifactCommit` 必须是包含全部资源的已发布公开提交。批次的 `client.json` 是资源元数据模板，`SHA256SUMS` 是校验记录，均不能代替根入口。维护规则见 [CONTRIBUTING](../CONTRIBUTING.md)，接口、候选字段及宿主责任见根 [README](../README.md)。
+
+v0.0.2-dev 默认支持顺序省略及数字音高值，已完成桌面正确性/JNI 检查与 Android 交叉编译。将其转换并拆分为客户端资源属于发布修复，未新增手机性能验证；旧版实机数字不代表新版运行结果。

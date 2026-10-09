@@ -1,0 +1,11 @@
+{
+  "sourceAarPath": "pre-release/v0.0.2-dev/ipa-engine-v0.0.2-dev-android-arm64-v8a.aar",
+  "sourceAarSha256": "b81323f731c4dcbcc8b9d07a4abd6aea46e7570c4e295e1aabf687c735c08b05",
+  "classesJarSha256": "5814409dcc8f656e4050cc1d693f881885469ee6bd3583acdcd407de3cf0c941",
+  "d8BuildToolsVersion": "36.1.0",
+  "minApi": 26,
+  "dexSha256": "18209ce4bad03039a32b6772e7d62fb6f10ac7c3d9c47a1c7bc06fcfc7026064",
+  "nativeSha256": "17acb182ff041757939b88289dd6a1eeb623ac0ee305e9f3e7d342951ad7f1a7",
+  "dictionarySha256": "382123e8cd1895400d3cc70f928ebf17010842120e01ffb37144a00a696d2bd9",
+  "validation": "DEX header/signature, ARM64 JNI exports, same-AAR provenance, raw v2 dictionary; no new device execution."
+}

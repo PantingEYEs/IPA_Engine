@@ -4,26 +4,40 @@
 
 本 README 是 UI/输入法开发者的独立接入手册。GitHub 仓库只发布本地项目的 `remote/` 子目录，内容在远程仓库根目录展示；源码、原始资料、训练工具和完整开发历史由本地仓库管理。资料收集与早期实验记录留在本地 `docs/数据资料库.md`。
 
-## 1. 取得依赖包
+## 1. 取得引擎：客户端更新与 Gradle 依赖
 
-预发布目录只包含结果，没有源码或测试 APK：
+IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.json](board-update.json)；分支名不随版本变化。客户端仅由这个入口发现更新，按清单下载配套 DEX/JNI 与裸二进制词典，不解包 AAR、不编译源词库，也不扫描 `VERSION`、GitHub Releases 或其他分支。只发布 AAR 或更新版本文件不会触发客户端升级。
+
+v0.0.2-dev 的客户端批次为 [v0.0.2-dev-client.1](pre-release/v0.0.2-dev-client.1/README.md)：
 
 | 文件 | 用途 |
 | --- | --- |
-| [ipa-engine-v0.0.2-dev-android-arm64-v8a.aar](pre-release/v0.0.2-dev/ipa-engine-v0.0.2-dev-android-arm64-v8a.aar) | 主依赖包，含 Java/JNI、原生核心、完整 24 位词典与编译 manifest。 |
+| [classes.dex](pre-release/v0.0.2-dev-client.1/classes.dex) | Android DEX 格式的 GraphEngine Java 代码，由同版 AAR 的 classes.jar 转换。 |
+| [libipa_graph_android.so](pre-release/v0.0.2-dev-client.1/libipa_graph_android.so) | 与该 DEX 配套的 ARM64 JNI 和原生图核心。 |
+| [lexicon.ipad](pre-release/v0.0.2-dev-client.1/lexicon.ipad) | 可直接打开的完整 24 位 IPADWG01 v2 文件，没有 ZIP/GZIP 外包装。 |
+| [client.json](pre-release/v0.0.2-dev-client.1/client.json) / [SHA256SUMS](pre-release/v0.0.2-dev-client.1/SHA256SUMS) | 批次资源字段与实际校验值；客户端发现仍以根 board-update.json 为准。 |
+| [lexicon.manifest.json](pre-release/v0.0.2-dev-client.1/lexicon.manifest.json) / [THIRD_PARTY_NOTICES.json](pre-release/v0.0.2-dev-client.1/THIRD_PARTY_NOTICES.json) | 词典编译记录、来源及逐来源许可。 |
+
+引擎版本为 v0.0.2-dev；词典内容与哈希未变，独立词典版本保持 v0.0.1-dev-lexicon。更新入口固定二进制所在的已发布公开提交 `artifactCommit`，下载与校验细节见本文“IPA Board 独立资源更新”。历史目录保持不可变。
+
+需要在宿主工程构建时集成 Java/JNI 和词典的开发者，使用下列 AAR。预发布目录只包含结果，没有源码或测试 APK：
+
+| 文件 | 用途 |
+| --- | --- |
+| [ipa-engine-v0.0.2-dev-android-arm64-v8a.aar](pre-release/v0.0.2-dev/ipa-engine-v0.0.2-dev-android-arm64-v8a.aar) | 构建时依赖，含 Java/JNI、原生核心、完整 24 位词典与编译 manifest。 |
 | [release.json](pre-release/v0.0.2-dev/release.json) | 版本、ABI、体积、哈希、数据规模和已有验证摘要。 |
 | [SHA256SUMS](pre-release/v0.0.2-dev/SHA256SUMS) | 发布文件的校验值。 |
 | [THIRD_PARTY_NOTICES.json](pre-release/v0.0.2-dev/THIRD_PARTY_NOTICES.json) | 实际采用的数据来源与逐来源许可记录。 |
 
 本版 AAR 为 约 **29.28 MB**（精确字节数及 SHA-256 见 release.json）；词典为 **28,986,769 B（28.99 MB）**，含 1,024,289 个 IPA 键、768,387 个独立输出词形、1,281,101 条地区候选映射。MB 使用十进制。完整性指编译规则允许收录的关系完整保留；原始资料中的待核验记录、非词汇类别和超长记录有明确筛选规则。
 
-只引入这个主 AAR，避免重复打包同名 Java 类或原生库。入口为 `com.ipaengine.graph.GraphEngine`，原生库名为 `ipa_graph_android`。
+构建时只引入这个主 AAR，避免重复打包同名 Java 类或原生库。入口为 `com.ipaengine.graph.GraphEngine`，原生库名为 `ipa_graph_android`。客户端资源采用相同的调用接口；由宿主处理 DEX/JNI 加载、文件校验与版本切换。
 
 ## 2. Android / Gradle 要求
 
 要求 **Android API 26+、arm64-v8a、Java 8 语言支持或更高**。原生 ELF 支持 16 KiB 页对齐。AAR 已包含 C++ 运行代码；宿主使用 Android 平台提供的 `org.json`，无需额外运行时依赖，也不需要在手机安装 Python、SQLite、PyTorch、OpenFst 或联网。
 
-将主 AAR 复制到输入法工程 `app/libs/`：
+本节及下一节的 `openBundled` 示例用于 AAR 集成。将主 AAR 复制到输入法工程 `app/libs/`：
 
 ~~~kotlin
 // app/build.gradle.kts；保留宿主原有 compileSdk 和其他配置。
@@ -84,7 +98,7 @@ context.noBackupFilesDir/ipa-graph/lexicon-<sha256>.ipad
 
 清单或资产缺失、哈希错误、格式错误、原生库不可用等初始化失败抛出 `IOException`。宿主应报告自己登记的初始化错误码并保留原文输入路径。异常文字不能作为候选或直接作为 Messenger 错误码。
 
-也可用 `new GraphEngine(dictionaryAbsolutePath)` 打开宿主准备好的独立编译文件。该入口验证二进制格式；文件来源和对应 manifest 的 SHA-256 核验由调用方负责。默认完整包已带词典，普通 UI 接入无需自行编译资料库。
+也可用 `new GraphEngine(dictionaryAbsolutePath)` 打开宿主准备好的独立编译文件。客户端更新批次没有 AAR 资产，宿主在加载配套 DEX/JNI 并校验下载的词典后使用这个入口，不调用 `openBundled`。该入口验证二进制格式；文件来源、实际大小和 SHA-256 核验由调用方负责。AAR 集成默认已带词典；两种接入均无需在手机编译资料库。
 
 `GraphEngine` 实现 `AutoCloseable`。实例方法和 `close()` 同步保护句柄，`close()` 可重复调用；关闭后的查询、配置、判定和属性访问会抛出 `IllegalStateException`。宿主仍应在同一工作队列中安排生命周期：停止接收请求、等待已提交工作结束，再关闭；不要在 UI 线程并发关闭或靠关闭句柄取消查询。服务解绑不等于实例已销毁。
 
@@ -117,7 +131,7 @@ engine.configure(
 | --- | --- | --- |
 | `candidateLimit` | 1–180 | 30；去重后的输出上限。 |
 | `prefix` | Boolean | false；显式开启 IPA 前缀补全。 |
-| `deadlineMs` | 1–60 | 60；原生查询预算，超时返回空候选。 |
+| `deadlineMs` | 1–60 | 60；原生查询预算。省略搜索已有结果时保留候选并标记截断，否则超时为空。 |
 | `prefixKeyBudget` | 1–65,536 | 2,048；显式前缀补全最多访问的接受键数。 |
 | `allowOmissions` | Boolean | true；允许漏输词典符号，仍消费全部输入。 |
 | `omissionStateBudget` | 1–200,000 | 20,000；省略搜索最多创建的路径状态数。 |
@@ -415,7 +429,8 @@ v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/N
 | `catalog/` | 来源、许可、原始快照 manifest。 |
 | `data/` | 原始/规范化资料、SQLite、权重、编译词典、构建中间结果和已有报告。巨型资料不随发布包提供。 |
 | `docs/` | 接口、图结构设计、模型实验和数据资料库记录。 |
-| `remote/pre-release/` | 版本化的编译结果与发布元数据；不含源代码/测试 APK。 |
+| `remote/pre-release/` | 不可变 AAR 版本和客户端批次；编译结果与发布元数据，不含源代码/测试 APK。 |
+| `remote/board-update.json` | IPA Board 唯一更新入口，指向已发布公开提交的分离资源。 |
 | `.tools/` | 被 Git 忽略的本地编译器、训练环境与可重建工具缓存。 |
 | `remote/VERSION` | 当前发布版本，现为 v0.0.2-dev。 |
 
@@ -431,7 +446,11 @@ python3 scripts/package_pre_release.py \
 
 图编译需要 Python 3 与 C++17 编译器；Android 构建还需要 JDK、Android SDK 与 NDK。本项目已有构建使用 NDK r30；构建脚本可用 `--ndk /path/to/android-ndk-r30`、`--sdk /path/to/Android/sdk` 显式定位。完整数据复现采用本地 `docs/数据资料库.md` 中保留的逐来源程序和口径；输入法集成直接消费主 AAR。
 
-`scripts/package_pre_release.py` 从 `remote/VERSION` 读取版本，从已有24位 AAR 复制、校验并生成结果目录；新版须显式传入与 AAR/词典哈希绑定的已完成桌面验证报告，不重跑手机或模型测试。已有版本目录中内容不同时拒绝覆盖，应发布新版本。`remote/pre-release/` 结果纳入本地与远程版本管理；大型 `data/` 数据、权重/词典缓存和 `.tools/` 运行环境被忽略，源码与 `data/reports/` 报告保留。来源许可按 `THIRD_PARTY_NOTICES.json` 和目录逐条使用，混合数据没有统一替代许可证。
+`scripts/package_pre_release.py` 从 `remote/VERSION` 读取版本，从已有24位 AAR 复制、校验并生成结果目录；新版须显式传入与 AAR/词典哈希绑定的已完成桌面验证报告，不重跑手机或模型测试。已有版本目录中内容不同时拒绝覆盖，应发布新版本。
+
+客户端发布另外使用 `scripts/package_client_release.py`，不能只执行 AAR 打包。阶段一运行 `prepare --aar PATH --batch v0.0.2-dev-client.1 --engine-version v0.0.2-dev --dictionary-version v0.0.1-dev-lexicon` 及 `verify --batch v0.0.2-dev-client.1`，提交并推送完整批次；阶段二运行 `publish-manifest --batch v0.0.2-dev-client.1 --artifact-commit 已发布公开SHA`，再单独提交并推送根入口。DEX 转换需要 Android SDK D8；工具自动查找，也可传入 `--d8 PATH`。入口生成会核对实际远程与对应提交的完整资源，不自动提交或推送。
+
+`remote/pre-release/` 结果纳入本地与远程版本管理；大型 `data/` 数据、权重/词典缓存和 `.tools/` 运行环境被忽略，源码与 `data/reports/` 报告保留。来源许可按 `THIRD_PARTY_NOTICES.json` 和目录逐条使用，混合数据没有统一替代许可证。
 
 GRU 工具、已训练权重和参数推理库继续保留，默认 Android 图引擎没有加载或调用 GRU。可独立复现原模型实验：
 
@@ -449,12 +468,29 @@ python3 scripts/prepare_model_data.py --max-per-region 6000
 
 远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md`、`board-update.json` 和 `pre-release/`。这些文件在本地位于 `remote/`；远程不包含本地项目源码与数据。发布包及来源许可记录的相对路径在两种布局中一致。
 
-开发分支为 `codex/ipa-engine-v0.0.1-dev`。开发更新不直接推送到 `main`，未来合并采用 `git merge --no-ff` 保留开发分支的合并记录；不使用 fast-forward、squash 或 rebase 合并。维护流程见 [CONTRIBUTING](CONTRIBUTING.md)。
+客户端固定读取的开发分支为 `codex/ipa-engine-v0.0.1-dev`，不要因发布 v0.0.2-dev 而改变它。完整本地项目只推送 `remote/` 的公开导出分支；导出树及全部历史必须仅含公开文件，不能推送完整项目源码。开发更新不直接推送到 `main`，未来合并采用 `git merge --no-ff` 保留合并记录；不使用 fast-forward、squash 或 rebase。维护规则见 [CONTRIBUTING](CONTRIBUTING.md)，完整本地项目另有 `docs/远程发布流程.md` 和发布前自动校验工具。
 
 ## IPA Board 独立资源更新
 
-仓库根目录 `board-update.json` 提供客户端更新元数据，指向不可覆盖的预发布目录。客户端可单独更新引擎 DEX/JNI 或预先编译的压缩 `.ipad` 词典；不进行端上编译。仅更新词典时保留引擎字段，新词典必须兼容旧引擎，客户端会在切换前用已安装引擎验证。当前产物支持 ARM64、IPADWG01 v2，来源与校验值见对应目录。
+此前 v0.0.2-dev 已提供 AAR，客户端入口却仍引用 v0.0.1-dev-client.1，导致新版无法被客户端获取。现将 v0.0.2-dev 拆分为配套 DEX/JNI 与裸词典，放入新的不可变 `pre-release/v0.0.2-dev-client.1/` 批次，完成产物发布后再更新根入口；旧版资源继续保留。这次是发布方式修复，未新增手机性能验证。
 
-更新清单另需 `artifactCommit` 指向已发布产物的 40 位 Git 提交 SHA。先发布不可覆盖的完整产物目录，再复制 client.json 至根目录 board-update.json 并填写 artifactCommit，最后发布清单。客户端直接读取清单，不依赖 GitHub REST API；所有二进制按固定产物提交及 SHA-256 验证。
+客户端读取 [board-update.json](board-update.json)，该入口必须是 UTF-8 JSON 对象，无注释，大小不超过 1,048,576 字节。字段合同如下，客户端无需自行推断缺失值：
 
-当前 `board-update.json` 仍指向 `v0.0.1-dev-client.1` 的旧版客户端产物；本仓库同时提供 `v0.0.2-dev` AAR。客户端更新清单与主 AAR 独立发布，不能仅改清单版本号就获得新版引擎；升级客户端引擎时需发布配套的新版 DEX/JNI，并绑定其产物提交及校验值。
+| 必需字段 | 值与范围 |
+| --- | --- |
+| `schemaVersion` / `entryPoint` | 整数 `1` / `com.ipaengine.graph.GraphEngine`。 |
+| `abi` / `minSdk` | `arm64-v8a` / 实际最低 API，整数 26–36，当前为 26。 |
+| `engineVersion` / `dictionaryVersion` | 独立版本字符串，各 1–100 字符；本次分别为 v0.0.2-dev / v0.0.1-dev-lexicon。 |
+| `dictionaryFormat` / `dictionaryKeys` | 整数 `2`（IPADWG01 v2）/ 实际 IPA 编码数，整数 1–2,000,000；当前为 1,024,289。 |
+| `dexPath` / `nativePath` / `dictionaryPath` | 各资源以远程仓库根为基准的相对路径；只用字母、数字、`_`、`-`、`.`、`/`，禁止绝对路径、外部 URL、空路径段及 `..`。 |
+| `dexBytes` / `nativeBytes` / `dictionaryBytes` | 真实正整数字节数，上限依次为 4,000,000 / 8,000,000 / 40,000,000。 |
+| `dexSha256` / `nativeSha256` / `dictionarySha256` | 各文件真实 SHA-256，64 位小写十六进制。 |
+| `artifactCommit` | 已发布公开产物提交，40 位小写十六进制 SHA；该提交必须包含上述路径的全部资源。 |
+
+下载路径采用 `https://raw.githubusercontent.com/PantingEYEs/IPA_Engine/<artifactCommit>/<资源Path>`，其中两个占位项取清单的实际值。入口读取固定开发分支，但二进制读取固定提交，避免两次下载期间分支变化造成 DEX/JNI 混用；不依赖 GitHub REST API。资源文件的实际大小和 SHA-256 必须全部匹配清单。`lexicon.ipad` 已是开发侧编译好的压缩词典，客户端不再解压 ZIP/GZIP 或编译原始词库。
+
+宿主先下载到临时位置并验证资源，再一起启用匹配的 DEX/JNI，加载新词典并调用现有 GraphEngine 接口。独立资源通过 `GraphEngine(dictionaryAbsolutePath)` 打开；它们没有 bundled 资产。宿主处理动态代码加载、工作线程、校验、切换及旧文件生命周期；更新失败继续使用旧资源，不把不完整批次设为当前引擎。输入、候选和服务回复合同仍采用本文前述接口。
+
+维护者按两个独立提交发布：先推送完整不可变批次，取得其真实**公开导出提交 SHA**；再生成根入口，将该 SHA 写入 `artifactCommit`，另作提交并推送。不得填完整本地项目 HEAD，也不得提前引用未推送文件。批次 `client.json` 不包含可提前猜测的产物提交，只用于校验批次字段；客户端唯一更新入口始终是根 `board-update.json`。
+
+引擎与词典可独立更新。词典单独更新时保持引擎字段不变，更新词典字段与 `artifactCommit`；新的产物提交仍必须包含清单引用的旧引擎文件。新词典必须兼容已安装旧引擎，客户端在切换前验证。引擎更新必须提供配套 DEX/JNI，保持调用接口及候选合同，并兼容已安装词典；不能把新版 Java 类与旧 JNI 交叉组合。
