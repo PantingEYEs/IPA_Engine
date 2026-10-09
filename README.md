@@ -412,3 +412,7 @@ python3 scripts/prepare_model_data.py --max-per-region 6000
 远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md` 和 `pre-release/`。这些文件在本地位于 `remote/`；远程不包含本地项目源码与数据。发布包及来源许可记录的相对路径在两种布局中一致。
 
 开发分支为 `codex/ipa-engine-v0.0.1-dev`。开发更新不直接推送到 `main`，未来合并采用 `git merge --no-ff` 保留开发分支的合并记录；不使用 fast-forward、squash 或 rebase 合并。维护流程见 [CONTRIBUTING](CONTRIBUTING.md)。
+
+## IPA Board 独立资源更新
+
+仓库根目录 `board-update.json` 提供客户端更新元数据，指向不可覆盖的预发布目录。客户端可单独更新引擎 DEX/JNI 或预先编译的压缩 `.ipad` 词典；不进行端上编译。仅更新词典时保留引擎字段，新词典必须兼容旧引擎，客户端会在切换前用已安装引擎验证。当前产物支持 ARM64、IPADWG01 v2，来源与校验值见对应目录。

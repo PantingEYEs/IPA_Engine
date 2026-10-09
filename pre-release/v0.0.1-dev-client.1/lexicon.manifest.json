@@ -1,0 +1,331 @@
+{
+  "format": "IPADWG01",
+  "version": 2,
+  "complete": true,
+  "explicit_source_row_limit": null,
+  "include_affixes": false,
+  "byte_limit": 30000000,
+  "bytes": 28986769,
+  "header_bytes": 108,
+  "source_database": {
+    "path": "/Users/panti/IPA_Engine/data/ipa.sqlite",
+    "bytes": 2104111104,
+    "mtime_ns": 1791461121850363516
+  },
+  "source_scanned_by_region": {
+    "en-GB": 155989,
+    "en-US": 227346,
+    "ja-JP": 389253,
+    "zh-TW": 179076,
+    "zh-CN": 713542
+  },
+  "rejected": {
+    "invalid_or_long_ipa": 701,
+    "nonlexical_kind": 2852
+  },
+  "frequency_observations_scanned_by_language": {
+    "en": 2212484,
+    "zh": 1295616,
+    "ja": 3289030
+  },
+  "pronunciation_postings": 1281101,
+  "postings_by_region": {
+    "en-US": 188766,
+    "en-GB": 120838,
+    "zh-CN": 491145,
+    "zh-TW": 174198,
+    "ja-JP": 306154
+  },
+  "derived_postings_by_region": {
+    "zh-TW": 159249,
+    "ja-JP": 11411
+  },
+  "ipa_keys": 1024289,
+  "unique_texts": 768387,
+  "alphabet_scalars": 138,
+  "graph": {
+    "nodes": 1143559,
+    "arcs": 1867683,
+    "keys": 1024289,
+    "root": 1143558,
+    "trie_nodes": 5289813,
+    "trie_arcs": 5289812
+  },
+  "trie_same_fixed_records_estimated_bytes": 63477756,
+  "dafsa_graph_bytes": 14332089,
+  "u32_v1_same_lexicon_projected_bytes": 32346204,
+  "u24_v2_saved_bytes": 3359435,
+  "section_bytes": {
+    "alphabet": 552,
+    "node_offsets": 3430680,
+    "node_counts": 3430677,
+    "arcs": 7470732,
+    "post_offsets": 3072870,
+    "post_blob": 6847047,
+    "word_block_offsets": 144078,
+    "word_blob": 4590025
+  },
+  "section_offsets": {
+    "alphabet": 108,
+    "node_offsets": 660,
+    "node_counts": 3431340,
+    "arcs": 6862017,
+    "post_offsets": 14332749,
+    "post_blob": 17405619,
+    "word_block_offsets": 24252666,
+    "word_blob": 24396744
+  },
+  "normalization": "source-screened strict IPA, NFC, scalar alphabet; no tone/stress removal",
+  "frequency": "max comparable word Zipf or log10(per_million)+3, same region or mixed; missing=0; quantized to 0.05 Zipf",
+  "deduplication": "(IPA,text,region); direct provenance preferred over derived, stable source tie-break",
+  "sources": [
+    {
+      "id": "bccwj-luw",
+      "url": "https://repository.ninjal.ac.jp/record/3229/files/BCCWJ_frequencylist_luw_ver1_1.zip",
+      "path": "data/raw/frequency/BCCWJ-luw.zip",
+      "license": "NINJAL free research/education; product redistribution requires review",
+      "note": "BCCWJ1 v1.1; short/long unit lexical frequency, preserve all registers and lexical readings"
+    },
+    {
+      "id": "bccwj-suw",
+      "url": "https://repository.ninjal.ac.jp/record/3235/files/BCCWJ_frequencylist_suw_ver1_1.zip",
+      "path": "data/raw/frequency/BCCWJ-suw.zip",
+      "license": "NINJAL free research/education; product redistribution requires review",
+      "note": "BCCWJ1 v1.1; short/long unit lexical frequency, preserve all registers and lexical readings"
+    },
+    {
+      "id": "cambridge-as",
+      "url": "https://dictionary.cambridge.org/dictionary/english/as",
+      "path": "data/raw/cambridge/as.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-finish",
+      "url": "https://dictionary.cambridge.org/dictionary/english/finish",
+      "path": "data/raw/cambridge/finish.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-inside",
+      "url": "https://dictionary.cambridge.org/dictionary/english/inside",
+      "path": "data/raw/cambridge/inside.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-lead",
+      "url": "https://dictionary.cambridge.org/dictionary/english/lead",
+      "path": "data/raw/cambridge/lead.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-live",
+      "url": "https://dictionary.cambridge.org/dictionary/english/live",
+      "path": "data/raw/cambridge/live.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-london",
+      "url": "https://dictionary.cambridge.org/dictionary/english/london",
+      "path": "data/raw/cambridge/london.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-outside",
+      "url": "https://dictionary.cambridge.org/dictionary/english/outside",
+      "path": "data/raw/cambridge/outside.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "cambridge-the",
+      "url": "https://dictionary.cambridge.org/dictionary/english/the",
+      "path": "data/raw/cambridge/the.html",
+      "license": "Cambridge University Press copyrighted public dictionary page; no open redistribution permission assumed",
+      "note": "Explicit UK/US IPA for exact requested headword; original headers and strong/weak labels retained."
+    },
+    {
+      "id": "coct-tw-frequency",
+      "url": "https://coct.naer.edu.tw/file/files/%E9%80%9A%E7%94%A8%E8%A9%9E%E9%A0%BB%E8%A1%A8%20-%20%E5%AE%9A%E7%A8%BF1141208.xlsx",
+      "path": "data/raw/frequency/coct-tw-frequency.xlsx",
+      "license": "NAER official download; redistribution terms unverified",
+      "note": "Taiwan Mandarin official COCT table; retain raw workbook; non-IPA readings only supporting metadata"
+    },
+    {
+      "id": "csj-suw",
+      "url": "https://repository.ninjal.ac.jp/record/3276/files/CSJ_frequencylist_suw_ver201803.zip",
+      "path": "data/raw/frequency/CSJ-suw.zip",
+      "license": "NINJAL research/education; repository CC-BY-NC-ND-3.0; retain originals, no product redistribution assumption",
+      "note": "UniDic CSJ spontaneous speech lexical counts/PMW/readings; academic/simulated speech registers; not IPA and not a dialect dictionary. Preserve all source fields."
+    },
+    {
+      "id": "ipa-dict-en_UK",
+      "url": "https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_UK.txt",
+      "path": "data/raw/ipa-dict/en_UK.txt",
+      "license": "GPL-3.0",
+      "note": "Pronunciation from source; traditional Chinese is NOT Taiwan pronunciation; Japanese lacks pitch accent."
+    },
+    {
+      "id": "ipa-dict-en_US",
+      "url": "https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt",
+      "path": "data/raw/ipa-dict/en_US.txt",
+      "license": "MIT",
+      "note": "Pronunciation from source; traditional Chinese is NOT Taiwan pronunciation; Japanese lacks pitch accent."
+    },
+    {
+      "id": "ipa-dict-ja",
+      "url": "https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/ja.txt",
+      "path": "data/raw/ipa-dict/ja.txt",
+      "license": "CC-BY-SA-3.0",
+      "note": "Pronunciation from source; traditional Chinese is NOT Taiwan pronunciation; Japanese lacks pitch accent."
+    },
+    {
+      "id": "ipa-dict-zh_hans",
+      "url": "https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/zh_hans.txt",
+      "path": "data/raw/ipa-dict/zh_hans.txt",
+      "license": "CC-BY-3.0; Unicode License",
+      "note": "Pronunciation from source; traditional Chinese is NOT Taiwan pronunciation; Japanese lacks pitch accent."
+    },
+    {
+      "id": "ipa-dict-zh_hant",
+      "url": "https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/zh_hant.txt",
+      "path": "data/raw/ipa-dict/zh_hant.txt",
+      "license": "CC-BY-3.0; Unicode License",
+      "note": "Pronunciation from source; traditional Chinese is NOT Taiwan pronunciation; Japanese lacks pitch accent."
+    },
+    {
+      "id": "kaikki-enwiktionary-chinese",
+      "url": "https://kaikki.org/dictionary/Chinese/kaikki.org-dictionary-Chinese.jsonl",
+      "path": "data/raw/kaikki/Chinese.jsonl.gz",
+      "license": "Wiktionary CC-BY-SA/GFDL; retain attribution",
+      "note": "Complete source snapshot; non-target languages/dialects must be excluded from normalized IPA, not erased from original archive."
+    },
+    {
+      "id": "kaikki-enwiktionary-english",
+      "url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl",
+      "path": "data/raw/kaikki/English.jsonl.gz",
+      "license": "Wiktionary CC-BY-SA/GFDL; retain attribution",
+      "note": "Complete source snapshot; non-target languages/dialects must be excluded from normalized IPA, not erased from original archive."
+    },
+    {
+      "id": "kaikki-enwiktionary-japanese",
+      "url": "https://kaikki.org/dictionary/Japanese/kaikki.org-dictionary-Japanese.jsonl",
+      "path": "data/raw/kaikki/Japanese.jsonl.gz",
+      "license": "Wiktionary CC-BY-SA/GFDL; retain attribution",
+      "note": "Complete source snapshot; non-target languages/dialects must be excluded from normalized IPA, not erased from original archive."
+    },
+    {
+      "id": "kaikki-jawiktionary",
+      "url": "https://kaikki.org/dictionary/downloads/ja/ja-extract.jsonl.gz",
+      "path": "data/raw/kaikki/ja-extract.jsonl.gz",
+      "license": "Wiktionary CC-BY-SA/GFDL; retain attribution",
+      "note": "Native-language Wiktionary extraction; select only zh/en/ja and genuine IPA fields."
+    },
+    {
+      "id": "kaikki-zhwiktionary",
+      "url": "https://kaikki.org/dictionary/downloads/zh/zh-extract.jsonl.gz",
+      "path": "data/raw/kaikki/zh-extract.jsonl.gz",
+      "license": "Wiktionary CC-BY-SA/GFDL; retain attribution",
+      "note": "Native-language Wiktionary extraction; select only zh/en/ja and genuine IPA fields."
+    },
+    {
+      "id": "kanjium-accents",
+      "url": "https://raw.githubusercontent.com/mifunetoshiro/kanjium/master/data/source_files/raw/accents.txt",
+      "path": "data/raw/kaikki/kanjium-accents.txt",
+      "license": "See kanjium README; upstream dictionary rights require review",
+      "note": "Pitch positions per word and reading are NOT IPA. Preserve alternatives; join only with reading-aligned IPA"
+    },
+    {
+      "id": "moe-revised",
+      "url": "https://raw.githubusercontent.com/g0v/moedict-data/main/dict-revised.json.xz",
+      "path": "data/raw/kaikki/moe-dict-revised.json.xz",
+      "license": "MOE CC-BY-ND-3.0-TW; JSON layout CC0; see moe-README.md",
+      "note": "Taiwan dictionary reading inventory; pinyin/bopomofo are NOT IPA; use only as explicitly identified conversion support"
+    },
+    {
+      "id": "nwjc-suw",
+      "url": "https://repository.ninjal.ac.jp/record/3683/files/NWJC_frequencylist_suw_ver2022_02.zip",
+      "path": "data/raw/frequency/NWJC-suw.zip",
+      "license": "Embedded README CC-BY-4.0; repository file metadata CC-BY-3.0; retain both notices and resolve before redistribution",
+      "note": "NINJAL Japanese general web lexical frequency version 2022.02. Readings are kana, not IPA. Includes symbols; no dialect-specific frequency assignment."
+    },
+    {
+      "id": "subtlex-CH",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0010729.s002&type=supplementary",
+      "path": "data/raw/frequency/SUBTLEX-CH.zip",
+      "license": "PLOS supplement CC-BY; verify version prior to redistribution",
+      "note": "Cai & Brysbaert 2010; Chinese word and character tables with different denominators"
+    },
+    {
+      "id": "subtlex-UK",
+      "url": "https://psychology.nottingham.ac.uk/subtlex-uk/SUBTLEX-UK.xlsx.zip",
+      "path": "data/raw/frequency/SUBTLEX-UK.xlsx.zip",
+      "license": "Source terms retained; van Heuven et al. 2014",
+      "note": "British English; retain all columns including children TV frequencies separately"
+    },
+    {
+      "id": "subtlex-US",
+      "url": "https://www.ugent.be/pp/experimentele-psychologie/en/research/documents/subtlexus/subtlexus2.zip",
+      "path": "data/raw/frequency/SUBTLEX-US.zip",
+      "license": "Source terms retained; Brysbaert & New 2009",
+      "note": "American English; 51 million tokens; word-form counts, contextual diversity, lowercase counts"
+    },
+    {
+      "id": "wikipron-jpn_hani_narrow",
+      "url": "https://cdn.jsdelivr.net/gh/CUNY-CL/wikipron@master/data/scrape/tsv/jpn_hani_narrow.tsv",
+      "path": "data/raw/wikipron/jpn_hani_narrow.tsv",
+      "license": "Wiktionary CC-BY-SA; WikiPron code Apache-2.0; consult upstream notices",
+      "note": "Segmented IPA; English region-filtered files also accept unlabeled pronunciations. Keep regional uncertainty. No IPA inferred from spelling."
+    },
+    {
+      "id": "wikipron-jpn_hira_narrow",
+      "url": "https://cdn.jsdelivr.net/gh/CUNY-CL/wikipron@master/data/scrape/tsv/jpn_hira_narrow.tsv",
+      "path": "data/raw/wikipron/jpn_hira_narrow.tsv",
+      "license": "Wiktionary CC-BY-SA; WikiPron code Apache-2.0; consult upstream notices",
+      "note": "Segmented IPA; English region-filtered files also accept unlabeled pronunciations. Keep regional uncertainty. No IPA inferred from spelling."
+    },
+    {
+      "id": "wikipron-jpn_kana_narrow",
+      "url": "https://cdn.jsdelivr.net/gh/CUNY-CL/wikipron@master/data/scrape/tsv/jpn_kana_narrow.tsv",
+      "path": "data/raw/wikipron/jpn_kana_narrow.tsv",
+      "license": "Wiktionary CC-BY-SA; WikiPron code Apache-2.0; consult upstream notices",
+      "note": "Segmented IPA; English region-filtered files also accept unlabeled pronunciations. Keep regional uncertainty. No IPA inferred from spelling."
+    },
+    {
+      "id": "wikipron-jpn_latn_narrow",
+      "url": "https://cdn.jsdelivr.net/gh/CUNY-CL/wikipron@master/data/scrape/tsv/jpn_latn_narrow.tsv",
+      "path": "data/raw/wikipron/jpn_latn_narrow.tsv",
+      "license": "Wiktionary CC-BY-SA; WikiPron code Apache-2.0; consult upstream notices",
+      "note": "Segmented IPA; English region-filtered files also accept unlabeled pronunciations. Keep regional uncertainty. No IPA inferred from spelling."
+    },
+    {
+      "id": "wordfreq-en",
+      "url": "https://raw.githubusercontent.com/rspeer/wordfreq/master/wordfreq/data/large_en.msgpack.gz",
+      "path": "data/raw/frequency/large_en.msgpack.gz",
+      "license": "CC-BY-SA-4.0; see NOTICE.md",
+      "note": "Mixed-region estimate, snapshot through ~2021. NOT region-specific. Chinese is oversimplified."
+    },
+    {
+      "id": "wordfreq-ja",
+      "url": "https://raw.githubusercontent.com/rspeer/wordfreq/master/wordfreq/data/large_ja.msgpack.gz",
+      "path": "data/raw/frequency/large_ja.msgpack.gz",
+      "license": "CC-BY-SA-4.0; see NOTICE.md",
+      "note": "Mixed-region estimate, snapshot through ~2021. NOT region-specific. Chinese is oversimplified."
+    },
+    {
+      "id": "wordfreq-zh",
+      "url": "https://raw.githubusercontent.com/rspeer/wordfreq/master/wordfreq/data/large_zh.msgpack.gz",
+      "path": "data/raw/frequency/large_zh.msgpack.gz",
+      "license": "CC-BY-SA-4.0; see NOTICE.md",
+      "note": "Mixed-region estimate, snapshot through ~2021. NOT region-specific. Chinese is oversimplified."
+    }
+  ],
+  "provenance_sidecar": null,
+  "sha256": "382123e8cd1895400d3cc70f928ebf17010842120e01ffb37144a00a696d2bd9",
+  "status": "complete"
+}
