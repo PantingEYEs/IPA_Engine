@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "v0.0.1-dev",
+  "dictionaryVersion": "v0.0.1-dev-lexicon",
+  "abi": "arm64-v8a",
+  "minSdk": 26,
+  "entryPoint": "com.ipaengine.graph.GraphEngine",
+  "dictionaryFormat": 2,
+  "dictionaryKeys": 1024289,
+  "dexPath": "pre-release/v0.0.1-dev-client.1/classes.dex",
+  "dexBytes": 14496,
+  "dexSha256": "b3992e6930ffc8c032353b452051101893993b921008cefb9ff49425ac7dbb0e",
+  "nativePath": "pre-release/v0.0.1-dev-client.1/libipa_graph_android.so",
+  "nativeBytes": 789264,
+  "nativeSha256": "bd30ef166d839556790dd93ee60c706cd81f4eaa9d0c628eba970f1dce7ea8ae",
+  "dictionaryPath": "pre-release/v0.0.1-dev-client.1/lexicon.ipad",
+  "dictionaryBytes": 28986769,
+  "dictionarySha256": "382123e8cd1895400d3cc70f928ebf17010842120e01ffb37144a00a696d2bd9"
+}
