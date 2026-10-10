@@ -5,7 +5,7 @@ if(NOT ANDROID_ABI STREQUAL "arm64-v8a")
     message(FATAL_ERROR "This build currently supports arm64-v8a")
 endif()
 find_package(Python3 COMPONENTS Interpreter REQUIRED)
-set(RUST_LIBRARY "${CMAKE_CURRENT_SOURCE_DIR}/../../.tools/rust/aarch64-linux-android/release/libipa_graph.a")
+set(RUST_LIBRARY "${CMAKE_CURRENT_SOURCE_DIR}/../../data/engine_android/builds/rust/aarch64-linux-android/release/libipa_graph.a")
 file(GLOB_RECURSE RUST_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../ipa_graph/src/*.rs")
 add_custom_command(OUTPUT "${RUST_LIBRARY}"
     COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/../scripts/build_rust_core.py"

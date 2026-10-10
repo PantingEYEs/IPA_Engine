@@ -43,7 +43,7 @@ def build(target=None, ndk=None, api=26, bins=('ipa_graph',), root=ROOT):
             raise ValueError('installed NDK not found; provide --ndk or ANDROID_NDK_HOME')
         environment['CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER'] = str(linker)
         environment['CARGO_TARGET_AARCH64_LINUX_ANDROID_RUSTFLAGS'] = '-C link-arg=-Wl,-z,max-page-size=16384'
-    destination = root / '.tools/rust'
+    destination = root / 'data/engine_android/builds/rust'
     command = [cargo, 'build', '--offline', '--release', '--manifest-path',
                str(root / 'engine_android/ipa_graph/Cargo.toml'), '--target-dir', str(destination), '--lib']
     for name in bins:

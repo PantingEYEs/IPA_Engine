@@ -13,6 +13,7 @@
 ```sh
 rustup target add aarch64-linux-android
 python3 engine_android/scripts/build_android_library.py --output-dir data/engine_android/builds/24
+# 32 位对照须另行提供对应词典和 manifest；公开快照只含 24 位。
 python3 engine_android/scripts/build_android_library.py --dictionary data/dictionary/compiled/lexicon-32.ipad \
   --manifest data/dictionary/compiled/lexicon-32.manifest.json --output-dir data/engine_android/builds/32
 ```
@@ -47,7 +48,7 @@ engine.configure(
     new GraphEngine.Policy(true, true, true, true, true),
     new GraphEngine.Options(30, false, 60, 2048, true, 20000)
 );
-// Options 顺序：候选上限、前缀补全、单次预算毫秒、前缀键预算。
+// Options 顺序：候选上限、前缀补全、单次预算毫秒、前缀键预算、省略开关、省略状态预算。
 List<GraphEngine.Candidate> candidates = engine.query("həˈloʊ", "", "");
 GraphEngine.QueryResult diagnostic = engine.queryDetailed("hə", "", "");
 ```
@@ -66,7 +67,7 @@ GraphEngine.QueryResult diagnostic = engine.queryDetailed("hə", "", "");
 
 ## 宿主接入边界与后续评分
 
-宿主负责请求的 `requestId/revision`、候选数组和枚举转换、固定错误码、路由/功能开关、过期回复丢弃与进程隔离，具体见 [引擎开发规范](../docs/引擎开发规范.md)。即便依赖库已编译成 AAR，也不代表已有 IPA Board 工程自动注册了 IPA 路由。
+宿主负责请求的 `requestId/revision`、候选数组和枚举转换、固定错误码、路由/功能开关、过期回复丢弃与进程隔离，具体见 [引擎开发规范](../docs/引擎开发规范.md)。宿主加载本批独立 Java/JNI 文件后，仍须在 IPA Board 工程中注册 IPA 路由。
 
 保留的 `gru/` 训练/推理工具不作为默认 Android 评分组件，旧权重已删除，当前依赖库不附带预训练模型。新模型训练工具仅在完整本地项目中保留，说明见本地 `gru/README.md`。未来可对图候选执行 teacher-forcing GRU 打分并校准词频组合，模型只应重排合法图候选；未覆盖的字符不能成为删除词典候选的理由。候选列表是不可变的，接入层需要创建新的宿主候选和 rank，而不能修改本次结果。没有上下文时，先用确定词频公式建立基线。
 
@@ -86,18 +87,11 @@ python3 engine_android/android/tests/verify_desktop_jni.py \
 
 已在 S21 Ultra `SM-G998U1`（Android 15 / API 35）执行原生双格式对照和实际 24 位 AAR 包装测试。两格式的 5,014 个输入输出一致，每格式 500,000 次原生查询无超时/错误。p95 各轮中位数为 24 位 0.006979 ms、32 位 0.007292 ms；采样峰值进程 RSS 为 35,260/40,328 KiB。32 位未带来显著查询收益，默认仍为 24 位。指标含预热、不清空文件缓存、RSS 为抽样；原生耗时不包括 Java/JNI 或输入法 UI。
 
-独立测试 APK 真实调用 `openBundled`、Android `JSONObject` 与 JNI，检查五地区查询、地区开关、前缀预算、候选限制/不可变性、空/完整/非法 UTF-16 输入、NFC、regex、初始化故障、缓存复用/损坏修复、关闭后的句柄保护。它使用实际 AAR 的 `classes.jar`、`.so` 和完整资产，而不是桌面 stub。
+历史独立测试 APK 真实调用 `openBundled`、Android `JSONObject` 与 JNI，检查五地区查询、地区开关、前缀预算、候选限制/不可变性、空/完整/非法 UTF-16 输入、NFC、regex、初始化故障、缓存复用/损坏修复、关闭后的句柄保护。它使用当时 AAR 的 `classes.jar`、`.so` 和完整资产，而不是桌面 stub。
 
-```sh
-python3 engine_android/android/tests/test_android_wrapper.py --adb --serial R5CR10YXLJB
-# 只构建测试 APK，不连接设备：
-python3 engine_android/android/tests/test_android_wrapper.py --build-only
-# 可选持续测试，每秒 10 次、每 5 秒内存采样：
-python3 engine_android/android/tests/test_android_wrapper.py --adb --serial R5CR10YXLJB \
-  --soak-seconds 900 --query-rate 10
-```
+完整本地项目中的 `engine_android/android/tests/test_android_wrapper.py` 只用于已有完整历史 AAR，需显式提供对应 AAR 和来源用例；该脚本未包含在公开快照中，也不支持当前 standalone 构建目录。当前接入可先执行上面的桌面 JNI 验证，再把公开的 `engine_android/android/tests/GraphProbe.java` 集成到宿主 Android 测试工程，配合本批 Java/JNI 与词典资产验证设备上的 JSON、初始化和生命周期。
 
-包装测试默认还测量 10,000 次完整 `GraphEngine.queryDetailed`（预热 1,000 次，五地区各 1,000 个输入交替排列，全地区、180 候选），包括 Java NFC、JNI、原生查询/JSON 和 Android JSON/对象构造。输出独立的 p50/p95/p99/max、状态、PSS 和原生/Java 堆起止数据；不包含输入法 UI 和资产加载。
+历史包装测试还测量 10,000 次完整 `GraphEngine.queryDetailed`（预热 1,000 次，五地区各 1,000 个输入交替排列，全地区、180 候选），包括 Java NFC、JNI、原生查询/JSON 和 Android JSON/对象构造。输出独立的 p50/p95/p99/max、状态、PSS 和原生/Java 堆起止数据；不包含输入法 UI 和资产加载。
 
 standalone native CLI 在 Android 设备上的测试归 [CLI 与最终引擎测试](../../cli_tests/README.md) 阶段。
 
@@ -105,4 +99,4 @@ standalone native CLI 在 Android 设备上的测试归 [CLI 与最终引擎测�
 
 ## v0.0.2-dev 顺序省略
 
-完整输入优先；默认允许漏音段、声调、重音、附加符、长音和分节/空格，输入必须依原顺序全部出现在词典IPA的规范分解比较视图中，不做替换或换序。普通数字1–5映射˩˨˧˦˥，表示音高值而非声调类别。`maɪ`可查my，`nixɑʊ`及`ni35 xɑʊ̯21`可查你好。`Candidate.omittedSymbols`显示遗漏数，`QueryResult.exploredStates`显示搜索状态数；`truncated`表示结果受候选/搜索预算限制，不能保证包含所有合法候选。JNI参数已扩展，须使用同一版本AAR内Java与.so，勿混搭旧包装。新版未追加实机性能测试。
+完整输入优先；默认允许漏音段、声调、重音、附加符、长音和分节/空格，输入必须依原顺序全部出现在词典IPA的规范分解比较视图中，不做替换或换序。普通数字1–5映射˩˨˧˦˥，表示音高值而非声调类别。`maɪ`可查my，`nixɑʊ`及`ni35 xɑʊ̯21`可查你好。`Candidate.omittedSymbols`显示遗漏数，`QueryResult.exploredStates`显示搜索状态数；`truncated`表示结果受候选/搜索预算限制，不能保证包含所有合法候选。JNI参数已扩展，须使用同一客户端批次的Java类与.so，勿混搭旧包装。新版未追加实机性能测试。

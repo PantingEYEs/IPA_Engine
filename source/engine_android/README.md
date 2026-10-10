@@ -15,7 +15,7 @@ From the full project root, or `source/` in the public repository:
 
 ```sh
 python3 engine_android/scripts/build_rust_core.py
-cargo test --offline --manifest-path engine_android/ipa_graph/Cargo.toml
+cargo test --offline --manifest-path engine_android/ipa_graph/Cargo.toml --target-dir data/engine_android/builds/rust-test
 python3 -m unittest cli_tests.tests.test_graph_omissions
 python3 cli_tests/scripts/engine_cli.py --dictionary /path/to/lexicon.ipad query 'maɪ'
 python3 cli_tests/scripts/engine_cli.py --dictionary /path/to/lexicon.ipad query 'ni35 xɑʊ̯21'

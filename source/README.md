@@ -8,7 +8,7 @@ data and compiler, GRU training, and release tools. From this directory, Python
 
 ```sh
 python3 engine_android/scripts/build_rust_core.py
-cargo test --offline --manifest-path engine_android/ipa_graph/Cargo.toml
+cargo test --offline --manifest-path engine_android/ipa_graph/Cargo.toml --target-dir data/engine_android/builds/rust-test
 python3 cli_tests/scripts/engine_cli.py query 'həˈləʊ' --region en-GB
 python3 -m unittest cli_tests.tests.test_engine_cli cli_tests.tests.test_graph_omissions
 python3 engine_android/scripts/build_android_library.py --ndk /path/to/android-ndk --sdk /path/to/Android/sdk

@@ -128,7 +128,7 @@ class Session:
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dictionary',type=Path,default=ROOT/'data/dictionary/compiled/lexicon.ipad')
-    parser.add_argument('--cli',type=Path,default=ROOT/'.tools/graph/ipa_graph')
+    parser.add_argument('--cli',type=Path,default=ROOT/'data/cli_tests/builds/ipa_graph')
     sub=parser.add_subparsers(dest='command',required=True)
     def query_args(p):
         p.add_argument('--region',dest='regions',action='append',choices=REGIONS)

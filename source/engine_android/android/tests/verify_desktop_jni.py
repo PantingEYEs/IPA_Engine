@@ -3,7 +3,7 @@
 The SDK's org.json methods are stubs on a desktop JVM. The Java harness checks
 public normalization/lifecycle and reads private native JSON only for Unicode
 transport checks; Android JSONObject parsing and asset extraction still require
-an emulator/device. All generated artifacts stay under android/build/.
+an emulator/device. Generated artifacts stay under data/engine_android/probes/.
 """
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def main():
     jar = args.android_jar.resolve()
     if not jar.is_file():
         parser.error('android.jar was not found')
-    build = ROOT / 'engine_android/android/build/desktop-jni-smoke'
+    build = ROOT / 'data/engine_android/probes/desktop-jni-smoke'
     classes = build / 'classes'
     classes.mkdir(parents=True, exist_ok=True)
     compiler = shutil.which('clang++') or shutil.which('g++')
