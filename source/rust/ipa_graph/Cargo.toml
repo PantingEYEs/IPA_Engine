@@ -1,0 +1,18 @@
+[package]
+name = "ipa_graph"
+version = "0.0.3-dev"
+edition = "2021"
+rust-version = "1.89"
+
+[lib]
+name = "ipa_graph"
+crate-type = ["rlib", "staticlib"]
+
+[[bin]]
+name = "ipa_graph"
+path = "src/bin/ipa_graph.rs"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+

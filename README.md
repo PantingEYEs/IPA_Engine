@@ -2,7 +2,7 @@
 
 这是供 Android 输入法接入的 **IPA → 中英日文字候选** 依赖库。默认使用完整 24 位压缩词典、最小 DAFSA 图、顺序省略匹配与词频排序，运行时只读映射二进制文件。它提供候选查询核心；键盘界面、预输入、选择候选、提交文字和服务通信由宿主实现。
 
-本 README 是 UI/输入法开发者的独立接入手册。GitHub 仓库只发布本地项目的 `remote/` 子目录，内容在远程仓库根目录展示；源码、原始资料、训练工具和完整开发历史由本地仓库管理。资料收集与早期实验记录留在本地 `docs/数据资料库.md`。
+本 README 是 UI/输入法开发者的独立接入手册。GitHub 仓库只发布本地项目的 `remote/` 子目录，内容在远程仓库根目录展示；引擎源码、构建工具和合成测试公开在 `source/`，编译结果位于 `pre-release/`；原始资料、SQLite 资料库、训练权重和完整开发历史留在本地。资料收集与早期实验记录留在本地 `docs/数据资料库.md`。
 
 ## 1. 取得引擎：客户端更新与 Gradle 依赖
 
@@ -18,7 +18,7 @@ IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.
 | `client.json` / `SHA256SUMS` | 批次资源字段与实际校验值；客户端发现仍以根 board-update.json 为准。 |
 | `lexicon.manifest.json` / `THIRD_PARTY_NOTICES.json` | 词典编译记录、来源及逐来源许可。 |
 
-引擎与词典版本独立，以根入口的实际值为准。v0.0.2-dev 发布时词典内容与哈希未变，词典版本保持 v0.0.1-dev-lexicon。更新入口固定二进制所在的已发布公开提交 `artifactCommit`，下载与校验细节见本文“IPA Board 独立资源更新”。最新目录只保留当前产物，旧版本从 Git 历史提交下载或回滚。
+引擎与词典版本独立，以根入口的实际值为准。v0.0.3-dev 发布时词典内容与哈希未变，词典版本保持 v0.0.1-dev-lexicon。更新入口固定二进制所在的已发布公开提交 `artifactCommit`，下载与校验细节见本文“IPA Board 独立资源更新”。最新目录只保留当前产物，旧版本从 Git 历史提交下载或回滚。
 
 需要在宿主工程构建时集成 Java/JNI 和词典的开发者，从 [最新产物索引](pre-release/README.md) 取得主 AAR。预发布目录只包含结果，没有源码或测试 APK：
 
@@ -29,15 +29,15 @@ IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.
 | `SHA256SUMS` | 发布文件的校验值。 |
 | `THIRD_PARTY_NOTICES.json` | 实际采用的数据来源与逐来源许可记录。 |
 
-已验证的 v0.0.2-dev AAR 约为 **29.28 MB**；词典为 **28,986,769 B（28.99 MB）**，含 1,024,289 个 IPA 键、768,387 个独立输出词形、1,281,101 条地区候选映射。当前版本的精确字节数及 SHA-256 见产物索引中的 release.json。MB 使用十进制。完整性指编译规则允许收录的关系完整保留；原始资料中的待核验记录、非词汇类别和超长记录有明确筛选规则。
+v0.0.3-dev 的 Rust AAR 约为 **29.22 MB**；词典为 **28,986,769 B（28.99 MB）**，含 1,024,289 个 IPA 键、768,387 个独立输出词形、1,281,101 条地区候选映射。当前版本的精确字节数及 SHA-256 见产物索引中的 release.json。MB 使用十进制。完整性指编译规则允许收录的关系完整保留；原始资料中的待核验记录、非词汇类别和超长记录有明确筛选规则。
 
 构建时只引入这个主 AAR，避免重复打包同名 Java 类或原生库。入口为 `com.ipaengine.graph.GraphEngine`，原生库名为 `ipa_graph_android`。客户端资源采用相同的调用接口；由宿主处理 DEX/JNI 加载、文件校验与版本切换。
 
 ## 2. Android / Gradle 要求
 
-要求 **Android API 26+、arm64-v8a、Java 8 语言支持或更高**。原生 ELF 支持 16 KiB 页对齐。AAR 已包含 C++ 运行代码；宿主使用 Android 平台提供的 `org.json`，无需额外运行时依赖，也不需要在手机安装 Python、SQLite、PyTorch、OpenFst 或联网。
+要求 **Android API 26+、arm64-v8a、Java 8 语言支持或更高**。原生 ELF 支持 16 KiB 页对齐。AAR 已包含 Rust 图核心与 JNI 薄层；宿主使用 Android 平台提供的 `org.json`，无需额外运行时依赖，也不需要在手机安装 Python、SQLite、PyTorch、OpenFst 或联网。
 
-本节及下一节的 `openBundled` 示例用于 AAR 集成。将主 AAR 复制到输入法工程 `app/libs/`；下面以 v0.0.2-dev 文件名为例，实际名称取产物索引：
+本节及下一节的 `openBundled` 示例用于 AAR 集成。将主 AAR 复制到输入法工程 `app/libs/`；下面以 v0.0.3-dev 文件名为例，实际名称取产物索引：
 
 ~~~kotlin
 // app/build.gradle.kts；保留宿主原有 compileSdk 和其他配置。
@@ -53,7 +53,7 @@ android {
     }
 }
 dependencies {
-    implementation(files("libs/ipa-engine-v0.0.2-dev-android-arm64-v8a.aar"))
+    implementation(files("libs/ipa-engine-v0.0.3-dev-android-arm64-v8a.aar"))
 }
 ~~~
 
@@ -158,7 +158,7 @@ engine.configure(
 
 输入先做 NFC。数字 1–5 分别转换为 `˩˨˧˦˥`，表示 Chao 音高值，不是普通话声调类别；0、6–9、全角数字不转换。完整匹配保留已经输入的声调、重音、长音、分节和空格。
 
-默认还接受顺序省略：比较视图对 IPA 预组字符做规范分解，完整输入必须能依序出现在词典 IPA 中，词典中其余符号可省略，包括音段、调线、重音、附加符、长音、分节与空格。不会改动、忽略或重排已经输入的字符，不进行替换纠错。输出及 `matchedIpa` 仍使用词典原记录，附加符采用字符级匹配，不额外强制与原音段绑定。Java/Python 入口先 NFC；直接 C++ 调用者也应先 NFC，逐字符分解不承诺全部跨字符组合符重排。
+默认还接受顺序省略：比较视图对 IPA 预组字符做规范分解，完整输入必须能依序出现在词典 IPA 中，词典中其余符号可省略，包括音段、调线、重音、附加符、长音、分节与空格。不会改动、忽略或重排已经输入的字符，不进行替换纠错。输出及 `matchedIpa` 仍使用词典原记录，附加符采用字符级匹配，不额外强制与原音段绑定。Java/Python 入口先 NFC；直接 Rust/C 调用者也应先 NFC，逐字符分解不承诺全部跨字符组合符重排。
 
 例如：
 
@@ -316,7 +316,7 @@ fun makeReply(
 
 ## 10. 在终端观察输入和输出
 
-本节命令供持有完整本地开发项目的维护者使用；GitHub 发布仓库和 AAR 不提供源码、终端工具或测试用例。UI 接入直接使用前九节的 Java API。终端工具位于本地项目的 `scripts/`。需要 Python 3 与 C++17 编译器；首次调用自动构建桌面 CLI，查询使用与 Android 同源的原生核心。无须加载巨型资料库来查询已有编译包。
+终端工具和合成测试随 [引擎源码](source/README.md) 公开。在远程仓库的 `source/` 内运行以下脚本，或在完整本地项目根目录运行。需要 Python 3 与 Rust 1.89+；首次调用自动构建与 Android 同源的 Rust CLI，无须原始资料库即可查询已编译词典。UI 接入仍使用前九节的 Java API。
 
 在完整本地开发项目中、尚无编译词典时，可在项目根抽出发布 AAR 自带的词典和 manifest。已有 `data/compiled/` 产物时直接使用下方查询命令；提取代码拒绝覆盖已有文件：
 
@@ -330,8 +330,9 @@ output.mkdir(parents=True, exist_ok=True)
 names = ("lexicon.ipad", "lexicon.manifest.json")
 if any((output / name).exists() for name in names):
     raise SystemExit("已有本地词典或 manifest，请直接查询或另选提取目录")
-version = Path("remote/VERSION").read_text(encoding="utf-8").strip()
-aar = Path(f"remote/pre-release/{version}/ipa-engine-{version}-android-arm64-v8a.aar")
+public = Path("remote") if Path("remote/VERSION").is_file() else Path("..")
+version = (public / "VERSION").read_text(encoding="utf-8").strip()
+aar = public / f"pre-release/{version}/ipa-engine-{version}-android-arm64-v8a.aar"
 with ZipFile(aar) as package:
     for name in names:
         with package.open("assets/ipa/" + name) as source, (output / name).open("xb") as target:
@@ -357,7 +358,7 @@ python3 scripts/engine_cli.py reverse 'hello' --region en-US
 python3 scripts/engine_cli.py reverse '学校' --json
 ~~~
 
-可重复 `--region` 开启多个地区；不指定则全部开启。全局 `--dictionary PATH`、`--cli PATH` 放在子命令前。文本输出显示匹配、耗时、扫描量、截断和每条候选的 IPA、地区、词频、类型、派生属性；`--json` 用于程序读取。原生 C++ 入口要求调用方提供 NFC，Python 包装负责规范化。
+可重复 `--region` 开启多个地区；不指定则全部开启。全局 `--dictionary PATH`、`--cli PATH` 放在子命令前。文本输出显示匹配、耗时、扫描量、截断和每条候选的 IPA、地区、词频、类型、派生属性；`--json` 用于程序读取。原生 Rust/C 入口要求调用方提供 NFC，Python 包装负责规范化。
 
 交互模式 `repl` 支持以下输入：
 
@@ -370,7 +371,7 @@ python3 scripts/engine_cli.py reverse '学校' --json
 
 普通输入优先显示正向 IPA 命中或补全，没有完整 IPA 命中时优先反查实际存在的词汇；其他输入展示省略匹配候选；两者都没有结果时不输出内容。强制反查不存在的词汇也没有输出，JSON 模式同样不输出一行空结果。反查按 NFC 后的完整词形精确匹配，不自动改大小写或转换简繁；返回全部已收录读音，遵守 `--region`，不受正向候选 limit 限制。反查直接读取所选 `.ipad` 的词形池和候选映射，不使用原始 SQLite、不猜测读音。找到词形后需要扫描候选映射，速度可能慢于正向查询；该功能只用于桌面 CLI。
 
-随机用例默认来自 `tests/cases/graph_cases.jsonl`，包含正常命中与拒绝/无结果边界；可通过 `repl --cases PATH` 或 `test --cases PATH` 改用其他用例文件，例如本地已有的 `data/compiled/source-cases.jsonl`。`test --json` 返回用例、实际输出和断言结果，`reverse WORD --json` 返回 `word` 与 `pronunciations`；相同 IPA 的不同地区记录分别展示。测试用例与 CLI 源码仍只在完整本地项目中提供。
+随机用例默认来自 `tests/cases/graph_cases.jsonl`，包含正常命中与拒绝/无结果边界；可通过 `repl --cases PATH` 或 `test --cases PATH` 改用其他用例文件，例如本地已有的 `data/compiled/source-cases.jsonl`。`test --json` 返回用例、实际输出和断言结果，`reverse WORD --json` 返回 `word` 与 `pronunciations`；相同 IPA 的不同地区记录分别展示。合成测试用例与 CLI 源码也在公开的 `source/` 中提供；真实来源抽样文件留在本地。
 
 用例为 JSONL，每行一条。例如：
 
@@ -394,7 +395,11 @@ python3 scripts/engine_cli.py cases data/compiled/source-cases.jsonl \
 
 ## 11. 已完成验证与实际边界
 
-v0.0.2-dev 完成桌面小词典、独立子序列参照、完整24位词典用例、严格模式回归及桌面JNI验证，并完成 arm64-v8a AAR 交叉编译。三个要求的输入均召回目标词；新版实机与耗电尚未复测，release.json 明确标记 `android_device_execution=false`。词典未删改；运行时为后缀可达符号摘要与深度增加约每节点9字节、完整图合计约10.29 MB的原生数组，另有每次有界搜索的临时状态。
+v0.0.3-dev 的词典校验、精确/顺序省略/补全查询、排序、C ABI、原生 CLI 和图最小化器已迁移到 Rust；Python 离线数据处理、Java 接口及 C++ JNI 的 UTF-16 转换薄层保留。24/32 位格式和 Android 类名、方法、候选字段保持兼容，旧 C++ 引擎仅用于迁移对照。完整24位词典的五地区5,000条来源用例，严格与省略两种模式各与旧实现逐字段比较，均零差异、预期词全部保留；部分查询有预算截断。图最小化器24/32位输出逐字节一致，Unicode、损坏文件、并发、JNI及不带原始数据的独立源码构建检查通过。
+
+开发机交替运行3轮、每轮500个相同输入，省略查询p50/p95/p99中位数：C++为1.9095/4.9526/5.3180 ms，Rust为1.4662/3.8534/4.4230 ms。严格查询p95为0.001250/0.001292 ms；加载为44.32/54.74 ms，Rust一次加载多约10 ms。测试含预热、全地区、默认30候选与20,000状态预算，不含Java/JNI或UI，也不代表S21 Ultra表现。
+
+Rust省略搜索用路径编号排序，仅在接受键命中时重建IPA；状态由最初移植的48 B减为24 B。后缀摘要仍约每节点9字节、完整图合计约10.29 MB，另有有界搜索临时内存。词典字节未改动，三个要求的输入继续召回目标词。最终arm64-v8a AAR已交叉编译；新版实机与耗电未复测，release.json 的 validation.android_device_execution 为 false。
 
 如果忽略候选上限和计算预算，顺序删除更多输入符号只会扩大合法匹配集合。本库每次最多返回180条且预算有界，实际可见列表不能保证单调扩大或包含所有合法词。提高 candidateLimit/omissionStateBudget 可观察更多结果；应查看 truncated，不把截断结果当成完整集合。
 
@@ -420,7 +425,8 @@ v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/N
 
 | 目录/文件 | 职责 |
 | --- | --- |
-| `graph/` | DAFSA 编译器、紧凑格式、C++17 图查询核心、原生 CLI 和格式测试。 |
+| `rust/ipa_graph/` | Rust 图查询核心、C ABI、原生 CLI 与 DAFSA 最小化器。 |
+| `graph/` | Python 离线词典编译器、紧凑格式、独立格式参照与旧 C++ 迁移对照。 |
 | `android/` | Java/JNI 包装、AAR 清单与 consumer 规则、独立测试程序源码。 |
 | `ipa_model/` | 保留的 GRU 训练、量化、导出和评估。 |
 | `model_runtime/` | 保留的参数模型 C++ 推理库，原目录名 mobile。 |
@@ -430,30 +436,32 @@ v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/N
 | `catalog/` | 来源、许可、原始快照 manifest。 |
 | `data/` | 原始/规范化资料、SQLite、权重、编译词典、构建中间结果和已有报告。巨型资料不随发布包提供。 |
 | `docs/` | 接口、图结构设计、模型实验和数据资料库记录。 |
+| `remote/source/` | 自动同步的公开引擎源码、构建工具和合成测试，不含原始资料和训练权重。 |
 | `remote/pre-release/` | 当前 AAR 版本和客户端批次；旧产物保存在 Git 历史中，不含源代码/测试 APK。 |
 | `remote/board-update.json` | IPA Board 唯一更新入口，指向已发布公开提交的分离资源。 |
 | `.tools/` | 被 Git 忽略的本地编译器、训练环境与可重建工具缓存。 |
 | `remote/VERSION` | 当前发布版本，由发布脚本更新。 |
 
-离线编译读取已有 SQLite，只在开发机运行。默认完整 24 位产物超出预算会失败，不会静默删词。下面是 v0.0.2-dev 构建路径示例：
+离线编译读取已有 SQLite，只在开发机运行。默认完整 24 位产物超出预算会失败，不会静默删词。完整本地项目可重新编译词典；已有发布词典的开发者可直接重建 AAR：
 
 ~~~sh
 python3 scripts/compile_graph_dictionary.py --index-bits 24
-python3 scripts/build_android_library.py --output-dir data/android/24-v0.0.2-dev
+rustup target add aarch64-linux-android
+python3 scripts/build_android_library.py --output-dir data/android/24-v0.0.3-dev
 ~~~
 
-图编译需要 Python 3 与 C++17 编译器；Android 构建还需要 JDK、Android SDK 与 NDK。本项目已有构建使用 NDK r30；构建脚本可用 `--ndk /path/to/android-ndk-r30`、`--sdk /path/to/Android/sdk` 显式定位。完整数据复现采用本地 `docs/数据资料库.md` 中保留的逐来源程序和口径；输入法集成直接消费主 AAR。
+图编译需要 Python 3 与 Rust 1.89+；Android 构建还需要 JDK、Android SDK、NDK 和 Rust `aarch64-linux-android` 目标标准库。JNI 的薄层使用 NDK C++ 编译器；迁移对照测试使用 C++17。本项目已有构建使用 NDK r30；构建脚本可用 `--ndk /path/to/android-ndk-r30`、`--sdk /path/to/Android/sdk` 显式定位。完整数据复现采用本地 `docs/数据资料库.md` 中保留的逐来源程序和口径；输入法集成直接消费主 AAR。
 
 准备好已验证 AAR 后，在完整本地项目运行一次发布命令：
 
 ~~~sh
 python3 scripts/publish_release.py \
-  --aar data/android/ipa-graph-full.aar \
+  --aar data/android/24-v0.0.3-dev/ipa-graph-full.aar \
   --version v0.0.3-dev \
   --message 'Release v0.0.3-dev'
 ~~~
 
-脚本自动生成默认 `{version}-client.1` 批次，清理其他旧产物目录，更新当前版本、索引和 `board-update.json`，校验并推送 `remote/` 的公开内容。源码等非 `remote/` 改动须在调用前自行提交。需要另发批次时增加 `--batch`；Git 默认读取 macOS 系统代理，也可用 `--git-proxy` 指定。维护约定见 [CONTRIBUTING](CONTRIBUTING.md)。
+脚本自动同步公开源码并生成默认 `{version}-client.1` 批次，清理其他旧产物目录，更新当前版本、索引和 `board-update.json`，校验并推送 `remote/` 的公开内容。源码等非 `remote/` 改动须在调用前自行提交。需要另发批次时增加 `--batch`；Git 默认读取 macOS 系统代理，也可用 `--git-proxy` 指定。维护约定见 [CONTRIBUTING](CONTRIBUTING.md)。
 
 `remote/pre-release/` 结果纳入本地与远程版本管理；大型 `data/` 数据、权重/词典缓存和 `.tools/` 运行环境被忽略，源码与 `data/reports/` 报告保留。来源许可按 `THIRD_PARTY_NOTICES.json` 和目录逐条使用，混合数据没有统一替代许可证。
 
@@ -471,7 +479,7 @@ python3 scripts/prepare_model_data.py --max-per-region 6000
 
 ## 13. 发布范围与分支约定
 
-远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md`、`board-update.json` 和 `pre-release/`。这些文件在本地位于 `remote/`；远程不包含本地项目源码与数据。发布包及来源许可记录的相对路径在两种布局中一致。
+远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md`、`board-update.json`、`source/` 和 `pre-release/`。这些文件在本地位于 `remote/`；`source/` 按逐文件白名单同步引擎源码及构建、测试工具。原始下载、资料库、训练样本与权重不进入公开树或公开历史。发布包及来源许可记录的相对路径在两种布局中一致。
 
 客户端固定读取的开发分支为 `codex/ipa-engine-v0.0.1-dev`，分支名不随版本变化。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 的公开历史到 `public/codex/ipa-engine-v0.0.1-dev`；导出树及全部历史必须仅含公开文件。禁止推送完整项目分支或强推。开发发布不创建或更新 `main`，未来向远程 main 合并采用 `git merge --no-ff` 或 GitHub **Create a merge commit** 保留记录；不使用 fast-forward、squash 或 rebase。维护规则见 [CONTRIBUTING](CONTRIBUTING.md)，完整本地项目另有 `docs/远程发布流程.md`。
 
@@ -486,7 +494,7 @@ python3 scripts/prepare_model_data.py --max-per-region 6000
 | `schemaVersion` / `entryPoint` | 整数 `1` / `com.ipaengine.graph.GraphEngine`。 |
 | `abi` / `minSdk` | `arm64-v8a` / 实际最低 API，整数 26–36，当前为 26。 |
 | `engineVersion` / `dictionaryVersion` | 独立版本字符串，各 1–100 字符；以入口实际值为准，词典字节未变时保持原词典版本。 |
-| `dictionaryFormat` / `dictionaryKeys` | 整数 `2`（IPADWG01 v2）/ 实际 IPA 编码数，整数 1–2,000,000；v0.0.2-dev 词典为 1,024,289。 |
+| `dictionaryFormat` / `dictionaryKeys` | 整数 `2`（IPADWG01 v2）/ 实际 IPA 编码数，整数 1–2,000,000；当前词典为 1,024,289。 |
 | `dexPath` / `nativePath` / `dictionaryPath` | 各资源以远程仓库根为基准的相对路径；只用字母、数字、`_`、`-`、`.`、`/`，禁止绝对路径、外部 URL、空路径段及 `..`。 |
 | `dexBytes` / `nativeBytes` / `dictionaryBytes` | 真实正整数字节数，上限依次为 4,000,000 / 8,000,000 / 40,000,000。 |
 | `dexSha256` / `nativeSha256` / `dictionarySha256` | 各文件真实 SHA-256，64 位小写十六进制。 |

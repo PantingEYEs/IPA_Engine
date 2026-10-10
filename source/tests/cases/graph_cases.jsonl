@@ -1,0 +1,23 @@
+{"id": "hello-us", "raw": "həˈloʊ", "regions": ["en-US"], "expected_any": ["hello"]}
+{"id": "hello-uk", "raw": "həˈləʊ", "regions": ["en-GB"], "expected_any": ["hello"]}
+{"id": "nihao-cn", "raw": "ni˨˩˦ xɑʊ̯˨˩˦", "regions": ["zh-CN"], "expected_any": ["你好"]}
+{"id": "taiwan-tw", "raw": "tʰaɪ˧˥.wan˥˥", "regions": ["zh-TW"], "expected_any": ["臺灣"]}
+{"id": "school-ja", "raw": "ɡakːoɯ", "regions": ["ja-JP"], "expected_any": ["学校", "學校"]}
+{"id": "homophones-en", "raw": "tu", "regions": ["en-US"], "expected_all": ["too", "two"]}
+{"id": "prefix-en", "raw": "hə", "regions": ["en-US"], "prefix": true, "expected_nonempty": true}
+{"id": "prefix-budget", "raw": "hə", "regions": ["en-US"], "prefix": true, "prefix_budget": 1, "expected_truncated": true}
+{"id": "reject-unsupported-numeric-suffix", "raw": "həˈloʊ0", "expected_status": "unsupported_input", "expected_empty": true}
+{"id": "no-drop-known-suffix", "raw": "həˈloʊzzz", "regions": ["en-US"], "expected_status": "ok", "expected_empty": true}
+{"id": "prediction-not-trained", "raw": "", "expected_empty": true}
+{"id": "blank", "raw": " ", "expected_status": "unsupported_input", "expected_empty": true}
+{"id": "raw-limit", "raw": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "expected_status": "unsupported_input", "expected_empty": true}
+{"id": "zero-candidate-limit", "raw": "həˈloʊ", "regions": ["en-US"], "limit": 0, "expected_empty": true}
+{"id": "my-without-stress", "raw": "maɪ", "regions": ["en-US"], "limit": 180, "expected_any": ["my"], "expected_exact_found": false}
+{"id": "nihao-without-tones-boundary-and-diacritic", "raw": "nixɑʊ", "regions": ["zh-CN"], "limit": 180, "expected_any": ["你好"]}
+{"id": "nihao-numeric-tones", "raw": "ni35 xɑʊ̯21", "regions": ["zh-CN"], "limit": 180, "expected_any": ["你好"], "expected_exact_found": true}
+{"id": "nihao-numeric-tones-strict", "raw": "ni35 xɑʊ̯21", "regions": ["zh-CN"], "strict": true, "expected_any": ["你好"], "expected_exact_found": true}
+{"id": "nihao-tones-without-boundary", "raw": "ni35xɑʊ̯21", "regions": ["zh-CN"], "limit": 180, "expected_any": ["你好"]}
+{"id": "my-strict-retains-old-behavior", "raw": "maɪ", "regions": ["en-US"], "strict": true, "expected_empty": true}
+{"id": "my-known-extra-suffix", "raw": "maɪzzz", "regions": ["en-US"], "expected_empty": true}
+{"id": "nihao-wrong-order", "raw": "xɑʊni", "regions": ["zh-CN"], "expected_none": ["你好"]}
+{"id": "reject-tone-digit-six", "raw": "ni6", "expected_status": "unsupported_input", "expected_empty": true}
