@@ -2,17 +2,17 @@
 
 这是供 Android 输入法接入的 **IPA → 中英日文字候选** 依赖库。默认使用完整 24 位压缩词典、最小 DAFSA 图、顺序省略匹配与词频排序，运行时只读映射二进制文件。它提供候选查询核心；键盘界面、预输入、选择候选、提交文字和服务通信由宿主实现。
 
-本 README 是 UI/输入法开发者的独立接入手册。GitHub 仓库只发布本地项目的 `remote/` 子目录，内容在远程仓库根目录展示；引擎源码、构建工具和合成测试公开在 `source/`，编译结果位于 `pre-release/`；原始资料、SQLite 资料库、训练权重和完整开发历史留在本地。资料收集与早期实验记录留在本地 `docs/数据资料库.md`。
+本 README 是 UI/输入法开发者的独立接入手册。GitHub 仓库只发布本地项目的 `release/remote/` 子目录，内容在远程仓库根目录展示；`source/` 是含编译词典的精简可构建源码快照，`pre-release/` 是客户端直接消费的发布资源，两者职责不同且允许重复包含词典。原始资料、SQLite 资料库、训练权重和完整开发历史留在本地。
 
 ## 1. 取得引擎：客户端更新与 Gradle 依赖
 
 IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.json](board-update.json)；分支名不随版本变化。客户端仅由这个入口发现更新，按清单下载配套 DEX/JNI 与裸二进制词典，不解包 AAR、不编译源词库，也不扫描 `VERSION`、GitHub Releases 或其他分支。只发布 AAR 或更新版本文件不会触发客户端升级。
 
-当前版本、客户端批次和 AAR 下载地址见 [最新产物索引](pre-release/README.md)。客户端资源包含：
+当前客户端批次和资源地址见 [最新产物索引](pre-release/README.md)。历史版本提供的 AAR 可继续用于 Gradle 集成；新的发布流程只生成独立客户端资源，不再打包 AAR。客户端资源包含：
 
 | 文件 | 用途 |
 | --- | --- |
-| `classes.dex` | Android DEX 格式的 GraphEngine Java 代码，由同版 AAR 的 classes.jar 转换。 |
+| `classes.dex` | Android DEX 格式的 GraphEngine Java 代码，由独立 Java `classes.jar` 经 D8 转换。 |
 | `libipa_graph_android.so` | 与该 DEX 配套的 ARM64 JNI 和原生图核心。 |
 | `lexicon.ipad` | 可直接打开的完整 24 位 IPADWG01 v2 文件，没有 ZIP/GZIP 外包装。 |
 | `client.json` / `SHA256SUMS` | 批次资源字段与实际校验值；客户端发现仍以根 board-update.json 为准。 |
@@ -20,18 +20,18 @@ IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.
 
 引擎与词典版本独立，以根入口的实际值为准。v0.0.3-dev 发布时词典内容与哈希未变，词典版本保持 v0.0.1-dev-lexicon。更新入口固定二进制所在的已发布公开提交 `artifactCommit`，下载与校验细节见本文“IPA Board 独立资源更新”。最新目录只保留当前产物，旧版本从 Git 历史提交下载或回滚。
 
-需要在宿主工程构建时集成 Java/JNI 和词典的开发者，从 [最新产物索引](pre-release/README.md) 取得主 AAR。预发布目录只包含结果，没有源码或测试 APK：
+需要在宿主工程构建时集成 Java/JNI 和词典的开发者，可从历史发布提交取得对应版本的 AAR；新版本可将独立 Java/JNI/词典组件按宿主工程方式集成。预发布目录只包含发布结果，没有源码或测试 APK：
 
 | 文件 | 用途 |
 | --- | --- |
-| `ipa-engine-<版本>-android-arm64-v8a.aar` | 构建时依赖，含 Java/JNI、原生核心、完整 24 位词典与编译 manifest。 |
+| `ipa-engine-<版本>-android-arm64-v8a.aar` | 仅历史发布提供的 Gradle 依赖，含 Java/JNI、原生核心、完整 24 位词典与编译 manifest。 |
 | `release.json` | 版本、ABI、体积、哈希、数据规模和已有验证摘要。 |
 | `SHA256SUMS` | 发布文件的校验值。 |
 | `THIRD_PARTY_NOTICES.json` | 实际采用的数据来源与逐来源许可记录。 |
 
 v0.0.3-dev 的 Rust AAR 约为 **29.22 MB**；词典为 **28,986,769 B（28.99 MB）**，含 1,024,289 个 IPA 键、768,387 个独立输出词形、1,281,101 条地区候选映射。当前版本的精确字节数及 SHA-256 见产物索引中的 release.json。MB 使用十进制。完整性指编译规则允许收录的关系完整保留；原始资料中的待核验记录、非词汇类别和超长记录有明确筛选规则。
 
-构建时只引入这个主 AAR，避免重复打包同名 Java 类或原生库。入口为 `com.ipaengine.graph.GraphEngine`，原生库名为 `ipa_graph_android`。客户端资源采用相同的调用接口；由宿主处理 DEX/JNI 加载、文件校验与版本切换。
+消费历史 AAR 时只引入该 AAR，避免重复打包同名 Java 类或原生库。入口为 `com.ipaengine.graph.GraphEngine`，原生库名为 `ipa_graph_android`。独立客户端资源采用相同的调用接口；由宿主处理 DEX/JNI 加载、文件校验与版本切换。
 
 ## 2. Android / Gradle 要求
 
@@ -312,50 +312,49 @@ fun makeReply(
 
 正常无匹配、地区关闭、空预测和 `unsupported_input` 是空结果，不应触发故障熔断。`timeout` 清空候选并可记诊断；如果宿主需要把它作为故障回复，使用已登记的超时代码。`error`、初始化 IOException 和意外生命周期异常由宿主捕获并映射固定码。不要把库的状态字符串、异常文字或自行拼出的 IPA 错误码直接放进 `error`；本文未提供宿主的注册表，因此不声称任何新码已获宿主认可。
 
-宿主目前的服务路由、功能开关和诊断只识别 ZH/JA/EN，须增加 IPA 路由及对应映射；返回语言标签不能自动注册组件。地区选择映射到本库五个 Policy 布尔值。原生运行建议按既有合同放入独立引擎服务进程，初始化/查询故障不会终止输入法主进程或改变原文提交。以上为宿主接入所需合同；合同原文留在本地开发项目的 `docs/引擎开发规范.md`。
+宿主目前的服务路由、功能开关和诊断只识别 ZH/JA/EN，须增加 IPA 路由及对应映射；返回语言标签不能自动注册组件。地区选择映射到本库五个 Policy 布尔值。原生运行建议按既有合同放入独立引擎服务进程，初始化/查询故障不会终止输入法主进程或改变原文提交。以上为宿主接入所需合同；合同原文留在本地开发项目的 `engine_android/docs/引擎开发规范.md`。
 
 ## 10. 在终端观察输入和输出
 
 终端工具和合成测试随 [引擎源码](source/README.md) 公开。在远程仓库的 `source/` 内运行以下脚本，或在完整本地项目根目录运行。需要 Python 3 与 Rust 1.89+；首次调用自动构建与 Android 同源的 Rust CLI，无须原始资料库即可查询已编译词典。UI 接入仍使用前九节的 Java API。
 
-在完整本地开发项目中、尚无编译词典时，可在项目根抽出发布 AAR 自带的词典和 manifest。已有 `data/compiled/` 产物时直接使用下方查询命令；提取代码拒绝覆盖已有文件：
+在完整本地开发项目中、尚无编译词典时，可在项目根从现有客户端批次复制词典和 manifest。已有 `data/dictionary/compiled/` 产物时直接使用下方查询命令；提取代码拒绝覆盖已有文件：
 
 ~~~sh
 python3 - <<'PY'
 from pathlib import Path
 from zipfile import ZipFile
 import shutil
-output = Path("data/compiled")
+output = Path("data/dictionary/compiled")
 output.mkdir(parents=True, exist_ok=True)
 names = ("lexicon.ipad", "lexicon.manifest.json")
 if any((output / name).exists() for name in names):
     raise SystemExit("已有本地词典或 manifest，请直接查询或另选提取目录")
-public = Path("remote") if Path("remote/VERSION").is_file() else Path("..")
-version = (public / "VERSION").read_text(encoding="utf-8").strip()
-aar = public / f"pre-release/{version}/ipa-engine-{version}-android-arm64-v8a.aar"
-with ZipFile(aar) as package:
-    for name in names:
-        with package.open("assets/ipa/" + name) as source, (output / name).open("xb") as target:
-            shutil.copyfileobj(source, target)
+import json
+public = Path("release/remote") if Path("release/remote/VERSION").is_file() else Path(".")
+update = json.loads((public / "board-update.json").read_text(encoding="utf-8"))
+batch_dir = public / Path(update["dictionaryPath"]).parent
+for name in names:
+    shutil.copyfile(batch_dir / name, output / name)
 PY
 ~~~
 
 ~~~sh
-python3 scripts/engine_cli.py query 'həˈloʊ' --region en-US
-python3 scripts/engine_cli.py query 'tu' --region en-US --json
-python3 scripts/engine_cli.py query 'ni˨˩˦ xɑʊ̯˨˩˦' --region zh-CN
-python3 scripts/engine_cli.py query 'ɡakːoɯ' --region ja-JP
-python3 scripts/engine_cli.py query 'maɪ'
-python3 scripts/engine_cli.py query 'nixɑʊ'
-python3 scripts/engine_cli.py query 'ni35 xɑʊ̯21'
-python3 scripts/engine_cli.py query 'maɪ' --strict
-python3 scripts/engine_cli.py query 'hə' --prefix --prefix-budget 2048 --limit 10
-python3 scripts/engine_cli.py repl
-python3 scripts/engine_cli.py info
-python3 scripts/engine_cli.py cases tests/cases/graph_cases.jsonl --verbose
-python3 scripts/engine_cli.py test
-python3 scripts/engine_cli.py reverse 'hello' --region en-US
-python3 scripts/engine_cli.py reverse '学校' --json
+python3 cli_tests/scripts/engine_cli.py query 'həˈloʊ' --region en-US
+python3 cli_tests/scripts/engine_cli.py query 'tu' --region en-US --json
+python3 cli_tests/scripts/engine_cli.py query 'ni˨˩˦ xɑʊ̯˨˩˦' --region zh-CN
+python3 cli_tests/scripts/engine_cli.py query 'ɡakːoɯ' --region ja-JP
+python3 cli_tests/scripts/engine_cli.py query 'maɪ'
+python3 cli_tests/scripts/engine_cli.py query 'nixɑʊ'
+python3 cli_tests/scripts/engine_cli.py query 'ni35 xɑʊ̯21'
+python3 cli_tests/scripts/engine_cli.py query 'maɪ' --strict
+python3 cli_tests/scripts/engine_cli.py query 'hə' --prefix --prefix-budget 2048 --limit 10
+python3 cli_tests/scripts/engine_cli.py repl
+python3 cli_tests/scripts/engine_cli.py info
+python3 cli_tests/scripts/engine_cli.py cases cli_tests/cases/graph_cases.jsonl --verbose
+python3 cli_tests/scripts/engine_cli.py test
+python3 cli_tests/scripts/engine_cli.py reverse 'hello' --region en-US
+python3 cli_tests/scripts/engine_cli.py reverse '学校' --json
 ~~~
 
 可重复 `--region` 开启多个地区；不指定则全部开启。全局 `--dictionary PATH`、`--cli PATH` 放在子命令前。文本输出显示匹配、耗时、扫描量、截断和每条候选的 IPA、地区、词频、类型、派生属性；`--json` 用于程序读取。原生 Rust/C 入口要求调用方提供 NFC，Python 包装负责规范化。
@@ -371,7 +370,7 @@ python3 scripts/engine_cli.py reverse '学校' --json
 
 普通输入优先显示正向 IPA 命中或补全，没有完整 IPA 命中时优先反查实际存在的词汇；其他输入展示省略匹配候选；两者都没有结果时不输出内容。强制反查不存在的词汇也没有输出，JSON 模式同样不输出一行空结果。反查按 NFC 后的完整词形精确匹配，不自动改大小写或转换简繁；返回全部已收录读音，遵守 `--region`，不受正向候选 limit 限制。反查直接读取所选 `.ipad` 的词形池和候选映射，不使用原始 SQLite、不猜测读音。找到词形后需要扫描候选映射，速度可能慢于正向查询；该功能只用于桌面 CLI。
 
-随机用例默认来自 `tests/cases/graph_cases.jsonl`，包含正常命中与拒绝/无结果边界；可通过 `repl --cases PATH` 或 `test --cases PATH` 改用其他用例文件，例如本地已有的 `data/compiled/source-cases.jsonl`。`test --json` 返回用例、实际输出和断言结果，`reverse WORD --json` 返回 `word` 与 `pronunciations`；相同 IPA 的不同地区记录分别展示。合成测试用例与 CLI 源码也在公开的 `source/` 中提供；真实来源抽样文件留在本地。
+随机用例默认来自 `cli_tests/cases/graph_cases.jsonl`，包含正常命中与拒绝/无结果边界；可通过 `repl --cases PATH` 或 `test --cases PATH` 改用其他用例文件。`test --json` 返回用例、实际输出和断言结果，`reverse WORD --json` 返回 `word` 与 `pronunciations`；相同 IPA 的不同地区记录分别展示。合成测试用例与 CLI 源码也在公开的 `source/` 中提供；从完整资料库抽样用例属于本地数据准备工作，不包含在公开源码快照。
 
 用例为 JSONL，每行一条。例如：
 
@@ -383,19 +382,11 @@ python3 scripts/engine_cli.py reverse '学校' --json
 
 支持 `expected_any`、`expected_all`、`expected_none`、`expected_exact_found`、`expected_empty`、`expected_nonempty`、`expected_status`、`expected_truncated`。用 `cases PATH --output REPORT.json` 保存输入、输出、断言结果；用例中的地区、补全和候选上限均按配置执行。桌面 CLI 允许 limit=0 检查空结果；Android Options 的范围是 1–180，运行时关闭能力使用 Policy。
 
-已有离线 `data/ipa.sqlite` 时，还可从每地区抽取 1,000 个有效来源观测：
-
-~~~sh
-python3 scripts/engine_cli.py sample-cases --per-region 1000 --seed 42
-python3 scripts/engine_cli.py cases data/compiled/source-cases.jsonl \
-  --output data/compiled/source-cases-results.json
-~~~
-
-抽样需要资料库，而普通 query/repl/cases 只需要编译词典。来源观测检查验证映射保留，不能替代音系核验或同音词首选准确率。
+source 快照不含来源数据库和抽样/预处理工具。普通 query/repl/cases 只需要随 source 提供的编译词典与手写测试用例；来源观测检查属于完整本地项目工作流，不能替代音系核验或同音词首选准确率。
 
 ## 11. 已完成验证与实际边界
 
-v0.0.3-dev 的词典校验、精确/顺序省略/补全查询、排序、C ABI、原生 CLI 和图最小化器已迁移到 Rust；Python 离线数据处理、Java 接口及 C++ JNI 的 UTF-16 转换薄层保留。24/32 位格式和 Android 类名、方法、候选字段保持兼容，旧 C++ 引擎仅用于迁移对照。完整24位词典的五地区5,000条来源用例，严格与省略两种模式各与旧实现逐字段比较，均零差异、预期词全部保留；部分查询有预算截断。图最小化器24/32位输出逐字节一致，Unicode、损坏文件、并发、JNI及不带原始数据的独立源码构建检查通过。
+v0.0.3-dev 的词典校验、精确/顺序省略/补全查询、排序、C ABI、原生 CLI 和图最小化器已迁移到 Rust；Python 离线数据处理、Java 接口及 C++ JNI 的 UTF-16 转换薄层保留。24/32 位格式和 Android 类名、方法、候选字段保持兼容。迁移期间曾以旧 C++ 引擎作逐字段对照，公开源码中的旧引擎和比较程序现已移除。完整24位词典的五地区5,000条来源用例，严格与省略两种模式当时均与旧实现零差异、预期词全部保留；部分查询有预算截断。图最小化器24/32位输出逐字节一致，Unicode、损坏文件、并发、JNI及不带原始数据的独立源码构建检查通过。
 
 开发机交替运行3轮、每轮500个相同输入，省略查询p50/p95/p99中位数：C++为1.9095/4.9526/5.3180 ms，Rust为1.4662/3.8534/4.4230 ms。严格查询p95为0.001250/0.001292 ms；加载为44.32/54.74 ms，Rust一次加载多约10 ms。测试含预热、全地区、默认30候选与20,000状态预算，不含Java/JNI或UI，也不代表S21 Ultra表现。
 
@@ -413,7 +404,7 @@ Rust省略搜索用路径编号排序，仅在接受键命中时重建IPA；状�
 
 上述查询没有错误或超时；完整包装和持续查询每次均有候选。Java/JNI 紧密循环最大 6.427 ms；10 Hz 持续模式最大 40.957 ms，低频唤醒条件下延迟更高。首次 `openBundled` 263.523 ms，缓存初始化 149.458 ms，包含资产和 SHA 开销。
 
-v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/NFC、配置、候选与补全、关闭、资产提取、哈希、缓存重用/损坏修复、完整包装基准和短持续测试。另有 14 个人工边界用例、5,000 条来源观测、独立格式/候选参照，以及损坏文件、并发、ASan/UBSan、JNI 验证。完整报告留在本地 `data/reports/graph-s21-comparison.json`、`android-wrapper-probe.json` 和 `graph-cases.json`；[公开发布摘要](https://github.com/PantingEYEs/IPA_Engine/blob/707823a2aac3e848ddee0a7b66e232aa94de88e3/pre-release/v0.0.1-dev/release.json) 固定在历史提交中。
+v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/NFC、配置、候选与补全、关闭、资产提取、哈希、缓存重用/损坏修复、完整包装基准和短持续测试。另有 14 个人工边界用例、5,000 条来源观测、独立格式/候选参照，以及损坏文件、并发、ASan/UBSan、JNI 验证。完整报告留在本地 `data/cli_tests/reports/graph-s21-comparison.json`、`android-wrapper-probe.json` 和 `graph-cases.json`；[公开发布摘要](https://github.com/PantingEYEs/IPA_Engine/blob/707823a2aac3e848ddee0a7b66e232aa94de88e3/pre-release/v0.0.1-dev/release.json) 固定在历史提交中。
 
 3 分钟内原生已分配堆为 7,320,048 → 7,320,096 B，整体进程 PSS 为 52,722 → 66,202 KiB，Java 已用堆为 5,011,408 → 19,171,280 B。未强制 GC；这段观察既不证明长期无泄漏，也不能单凭 Java 堆增长判定泄漏。报告的 PSS 含测试应用及映射页，并非单独词典的内存上界。
 
@@ -425,63 +416,74 @@ v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/N
 
 | 目录/文件 | 职责 |
 | --- | --- |
-| `rust/ipa_graph/` | Rust 图查询核心、C ABI、原生 CLI 与 DAFSA 最小化器。 |
-| `graph/` | Python 离线词典编译器、紧凑格式、独立格式参照与旧 C++ 迁移对照。 |
-| `android/` | Java/JNI 包装、AAR 清单与 consumer 规则、独立测试程序源码。 |
-| `ipa_model/` | 保留的 GRU 训练、量化、导出和评估。 |
-| `model_runtime/` | 保留的参数模型 C++ 推理库，原目录名 mobile。 |
-| `ipa_engine/` | 资料检查用 Python/SQLite 字典基线。 |
-| `scripts/` | 采集、规范化、索引、离线编译、CLI、Android 构建和打包入口。 |
-| `tests/` | Python 验证及终端 JSONL 用例。 |
-| `catalog/` | 来源、许可、原始快照 manifest。 |
-| `data/` | 原始/规范化资料、SQLite、权重、编译词典、构建中间结果和已有报告。巨型资料不随发布包提供。 |
-| `docs/` | 接口、图结构设计、模型实验和数据资料库记录。 |
-| `remote/source/` | 自动同步的公开引擎源码、构建工具和合成测试，不含原始资料和训练权重。 |
-| `remote/pre-release/` | 当前 AAR 版本和客户端批次；旧产物保存在 Git 历史中，不含源代码/测试 APK。 |
-| `remote/board-update.json` | IPA Board 唯一更新入口，指向已发布公开提交的分离资源。 |
+| `engine_android/ipa_graph/` | Rust 图查询核心、C ABI、原生 CLI 与 DAFSA 最小化器。 |
+| `cli_tests/scripts/compiled_lexicon.py` | 桌面 CLI 的编译词典反查读取器。 |
+| `cli_tests/tests/fixtures/` | CLI、JNI 和发布测试使用的小型独立词典生成器。 |
+| `engine_android/android/` | Java/JNI 包装、CMake 与 Android/JNI 验证工具。 |
+| `gru/` | GRU 训练、量化、导出、评估及独立参数推理运行时。 |
+| `data_pipeline/scripts/collection/` | 数据来源采集、下载与采集专用依赖。 |
+| `data_pipeline/scripts/preprocessing/` | 清洗、规范化、词频处理、索引和审查工具。 |
+| `dictionary/` | 图词典编译、位宽转换、格式说明及编译测试。 |
+| `cli_tests/scripts/` | 桌面 CLI、引擎对照和 native CLI 设备测试。 |
+| `gru/scripts/` | GRU 语料准备、原生 parity 与基准工具。 |
+| `engine_android/scripts/` | Rust 引擎和 Android 原生组件构建工具。 |
+| `release/scripts/release/` | 客户端批次打包、公开源码同步和发布。 |
+| `cli_tests/tests/` | 主机 CLI 和最终引擎测试。 |
+| `cli_tests/cases/` | 手工维护的终端 JSONL 用例。 |
+| `data_pipeline/catalog/` | 来源、许可、原始快照 manifest。 |
+| `data/` | 完整本地项目的数据工作区；公开 `source/data/` 仅含运行所需的编译后词典及 manifest，原始/规范化资料、SQLite、权重和构建报告不随 source 发布。 |
+| `engine_android/docs/` | 引擎接入接口与运行时设计说明。 |
+| `docs/` | 发布工作流说明。 |
+| `release/remote/source/` | 自动同步的公开引擎源码、构建工具和合成测试，不含原始资料和训练权重。 |
+| `release/remote/pre-release/` | 当前版本元数据和客户端批次；旧产物保存在 Git 历史中，不含源代码/测试 APK。 |
+| `release/remote/board-update.json` | IPA Board 唯一更新入口，指向已发布公开提交的分离资源。 |
 | `.tools/` | 被 Git 忽略的本地编译器、训练环境与可重建工具缓存。 |
-| `remote/VERSION` | 当前发布版本，由发布脚本更新。 |
+| `release/remote/VERSION` | 当前发布版本，由发布脚本更新。 |
 
-离线编译读取已有 SQLite，只在开发机运行。默认完整 24 位产物超出预算会失败，不会静默删词。完整本地项目可重新编译词典；已有发布词典的开发者可直接重建 AAR：
+离线编译读取已有 SQLite，只在开发机运行。默认完整 24 位产物超出预算会失败，不会静默删词。完整本地项目可重新编译词典并生成独立 Android 组件：
 
 ~~~sh
-python3 scripts/compile_graph_dictionary.py --index-bits 24
+python3 dictionary/scripts/compile_graph_dictionary.py --index-bits 24
 rustup target add aarch64-linux-android
-python3 scripts/build_android_library.py --output-dir data/android/24-v0.0.3-dev
+python3 engine_android/scripts/build_android_library.py --output-dir data/engine_android/builds/24-v0.0.3-dev
 ~~~
 
-图编译需要 Python 3 与 Rust 1.89+；Android 构建还需要 JDK、Android SDK、NDK 和 Rust `aarch64-linux-android` 目标标准库。JNI 的薄层使用 NDK C++ 编译器；迁移对照测试使用 C++17。本项目已有构建使用 NDK r30；构建脚本可用 `--ndk /path/to/android-ndk-r30`、`--sdk /path/to/Android/sdk` 显式定位。完整数据复现采用本地 `docs/数据资料库.md` 中保留的逐来源程序和口径；输入法集成直接消费主 AAR。
+图编译需要 Python 3 与 Rust 1.89+；Android 构建还需要 JDK、Android SDK、NDK 和 Rust `aarch64-linux-android` 目标标准库。JNI 的薄层使用 NDK C++ 编译器。本项目已有构建使用 NDK r30；构建脚本可用 `--ndk /path/to/android-ndk-r30`、`--sdk /path/to/Android/sdk` 显式定位。构建输出独立 `classes.jar`、`libipa_graph_android.so`、设备 CLI、词典和 manifest，不打包 AAR。
 
-准备好已验证 AAR 后，在完整本地项目运行一次发布命令：
+准备好并验证独立组件后，在完整本地项目运行一次发布命令：
 
 ~~~sh
-python3 scripts/publish_release.py \
-  --aar data/android/24-v0.0.3-dev/ipa-graph-full.aar \
+python3 release/scripts/release/publish_release.py \
+  --classes-jar data/engine_android/builds/24-v0.0.3-dev/classes.jar \
+  --native data/engine_android/builds/24-v0.0.3-dev/libipa_graph_android.so \
+  --dictionary data/engine_android/builds/24-v0.0.3-dev/lexicon.ipad \
+  --dictionary-manifest data/engine_android/builds/24-v0.0.3-dev/lexicon.manifest.json \
+  --build-report data/engine_android/builds/24-v0.0.3-dev/build-report.json \
   --version v0.0.3-dev \
   --message 'Release v0.0.3-dev'
 ~~~
 
-脚本自动同步公开源码并生成默认 `{version}-client.1` 批次，清理其他旧产物目录，更新当前版本、索引和 `board-update.json`，校验并推送 `remote/` 的公开内容。源码等非 `remote/` 改动须在调用前自行提交。需要另发批次时增加 `--batch`；Git 默认读取 macOS 系统代理，也可用 `--git-proxy` 指定。维护约定见 [CONTRIBUTING](CONTRIBUTING.md)。
+脚本自动同步公开源码并生成默认 `{version}-client.1` 批次，清理其他旧产物目录，更新当前版本、索引和 `board-update.json`，校验并推送 `release/remote/` 的公开内容。源码等非 `release/remote/` 改动须在调用前自行提交。需要另发批次时增加 `--batch`；Git 默认读取 macOS 系统代理，也可用 `--git-proxy` 指定。维护约定见 [CONTRIBUTING](CONTRIBUTING.md)。
 
-`remote/pre-release/` 结果纳入本地与远程版本管理；大型 `data/` 数据、权重/词典缓存和 `.tools/` 运行环境被忽略，源码与 `data/reports/` 报告保留。来源许可按 `THIRD_PARTY_NOTICES.json` 和目录逐条使用，混合数据没有统一替代许可证。
+`release/remote/pre-release/` 结果纳入本地与远程版本管理；大型 `data/` 数据、权重/词典缓存和 `.tools/` 运行环境被忽略，按阶段归档的 JSON 报告保留。来源许可按 `THIRD_PARTY_NOTICES.json` 和目录逐条使用，混合数据没有统一替代许可证。
 
 通用 GRU 训练工具、可复用语料和参数推理库继续保留。旧权重未证明图候选首选排序有稳定收益，已删除；当前 Android 图引擎继续按词频排序，不附带预训练模型。新模型可按以下命令训练和评估，权重路径表示新训练的输出：
 
 ~~~sh
 python3 -m venv .tools/train
-.tools/train/bin/pip install -r requirements-training.txt
-python3 scripts/prepare_model_data.py --max-per-region 6000
-.tools/train/bin/python -m ipa_model.train --epochs 20
-.tools/train/bin/python -m ipa_model.evaluate data/model/run/best.pt --quantized
+.tools/train/bin/pip install -r gru/requirements.txt
+.tools/train/bin/python gru/scripts/prepare_model_data.py --max-per-region 6000
+.tools/train/bin/python -m gru.ipa_model.train --epochs 20
+.tools/train/bin/python -m gru.ipa_model.evaluate data/gru/runs/best.pt --quantized
 ~~~
 
-未来模型可对已经生成的合法图候选打分、校准词频组合并重排；需要在独立测试集验证首选改善和手机成本。模型词表缺字不应删除合法字典候选。训练、导出和运行库用法留在本地 `docs/模型训练工具.md`、`model_runtime/README.md`；图设计说明见本地 `docs/图词典引擎.md` 和 `docs/图结构选型.md`。
+未来模型可对已经生成的合法图候选打分、校准词频组合并重排；需要在独立测试集验证首选改善和手机成本。模型词表缺字不应删除合法字典候选。训练、导出和运行库用法留在本地 `gru/README.md`、`gru/model_runtime/README.md`；图设计说明见本地 `engine_android/docs/图词典引擎.md` 和 `dictionary/docs/图结构选型.md`；词典编译说明见 `dictionary/README.md`。
 
 ## 13. 发布范围与分支约定
 
-远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md`、`board-update.json`、`source/` 和 `pre-release/`。这些文件在本地位于 `remote/`；`source/` 按逐文件白名单同步引擎源码及构建、测试工具。原始下载、资料库、训练样本与权重不进入公开树或公开历史。发布包及来源许可记录的相对路径在两种布局中一致。
+远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md`、`board-update.json`、`source/` 和 `pre-release/`。这些文件在本地位于 `release/remote/`；`source/` 按逐文件白名单同步引擎源码及构建、测试工具。原始下载、资料库、训练样本与权重不进入公开树或公开历史。发布包及来源许可记录的相对路径在两种布局中一致。
 
-客户端固定读取的开发分支为 `codex/ipa-engine-v0.0.1-dev`，分支名不随版本变化。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 的公开历史到 `public/codex/ipa-engine-v0.0.1-dev`；导出树及全部历史必须仅含公开文件。禁止推送完整项目分支或强推。开发发布不创建或更新 `main`，未来向远程 main 合并采用 `git merge --no-ff` 或 GitHub **Create a merge commit** 保留记录；不使用 fast-forward、squash 或 rebase。维护规则见 [CONTRIBUTING](CONTRIBUTING.md)，完整本地项目另有 `docs/远程发布流程.md`。
+客户端固定读取的开发分支为 `codex/ipa-engine-v0.0.1-dev`，分支名不随版本变化。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 的公开历史到 `public/codex/ipa-engine-v0.0.1-dev`；导出树及全部历史必须仅含公开文件。禁止推送完整项目分支或强推。开发发布不创建或更新 `main`，未来向远程 main 合并采用 `git merge --no-ff` 或 GitHub **Create a merge commit** 保留记录；不使用 fast-forward、squash 或 rebase。维护规则见 [CONTRIBUTING](CONTRIBUTING.md)，完整本地项目另有 `release/docs/远程发布流程.md`。
 
 ## IPA Board 独立资源更新
 
@@ -504,6 +506,6 @@ python3 scripts/prepare_model_data.py --max-per-region 6000
 
 宿主先下载到临时位置并验证资源，再一起启用匹配的 DEX/JNI，加载新词典并调用现有 GraphEngine 接口。独立资源通过 `GraphEngine(dictionaryAbsolutePath)` 打开；它们没有 bundled 资产。宿主处理动态代码加载、工作线程、校验、切换及旧文件生命周期；更新失败继续使用旧资源，不把不完整批次设为当前引擎。输入、候选和服务回复合同仍采用本文前述接口。
 
-一次 `scripts/publish_release.py` 调用自动完成内部两阶段发布：先推送完整产物，取得真实公开提交 SHA，再将它写入 `artifactCommit` 并发布根入口。该值必须指向包含全部资源的已发布公开提交；批次 `client.json` 仅记录资源字段，客户端唯一更新入口始终是根 `board-update.json`。
+一次 `release/scripts/release/publish_release.py` 调用自动完成内部两阶段发布：先推送完整产物，取得真实公开提交 SHA，再将它写入 `artifactCommit` 并发布根入口。该值必须指向包含全部资源的已发布公开提交；批次 `client.json` 仅记录资源字段，客户端唯一更新入口始终是根 `board-update.json`。
 
 引擎与词典可独立更新。词典单独更新时保持引擎字段不变，更新词典字段与 `artifactCommit`；新的产物提交仍必须包含清单引用的旧引擎文件。新词典必须兼容已安装旧引擎，客户端在切换前验证。引擎更新必须提供配套 DEX/JNI，保持调用接口及候选合同，并兼容已安装词典；不能把新版 Java 类与旧 JNI 交叉组合。

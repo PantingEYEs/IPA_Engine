@@ -1,8 +1,13 @@
 .tools/
 __pycache__/
 *.py[cod]
-/data/
 /target/
-/rust/ipa_graph/target/
-/android/build/
-/graph/build/
+/engine_android/ipa_graph/target/
+/engine_android/android/build/
+/data/*
+!/data/dictionary/
+/data/dictionary/*
+!/data/dictionary/compiled/
+/data/dictionary/compiled/*
+!/data/dictionary/compiled/lexicon.ipad
+!/data/dictionary/compiled/lexicon.manifest.json
