@@ -1,6 +1,5 @@
 {
-  "version": "v0.0.2-dev",
-  "scope": "Source-specific dictionary and frequency notices retained from the compiled manifest; no blanket data license is assigned.",
+  "version": "v0.0.3-dev",
   "sources": [
     {
       "id": "bccwj-luw",
@@ -247,5 +246,6 @@
       "license": "CC-BY-SA-4.0; see NOTICE.md",
       "note": "Mixed-region estimate, snapshot through ~2021. NOT region-specific. Chinese is oversimplified."
     }
-  ]
+  ],
+  "scope": "Source-specific notices; no blanket data license is assigned."
 }

@@ -1,6 +1,6 @@
 {
-  "version": "v0.0.1-dev",
-  "scope": "Source-specific dictionary and frequency notices retained from the compiled manifest; no blanket data license is assigned.",
+  "version": "v0.0.3-dev",
+  "scope": "Source-specific data notices; no blanket license is assigned.",
   "sources": [
     {
       "id": "bccwj-luw",
