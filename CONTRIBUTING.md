@@ -31,6 +31,6 @@ IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.
 
 ## Git 分支与推送范围
 
-本地完整项目分支和远程客户端分支都叫 `codex/ipa-engine-v0.0.1-dev`，但对应不同历史。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 到 `public/codex/ipa-engine-v0.0.1-dev`，导出树及全部历史都必须仅含公开文件。禁止推送完整项目分支、force、`--all` 或 `--mirror`。历史映射、远程分叉或校验异常时先排查，不盲目迁移或覆盖历史。完整维护说明在本地 `release/docs/远程发布流程.md`。
+本地完整项目分支和远程客户端分支都叫 `codex/ipa-engine-v0.0.1-dev`，但对应不同历史。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 到 `public/codex/ipa-engine-v0.0.1-dev`，当前导出树及所有新增祖先提交须符合现行白名单，已发布历史按原记录保留。公开子目录改名时仅导出最终快照并建立 subtree join，后续继续增量导出；不会把未发布的中间目录一起公开。禁止推送完整项目分支、force、`--all` 或 `--mirror`。历史映射、远程分叉或校验异常时先排查，不盲目迁移或覆盖历史。完整维护说明在本地 `release/docs/远程发布流程.md`。
 
 开发发布不创建或更新 `main`。将来向远程 `main` 合并时，在公开仓库使用 `git merge --no-ff codex/ipa-engine-v0.0.1-dev`，或在 GitHub 选择 **Create a merge commit**；不使用 fast-forward、squash 或 rebase。

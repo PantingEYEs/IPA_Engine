@@ -424,7 +424,7 @@ v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/N
 | `data_pipeline/scripts/collection/` | 数据来源采集、下载与采集专用依赖。 |
 | `data_pipeline/scripts/preprocessing/` | 清洗、规范化、词频处理、索引和审查工具。 |
 | `dictionary/` | 图词典编译、位宽转换、格式说明及编译测试。 |
-| `cli_tests/scripts/` | 桌面 CLI、引擎对照和 native CLI 设备测试。 |
+| `cli_tests/scripts/` | 桌面 CLI 和编译词典反查读取器。 |
 | `gru/scripts/` | GRU 语料准备、原生 parity 与基准工具。 |
 | `engine_android/scripts/` | Rust 引擎和 Android 原生组件构建工具。 |
 | `release/scripts/release/` | 客户端批次打包、公开源码同步和发布。 |
@@ -433,7 +433,7 @@ v0.0.1-dev 的24位 AAR 有17项手机检查通过，涵盖五地区、Unicode/N
 | `data_pipeline/catalog/` | 来源、许可、原始快照 manifest。 |
 | `data/` | 完整本地项目的数据工作区；公开 `source/data/` 仅含运行所需的编译后词典及 manifest，原始/规范化资料、SQLite、权重和构建报告不随 source 发布。 |
 | `engine_android/docs/` | 引擎接入接口与运行时设计说明。 |
-| `docs/` | 发布工作流说明。 |
+| `release/docs/` | 发布工作流说明。 |
 | `release/remote/source/` | 自动同步的公开引擎源码、构建工具和合成测试，不含原始资料和训练权重。 |
 | `release/remote/pre-release/` | 当前版本元数据和客户端批次；旧产物保存在 Git 历史中，不含源代码/测试 APK。 |
 | `release/remote/board-update.json` | IPA Board 唯一更新入口，指向已发布公开提交的分离资源。 |
@@ -483,7 +483,7 @@ python3 -m venv .tools/train
 
 远程仓库根目录包含 `README.md`、`VERSION`、`CONTRIBUTING.md`、`board-update.json`、`source/` 和 `pre-release/`。这些文件在本地位于 `release/remote/`；`source/` 按逐文件白名单同步引擎源码及构建、测试工具。原始下载、资料库、训练样本与权重不进入公开树或公开历史。发布包及来源许可记录的相对路径在两种布局中一致。
 
-客户端固定读取的开发分支为 `codex/ipa-engine-v0.0.1-dev`，分支名不随版本变化。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 的公开历史到 `public/codex/ipa-engine-v0.0.1-dev`；导出树及全部历史必须仅含公开文件。禁止推送完整项目分支或强推。开发发布不创建或更新 `main`，未来向远程 main 合并采用 `git merge --no-ff` 或 GitHub **Create a merge commit** 保留记录；不使用 fast-forward、squash 或 rebase。维护规则见 [CONTRIBUTING](CONTRIBUTING.md)，完整本地项目另有 `release/docs/远程发布流程.md`。
+客户端固定读取的开发分支为 `codex/ipa-engine-v0.0.1-dev`，分支名不随版本变化。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 的公开历史到 `public/codex/ipa-engine-v0.0.1-dev`；当前导出树及所有新增祖先提交须符合现行白名单，已发布历史按原记录保留。禁止推送完整项目分支或强推。开发发布不创建或更新 `main`，未来向远程 main 合并采用 `git merge --no-ff` 或 GitHub **Create a merge commit** 保留记录；不使用 fast-forward、squash 或 rebase。维护规则见 [CONTRIBUTING](CONTRIBUTING.md)，完整本地项目另有 `release/docs/远程发布流程.md`。
 
 ## IPA Board 独立资源更新
 
