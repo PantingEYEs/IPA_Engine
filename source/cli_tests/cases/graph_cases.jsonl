@@ -21,3 +21,5 @@
 {"id": "my-known-extra-suffix", "raw": "maɪzzz", "regions": ["en-US"], "expected_empty": true}
 {"id": "nihao-wrong-order", "raw": "xɑʊni", "regions": ["zh-CN"], "expected_none": ["你好"]}
 {"id": "reject-tone-digit-six", "raw": "ni6", "expected_status": "unsupported_input", "expected_empty": true}
+
+{"id": "nihao-ipa-initials", "raw": "nx", "regions": ["zh-CN"], "limit": 5, "expected_any": ["你好"]}

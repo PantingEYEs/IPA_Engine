@@ -1,8 +1,7 @@
 # Engine source snapshot
 
 This is a buildable, reduced project snapshot. It contains the Rust engine,
-Android Java/JNI wrapper, CLI, engine tests, and the complete compiled 24-bit
-runtime dictionary. It excludes collection/preprocessing, dictionary source
+Android Java/JNI wrapper, CLI, engine tests, and small synthetic fixtures. It excludes collection/preprocessing, dictionary source
 data and compiler, GRU training, and release tools. From this directory, Python
 3.10+ and Rust 1.89+ are required.
 
@@ -14,8 +13,11 @@ python3 -m unittest cli_tests.tests.test_engine_cli cli_tests.tests.test_graph_o
 python3 engine_android/scripts/build_android_library.py --ndk /path/to/android-ndk --sdk /path/to/Android/sdk
 ```
 
-The dictionary and its provenance manifest are in
-`data/dictionary/compiled/`; engine and CLI commands use them by default.
+The runtime dictionary is downloaded separately from GitHub Releases. Download
+`client.json`, then the named dictionary and manifest assets; verify their sizes
+and SHA-256 before placing them in `data/dictionary/compiled/`. The default names
+are `lexicon.ipad` and `lexicon.manifest.json`. No runtime dictionary is tracked
+in this source snapshot. Rust and CLI regression tests use tiny fixtures.
 Android packaging requires an installed Android SDK, NDK, JDK and Rust
 `aarch64-linux-android` target. Build outputs and test reports go under the
 ignored `data/` area. See [engine build notes](engine_android/README.md) and

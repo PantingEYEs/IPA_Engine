@@ -29,6 +29,7 @@ ENTRIES = {
     "mˈaɪ": [("my", 1, 120, False)],
     "ni˧˥ xɑʊ̯˨˩": [("你好", 2, 100, False)],
     "ni˨˩˦ xɑʊ̯˨˩˦": [("你好", 2, 110, False)],
+    "in˧˥ xɑŋ˧˥": [("银行", 2, 180, False)],
     "ɕoː.ɡa": [("fixture-japanese", 4, 100, False)],
 }
 TONES = str.maketrans("12345", "˩˨˧˦˥")
@@ -98,6 +99,25 @@ class GraphOmissionsTest(unittest.TestCase):
                 result = self.query(raw)
                 self.assert_valid_candidates(raw, result)
                 self.assertIn(word, [c["text"] for c in result["candidates"]])
+
+    def test_initial_abbreviations_prefer_onsets_over_codas(self):
+        for raw in ("nx", "n x"):
+            with self.subTest(raw=raw):
+                result = self.query(raw, "--region", "zh-CN")
+                self.assert_valid_candidates(raw, result)
+                self.assertEqual(result["candidates"][0]["text"], "你好")
+                self.assertFalse(result["exact_found"])
+                strict = self.query(raw, "--strict", "--region", "zh-CN")
+                self.assertEqual(strict["candidates"], [])
+        # A high-frequency coda match remains valid, but cannot displace an
+        # abbreviation that starts each explicitly separated syllable.
+        result = self.query("nx", "--region", "zh-CN")
+        self.assertIn("银行", [c["text"] for c in result["candidates"]])
+        self.assertNotIn("你好", [c["text"] for c in self.query("xn")["candidates"]])
+        self.assertNotIn("你好", [c["text"] for c in self.query("nxz")["candidates"]])
+        limited = self.query("nx", "--omission-budget", "1")
+        self.assertTrue(limited["truncated"])
+        self.assertLessEqual(limited["explored_states"], 1)
 
     def test_complete_input_cannot_be_replaced_dropped_or_reordered(self):
         for raw, forbidden in (("ɪam", "my"), ("maɪz", "my"),

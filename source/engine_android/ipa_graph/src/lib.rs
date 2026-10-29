@@ -150,6 +150,11 @@ fn varint(bytes: &[u8], cursor: &mut usize) -> Result<u32, String> {
     }
     Err("invalid varint".into())
 }
+// IPA vowel symbols; classification only guides omission priorities. It never
+// replaces, inserts or reorders a user's input symbols.
+fn vowel(cp: u32) -> bool {
+    char::from_u32(cp).is_some_and(|c| "aeiouyæøœɐɑɒɔəɚɛɜɝɞɘɨɪɯɵɤʉʊʌʏɶ".contains(c))
+}
 fn whitespace(cp: u32) -> bool {
     matches!(cp, 0x20 | 9..=13 | 0x85 | 0xa0 | 0x1680 | 0x2000..=0x200a
         | 0x2028 | 0x2029 | 0x202f | 0x205f | 0x3000)
@@ -733,6 +738,8 @@ struct State {
     position: usize,
     omitted: u32,
     cost: u32,
+    at_onset: bool,
+    onset_aligned: bool,
 }
 impl Ord for State {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -802,6 +809,7 @@ impl Search<'_> {
         ipa: &str,
         completion: bool,
         omitted: u32,
+        initials: bool,
     ) -> Result<(), String> {
         if !self.consumed.insert(key) {
             return Ok(());
@@ -843,6 +851,10 @@ impl Search<'_> {
                 completion,
                 score: (if completion {
                     1000
+                } else if initials && omitted != 0 {
+                    // Initial abbreviations compete by frequency rather than
+                    // the number of vowels/tone marks in the full spelling.
+                    6000
                 } else if omitted != 0 {
                     5000 - omitted as i32 * 20
                 } else {
@@ -892,7 +904,7 @@ impl Search<'_> {
             input_symbols += unicode::expansion(cp).1 as u32;
         }
         if self.result.exact_found {
-            self.consume(walked.expect("exact walk").1, &normalized, false, 0)?;
+            self.consume(walked.expect("exact walk").1, &normalized, false, 0, false)?;
         }
         if options.prefix && !self.timeout {
             if let Some((node, rank)) = walked {
@@ -995,6 +1007,7 @@ impl Search<'_> {
                         &ipa,
                         ipa != normalized,
                         key_symbols - input_symbols,
+                        false,
                     )?;
                     frame.rank += 1;
                 }
@@ -1032,6 +1045,11 @@ impl Search<'_> {
             let (parts, count) = unicode::expansion(cp);
             input.extend_from_slice(&parts[..count]);
         }
+        let sounds = input.iter().filter(|&&cp| !unicode::annotation(cp)).count();
+        let initials = (2..=8).contains(&sounds)
+            && input.iter().all(|&cp| {
+                whitespace(cp) || cp == 0x2e || (!unicode::annotation(cp) && !vowel(cp))
+            });
         let mut remaining = vec![0u64; input.len() + 1];
         for i in (0..input.len()).rev() {
             remaining[i] = remaining[i + 1] | symbol_bit(input[i]);
@@ -1043,6 +1061,8 @@ impl Search<'_> {
             position: 0,
             omitted: 0,
             cost: 0,
+            at_onset: true,
+            onset_aligned: true,
         });
         let budget = options.omission_state_budget.clamp(1, 200_000);
         let mut created = 1;
@@ -1066,7 +1086,13 @@ impl Search<'_> {
                     let completion =
                         options.prefix && ipa != normalized && ipa.starts_with(normalized);
                     if !completion {
-                        self.consume(child_rank, &ipa, false, current.omitted)?;
+                        self.consume(
+                            child_rank,
+                            &ipa,
+                            false,
+                            current.omitted,
+                            initials && current.onset_aligned,
+                        )?;
                     }
                 }
                 child_rank += 1;
@@ -1076,13 +1102,38 @@ impl Search<'_> {
                 let cp = self.graph.cp(label);
                 let (mut position, mut omitted, mut cost) =
                     (current.position, current.omitted, current.cost);
+                let (mut at_onset, mut onset_aligned) = (current.at_onset, current.onset_aligned);
                 let (parts, count) = unicode::expansion(cp);
                 for &part in &parts[..count] {
+                    let boundary = whitespace(part) || part == 0x2e;
+                    let sound = !unicode::annotation(part) && !boundary;
                     if position < input.len() && part == input[position] {
+                        if initials && sound && !at_onset {
+                            cost += 256;
+                            onset_aligned = false;
+                        }
                         position += 1;
                     } else {
                         omitted += 1;
-                        cost += if unicode::annotation(part) { 1 } else { 128 };
+                        cost += if unicode::annotation(part) {
+                            1
+                        } else if initials && at_onset {
+                            256
+                        } else if initials && vowel(part) {
+                            16
+                        } else if initials {
+                            64
+                        } else {
+                            128
+                        };
+                        if sound && at_onset {
+                            onset_aligned = false;
+                        }
+                    }
+                    if boundary {
+                        at_onset = true;
+                    } else if sound {
+                        at_onset = false;
                     }
                 }
                 if input.len() - position <= usize::from(self.graph.max_match_depth[child as usize])
@@ -1098,6 +1149,8 @@ impl Search<'_> {
                             position,
                             omitted,
                             cost,
+                            at_onset,
+                            onset_aligned,
                         });
                         created += 1;
                     }

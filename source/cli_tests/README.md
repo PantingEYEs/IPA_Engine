@@ -18,8 +18,9 @@ remain with their respective phases.
 
 Test data and reports generated from full local datasets belong in the shared
 `data/cli_tests/` area. Test cases under `cases/` are small checked-in fixtures.
-The reduced public `source/` snapshot includes the compiled runtime dictionary,
-but not the source-observation database or its sampling tools; its case commands
+The reduced public `source/` snapshot excludes the runtime dictionary,
+source-observation database and its sampling tools; download the dictionary
+and manifest from a GitHub Release before querying. Its case commands
 use the checked-in regression fixtures or a caller-provided JSONL file.
 
 Run commands from the repository root:
@@ -38,3 +39,8 @@ component tests are documented and run within their owning directories.
 Standalone 24/32-bit comparison and on-device benchmark utilities are not
 included: the reduced source snapshot does not provide a 32-bit dictionary or
 the generated Android CLI/device prerequisites.
+
+The omission suite also checks syllable-initial abbreviations (`nx`, `n x`),
+ranking against high-frequency coda matches, strict-mode behavior, wrong-order
+rejection and tiny search budgets. The full-dictionary case list includes `nx`
+with `zh-CN` enabled and requires `你好` in the first five returned candidates.

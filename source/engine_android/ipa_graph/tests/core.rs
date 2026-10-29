@@ -103,6 +103,8 @@ fn ordered_omissions_numeric_tones_unicode_and_limits() {
     for (raw, word) in [
         ("maɪ", "my"),
         ("nixɑʊ", "你好"),
+        ("nx", "你好"),
+        ("n x", "你好"),
         ("ni35 xɑʊ̯21", "你好"),
         ("ni35xɑʊ21", "你好"),
         ("ɕoɡa", "fixture-japanese"),

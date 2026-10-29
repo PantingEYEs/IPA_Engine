@@ -51,3 +51,28 @@ unsafe code; parsing and querying use checked slices and owned containers.
 Input limits, matching budgets, scoring and timeout behavior remain compatible.
 Context scoring and neural reranking are not implemented. The previous C++
 runtime and builder have been removed; Android and default CLI builds use Rust.
+
+## IPA initial abbreviations
+
+Default omission matching prioritizes short inputs containing 2–8 consonant
+symbols as possible syllable-initial abbreviations. It recognizes starts at
+the beginning of an IPA key and after explicit spaces/dots, skips vowels and
+annotations more cheaply during search, and ranks fully onset-aligned matches
+by corpus frequency ahead of arbitrary internal/coda matches. Exact inputs
+still rank first. This adds no special word mappings or sound substitutions;
+all typed symbols must still occur in order, and strict matching disables it.
+Unmarked syllable boundaries are not inferred. Search state/deadline budgets
+remain in effect, so an abbreviated query can return a truncated candidate set.
+
+With the existing full 24-bit dictionary, `nx` retrieves `你好` among the first
+three candidates for `zh-CN`, and among the first five with all regions enabled.
+`女孩` and `男孩` share these initials and can rank higher by source frequency.
+Explicit `n x` also participates in onset ranking, while its space must match a
+real IPA boundary. Full IPA and numeric tones can refine ambiguous abbreviations.
+
+The change is in the shared Rust core and needs no dictionary-format or JNI API
+migration. Local validation outputs are under
+`data/cli_tests/reports/initial-abbreviations-*.json`; a rebuilt Android library
+and local AAR are under `data/engine_android/builds/initial-abbreviations/`.
+The AAR was built for ARM64 and verified by building the Android probe; that
+build alone does not confirm execution on a physical device.
