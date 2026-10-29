@@ -1,7 +1,7 @@
 {
   "format": 1,
-  "sourceSha256": "4a5c8c9d67a6188845f3ff92a37323d14ffe1f2fd4f51e46b7941fa4d0cc615c",
-  "runtimeSourceSha256": "0027e8818e54defec34e97ca10ecc03c480e4fa6966ed18aa9139eb3ab660863",
+  "sourceSha256": "b2fce43c1d0fb7eb69074b9d58be2b6067aed1ebee2a9e6839e515b7a3d3e69c",
+  "runtimeSourceSha256": "2623c55bd14c7bbac1548c43762dd71c3f9135616ee6d41f30e91d1d7de0bee3",
   "files": {
     "cli_tests/README.md": "56b31ad66ef60b3a2d0d322115ea61e2c18e337a504f575ff0a123d61e3c00d0",
     "cli_tests/__init__.py": "0b6820eefedae346c63c0fdceb01178d897a1eb79fd795e0f43a34f1686a2851",
@@ -25,8 +25,8 @@
     "engine_android/android/tests/verify_desktop_jni.py": "55455b8d8c58304765ef8cdf1136138a01d33cec8cb480af0557e2ec55f7ae1e",
     "engine_android/docs/图词典引擎.md": "9d66b8255b41a45d0ce01dbac2f8f5b4dadad883fbcc8c1e392b969f7f7fa6a4",
     "engine_android/docs/引擎开发规范.md": "a921766ff980feacbb4c27e13bc3435b8b1f32e6928f4f86e21edd6deda2d420",
-    "engine_android/ipa_graph/Cargo.lock": "6a85ca7990c72e3faf30c5831793a251407989dc07aa454e11a6db225eec39be",
-    "engine_android/ipa_graph/Cargo.toml": "6b9434c79c39dbf31063e6cd4efc5f60e8bc01c998b7d8288504b2a5ae58139b",
+    "engine_android/ipa_graph/Cargo.lock": "21a92c6ca38ec833aac6df316535c115a5494ad1c2c1c922fc395c28b50f52ce",
+    "engine_android/ipa_graph/Cargo.toml": "c46d34a1f15f9ea716acf4baa3def0d6d735b6790b4838889bd40a9ae322525e",
     "engine_android/ipa_graph/src/bin/build_dawg.rs": "6dd502b9e61fa593885094ced8a9889cf370ae69862ea1007ac5c1c2d19d8451",
     "engine_android/ipa_graph/src/bin/ipa_graph.rs": "549568d1f119521ca4ae81c762a82aa5c0d9c2c036c56e9606b195d7ba28cc6a",
     "engine_android/ipa_graph/src/ffi.rs": "5e917c95b1d671031a59a88874bf72a05631bd2156d19895d632a3f93b8b06e4",

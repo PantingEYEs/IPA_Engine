@@ -4,4 +4,4 @@ version = 4
 
 [[package]]
 name = "ipa_graph"
-version = "0.0.3-dev"
+version = "0.0.4"
