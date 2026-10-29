@@ -25,12 +25,12 @@ python3 release/scripts/release/publish_release.py \
 
 ## 客户端合同与历史
 
-IPA Board 固定读取 `codex/ipa-engine-v0.0.1-dev` 分支的根 [board-update.json](board-update.json)。分支名不随引擎版本改变；客户端按清单下载配套 `classes.dex`、`libipa_graph_android.so` 及裸 `lexicon.ipad`（IPADWG01 v2）。最新产物见 [预发布索引](pre-release/README.md)，字段与下载合同见根 [README](README.md) 的“IPA Board 独立资源更新”。
+IPA Board 固定读取 `develop` 分支的根 [board-update.json](board-update.json)。分支名不随引擎版本改变；客户端按清单下载配套 `classes.dex`、`libipa_graph_android.so` 及裸 `lexicon.ipad`（IPADWG01 v2）。最新产物见 [预发布索引](pre-release/README.md)，字段与下载合同见根 [README](README.md) 的“IPA Board 独立资源更新”。
 
 最新目录只保留当前版本元数据和客户端批次，旧目录的删除记录纳入 Git。已发布资源在历史提交中保持不可变，旧入口仍可从它固定的 `artifactCommit` 下载；回滚从相应 Git 提交恢复。引擎与词典版本独立，词典字节未变时保持原词典版本。引擎更新须配套发布 DEX/JNI，并保持 GraphEngine 接口、候选合同及已安装词典兼容；新词典须兼容仍在使用的旧引擎。
 
 ## Git 分支与推送范围
 
-本地完整项目分支和远程客户端分支都叫 `codex/ipa-engine-v0.0.1-dev`，但对应不同历史。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 到 `public/codex/ipa-engine-v0.0.1-dev`，当前导出树及所有新增祖先提交须符合现行白名单，已发布历史按原记录保留。公开子目录改名时仅导出最终快照并建立 subtree join，后续继续增量导出；不会把未发布的中间目录一起公开。禁止推送完整项目分支、force、`--all` 或 `--mirror`。历史映射、远程分叉或校验异常时先排查，不盲目迁移或覆盖历史。完整维护说明在本地 `release/docs/远程发布流程.md`。
+本地完整项目分支和远程客户端分支都叫 `develop`，但对应不同历史。发布脚本只推送本地 `codex/remote-v0.0.1-dev` 到 `public/develop`，当前导出树及所有新增祖先提交须符合现行白名单，已发布历史按原记录保留。公开子目录改名时仅导出最终快照并建立 subtree join，后续继续增量导出；不会把未发布的中间目录一起公开。禁止推送完整项目分支、force、`--all` 或 `--mirror`。历史映射、远程分叉或校验异常时先排查，不盲目迁移或覆盖历史。完整维护说明在本地 `release/docs/远程发布流程.md`。
 
-开发发布不创建或更新 `main`。将来向远程 `main` 合并时，在公开仓库使用 `git merge --no-ff codex/ipa-engine-v0.0.1-dev`，或在 GitHub 选择 **Create a merge commit**；不使用 fast-forward、squash 或 rebase。
+开发发布不创建或更新 `main`。将来向远程 `main` 合并时，在公开仓库使用 `git merge --no-ff develop`，或在 GitHub 选择 **Create a merge commit**；不使用 fast-forward、squash 或 rebase。
