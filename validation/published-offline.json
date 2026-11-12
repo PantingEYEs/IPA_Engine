@@ -1,0 +1,9 @@
+{
+  "successful": true,
+  "verificationWithoutSourceOrBuildCache": true,
+  "verificationWithoutSiblingProjects": true,
+  "aarDeterministicRepack": true,
+  "buildId": "6ddfef54ed2c518f5435994eccb14cb2b19897da8ee826c179c8b124aac03258",
+  "aarSha256": "395b09d4f5782dd01c7f7f4c86c12fa71031ec6290ad8d76ebccebaab820e61c",
+  "scope": "Fresh temporary copy of published files only; no Android execution"
+}

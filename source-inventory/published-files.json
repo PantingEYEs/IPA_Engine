@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "files": {
+    "dictionary/main_en-US.dict": {
+      "sha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+      "sizeBytes": 2956881
+    },
+    "dictionary-sources.lock.json": {
+      "sha256": "f589f1e3b9ad392adceb776e8a6d47ef0ff988716a911170ac739a9460c75051",
+      "sizeBytes": 3618
+    },
+    "licenses/README.md": {
+      "sha256": "ed75cc4665de8a0e42ac9ffc9f32091102b8ded46eb06325b7385704bbdf7af6",
+      "sizeBytes": 2677
+    },
+    "licenses/dictionary/HeliBoard-GPL-3.0.txt": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sizeBytes": 35149
+    },
+    "licenses/dictionary/OpenBoard-GPL-3.0.txt": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sizeBytes": 35149
+    },
+    "licenses/dictionary/main_en_US.source": {
+      "sha256": "40858c209be9a676819c08ebc1126a8aa255ac2a239a75f38bc689f7c96b0efe",
+      "sizeBytes": 101
+    },
+    "licenses/native/HeliBoard-Apache-2.0.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sizeBytes": 11358
+    },
+    "licenses/sources.json": {
+      "sha256": "679542e568cc8af0fd4e305cbad639ad1f070c60a465eaa062eb5a9d03ccc6a4",
+      "sizeBytes": 2376
+    },
+    "licenses/toolchain/NDK-r29-NOTICE.toolchain.txt": {
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "sizeBytes": 799639
+    },
+    "licenses/toolchain/NDK-r29-NOTICE.txt": {
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "sizeBytes": 516438
+    },
+    "source-inventory/README.md": {
+      "sha256": "e6b3ff8538a8107c6fd781d066fd10fcae81564c42648a8492ed8f9344cc9620",
+      "sizeBytes": 3910
+    },
+    "source-inventory/bridge-api-review.json": {
+      "sha256": "4973d88a49a52cfbf200291f7245b96d276132c7a246bf10f6b6fb3294bc3e92",
+      "sizeBytes": 4869
+    },
+    "source-inventory/dictionary/en_wordlist.combined.gz": {
+      "sha256": "3a9d7c4dca624ea70ea70c8fccf717a195675f48f194bbb175cd39d180d6c9d4",
+      "sizeBytes": 1400231
+    },
+    "source-inventory/dictionary/history.json": {
+      "sha256": "99f2b9de94e0a37147ec32ccef381053b0cd790a9bc8f22f3fbbac95582dbeaa",
+      "sizeBytes": 1532
+    },
+    "source-inventory/excluded-java.json": {
+      "sha256": "96648fd9cfd860a32a7fe0d0e9c3456de2a790132ca68e942dceb31265e0c677",
+      "sizeBytes": 3192
+    },
+    "source-inventory/native-files.json": {
+      "sha256": "b61281fa61673dbf6ff66c7d6ffa844fe85fac8ef69c9b2334aa88bc8f9216d5",
+      "sizeBytes": 307164
+    },
+    "source-inventory/verify.py": {
+      "sha256": "dd87c147935573c0fd4641a08db82316aa4a60db4d61058a6b0f16a9bd43c7c8",
+      "sizeBytes": 6936
+    }
+  }
+}

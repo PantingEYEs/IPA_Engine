@@ -1,0 +1,10 @@
+{
+  global:
+    Java_org_ipaboard_latinime_LatinImeNative_abiVersion;
+    Java_org_ipaboard_latinime_LatinImeNative_identity;
+    Java_org_ipaboard_latinime_LatinImeNative_open;
+    Java_org_ipaboard_latinime_LatinImeNative_query;
+    Java_org_ipaboard_latinime_LatinImeNative_probability;
+    Java_org_ipaboard_latinime_LatinImeNative_close;
+  local: *;
+};

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "commit": "9f5bb635c2e8609dcd95dc7506c0c58fba82a52c",
+  "files": [
+    {
+      "path": "app/src/main/java/com/android/inputmethod/latin/BinaryDictionary.java",
+      "sha256": "7c603a01a6b974659e6772a9630377a6c8adbee96d91586779762139251a610c",
+      "sizeBytes": 30929,
+      "declaredLicense": "Apache-2.0 AND GPL-3.0-only",
+      "noticeHeader": "/*\n * Copyright (C) 2008 The Android Open Source Project\n * modified\n * SPDX-License-Identifier: Apache-2.0 AND GPL-3.0-only\n */",
+      "disposition": "Not copied or built. Independent JNI API and Java declarations replace this registration surface.",
+      "url": "https://github.com/HeliBorg/HeliBoard/blob/9f5bb635c2e8609dcd95dc7506c0c58fba82a52c/app/src/main/java/com/android/inputmethod/latin/BinaryDictionary.java"
+    },
+    {
+      "path": "app/src/main/java/com/android/inputmethod/latin/DicTraverseSession.java",
+      "sha256": "fea4aeb6518188b5b4167deb13da5011064ce9d932cf7e0efd1a396592f197e1",
+      "sizeBytes": 3280,
+      "declaredLicense": "Apache-2.0 AND GPL-3.0-only",
+      "noticeHeader": "/*\n * Copyright (C) 2012 The Android Open Source Project\n * modified\n * SPDX-License-Identifier: Apache-2.0 AND GPL-3.0-only\n */",
+      "disposition": "Not copied or built. Independent JNI API and Java declarations replace this registration surface.",
+      "url": "https://github.com/HeliBorg/HeliBoard/blob/9f5bb635c2e8609dcd95dc7506c0c58fba82a52c/app/src/main/java/com/android/inputmethod/latin/DicTraverseSession.java"
+    },
+    {
+      "path": "app/src/main/java/com/android/inputmethod/keyboard/ProximityInfo.java",
+      "sha256": "d31b2c072db528cb0314f1c0026a9e4ccd0bd5c6cb71cd1d24ee97ae4b2bf758",
+      "sizeBytes": 19405,
+      "declaredLicense": "Apache-2.0 AND GPL-3.0-only",
+      "noticeHeader": "/*\n * Copyright (C) 2011 The Android Open Source Project\n * modified\n * SPDX-License-Identifier: Apache-2.0 AND GPL-3.0-only\n */",
+      "disposition": "Not copied or built. Independent JNI API and Java declarations replace this registration surface.",
+      "url": "https://github.com/HeliBorg/HeliBoard/blob/9f5bb635c2e8609dcd95dc7506c0c58fba82a52c/app/src/main/java/com/android/inputmethod/keyboard/ProximityInfo.java"
+    },
+    {
+      "path": "app/src/main/java/com/android/inputmethod/latin/utils/BinaryDictionaryUtils.java",
+      "sha256": "afbcac57a73d99555509fe0dfa10d06e9aed4406bda446f2386181244a23485a",
+      "sizeBytes": 4846,
+      "declaredLicense": "Apache-2.0 AND GPL-3.0-only",
+      "noticeHeader": "/*\n * Copyright (C) 2014 The Android Open Source Project\n * modified\n * SPDX-License-Identifier: Apache-2.0 AND GPL-3.0-only\n */",
+      "disposition": "Not copied or built. Independent JNI API and Java declarations replace this registration surface.",
+      "url": "https://github.com/HeliBorg/HeliBoard/blob/9f5bb635c2e8609dcd95dc7506c0c58fba82a52c/app/src/main/java/com/android/inputmethod/latin/utils/BinaryDictionaryUtils.java"
+    }
+  ],
+  "boundary": "Removing an SPDX line is not a source migration. Application adapters derived from IPA Board remain under their existing terms and must not be included as permissively licensed native sources."
+}

@@ -1,0 +1,14 @@
+{
+  "passed": 6,
+  "failed": 0,
+  "tests": [
+    "fresh-published-inventory-without-cache",
+    "reject-changed-dictionary/main_en-US.dict",
+    "reject-changed-licenses/native/HeliBoard-Apache-2.0.txt",
+    "reject-changed-source-inventory/dictionary/en_wordlist.combined.gz",
+    "reject-changed-bridge/java/org/ipaboard/latinime/LatinImeNative.java",
+    "reject-unreviewed-core-selection"
+  ],
+  "privateBuildCacheRequired": false,
+  "androidRuntimeExecuted": false
+}

@@ -1,0 +1,147 @@
+{
+  "buildId": "6ddfef54ed2c518f5435994eccb14cb2b19897da8ee826c179c8b124aac03258",
+  "native": {
+    "arm64-v8a": {
+      "machine": 183,
+      "loadSegments": [
+        {
+          "type": 1,
+          "flags": 5,
+          "offset": 0,
+          "vaddr": 0,
+          "paddr": 0,
+          "filesz": 723776,
+          "memsz": 723776,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 723776,
+          "vaddr": 740160,
+          "paddr": 740160,
+          "filesz": 27336,
+          "memsz": 29888,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 751112,
+          "vaddr": 783880,
+          "paddr": 783880,
+          "filesz": 264,
+          "memsz": 7032,
+          "align": 16384
+        }
+      ],
+      "relro": [
+        {
+          "type": 1685382482,
+          "flags": 4,
+          "offset": 723776,
+          "vaddr": 740160,
+          "paddr": 740160,
+          "filesz": 27336,
+          "memsz": 29888,
+          "align": 1
+        }
+      ],
+      "needed": [
+        "libdl.so",
+        "libm.so",
+        "libc.so"
+      ],
+      "soname": "libipa_latinime.so",
+      "requiredCExports": [
+        "Java_org_ipaboard_latinime_LatinImeNative_abiVersion",
+        "Java_org_ipaboard_latinime_LatinImeNative_close",
+        "Java_org_ipaboard_latinime_LatinImeNative_identity",
+        "Java_org_ipaboard_latinime_LatinImeNative_open",
+        "Java_org_ipaboard_latinime_LatinImeNative_probability",
+        "Java_org_ipaboard_latinime_LatinImeNative_query"
+      ],
+      "exportCount": 6
+    },
+    "x86_64": {
+      "machine": 62,
+      "loadSegments": [
+        {
+          "type": 1,
+          "flags": 5,
+          "offset": 0,
+          "vaddr": 0,
+          "paddr": 0,
+          "filesz": 720992,
+          "memsz": 720992,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 720992,
+          "vaddr": 737376,
+          "paddr": 737376,
+          "filesz": 24400,
+          "memsz": 32672,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 745392,
+          "vaddr": 778160,
+          "paddr": 778160,
+          "filesz": 264,
+          "memsz": 7072,
+          "align": 16384
+        }
+      ],
+      "relro": [
+        {
+          "type": 1685382482,
+          "flags": 4,
+          "offset": 720992,
+          "vaddr": 737376,
+          "paddr": 737376,
+          "filesz": 24400,
+          "memsz": 32672,
+          "align": 1
+        }
+      ],
+      "needed": [
+        "libdl.so",
+        "libm.so",
+        "libc.so"
+      ],
+      "soname": "libipa_latinime.so",
+      "requiredCExports": [
+        "Java_org_ipaboard_latinime_LatinImeNative_abiVersion",
+        "Java_org_ipaboard_latinime_LatinImeNative_close",
+        "Java_org_ipaboard_latinime_LatinImeNative_identity",
+        "Java_org_ipaboard_latinime_LatinImeNative_open",
+        "Java_org_ipaboard_latinime_LatinImeNative_probability",
+        "Java_org_ipaboard_latinime_LatinImeNative_query"
+      ],
+      "exportCount": 6
+    }
+  },
+  "aar": {
+    "javaRelease": 11,
+    "jniAbiCount": 2,
+    "noticeCount": 5
+  },
+  "inventory": {
+    "verified": true,
+    "nativeSourceFiles": 221,
+    "compiledUnits": 82,
+    "nativeSourceTreeChecked": false,
+    "ndkOriginalNoticesChecked": false,
+    "dictionarySha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+    "dictionaryBinaryFormat": 202,
+    "dictionaryVersion": "54",
+    "dictionaryFileLicense": "NOASSERTION",
+    "projectLicenseMigrationClaimed": false,
+    "androidRuntimeExecuted": false
+  }
+}

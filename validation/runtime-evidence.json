@@ -1,0 +1,795 @@
+[
+  {
+    "kind": "environment",
+    "identity": "ipa-latinime;abi=1;packet=1;heliboard=4.1;source=9f5bb635c2e8609dcd95dc7506c0c58fba82a52c;dictionary=bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443;build=6ddfef54ed2c518f5435994eccb14cb2b19897da8ee826c179c8b124aac03258",
+    "pageSize": 16384,
+    "sdk": 36,
+    "arch": "x86_64",
+    "supportedAbis": [
+      "x86_64",
+      "arm64-v8a"
+    ],
+    "dictionarySha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+    "dictionaryBytes": 2956881
+  },
+  {
+    "kind": "query",
+    "input": "hel",
+    "previous": [],
+    "bos": true,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "heel",
+        "score": 181900,
+        "type": 268435457
+      },
+      {
+        "text": "helpful",
+        "score": 182519,
+        "type": 268435457
+      },
+      {
+        "text": "helm",
+        "score": 186407,
+        "type": 268435457
+      },
+      {
+        "text": "he",
+        "score": 192317,
+        "type": 268435457
+      },
+      {
+        "text": "helicopters",
+        "score": 192804,
+        "type": 268435457
+      },
+      {
+        "text": "Helen",
+        "score": 197487,
+        "type": 268435457
+      },
+      {
+        "text": "her",
+        "score": 203465,
+        "type": 268435457
+      },
+      {
+        "text": "hell",
+        "score": 204971,
+        "type": 268435457
+      },
+      {
+        "text": "helmet",
+        "score": 205472,
+        "type": 268435457
+      },
+      {
+        "text": "helicopter",
+        "score": 215757,
+        "type": 268435457
+      },
+      {
+        "text": "hello",
+        "score": 237707,
+        "type": 268435457
+      },
+      {
+        "text": "helps",
+        "score": 250083,
+        "type": 268435457
+      },
+      {
+        "text": "helping",
+        "score": 253678,
+        "type": 268435457
+      },
+      {
+        "text": "helped",
+        "score": 301383,
+        "type": 268435457
+      },
+      {
+        "text": "help",
+        "score": 331820,
+        "type": 268435457
+      },
+      {
+        "text": "held",
+        "score": 359665,
+        "type": 268435457
+      },
+      {
+        "text": "hel",
+        "score": 1431721,
+        "type": 1879048193
+      },
+      {
+        "text": "he'll",
+        "score": 2147483646,
+        "type": 3
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "helo",
+    "previous": [],
+    "bos": true,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "hemlock",
+        "score": -144104,
+        "type": 268435457
+      },
+      {
+        "text": "Heloise's",
+        "score": -68464,
+        "type": 268435457
+      },
+      {
+        "text": "Helot's",
+        "score": -60261,
+        "type": 268435457
+      },
+      {
+        "text": "helotism",
+        "score": -38348,
+        "type": 268435457
+      },
+      {
+        "text": "Héloise",
+        "score": -19794,
+        "type": 268435457
+      },
+      {
+        "text": "helotry",
+        "score": -19794,
+        "type": 268435457
+      },
+      {
+        "text": "halo",
+        "score": 4345,
+        "type": 268435457
+      },
+      {
+        "text": "he'll",
+        "score": 18797,
+        "type": 268435457
+      },
+      {
+        "text": "helio",
+        "score": 27555,
+        "type": 268435457
+      },
+      {
+        "text": "helm",
+        "score": 41921,
+        "type": 268435457
+      },
+      {
+        "text": "hell",
+        "score": 59265,
+        "type": 268435457
+      },
+      {
+        "text": "Heloise",
+        "score": 66921,
+        "type": 268435457
+      },
+      {
+        "text": "helot",
+        "score": 95357,
+        "type": 268435457
+      },
+      {
+        "text": "hero",
+        "score": 111294,
+        "type": 268435457
+      },
+      {
+        "text": "helots",
+        "score": 128833,
+        "type": 268435457
+      },
+      {
+        "text": "help",
+        "score": 177776,
+        "type": 268435457
+      },
+      {
+        "text": "held",
+        "score": 203791,
+        "type": 268435457
+      },
+      {
+        "text": "hello",
+        "score": 279030,
+        "type": 268435457
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "HEL",
+    "previous": [],
+    "bos": true,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "heel",
+        "score": 181900,
+        "type": 268435457
+      },
+      {
+        "text": "helpful",
+        "score": 182519,
+        "type": 268435457
+      },
+      {
+        "text": "helm",
+        "score": 186407,
+        "type": 268435457
+      },
+      {
+        "text": "he",
+        "score": 192317,
+        "type": 268435457
+      },
+      {
+        "text": "helicopters",
+        "score": 192804,
+        "type": 268435457
+      },
+      {
+        "text": "Helen",
+        "score": 197487,
+        "type": 268435457
+      },
+      {
+        "text": "her",
+        "score": 203465,
+        "type": 268435457
+      },
+      {
+        "text": "hell",
+        "score": 204971,
+        "type": 268435457
+      },
+      {
+        "text": "helmet",
+        "score": 205472,
+        "type": 268435457
+      },
+      {
+        "text": "helicopter",
+        "score": 215757,
+        "type": 268435457
+      },
+      {
+        "text": "hello",
+        "score": 237707,
+        "type": 268435457
+      },
+      {
+        "text": "helps",
+        "score": 250083,
+        "type": 268435457
+      },
+      {
+        "text": "helping",
+        "score": 253678,
+        "type": 268435457
+      },
+      {
+        "text": "helped",
+        "score": 301383,
+        "type": 268435457
+      },
+      {
+        "text": "help",
+        "score": 331820,
+        "type": 268435457
+      },
+      {
+        "text": "held",
+        "score": 359665,
+        "type": 268435457
+      },
+      {
+        "text": "hel",
+        "score": 1431721,
+        "type": 1879048193
+      },
+      {
+        "text": "he'll",
+        "score": 2147483646,
+        "type": 3
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "don't",
+    "previous": [],
+    "bos": true,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "dong's",
+        "score": -352458,
+        "type": -1879048191
+      },
+      {
+        "text": "Donets",
+        "score": -330149,
+        "type": 268435457
+      },
+      {
+        "text": "Donatello",
+        "score": -309148,
+        "type": 268435457
+      },
+      {
+        "text": "done",
+        "score": -291793,
+        "type": 268435457
+      },
+      {
+        "text": "donuts",
+        "score": -286753,
+        "type": 268435457
+      },
+      {
+        "text": "Donetsk",
+        "score": -279753,
+        "type": 268435457
+      },
+      {
+        "text": "Dion's",
+        "score": -273803,
+        "type": 268435457
+      },
+      {
+        "text": "donates",
+        "score": -255342,
+        "type": 268435457
+      },
+      {
+        "text": "donating",
+        "score": -229356,
+        "type": 268435457
+      },
+      {
+        "text": "do not",
+        "score": -226949,
+        "type": 268435457
+      },
+      {
+        "text": "donate",
+        "score": -199961,
+        "type": 268435457
+      },
+      {
+        "text": "donation",
+        "score": -183248,
+        "type": 268435457
+      },
+      {
+        "text": "donations",
+        "score": -173535,
+        "type": 268435457
+      },
+      {
+        "text": "donated",
+        "score": -138716,
+        "type": 268435457
+      },
+      {
+        "text": "don's",
+        "score": -91558,
+        "type": 268435457
+      },
+      {
+        "text": "Don's",
+        "score": -2054,
+        "type": 268435457
+      },
+      {
+        "text": "donut",
+        "score": 19643,
+        "type": 268435457
+      },
+      {
+        "text": "don't",
+        "score": 1910142,
+        "type": 1879048193
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "worl",
+    "previous": [
+      "hello"
+    ],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "worldlings",
+        "score": -8974,
+        "type": 268435457
+      },
+      {
+        "text": "worldling",
+        "score": 18250,
+        "type": 268435457
+      },
+      {
+        "text": "worm",
+        "score": 39031,
+        "type": 268435457
+      },
+      {
+        "text": "wool",
+        "score": 67936,
+        "type": 268435457
+      },
+      {
+        "text": "worldliness",
+        "score": 90982,
+        "type": 268435457
+      },
+      {
+        "text": "wore",
+        "score": 96841,
+        "type": 268435457
+      },
+      {
+        "text": "worn",
+        "score": 111294,
+        "type": 268435457
+      },
+      {
+        "text": "worldviews",
+        "score": 118208,
+        "type": 268435457
+      },
+      {
+        "text": "WorldCom",
+        "score": 129301,
+        "type": 268435457
+      },
+      {
+        "text": "whorl",
+        "score": 151847,
+        "type": 268435457
+      },
+      {
+        "text": "word",
+        "score": 166214,
+        "type": 268435457
+      },
+      {
+        "text": "worldview",
+        "score": 188791,
+        "type": 268435457
+      },
+      {
+        "text": "worldly",
+        "score": 211447,
+        "type": 268435457
+      },
+      {
+        "text": "work",
+        "score": 221134,
+        "type": 268435457
+      },
+      {
+        "text": "worlds",
+        "score": 270469,
+        "type": 268435457
+      },
+      {
+        "text": "world's",
+        "score": 318397,
+        "type": 268435457
+      },
+      {
+        "text": "worldwide",
+        "score": 324646,
+        "type": 268435457
+      },
+      {
+        "text": "world",
+        "score": 364176,
+        "type": 268435457
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "th",
+    "previous": [
+      "is",
+      "this"
+    ],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "theme",
+        "score": 231873,
+        "type": 268435457
+      },
+      {
+        "text": "thee",
+        "score": 246579,
+        "type": 268435457
+      },
+      {
+        "text": "thus",
+        "score": 269876,
+        "type": 268435457
+      },
+      {
+        "text": "to",
+        "score": 272978,
+        "type": 268435457
+      },
+      {
+        "text": "thou",
+        "score": 286516,
+        "type": 268435457
+      },
+      {
+        "text": "third",
+        "score": 295105,
+        "type": 268435457
+      },
+      {
+        "text": "those",
+        "score": 305089,
+        "type": 268435457
+      },
+      {
+        "text": "than",
+        "score": 306484,
+        "type": 268435457
+      },
+      {
+        "text": "three",
+        "score": 308417,
+        "type": 268435457
+      },
+      {
+        "text": "these",
+        "score": 321730,
+        "type": 268435457
+      },
+      {
+        "text": "them",
+        "score": 336436,
+        "type": 268435457
+      },
+      {
+        "text": "there",
+        "score": 338370,
+        "type": 268435457
+      },
+      {
+        "text": "then",
+        "score": 343092,
+        "type": 268435457
+      },
+      {
+        "text": "they",
+        "score": 359732,
+        "type": 268435457
+      },
+      {
+        "text": "their",
+        "score": 371650,
+        "type": 268435457
+      },
+      {
+        "text": "that",
+        "score": 429620,
+        "type": 268435457
+      },
+      {
+        "text": "this",
+        "score": 446261,
+        "type": 268435457
+      },
+      {
+        "text": "the",
+        "score": 524199,
+        "type": 268435457
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "",
+    "previous": [
+      "thank"
+    ],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "goodness",
+        "score": 101,
+        "type": 8
+      },
+      {
+        "text": "God",
+        "score": 136,
+        "type": 8
+      },
+      {
+        "text": "you",
+        "score": 176,
+        "type": 8
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "",
+    "previous": [
+      "hello"
+    ],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "Kitty",
+        "score": 100,
+        "type": 8
+      },
+      {
+        "text": "nasty",
+        "score": 100,
+        "type": 8
+      },
+      {
+        "text": "and",
+        "score": 214,
+        "type": 8
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "",
+    "previous": [],
+    "bos": true,
+    "legacyEqual": true,
+    "rows": []
+  },
+  {
+    "kind": "query",
+    "input": "",
+    "previous": [],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": []
+  },
+  {
+    "kind": "query",
+    "input": "you",
+    "previous": [
+      "thank",
+      "we",
+      "think"
+    ],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": [
+      {
+        "text": "you'd",
+        "score": 129421,
+        "type": 268435457
+      },
+      {
+        "text": "yours",
+        "score": 132515,
+        "type": 268435457
+      },
+      {
+        "text": "youngster",
+        "score": 133518,
+        "type": 268435457
+      },
+      {
+        "text": "youngsters",
+        "score": 138410,
+        "type": 268435457
+      },
+      {
+        "text": "you'll",
+        "score": 155970,
+        "type": 268435457
+      },
+      {
+        "text": "you've",
+        "score": 155970,
+        "type": 268435457
+      },
+      {
+        "text": "youthful",
+        "score": 159565,
+        "type": 268435457
+      },
+      {
+        "text": "yourself",
+        "score": 171941,
+        "type": 268435457
+      },
+      {
+        "text": "youths",
+        "score": 183815,
+        "type": 268435457
+      },
+      {
+        "text": "YouTube",
+        "score": 194894,
+        "type": 268435457
+      },
+      {
+        "text": "youngest",
+        "score": 243100,
+        "type": 268435457
+      },
+      {
+        "text": "Young",
+        "score": 250083,
+        "type": 268435457
+      },
+      {
+        "text": "younger",
+        "score": 278429,
+        "type": 268435457
+      },
+      {
+        "text": "youth",
+        "score": 287209,
+        "type": 268435457
+      },
+      {
+        "text": "young",
+        "score": 302679,
+        "type": 268435457
+      },
+      {
+        "text": "your",
+        "score": 353477,
+        "type": 268435457
+      },
+      {
+        "text": "you're",
+        "score": 357073,
+        "type": 268435457
+      },
+      {
+        "text": "you",
+        "score": 1855583,
+        "type": 1879048193
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "input": "",
+    "previous": [
+      "zzzzsyntheticcontext"
+    ],
+    "bos": false,
+    "legacyEqual": true,
+    "rows": []
+  }
+]

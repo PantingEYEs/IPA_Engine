@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "commits": [
+    {
+      "commit": "8d46e0ed25740314cf4a62693e70cda608be9814",
+      "url": "https://github.com/openboard-team/openboard/commit/8d46e0ed25740314cf4a62693e70cda608be9814",
+      "message": "Add bigrams to English wordlist for next word suggestion\n\nAdd bigrams to all English words, essentially \"pre-loading\" the word suggestions without needing to learn from user input. Words derived from the American National Corpus, https://www.anc.org/data/oanc/ .",
+      "files": [
+        {
+          "path": "app/src/main/res/raw/main_en.dict",
+          "gitBlobSha1": "f40bd1962727461acd2c713c7edda650f9d6d0ff"
+        },
+        {
+          "path": "dictionaries/en_wordlist.combined.gz",
+          "gitBlobSha1": "43de290dae1ad5b62674a64c27b5ee6e92b0885f"
+        }
+      ]
+    },
+    {
+      "commit": "206fc18ec35b55ddcb73464fa0b03bd31f1ff0d0",
+      "url": "https://github.com/openboard-team/openboard/commit/206fc18ec35b55ddcb73464fa0b03bd31f1ff0d0",
+      "message": "Add persistence for user history dictionary\n\nUser history dictionary was not flushing to disk on close, added that logic so (unless there's a crash) the user history should be persisted.",
+      "files": [
+        {
+          "path": "app/src/main/res/raw/main_en.dict",
+          "gitBlobSha1": "081a8c8c603aaa6b89dab4c8fba4633cc3a89566"
+        },
+        {
+          "path": "dictionaries/en_wordlist.combined.gz",
+          "gitBlobSha1": "1ccedfb9ff4358815b099088035c53a3d73e7be0"
+        }
+      ]
+    }
+  ]
+}

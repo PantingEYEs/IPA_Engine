@@ -1,0 +1,25 @@
+{
+  "boardCommit": "327b3d30bc798c8f3111c876dce6301834e05510",
+  "files": {
+    "app/src/main/java/com/example/ipa_board/ime/EnglishEngine.kt": "8e6a86609905af59340de8a2f365adad9476e65c86e3657ed216c2389c1db266",
+    "app/src/main/java/com/example/ipa_board/ime/LatinImePacket.kt": "05c74ea4dbbbe3aebbbd587d58dbd633ceb0d614c0742430605597d1a439aefb",
+    "app/src/androidTest/java/com/example/ipa_board/LatinImeSourceBuildTest.kt": "7df17dd0ebcdb4fa33ccea258adf53e1649cb16367a3e53e6fe6c30f7acf3d2c",
+    "app/src/androidTest/java/com/example/ipa_board/LatinImeLegacyOracle.kt": "f94e7722f1c684a2d8c50195b33de860048eefe5e62a6c5c6b1d97bedac809bf",
+    "app/src/test/java/com/example/ipa_board/ime/LatinImePacketTest.kt": "8cc3c39bc2d6653fc82e3a27b6826e622cd4b59f4c245c1d2762bb41b94d72b9",
+    "app/src/androidTest/java/com/example/ipa_board/EnglishImeIntegrationTest.kt": "ecdba0e753e7bf624d09c2cbd49fc061d3d2d969473d45e4db1a42027ca82208",
+    "app/src/main/assets/engines/english/ipa-latinime-identity.txt": "ad8fc1d53409f011fd4f23c87cc1b8a03515dff82cd13b549ed245ac8b6d523b"
+  },
+  "aarSha256": "395b09d4f5782dd01c7f7f4c86c12fa71031ec6290ad8d76ebccebaab820e61c",
+  "strictPageSizeCompatDisabled": true,
+  "suite": [
+    "LatinImeSourceBuildTest",
+    "MultilingualEngineTest",
+    "EngineControlsTest",
+    "EngineSettingsContractTest",
+    "DiagnosticsContractTest",
+    "CompositionControllerTest",
+    "EnglishImeIntegrationTest"
+  ],
+  "legacyLibraryRetainedOnlyForComparison": true,
+  "productionBoardWorktreeModified": false
+}

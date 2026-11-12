@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reviewScope": "Source/API provenance review of the independent build; not formal legal clean-room certification or IPA Board application integration.",
+  "upstreamCommit": "9f5bb635c2e8609dcd95dc7506c0c58fba82a52c",
+  "projectSources": [
+    {
+      "path": "bridge/latinime_jni.cpp",
+      "sha256": "f3dd70b8aa6977a56340d1042e6e0f3034959926e0ac943b263ac5b894c493ee",
+      "sizeBytes": 16427,
+      "license": "Project copyright retained; no project license selected"
+    },
+    {
+      "path": "bridge/exports.map",
+      "sha256": "e49f03b1cac6da26d70963417b80d48ffcdf209ec2caa7673fb6c9b1a74096d4",
+      "sizeBytes": 358,
+      "license": "Project copyright retained; no project license selected"
+    },
+    {
+      "path": "bridge/java/org/ipaboard/latinime/LatinImeNative.java",
+      "sha256": "b4fd43ae740ca9ffc6970c4a2400a0d57e61e58335a3e3d95c729a5dc1f286c6",
+      "sizeBytes": 2444,
+      "license": "Project copyright retained; no project license selected"
+    }
+  ],
+  "nativeApiReferences": [
+    {
+      "path": "app/src/main/jni/src/dictionary/structure/dictionary_structure_with_buffer_policy_factory.h",
+      "sha256": "293db5f6dd3d539e546233b0c2299dd162f1c3086fd12640bab910fb5ebc1bd6",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Open the existing file with isUpdatable=false; no on-memory or writable-dictionary operation is exposed."
+    },
+    {
+      "path": "app/src/main/jni/src/suggest/core/dictionary/dictionary.h",
+      "sha256": "62fd24fec2af9efd8bf673f83efd291b6f48fe20e9861c5c595869bb81f212bf",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Call the core constructor, getSuggestions, getPredictions and getNgramProbability only."
+    },
+    {
+      "path": "app/src/main/jni/src/suggest/core/layout/proximity_info.h",
+      "sha256": "cd2436c0482a5129b35dd4ee21f0896af36a36d411288266fecf31c1da5f4292",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Construct the native key map with owned JNI arrays; no HeliBoard Java ProximityInfo wrapper."
+    },
+    {
+      "path": "app/src/main/jni/src/suggest/core/session/dic_traverse_session.h",
+      "sha256": "186eed0eb6caf6095faf13933f89e7db978ad65207f6ca7f245edc6e25d1ca0e",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Construct and destroy one fresh traversal cache per typed query; no Java session object."
+    },
+    {
+      "path": "app/src/main/jni/src/dictionary/property/ngram_context.h",
+      "sha256": "faf713a4ed568f190d43dc9d6af6d4dc50c10330d29568f195ffb6e1e3333dcc",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Construct bounded previous-word/BOS context from Unicode code points."
+    },
+    {
+      "path": "app/src/main/jni/src/suggest/core/result/suggestion_results.h",
+      "sha256": "ddc329913d6a08051da02fd1c3b8ee0a2c9fda31b7f2cc28a4a1e30bbc853bbb",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Copy scores, types and text through the upstream output method into an owned packet."
+    },
+    {
+      "path": "app/src/main/jni/src/suggest/core/suggest_options.h",
+      "sha256": "fa69f6986e0562ddb65cebda8c27bebaca8035c5a91c3acbab704d84888a2ff5",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Native option-index contract; gesture false, full-edit-distance true, offensive-word blocking false and locale weight 1000."
+    },
+    {
+      "path": "app/src/main/jni/src/defines.h",
+      "sha256": "f13ce2b59e5788bbdd50fc02c0602017d9eb7c8b13e0a7f7863cac5ab9a438c9",
+      "declaredLicense": "Apache-2.0",
+      "purpose": "Compile-time MAX_WORD_LENGTH/MAX_RESULTS limits; fixed by reviewed upstream headers."
+    }
+  ],
+  "excludedRegistrationFiles": "Ten upstream JNI source/header files are reference-only in native-files.json. None of the five registration compilation units is built.",
+  "excludedJava": "The four mixed Apache/GPL Java registration classes in excluded-java.json are not present in the new API; license identifiers were not merely removed from copies.",
+  "newBoundary": "Six project-defined JNI symbols under org.ipaboard.latinime; owned handles and packets; no learning, add/remove, save/flush, personalization or gesture API.",
+  "retainedCorePolicy": "The source core still contains Apache-licensed dynamic-dictionary implementation; selecting the existing v202 file with isUpdatable=false and excluding mutation entry points establishes the new adapter read-only contract. Linker retention is separate ELF evidence.",
+  "applicationBoundary": "The current GPL IPA Board application and its private experimental English adapter are not distributed as this independent bridge. Synthetic validation results/hashes do not change the host license.",
+  "assessment": "No unreviewed HeliBoard application wrapper dependency found in these new bridge sources. Dictionary license assessment remains independent and unresolved at file level."
+}

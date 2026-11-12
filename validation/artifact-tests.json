@@ -1,0 +1,8 @@
+{
+  "tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "scope": "published native/AAR/provenance mutation tests; no Android execution"
+}

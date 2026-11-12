@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "artifact": {
+    "path": "dictionary/main_en-US.dict",
+    "sha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+    "sizeBytes": 2956881
+  },
+  "policy": {
+    "recompile": false,
+    "modify": false,
+    "personalLearning": false
+  },
+  "format": {
+    "magic": "0x9bc13afe",
+    "binaryFormat": 202,
+    "headerBytes": 99,
+    "attributes": {
+      "date": "1414726260",
+      "dictionary": "main:en_us",
+      "description": "English (US)",
+      "locale": "en_US",
+      "version": "54"
+    },
+    "implementationReference": "https://github.com/HeliBorg/HeliBoard/blob/9f5bb635c2e8609dcd95dc7506c0c58fba82a52c/app/src/main/jni/src/dictionary/header/header_read_write_utils.cpp"
+  },
+  "sourceChain": [
+    {
+      "repository": "https://github.com/HeliBorg/HeliBoard",
+      "commit": "9f5bb635c2e8609dcd95dc7506c0c58fba82a52c",
+      "path": "app/src/main/assets/dicts/main_en-US.dict",
+      "gitBlobSha1": "081a8c8c603aaa6b89dab4c8fba4633cc3a89566",
+      "sha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+      "sizeBytes": 2956881
+    },
+    {
+      "repository": "https://github.com/openboard-team/openboard",
+      "tag": "v1.4.5",
+      "commit": "6c7582aae8577f2953a597a547924bbea3d832f4",
+      "path": "app/src/main/res/raw/main_en.dict",
+      "gitBlobSha1": "081a8c8c603aaa6b89dab4c8fba4633cc3a89566",
+      "sha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+      "sizeBytes": 2956881
+    },
+    {
+      "repository": "https://codeberg.org/Helium314/aosp-dictionaries",
+      "commit": "ff0cd52be8d9530200fefe8b296c53d4f662091e",
+      "path": "wordlists/main_en_US.source",
+      "url": "https://codeberg.org/Helium314/aosp-dictionaries/raw/commit/ff0cd52be8d9530200fefe8b296c53d4f662091e/wordlists/main_en_US.source",
+      "sha256": "40858c209be9a676819c08ebc1126a8aa255ac2a239a75f38bc689f7c96b0efe",
+      "sizeBytes": 101,
+      "localEvidence": "licenses/dictionary/main_en_US.source"
+    }
+  ],
+  "correspondingWordlist": {
+    "path": "source-inventory/dictionary/en_wordlist.combined.gz",
+    "sha256": "3a9d7c4dca624ea70ea70c8fccf717a195675f48f194bbb175cd39d180d6c9d4",
+    "sizeBytes": 1400231,
+    "sourceUrl": "https://raw.githubusercontent.com/openboard-team/openboard/6c7582aae8577f2953a597a547924bbea3d832f4/dictionaries/en_wordlist.combined.gz",
+    "gitBlobSha1": "1ccedfb9ff4358815b099088035c53a3d73e7be0",
+    "uncompressed": {
+      "sha256": "73308519ff089c73baa35e08f25087bb62ed4a6bf2f96af3efb402187f7c9edb",
+      "sizeBytes": 15196078
+    },
+    "header": "dictionary=main:en_us,locale=en_US,description=English (US),date=1414726260,version=54",
+    "rebuiltFromThisWordlist": false
+  },
+  "licenseEvidence": {
+    "fileLevelLicense": "NOASSERTION",
+    "repositoryLicenseAtDistribution": "GPL-3.0",
+    "repositoryLicenseText": "licenses/dictionary/OpenBoard-GPL-3.0.txt",
+    "scope": "The native Apache-2.0 grant does not establish the license of this independent dictionary. No separate permissive license for the complete final wordlist/binary was found.",
+    "bigramDataOrigin": "OpenBoard commit 8d46e0e identifies Open American National Corpus data.",
+    "oancSource": "https://anc.org/data/oanc/",
+    "oancStatement": "The OANC publisher permits use and redistribution, including commercial use. This does not independently license all OpenBoard processing or the complete English wordlist.",
+    "futureProjectLicenseDecision": "Separate review; preserve source and GPL notices, do not describe this entire distribution as Apache-only or GPL-free."
+  }
+}

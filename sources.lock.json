@@ -1,0 +1,1025 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/HeliBorg/HeliBoard.git",
+    "tag": "v4.1",
+    "commit": "9f5bb635c2e8609dcd95dc7506c0c58fba82a52c",
+    "files": {
+      "app/src/main/jni/src/defines.h": {
+        "sha256": "f13ce2b59e5788bbdd50fc02c0602017d9eb7c8b13e0a7f7863cac5ab9a438c9",
+        "sizeBytes": 11565
+      },
+      "app/src/main/jni/src/dictionary/header/header_policy.cpp": {
+        "sha256": "d2f1eed9c10e2f37f19d085eb92ac1e12d97cef68a565686ceb3f90cc138d880",
+        "sizeBytes": 7933
+      },
+      "app/src/main/jni/src/dictionary/header/header_policy.h": {
+        "sha256": "1df6efc261cfbfc2b03673a344a6a5cfb9dd5c7449fcf0907b4ed7e00fd074c6",
+        "sizeBytes": 12329
+      },
+      "app/src/main/jni/src/dictionary/header/header_read_write_utils.cpp": {
+        "sha256": "a013562205d1b2c4b6e80c3e82935aa2389719356b1f0d715ebaf07e3a04b16c",
+        "sizeBytes": 10197
+      },
+      "app/src/main/jni/src/dictionary/header/header_read_write_utils.h": {
+        "sha256": "0caf79cd42836152e65527396231e1a3e4a78f6d0d17cca92e2f597ce28882de",
+        "sizeBytes": 4841
+      },
+      "app/src/main/jni/src/dictionary/interface/dictionary_bigrams_structure_policy.h": {
+        "sha256": "17e317da85bff803f21f580fa856b97031eb93b169f2e698b4a7d37d2fd91f52",
+        "sizeBytes": 1353
+      },
+      "app/src/main/jni/src/dictionary/interface/dictionary_header_structure_policy.h": {
+        "sha256": "c81ab299dc35bd9ab62cea56b2cda1b0c3ec38ae7caf7f51ee80937f3929c90e",
+        "sizeBytes": 1887
+      },
+      "app/src/main/jni/src/dictionary/interface/dictionary_shortcuts_structure_policy.h": {
+        "sha256": "724024a7b76c781474a04b21713a03ac34c40fe3f9e567b48cb11a0bedaa9a37",
+        "sizeBytes": 1501
+      },
+      "app/src/main/jni/src/dictionary/interface/dictionary_structure_with_buffer_policy.h": {
+        "sha256": "4440dfc71c29e8390d9c61d59f27592c9a89d61b019314190dbaac844aebba5c",
+        "sizeBytes": 4902
+      },
+      "app/src/main/jni/src/dictionary/interface/ngram_listener.h": {
+        "sha256": "6f675e15daafd8f3592d03126dedf294465e1ea5121c082319c78770bb5b2e40",
+        "sizeBytes": 1195
+      },
+      "app/src/main/jni/src/dictionary/property/historical_info.h": {
+        "sha256": "6ef5e7980a45be0368f34d6574a8f8ef9c6bd69a3d5c851c74e069c63a468da5",
+        "sizeBytes": 1576
+      },
+      "app/src/main/jni/src/dictionary/property/ngram_context.cpp": {
+        "sha256": "a3e3e188aa23d1d8389447f10fd3f23841f416fb6c2b738ad8d2755eb7f8557f",
+        "sizeBytes": 4865
+      },
+      "app/src/main/jni/src/dictionary/property/ngram_context.h": {
+        "sha256": "faf713a4ed568f190d43dc9d6af6d4dc50c10330d29568f195ffb6e1e3333dcc",
+        "sizeBytes": 2989
+      },
+      "app/src/main/jni/src/dictionary/property/ngram_property.h": {
+        "sha256": "e3a54bc9ea2205d054da46161d373acdb93151282c7d33e5057f21017b9663c0",
+        "sizeBytes": 1956
+      },
+      "app/src/main/jni/src/dictionary/property/unigram_property.h": {
+        "sha256": "6625d0f47b23047d7fc8f84495eec551eac6b2185e53b64e5a5afa357c1ec1d5",
+        "sizeBytes": 5343
+      },
+      "app/src/main/jni/src/dictionary/property/word_attributes.h": {
+        "sha256": "536e0e73bfe5038fb40d2dbf33041548ca1a32e238a0966297591d91828489c1",
+        "sizeBytes": 2326
+      },
+      "app/src/main/jni/src/dictionary/property/word_property.h": {
+        "sha256": "bced191260c397c0c9e39f51ec460b3dd68da4fc3b401144a85bebdb8b1309ed",
+        "sizeBytes": 2055
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/Readme.txt": {
+        "sha256": "86a89301407373eda8837b93d56a84e64e7c3e293c820d839cc2f70460ec1334",
+        "sizeBytes": 53
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/bigram/ver4_bigram_list_policy.cpp": {
+        "sha256": "edc16aef4ba85a371dd7dac478acfeb41863ef4ae18b165d517922d1a02b94b9",
+        "sizeBytes": 12306
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/bigram/ver4_bigram_list_policy.h": {
+        "sha256": "062bedf2f8d76a807aa44d9eb6ad6c45b297dc4d5f1cc88f64d99818950a9462",
+        "sizeBytes": 3371
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/bigram_dict_content.cpp": {
+        "sha256": "58b6e39e9a39587f8311ac5c282ee66e7b83ab54942561ed786e82a4d1c27402",
+        "sizeBytes": 10468
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/bigram_dict_content.h": {
+        "sha256": "ef25bbba90ec426a19ebe9fc27bc2dad1bb9e099adc05fb65131057adfa32e62",
+        "sizeBytes": 5599
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/bigram_entry.h": {
+        "sha256": "d30b83d8fd8dddc478111c2e7d7b36f78a16215737f815d7ae11ae68002cbfa5",
+        "sizeBytes": 3718
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/dict_content.h": {
+        "sha256": "92f16be8d93cb82b8047188fb5c2f92b4871127bac1dbeced7af5d6b758fb590",
+        "sizeBytes": 1235
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/probability_dict_content.cpp": {
+        "sha256": "8ae5f260bda5176da4a7a03877f99eff8e694bb93fd3c3c6f8115d408d293974",
+        "sizeBytes": 7337
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/probability_dict_content.h": {
+        "sha256": "03e7f6bdd64b268c4a20bdcf4d7cb53e862aeb9d621ee2183dce585e5831b4e8",
+        "sizeBytes": 2630
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/probability_entry.h": {
+        "sha256": "3afed2b2a620a0605b894091f5428ded7639008800d03868b664ecf3348e1e31",
+        "sizeBytes": 2919
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/shortcut_dict_content.cpp": {
+        "sha256": "2fdd1a74f9afe5ed7d05e0b1588b82b603b55f79abfdda0240c881e5ef77032b",
+        "sizeBytes": 8384
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/shortcut_dict_content.h": {
+        "sha256": "02b32b44196c41873ce86d9da749fa62b5d5aaa3e4a8986f3caad2461e308ac3",
+        "sizeBytes": 4318
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/single_dict_content.h": {
+        "sha256": "f955b007831d429d9dba68c9a4a3dd7ed6c2be8c0114002c23b1d9ceee852585",
+        "sizeBytes": 3024
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/sparse_table_dict_content.cpp": {
+        "sha256": "cd55d488093e010c9be00bf7099aab0744c50e87f7c7ae9ded0b69bdc5409f87",
+        "sizeBytes": 1721
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/sparse_table_dict_content.h": {
+        "sha256": "a631591fdc3bd16221fcaa37ee012a88410627876a01be476c830ea9bcac3eb1",
+        "sizeBytes": 5389
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/terminal_position_lookup_table.cpp": {
+        "sha256": "62339b96eec8d309bf8f115f4e058b1d103e1d70e8310e41a2fb0971f98738da",
+        "sizeBytes": 4513
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/content/terminal_position_lookup_table.h": {
+        "sha256": "93e5d90743206cab72c3b587a389fa143371d0d616717ec8a81e5dd2ccc01c92",
+        "sizeBytes": 2386
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/shortcut/ver4_shortcut_list_policy.h": {
+        "sha256": "bb25b39bf2484537ce5724b28a08942ac6ef42b3d6aec567b68283a9fa50f8cd",
+        "sizeBytes": 5153
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_dict_buffers.cpp": {
+        "sha256": "4dc983561f97a5175629636aed6293b4b6e15e3a87b2a680e5fda586a34b77e1",
+        "sizeBytes": 6789
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_dict_buffers.h": {
+        "sha256": "f7de10652b419d91d248d03929ace7e22a75f7dce27319f647173bc1cd33b29d",
+        "sizeBytes": 5515
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_dict_constants.cpp": {
+        "sha256": "f04230328e285d94b2a60db0aeba1b3bfd5ea18402f9ce83207a6ed4346edbbd",
+        "sizeBytes": 3841
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_dict_constants.h": {
+        "sha256": "7805589d9735bcbc761275af5a8e6eb994d4ad73c3700af6e67f4d26a7258ec9",
+        "sizeBytes": 3140
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_node_reader.cpp": {
+        "sha256": "fb14590f8630f18df80955b96cff562565dffa1f621b9233ac0c93c6b5c0720e",
+        "sizeBytes": 4941
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_node_reader.h": {
+        "sha256": "3948212ca44607918613ced9a1ffec616286e31ee34d0e6ae5427854aec45468",
+        "sizeBytes": 2699
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_node_writer.cpp": {
+        "sha256": "5903667953d3bab8f9964ae321bbcf1a04f0097be53dca3eaaa44d133ab41e24",
+        "sizeBytes": 21213
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_node_writer.h": {
+        "sha256": "2f7b514e985c7eb16224bfc12af74b0214c8b176c608aac51b9b0998c7293d21",
+        "sizeBytes": 6372
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_policy.cpp": {
+        "sha256": "54b2a54231cb9d8bee63ead75316031df8f05ac0dfd2d9fe73ffc508fa4df8d9",
+        "sizeBytes": 30637
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_policy.h": {
+        "sha256": "bc4ea25be210948eeb1111d052783f624858e0ac505662716092ec2f7af91438",
+        "sizeBytes": 7665
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_reading_utils.cpp": {
+        "sha256": "54ccb92102c52288aff35ffc79a77f12c667245baed50715501e4c99a73fe8a8",
+        "sizeBytes": 1227
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_reading_utils.h": {
+        "sha256": "57b839f6f4a9c8185a78558457881ff903eceba3120d4608e732b99eca1ff040",
+        "sizeBytes": 1487
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_writing_helper.cpp": {
+        "sha256": "3e68d57f62b75c4e0e6eec1fb844a9ce9cb43d46fb1340d2627affb34d0d9a99",
+        "sizeBytes": 15235
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_patricia_trie_writing_helper.h": {
+        "sha256": "d9f0d4c337c7224e37cb47ad6a7f6c9de3826d3af6947aacf4c73e25240b5806",
+        "sizeBytes": 4764
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_pt_node_array_reader.cpp": {
+        "sha256": "f984291a3ab38bc3f09c3f458e51331b001779734c3097a8a6433979872e85d6",
+        "sizeBytes": 3596
+      },
+      "app/src/main/jni/src/dictionary/structure/backward/v402/ver4_pt_node_array_reader.h": {
+        "sha256": "3f7e3e73a696c783ee66f1fcaf47c12cdf203e239cda3d71fa5e19c34fcd35ef",
+        "sizeBytes": 1840
+      },
+      "app/src/main/jni/src/dictionary/structure/dictionary_structure_with_buffer_policy_factory.cpp": {
+        "sha256": "3252e80c8c04c9f36243a33bfb5b33225a2fd4a47142b05ab19ca1e6f15ffdeb",
+        "sizeBytes": 9926
+      },
+      "app/src/main/jni/src/dictionary/structure/dictionary_structure_with_buffer_policy_factory.h": {
+        "sha256": "293db5f6dd3d539e546233b0c2299dd162f1c3086fd12640bab910fb5ebc1bd6",
+        "sizeBytes": 2983
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/bigram/bigram_list_read_write_utils.cpp": {
+        "sha256": "b92980955efa40001e726c350e354009d9aeae83fc1b8f0d590601f3766f2399",
+        "sizeBytes": 3933
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/bigram/bigram_list_read_write_utils.h": {
+        "sha256": "c77418eb6cacf270984842708b49905be0584f4f2b8f330e0f896727d848c3da",
+        "sizeBytes": 2402
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_gc_event_listeners.cpp": {
+        "sha256": "2c4c2d24a9e9f0101fbe44bb8018373e48469fb98da8f7495eaa3735d43f9129",
+        "sizeBytes": 6009
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_gc_event_listeners.h": {
+        "sha256": "46ac69d5a16eedcf0bcb32f0008e09702b4fedc8d8e1851f4ef11b8158db0f4d",
+        "sizeBytes": 6207
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_reading_helper.cpp": {
+        "sha256": "c2f2fd9fa576a594bf5645b09ed97b054f4aaefd69205c001ed0b995f061daba",
+        "sizeBytes": 13087
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_reading_helper.h": {
+        "sha256": "dd31ba2a6f6f1eeb6f2571061b1124731cb8fc5251f48c9e26da01c5bc08f180",
+        "sizeBytes": 11366
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_reading_utils.cpp": {
+        "sha256": "904ab6be6f5d15545ae5643e0ace8571330d2e4f8669fefda58037f71af5d2c7",
+        "sizeBytes": 2856
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_reading_utils.h": {
+        "sha256": "d259d2fadc4e5eda12c2b94ecb15aaf6bbd66aa0df409786641e1ef69597fe04",
+        "sizeBytes": 2943
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_updating_helper.cpp": {
+        "sha256": "3502bdcf7880ff283e01afd92a7b31b0986b375cf0272cbafab8cb34551a7ca0",
+        "sizeBytes": 15272
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_updating_helper.h": {
+        "sha256": "574c253ca3c1fb4008d70368856a0f15a36946eff7b2b52457bdb1b34720426b",
+        "sizeBytes": 4120
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_writing_utils.cpp": {
+        "sha256": "05a78361a003a7f2b30be0ef34ff554c93b5aa8ae251f4fa99aa7341847febe4",
+        "sizeBytes": 5829
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/dynamic_pt_writing_utils.h": {
+        "sha256": "e922296f6283b414aa87aa5b10c4d8b8c681cf79b8b9bdb9fe6d91a888d8b680",
+        "sizeBytes": 3237
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/patricia_trie_reading_utils.cpp": {
+        "sha256": "c374ccd021351658a69fcb98b15c4494eb468258f5bf3ae41f4a5485b204ed4d",
+        "sizeBytes": 7260
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/patricia_trie_reading_utils.h": {
+        "sha256": "7f6cb4b38154313b3379683e0a30a3ca2b396c2b4a2a00b4ab444d945f0a860a",
+        "sizeBytes": 5582
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/pt_node_array_reader.h": {
+        "sha256": "d53dbade433c348b22750d663fd91e8d078d95bbc663c306cdc28e2218fc5f65",
+        "sizeBytes": 1520
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/pt_node_params.h": {
+        "sha256": "868ca7c017a3c13a87b209e55d9e76e5a92d7397aaf410cb2c9c689371ddb75b",
+        "sizeBytes": 10599
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/pt_node_reader.h": {
+        "sha256": "245343002e210fd20d91d9e25d355e72f189e7aac62b584fe00b71c88962f1f8",
+        "sizeBytes": 1179
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/pt_node_writer.h": {
+        "sha256": "48a4dade148bc687a48e477837b6b9dc8371814292cf076f731cf88ce0621e1d",
+        "sizeBytes": 3754
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/shortcut/shortcut_list_reading_utils.cpp": {
+        "sha256": "a3786920bfa0c8581598ecc1a8abb74327679755ccfb0dca9fb3d1f13eb14df2",
+        "sizeBytes": 2333
+      },
+      "app/src/main/jni/src/dictionary/structure/pt_common/shortcut/shortcut_list_reading_utils.h": {
+        "sha256": "1ce6b87d5cc8b36b2583bf5385936d526dea131a1688208fe80dd16146eafe2a",
+        "sizeBytes": 2546
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/bigram/bigram_list_policy.h": {
+        "sha256": "59b6b91926ff0b592234178dd85c833b37d9965d234032dafd91d23a20d927a4",
+        "sizeBytes": 2121
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/patricia_trie_policy.cpp": {
+        "sha256": "d770ab2d966a9f963151426b3f37db32b3f915e677824bd9d1b5bff817bcbfcb",
+        "sizeBytes": 27486
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/patricia_trie_policy.h": {
+        "sha256": "b0dcd6d41cc379badcaa7f0e6768376b0c47b49c81afc62f7fee3c4f1bb1ada6",
+        "sizeBytes": 7531
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/shortcut/shortcut_list_policy.h": {
+        "sha256": "5946dd76011ce59d8f36c828898e951c80205de98dea015b2dfd60698819e2f4",
+        "sizeBytes": 2594
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/ver2_patricia_trie_node_reader.cpp": {
+        "sha256": "4b161fff8a83d74faccd0c4415aafdb4a31aef7fd550301778868c551c45deba",
+        "sizeBytes": 2216
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/ver2_patricia_trie_node_reader.h": {
+        "sha256": "ec5dc480f6466adfaf9582337de13e2fd1b2ff84c2cd9b8beab93986a1d55fb1",
+        "sizeBytes": 1960
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/ver2_pt_node_array_reader.cpp": {
+        "sha256": "f8b8640ff75827716246fddc346182ca24c0098dc07f07dc1cde0674e2315dcf",
+        "sizeBytes": 2197
+      },
+      "app/src/main/jni/src/dictionary/structure/v2/ver2_pt_node_array_reader.h": {
+        "sha256": "2e571eab8dab7442f9a7c7fbfd86daf192b8fb97b5378c62987b7abcabd7787b",
+        "sizeBytes": 1493
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/dynamic_language_model_probability_utils.cpp": {
+        "sha256": "193cb4edd9f51f288992fe0d67081c90bc2e32deb031daabf071b2e916c3f234",
+        "sizeBytes": 1436
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/dynamic_language_model_probability_utils.h": {
+        "sha256": "8251805bba4f153a7f8ee7cf18b151b9dafc3de6cafd5fafec83295ee9095256",
+        "sizeBytes": 3017
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/language_model_dict_content.cpp": {
+        "sha256": "735eecef0f2e387d227f979b5f04b2a4fb858ee02c226ccab15b34fe620592b2",
+        "sizeBytes": 21879
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/language_model_dict_content.h": {
+        "sha256": "67a6c5cf3574f3c6c98ec360819bae1c7a666ec3023deb286b129296b00aa9fc",
+        "sizeBytes": 10607
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/language_model_dict_content_global_counters.cpp": {
+        "sha256": "f81a025db38e675585c3b88f71b120d21fe1c0a45184806e28d38ba983fa767f",
+        "sizeBytes": 1331
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/language_model_dict_content_global_counters.h": {
+        "sha256": "f640adba06535629f1cb35e38b3e06c755b8c0743fc7b2f36d1d6228784a14a9",
+        "sizeBytes": 3544
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/probability_entry.h": {
+        "sha256": "cdd2e1a68f01ea2e62b02650eba4705891bade18554d49d742175069d2440625",
+        "sizeBytes": 7154
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/shortcut_dict_content.cpp": {
+        "sha256": "13f70d8e0008dafd0de3d11d8dc454e10851de411f75bc2f13388ed931abc039",
+        "sizeBytes": 7860
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/shortcut_dict_content.h": {
+        "sha256": "0e53504b86f0840fd328586bddbb367c0482c07ef94bada4385a527c296508e6",
+        "sizeBytes": 3825
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/single_dict_content.h": {
+        "sha256": "8761db0b33c7d2d72f68b14174bfef34d9ddb773df16879b449fb60e9139d789",
+        "sizeBytes": 1994
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/sparse_table_dict_content.cpp": {
+        "sha256": "ae31a8883a63e5bd8250ab1cf589004a0c3dd438d2cc53036c0d72be57324654",
+        "sizeBytes": 1427
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/sparse_table_dict_content.h": {
+        "sha256": "ff97a6da1c0f489bee5cc53ba2e35017dfda1d5992ddd72f21e46c77557fab0c",
+        "sizeBytes": 3625
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/terminal_position_lookup_table.cpp": {
+        "sha256": "4c21daee6b5c924e0c307c4d2df2c7ed0dd63d2f5262928f248cebaf1f070d4b",
+        "sizeBytes": 4028
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/content/terminal_position_lookup_table.h": {
+        "sha256": "58cef766032905cfb152b40fab5f036512414fdff02af81ef11189a8fb1a175d",
+        "sizeBytes": 2023
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/shortcut/ver4_shortcut_list_policy.h": {
+        "sha256": "f9a4d5088c27b680bf3e06f159b28cd82792708491fcbca489938c1ef29ba356",
+        "sizeBytes": 4781
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_dict_buffers.cpp": {
+        "sha256": "f2ad7e3722f5f8b8ee31788b7b315bfd2cbbd9d012dd7909ba6fa16f98cef322",
+        "sizeBytes": 8301
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_dict_buffers.h": {
+        "sha256": "816ed4a07d2e377e89e47bb99147a8c579450d073a7bf0cc9b6e09cc78faaa14",
+        "sizeBytes": 4785
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_dict_constants.cpp": {
+        "sha256": "751cc5bb815839271f17a49beee7518f9b13ac6b16580fdf68942e6c36374f31",
+        "sizeBytes": 3605
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_dict_constants.h": {
+        "sha256": "8384a8b30a7fd359c2b464d480d09f60a0fc0843900bec4641075a864945d003",
+        "sizeBytes": 2785
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_node_reader.cpp": {
+        "sha256": "68a1a8e79573bbe6ba56813734778ff2c1dd207a6c970e6a03b83718d97452cd",
+        "sizeBytes": 4287
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_node_reader.h": {
+        "sha256": "0933af6790db1845612cd8f4094b0c46663f1150e83be6a9cca89d48b7178dbb",
+        "sizeBytes": 1909
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_node_writer.cpp": {
+        "sha256": "871a4c36504248c943f7fca49e2de6eb598898c22ae90f5d1cf9ea7f23c7c5e5",
+        "sizeBytes": 16597
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_node_writer.h": {
+        "sha256": "785a8d949e196fd6e34dd2578366344c4f45c91d99163c5f7bb76538ec2c1c5b",
+        "sizeBytes": 4566
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_policy.cpp": {
+        "sha256": "15e980f461b621ee4fabd4d37e1faed8d8ef185049228dce1e539dcd7ce55ca4",
+        "sizeBytes": 28434
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_policy.h": {
+        "sha256": "515f4cc4fcd31b021f1e6bb921bf064ef67260efe064309aa2ceea3c23e15822",
+        "sizeBytes": 6125
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_reading_utils.cpp": {
+        "sha256": "8e90508fdb118da28800e12876cfa8668d248cfdbca50e9e9ad149d6f9c3be7b",
+        "sizeBytes": 988
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_reading_utils.h": {
+        "sha256": "ca5d5ad7080cbda6617a5588bc5a3bd0679c17a861037a407a2ea28bdea0f683",
+        "sizeBytes": 1137
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_writing_helper.cpp": {
+        "sha256": "68c105bd19e08cbe746b3fc089abfb2755763218c479fccf6c4f06a716ec7189",
+        "sizeBytes": 9170
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_patricia_trie_writing_helper.h": {
+        "sha256": "edd1598962397afe29c6278b958ac957ba1a00dfd65b21a380de2097b681352f",
+        "sizeBytes": 2865
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_pt_node_array_reader.cpp": {
+        "sha256": "2155f8fefa353845f635423ae7d5ff6e6a8285c9a46fba93e5bb5e9e7c6835a1",
+        "sizeBytes": 3364
+      },
+      "app/src/main/jni/src/dictionary/structure/v4/ver4_pt_node_array_reader.h": {
+        "sha256": "e20848079b4fc74c472e0db5625685a369937acf028fc86953e89699bd36cb38",
+        "sizeBytes": 1497
+      },
+      "app/src/main/jni/src/dictionary/utils/binary_dictionary_bigrams_iterator.h": {
+        "sha256": "d2ee22ab9197b32bc90321daf03acea1f7304c6209c544508996977e1e4665e1",
+        "sizeBytes": 2488
+      },
+      "app/src/main/jni/src/dictionary/utils/binary_dictionary_shortcut_iterator.h": {
+        "sha256": "4416bf99f9c25dffd88ed25c30e3fb2d7edec7d3d8b7d862488621d847f3f612",
+        "sizeBytes": 2535
+      },
+      "app/src/main/jni/src/dictionary/utils/bloom_filter.h": {
+        "sha256": "4a247c8b2ca1c9dba1c8d5cf8f8e43ac48e73f3f780e17217d110065f3bbc926",
+        "sizeBytes": 2583
+      },
+      "app/src/main/jni/src/dictionary/utils/buffer_with_extendable_buffer.cpp": {
+        "sha256": "625b43e09081431fc62e9371a783725c5ca78100c40c3aaec6b1c4137c1a7c54",
+        "sizeBytes": 6691
+      },
+      "app/src/main/jni/src/dictionary/utils/buffer_with_extendable_buffer.h": {
+        "sha256": "d160c70b5dde825ab45f0f82fbb1162d766895b05f285e2e35173aa3d20a2315",
+        "sizeBytes": 4683
+      },
+      "app/src/main/jni/src/dictionary/utils/byte_array_utils.cpp": {
+        "sha256": "e5d1382b0b41584ff5e63c3b71d4092edac56ebb87a354285f521c62cef88439",
+        "sizeBytes": 923
+      },
+      "app/src/main/jni/src/dictionary/utils/byte_array_utils.h": {
+        "sha256": "3a411b02dbb945a6a1a612aaca34c5713514f020a9fdfb5bd77104c836d3f2ec",
+        "sizeBytes": 11033
+      },
+      "app/src/main/jni/src/dictionary/utils/dict_file_writing_utils.cpp": {
+        "sha256": "61640bba2f0ae6c411cbe258ba11559f40f553b1588c35b53080673f8bd53401",
+        "sizeBytes": 6251
+      },
+      "app/src/main/jni/src/dictionary/utils/dict_file_writing_utils.h": {
+        "sha256": "89341740a1b8747b607821ed84956ae9b9ae2a8e99f2390c45ecae4ec5429dd8",
+        "sizeBytes": 2579
+      },
+      "app/src/main/jni/src/dictionary/utils/entry_counters.h": {
+        "sha256": "b54238b1c33cdf5debcfe37cd70585832a77728066c751f3429767456503f35f",
+        "sizeBytes": 2764
+      },
+      "app/src/main/jni/src/dictionary/utils/file_utils.cpp": {
+        "sha256": "1f7d63c8b2bf662cea7b56fd838456b1fb3adb6fb2fd84a178719d0b119a7beb",
+        "sizeBytes": 6191
+      },
+      "app/src/main/jni/src/dictionary/utils/file_utils.h": {
+        "sha256": "233c1e6385dc6dcaa5ab01c6fd45ca2c824740e4d15c4de1df0ae0ecfbc36a59",
+        "sizeBytes": 2162
+      },
+      "app/src/main/jni/src/dictionary/utils/forgetting_curve_utils.cpp": {
+        "sha256": "73655887743bf7ed86a188e0d68bbc75a3d92f8457c3b91355f7d8648ac64cdd",
+        "sizeBytes": 11289
+      },
+      "app/src/main/jni/src/dictionary/utils/forgetting_curve_utils.h": {
+        "sha256": "a05e774d9ece02a6b05a65c2f1593cef26571fbfe01e2a72d62e71251521a7da",
+        "sizeBytes": 4211
+      },
+      "app/src/main/jni/src/dictionary/utils/format_utils.cpp": {
+        "sha256": "9285d523b134768c59b1bd97d1bf19d70479ef29f736f3d243e354f6d5bdf17b",
+        "sizeBytes": 2758
+      },
+      "app/src/main/jni/src/dictionary/utils/format_utils.h": {
+        "sha256": "2a6622abb045613c0105cd4d5191eeaf67c83b8b75ce21e87adcce839a167c0f",
+        "sizeBytes": 1945
+      },
+      "app/src/main/jni/src/dictionary/utils/mmapped_buffer.cpp": {
+        "sha256": "8640eaa80b462f149f79800a3b006c72d4c95f811c50c2b72977e4bf3dc812c7",
+        "sizeBytes": 3376
+      },
+      "app/src/main/jni/src/dictionary/utils/mmapped_buffer.h": {
+        "sha256": "afeb370153170138a7bcdf6ef46583193931fcd6a82882d4a41586a31c26f0cd",
+        "sizeBytes": 2526
+      },
+      "app/src/main/jni/src/dictionary/utils/multi_bigram_map.cpp": {
+        "sha256": "f62a772921698745933d149166043d144f16141e429ce9ea99d05ae1006aba54",
+        "sizeBytes": 4410
+      },
+      "app/src/main/jni/src/dictionary/utils/multi_bigram_map.h": {
+        "sha256": "61d65813c61e8ea53e2d7756f9dd3cb762cf0c2a7fa53478deb34ed4b9ef93ef",
+        "sizeBytes": 3375
+      },
+      "app/src/main/jni/src/dictionary/utils/probability_utils.cpp": {
+        "sha256": "d0c78b6fbb49bf90ecb388bd659f6205966352f13157605fe59e9e89efaa216f",
+        "sizeBytes": 793
+      },
+      "app/src/main/jni/src/dictionary/utils/probability_utils.h": {
+        "sha256": "cb2b2fb019c9e2443009c28351888a298f11f60a2d2c9791eda2a978da1931e6",
+        "sizeBytes": 2856
+      },
+      "app/src/main/jni/src/dictionary/utils/sparse_table.cpp": {
+        "sha256": "5c8db1b784b481e45ad1b7d392884be68f790fc5c6f09a197abfbbea4d2fc565",
+        "sizeBytes": 4227
+      },
+      "app/src/main/jni/src/dictionary/utils/sparse_table.h": {
+        "sha256": "23c80501c7a0f227989fb61ec1ac79ed77fb603fe121c9de63458f6f992e23f1",
+        "sizeBytes": 1897
+      },
+      "app/src/main/jni/src/dictionary/utils/trie_map.cpp": {
+        "sha256": "4179f65570170e5ef7266c340c09c7f31f4442a9644c9b37297fa8fede7ec304",
+        "sizeBytes": 17925
+      },
+      "app/src/main/jni/src/dictionary/utils/trie_map.h": {
+        "sha256": "f760f2d6d66755cb38946c896858ac1eecdb643c961dfb7e77ee70abe5adbf38",
+        "sizeBytes": 14691
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node.cpp": {
+        "sha256": "65999e941281f90306ef8a4cb62d93bb6bef30ff237029b0694f047f4b22201a",
+        "sizeBytes": 1311
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node.h": {
+        "sha256": "d6a18b3471c2c724d12304a5c5004a8dd0c110db6dc627e82acd69e5c4cbfb66",
+        "sizeBytes": 20434
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node_pool.h": {
+        "sha256": "a5930c060281952d9acb1c85e37b598ee9679a1b5625519a572678b86b22131c",
+        "sizeBytes": 2758
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node_priority_queue.h": {
+        "sha256": "2b3f12f83d50b7ac08f58fae5370790697e079e6d9262f1263d719390da648e8",
+        "sizeBytes": 3979
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node_profiler.h": {
+        "sha256": "8c34f8945b833e7116fe4254c88f058720b0afbe32ed2cc30f5dc0129cb93c7c",
+        "sizeBytes": 5887
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node_utils.cpp": {
+        "sha256": "65aa9bc31197efdf447263f24552e4212a38d194883bafaf124ec2d76b64b851",
+        "sizeBytes": 3591
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node_utils.h": {
+        "sha256": "1ba5a766f9caaa2abe09fbdb28c3f0a30ce54c77e10305046596510a7075ca80",
+        "sizeBytes": 2034
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_node_vector.h": {
+        "sha256": "cc90ff3407bfa3f03ab8a8e22e3823a5db8a15c56d6e5001dedd660f01cdf372",
+        "sizeBytes": 2523
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_nodes_cache.cpp": {
+        "sha256": "d9fbeba3aee61c0aed9bc12c163a70c833b8a95c6fa1080ffe2ee7beeab4c4d0",
+        "sizeBytes": 1130
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/dic_nodes_cache.h": {
+        "sha256": "a4d3430f6f9f08a457331457a4502834a1d1b4d3ccbf2af5467e409f101a2215",
+        "sizeBytes": 6948
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/internal/dic_node_properties.h": {
+        "sha256": "322968c8266170ad5a4371b77a75764b50c09183a02bd1e3f2895044ab17fb6e",
+        "sizeBytes": 4522
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/internal/dic_node_state.h": {
+        "sha256": "7de39e5009f84e5bde8e12a57706ddc5bec7e096e4ec24a089ec96cc7dc44aea",
+        "sizeBytes": 2820
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/internal/dic_node_state_input.h": {
+        "sha256": "b92564412c36a68e0a1e931adbe0709a5c24c7dae6c5b2d38f26d2135c7b3ae1",
+        "sizeBytes": 3121
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/internal/dic_node_state_output.h": {
+        "sha256": "48794b7fa3725fd9734f25788a3656b50982d232767e80548ec8d19c34d63313",
+        "sizeBytes": 5852
+      },
+      "app/src/main/jni/src/suggest/core/dicnode/internal/dic_node_state_scoring.h": {
+        "sha256": "31e059e8469db8ba634d33a59ed37e59f970a5a1a981a536c26eeb7b92c03b20",
+        "sizeBytes": 7885
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/dictionary.cpp": {
+        "sha256": "3ad98e648d009bc872ece0ed340eeaf778015008696367fa78aa2f37dea34a44",
+        "sizeBytes": 10479
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/dictionary.h": {
+        "sha256": "62fd24fec2af9efd8bf673f83efd291b6f48fe20e9861c5c595869bb81f212bf",
+        "sizeBytes": 6286
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/dictionary_utils.cpp": {
+        "sha256": "076c7d18d72c2aea3c27001be9743722bd00b281d9eb8f4877fb28ffd1b02da1",
+        "sizeBytes": 4412
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/dictionary_utils.h": {
+        "sha256": "f91915bcb0cb70e4bcdbdd41f3c7a58e1be28ce255736a0acba7a7c649826563",
+        "sizeBytes": 1453
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/digraph_utils.cpp": {
+        "sha256": "c5dae6421f18807241284f259cf860c580087cff72fb58f5afc55e700986b032",
+        "sizeBytes": 4918
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/digraph_utils.h": {
+        "sha256": "91de594eb6af3f3889227d360fb63fea5b2ffea3697ecab298572ef80ba23781",
+        "sizeBytes": 2107
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/error_type_utils.cpp": {
+        "sha256": "5068370efc3709255d813424c2e0891bdec9d8d334b8dfe4712b2f64f069d04c",
+        "sizeBytes": 2021
+      },
+      "app/src/main/jni/src/suggest/core/dictionary/error_type_utils.h": {
+        "sha256": "35a04ad7859849b178835f0678e12130b93a5b6ae0aa769860f00f3e6e0cb46e",
+        "sizeBytes": 3223
+      },
+      "app/src/main/jni/src/suggest/core/layout/additional_proximity_chars.cpp": {
+        "sha256": "663c7844a0e7a276595ccd15c6c4f5fa79b63829ffd7c1d298d5248584d1bb83",
+        "sizeBytes": 1514
+      },
+      "app/src/main/jni/src/suggest/core/layout/additional_proximity_chars.h": {
+        "sha256": "ab3c4ad63558dd82e1a942a07558136f10f69c2ed08f52b7c4a6f0e900085f37",
+        "sizeBytes": 2981
+      },
+      "app/src/main/jni/src/suggest/core/layout/geometry_utils.h": {
+        "sha256": "b6fe5cb9a1464c4e94b330a66ddc8cfc5dec85a6bcf34f1aa5839ba936ff4e9a",
+        "sizeBytes": 2005
+      },
+      "app/src/main/jni/src/suggest/core/layout/normal_distribution.h": {
+        "sha256": "a7c65ac942178626e272a95003c2890f0e3805d1109191eed7456cc21c9c0d06",
+        "sizeBytes": 1672
+      },
+      "app/src/main/jni/src/suggest/core/layout/normal_distribution_2d.h": {
+        "sha256": "c72b14dfaee1b385f923eb7c19fec35014036b548541f5021bf433c64b7b3ee3",
+        "sizeBytes": 2128
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info.cpp": {
+        "sha256": "54f22cf29bd60aceef3d77b56e73478a760de822c64949f559c75204a5cdfdda",
+        "sizeBytes": 11229
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info.h": {
+        "sha256": "cd2436c0482a5129b35dd4ee21f0896af36a36d411288266fecf31c1da5f4292",
+        "sizeBytes": 5905
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_params.cpp": {
+        "sha256": "2053c2a5afd13a665b9b83e9c15d317976a638e453962d5e6bd3d3f9d4a1d4e9",
+        "sizeBytes": 5607
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_params.h": {
+        "sha256": "866707acc7c1be8fbf561dc4c37a99a5962b77b9ce290db5cd14dee98b4644bc",
+        "sizeBytes": 4802
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_state.cpp": {
+        "sha256": "8f57d33829c1ba87d98e2f1d56064524ebcb68044a815f3f6ddbc64bf40270b8",
+        "sizeBytes": 13990
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_state.h": {
+        "sha256": "881db479afc4a25b5762f2c51c4f07ac910bd25745699a046224cf811d612082",
+        "sizeBytes": 8722
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_state_utils.cpp": {
+        "sha256": "89a741110cb717897c451962c827ef5f493fab746b755343329bef50e911c732",
+        "sizeBytes": 49746
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_state_utils.h": {
+        "sha256": "0e4b2693a4de8fffd941c1ae5ab9b593c34089b81fa483f2d7189ec8ca24bf3c",
+        "sizeBytes": 10045
+      },
+      "app/src/main/jni/src/suggest/core/layout/proximity_info_utils.h": {
+        "sha256": "457786336d40971331e50b4e4fe6e66f6615be8d7ec8060b36d396c31e8ae379",
+        "sizeBytes": 10476
+      },
+      "app/src/main/jni/src/suggest/core/layout/touch_position_correction_utils.h": {
+        "sha256": "4a674589c3806d41ddbfdcb0b31adc6ae5ed8fce81db33659a318d8c470b50fb",
+        "sizeBytes": 2235
+      },
+      "app/src/main/jni/src/suggest/core/policy/scoring.h": {
+        "sha256": "a80d037f386d1c5ef118f86446449eca1f97dd64476fcff60b30f713e7ac411c",
+        "sizeBytes": 2032
+      },
+      "app/src/main/jni/src/suggest/core/policy/suggest_policy.h": {
+        "sha256": "cc341669c724cbcc191968619b172cf1642e080d4cfc62cd132cbc7b54fc2a39",
+        "sizeBytes": 1150
+      },
+      "app/src/main/jni/src/suggest/core/policy/traversal.h": {
+        "sha256": "8c1d3c9b203bcc969c4ae8019289824489e861b0f0ba5dc6d822bfd952b43aa3",
+        "sizeBytes": 2757
+      },
+      "app/src/main/jni/src/suggest/core/policy/weighting.cpp": {
+        "sha256": "b7810778653c6556929a088230783790284a1e70c3f3a87bfd064be2451f50b0",
+        "sizeBytes": 7815
+      },
+      "app/src/main/jni/src/suggest/core/policy/weighting.h": {
+        "sha256": "4371b6d5423adc89e1ea354804c41f6191f1af6c8be5a36c0d5e293828065978",
+        "sizeBytes": 4515
+      },
+      "app/src/main/jni/src/suggest/core/result/suggested_word.h": {
+        "sha256": "f646d045f8edb8deb55a12bb3e16d47eb211020843ec532181b43db925d9d149",
+        "sizeBytes": 2395
+      },
+      "app/src/main/jni/src/suggest/core/result/suggestion_results.cpp": {
+        "sha256": "4bc3e4e90a77db340e092ec6bddcb342edaad8b5a683465184f36a531aea5b36",
+        "sizeBytes": 4698
+      },
+      "app/src/main/jni/src/suggest/core/result/suggestion_results.h": {
+        "sha256": "ddc329913d6a08051da02fd1c3b8ee0a2c9fda31b7f2cc28a4a1e30bbc853bbb",
+        "sizeBytes": 2461
+      },
+      "app/src/main/jni/src/suggest/core/result/suggestions_output_utils.cpp": {
+        "sha256": "0e7439b852dca066627f87edf24a91a0782793b9dcb71567ee791aec7085887b",
+        "sizeBytes": 14749
+      },
+      "app/src/main/jni/src/suggest/core/result/suggestions_output_utils.h": {
+        "sha256": "22e44990f6be5a82accb24b86d388d85c1efaa8ee280dc5118f11adde7d3b465",
+        "sizeBytes": 2637
+      },
+      "app/src/main/jni/src/suggest/core/session/dic_traverse_session.cpp": {
+        "sha256": "a1cd3a27f934eb95f883033e2c4c06c0119cb27814faeffa330d43ee170b5a74",
+        "sizeBytes": 3909
+      },
+      "app/src/main/jni/src/suggest/core/session/dic_traverse_session.h": {
+        "sha256": "186eed0eb6caf6095faf13933f89e7db978ad65207f6ca7f245edc6e25d1ca0e",
+        "sizeBytes": 7395
+      },
+      "app/src/main/jni/src/suggest/core/suggest.cpp": {
+        "sha256": "8c84c4ab903f34e153e1ac92986264bc8bceb303ea4e0f0d368b87dba438c998",
+        "sizeBytes": 21442
+      },
+      "app/src/main/jni/src/suggest/core/suggest.h": {
+        "sha256": "a9a03961131c49f7cafb39c180157d6b56a6909f8de6bdba8fd9ef0079017462",
+        "sizeBytes": 3812
+      },
+      "app/src/main/jni/src/suggest/core/suggest_interface.h": {
+        "sha256": "65dc2e026e5777848c7c4e9027273eb812f1224aabdbc931b69c37019ebd8e5b",
+        "sizeBytes": 1313
+      },
+      "app/src/main/jni/src/suggest/core/suggest_options.h": {
+        "sha256": "fa69f6986e0562ddb65cebda8c27bebaca8035c5a91c3acbab704d84888a2ff5",
+        "sizeBytes": 2978
+      },
+      "app/src/main/jni/src/suggest/policyimpl/gesture/gesture_suggest_policy_factory.cpp": {
+        "sha256": "0fcf1e1eeead8873b285bd8b62700465373c289d0c3f2b6eedefb2ed1da3897c",
+        "sizeBytes": 804
+      },
+      "app/src/main/jni/src/suggest/policyimpl/gesture/gesture_suggest_policy_factory.h": {
+        "sha256": "8fc06a8b78001714b80792d7bf6c1e0d490486b1e9906a1ab7c565de50f99c9b",
+        "sizeBytes": 1396
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/scoring_params.cpp": {
+        "sha256": "e9c4b9498057024caa471be22cd295c010072138cc9ba0d742e7ff1b79575a25",
+        "sizeBytes": 3638
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/scoring_params.h": {
+        "sha256": "b91c886b1dc593d51df90f8d9dbad0049ee0cb0aea83bd9ba8a41b28fbb9cda2",
+        "sizeBytes": 3427
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_scoring.cpp": {
+        "sha256": "27f80b4b7071fa949ab142a11551019814e3bd33e5711031fd2c46f7a0a2f58c",
+        "sizeBytes": 768
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_scoring.h": {
+        "sha256": "0f7a3548c4c52f1e006ec7d5a74a531d832151e4109ca9c6c1e3b48ede126ce5",
+        "sizeBytes": 5506
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_suggest_policy.cpp": {
+        "sha256": "2154ebbd832847d0e760fd9eaed39a1f8e5bd664ea1491eacbb27f9030de27b6",
+        "sizeBytes": 786
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_suggest_policy.h": {
+        "sha256": "0994d4ea60e9da46c46874beda0910da5757d99dde32113015022d826400f56c",
+        "sizeBytes": 1730
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_suggest_policy_factory.h": {
+        "sha256": "381104f579dad25233eaa11700eb18e8795c6a4acfe2c4fe4b16119100df4cc9",
+        "sizeBytes": 1128
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_traversal.cpp": {
+        "sha256": "b94ae485cbb1cbbda730da2c3797746359271e8d32faba3cd49e13e23c63a2a9",
+        "sizeBytes": 967
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_traversal.h": {
+        "sha256": "a06b56ff7ac92b0d1865b82552155d55c09b72144d6a491fdc26fca9abc5eef2",
+        "sizeBytes": 8486
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_weighting.cpp": {
+        "sha256": "ad9e7053fb11f4a1503fa1f4da6afdd4453c8dd8f8467f81b2233427fc6c25f8",
+        "sizeBytes": 5286
+      },
+      "app/src/main/jni/src/suggest/policyimpl/typing/typing_weighting.h": {
+        "sha256": "ae1141c01776e127d35cae31dd90f8e14ffde1856a07ee335b823e7319a08109",
+        "sizeBytes": 10790
+      },
+      "app/src/main/jni/src/suggest/policyimpl/utils/damerau_levenshtein_edit_distance_policy.h": {
+        "sha256": "a0d54c817af99b8a2259f00e729ff888d7893cff41dd141b71868329fc3b7d18",
+        "sizeBytes": 2833
+      },
+      "app/src/main/jni/src/suggest/policyimpl/utils/edit_distance.h": {
+        "sha256": "25f556cda05966546d007234680dd2ae3cb9e3b94deee15813d59642b41a2a63",
+        "sizeBytes": 3792
+      },
+      "app/src/main/jni/src/suggest/policyimpl/utils/edit_distance_policy.h": {
+        "sha256": "a34cf9416f9c6cd8d9546a3785d277f80b1e5d75aa4e842e32c9376d3c98aee0",
+        "sizeBytes": 1501
+      },
+      "app/src/main/jni/src/utils/autocorrection_threshold_utils.cpp": {
+        "sha256": "34ada0d1132ace43767f1e30d1f88d0f7753e1c08e56d5aba4a8f684dcfba0c1",
+        "sizeBytes": 4885
+      },
+      "app/src/main/jni/src/utils/autocorrection_threshold_utils.h": {
+        "sha256": "e9868a80f0c3e662fd68f792621ee89535784f4df3c520299c5570804f287243",
+        "sizeBytes": 1374
+      },
+      "app/src/main/jni/src/utils/byte_array_view.h": {
+        "sha256": "4363763b1c90f6cf30ce0cd18f226e3300656a3bc69239053a70702089122f4b",
+        "sizeBytes": 2613
+      },
+      "app/src/main/jni/src/utils/char_utils.cpp": {
+        "sha256": "a737a2790cc86c500a48c6c9b86e09585324fdf6844292fc153e0cedd960fb10",
+        "sizeBytes": 81520
+      },
+      "app/src/main/jni/src/utils/char_utils.h": {
+        "sha256": "6f09ee695820ed5fae02487d74d13ec187b7f9df15adf9273c8c033db93f80bf",
+        "sizeBytes": 4712
+      },
+      "app/src/main/jni/src/utils/int_array_view.h": {
+        "sha256": "32ae55522c13414e2bc6330bdb459c619cc64d82f43189f754ea6705ddad034b",
+        "sizeBytes": 4984
+      },
+      "app/src/main/jni/src/utils/jni_data_utils.cpp": {
+        "sha256": "c2b7d5ae8b721ceeaae904013e2db7806620c7579b4243a2f4cf4d424d245aeb",
+        "sizeBytes": 6602
+      },
+      "app/src/main/jni/src/utils/jni_data_utils.h": {
+        "sha256": "c0925240aff5433ccdac75644c2ecce8a7497f6b30b11536726f8966679d5d97",
+        "sizeBytes": 7237
+      },
+      "app/src/main/jni/src/utils/log_utils.cpp": {
+        "sha256": "411ce5db5e6721bf76531ab883ebd0694b877ff016781e23086a2a040cced7ba",
+        "sizeBytes": 2957
+      },
+      "app/src/main/jni/src/utils/log_utils.h": {
+        "sha256": "391c068f402d7f45b192a78fe0540df686ff536d3a662743ad0bbfb53573f1b2",
+        "sizeBytes": 1045
+      },
+      "app/src/main/jni/src/utils/ngram_utils.h": {
+        "sha256": "5898f567b16c03b341cc26bf1abc62e7f66bb93fbaa336d467c51a3b8a8417c8",
+        "sizeBytes": 1754
+      },
+      "app/src/main/jni/src/utils/profiler.h": {
+        "sha256": "80950573d8fd85a964a17030fb04159e2c9702bfb560fa37cc814f1c21c5518f",
+        "sizeBytes": 2589
+      },
+      "app/src/main/jni/src/utils/time_keeper.cpp": {
+        "sha256": "21ce3e5827883392110a6cf352945776e9b55b77ce0b566410e4a03d26db65a7",
+        "sizeBytes": 1128
+      },
+      "app/src/main/jni/src/utils/time_keeper.h": {
+        "sha256": "4d780a657184f423f3807c166a81a9c63471c6a120598f0200240b586d182fbe",
+        "sizeBytes": 1142
+      },
+      "app/src/main/jni/NativeFileList.mk": {
+        "sha256": "795148e0705608ad6402ad6393686b3b33d5913f1e8b576454f118c2ef814f46",
+        "sizeBytes": 5991
+      },
+      "app/src/main/jni/Android.mk": {
+        "sha256": "7b222c67156bcd56c393911ada9d7d93ca3b344e0513e14d00d427dd835917e7",
+        "sizeBytes": 3520
+      },
+      "app/src/main/jni/Application.mk": {
+        "sha256": "552256ec01bf6ebf6e51db07a18008e1a4120bf15d713fcbdcee16fa3672590b",
+        "sizeBytes": 37
+      },
+      "LICENSE-Apache-2.0": {
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "sizeBytes": 11358
+      },
+      "app/src/main/assets/dicts/main_en-US.dict": {
+        "sha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+        "sizeBytes": 2956881
+      }
+    },
+    "coreSources": [
+      "dictionary/header/header_policy.cpp",
+      "dictionary/header/header_read_write_utils.cpp",
+      "dictionary/property/ngram_context.cpp",
+      "dictionary/structure/dictionary_structure_with_buffer_policy_factory.cpp",
+      "dictionary/structure/pt_common/bigram/bigram_list_read_write_utils.cpp",
+      "dictionary/structure/pt_common/dynamic_pt_gc_event_listeners.cpp",
+      "dictionary/structure/pt_common/dynamic_pt_reading_helper.cpp",
+      "dictionary/structure/pt_common/dynamic_pt_reading_utils.cpp",
+      "dictionary/structure/pt_common/dynamic_pt_updating_helper.cpp",
+      "dictionary/structure/pt_common/dynamic_pt_writing_utils.cpp",
+      "dictionary/structure/pt_common/patricia_trie_reading_utils.cpp",
+      "dictionary/structure/pt_common/shortcut/shortcut_list_reading_utils.cpp",
+      "dictionary/structure/v2/patricia_trie_policy.cpp",
+      "dictionary/structure/v2/ver2_patricia_trie_node_reader.cpp",
+      "dictionary/structure/v2/ver2_pt_node_array_reader.cpp",
+      "dictionary/structure/v4/ver4_dict_buffers.cpp",
+      "dictionary/structure/v4/ver4_dict_constants.cpp",
+      "dictionary/structure/v4/ver4_patricia_trie_node_reader.cpp",
+      "dictionary/structure/v4/ver4_patricia_trie_node_writer.cpp",
+      "dictionary/structure/v4/ver4_patricia_trie_policy.cpp",
+      "dictionary/structure/v4/ver4_patricia_trie_reading_utils.cpp",
+      "dictionary/structure/v4/ver4_patricia_trie_writing_helper.cpp",
+      "dictionary/structure/v4/ver4_pt_node_array_reader.cpp",
+      "dictionary/structure/v4/content/dynamic_language_model_probability_utils.cpp",
+      "dictionary/structure/v4/content/language_model_dict_content.cpp",
+      "dictionary/structure/v4/content/language_model_dict_content_global_counters.cpp",
+      "dictionary/structure/v4/content/shortcut_dict_content.cpp",
+      "dictionary/structure/v4/content/sparse_table_dict_content.cpp",
+      "dictionary/structure/v4/content/terminal_position_lookup_table.cpp",
+      "dictionary/utils/buffer_with_extendable_buffer.cpp",
+      "dictionary/utils/byte_array_utils.cpp",
+      "dictionary/utils/dict_file_writing_utils.cpp",
+      "dictionary/utils/file_utils.cpp",
+      "dictionary/utils/forgetting_curve_utils.cpp",
+      "dictionary/utils/format_utils.cpp",
+      "dictionary/utils/mmapped_buffer.cpp",
+      "dictionary/utils/multi_bigram_map.cpp",
+      "dictionary/utils/probability_utils.cpp",
+      "dictionary/utils/sparse_table.cpp",
+      "dictionary/utils/trie_map.cpp",
+      "suggest/core/suggest.cpp",
+      "suggest/core/dicnode/dic_node.cpp",
+      "suggest/core/dicnode/dic_node_utils.cpp",
+      "suggest/core/dicnode/dic_nodes_cache.cpp",
+      "suggest/core/dictionary/dictionary.cpp",
+      "suggest/core/dictionary/dictionary_utils.cpp",
+      "suggest/core/dictionary/digraph_utils.cpp",
+      "suggest/core/dictionary/error_type_utils.cpp",
+      "suggest/core/layout/additional_proximity_chars.cpp",
+      "suggest/core/layout/proximity_info.cpp",
+      "suggest/core/layout/proximity_info_params.cpp",
+      "suggest/core/layout/proximity_info_state.cpp",
+      "suggest/core/layout/proximity_info_state_utils.cpp",
+      "suggest/core/policy/weighting.cpp",
+      "suggest/core/session/dic_traverse_session.cpp",
+      "suggest/core/result/suggestion_results.cpp",
+      "suggest/core/result/suggestions_output_utils.cpp",
+      "suggest/policyimpl/gesture/gesture_suggest_policy_factory.cpp",
+      "suggest/policyimpl/typing/scoring_params.cpp",
+      "suggest/policyimpl/typing/typing_scoring.cpp",
+      "suggest/policyimpl/typing/typing_suggest_policy.cpp",
+      "suggest/policyimpl/typing/typing_traversal.cpp",
+      "suggest/policyimpl/typing/typing_weighting.cpp",
+      "utils/autocorrection_threshold_utils.cpp",
+      "utils/char_utils.cpp",
+      "utils/jni_data_utils.cpp",
+      "utils/log_utils.cpp",
+      "utils/time_keeper.cpp",
+      "dictionary/structure/backward/v402/ver4_dict_buffers.cpp",
+      "dictionary/structure/backward/v402/ver4_dict_constants.cpp",
+      "dictionary/structure/backward/v402/ver4_patricia_trie_node_reader.cpp",
+      "dictionary/structure/backward/v402/ver4_patricia_trie_node_writer.cpp",
+      "dictionary/structure/backward/v402/ver4_patricia_trie_policy.cpp",
+      "dictionary/structure/backward/v402/ver4_patricia_trie_reading_utils.cpp",
+      "dictionary/structure/backward/v402/ver4_patricia_trie_writing_helper.cpp",
+      "dictionary/structure/backward/v402/ver4_pt_node_array_reader.cpp",
+      "dictionary/structure/backward/v402/content/bigram_dict_content.cpp",
+      "dictionary/structure/backward/v402/content/probability_dict_content.cpp",
+      "dictionary/structure/backward/v402/content/shortcut_dict_content.cpp",
+      "dictionary/structure/backward/v402/content/sparse_table_dict_content.cpp",
+      "dictionary/structure/backward/v402/content/terminal_position_lookup_table.cpp",
+      "dictionary/structure/backward/v402/bigram/ver4_bigram_list_policy.cpp"
+    ],
+    "patches": []
+  },
+  "build": {
+    "abis": [
+      "arm64-v8a",
+      "x86_64"
+    ],
+    "androidApi": 26,
+    "ndkVersion": "29.0.14206865",
+    "cmakeVersion": "3.31.6",
+    "cxxStandard": 17,
+    "stl": "c++_static",
+    "elfPageSize": 16384,
+    "jniAbiVersion": 1,
+    "packetVersion": 1
+  },
+  "dictionary": {
+    "upstreamPath": "app/src/main/assets/dicts/main_en-US.dict",
+    "sha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+    "sizeBytes": 2956881,
+    "formatVersion": 202,
+    "dictionaryVersion": "54",
+    "recompile": false
+  }
+}

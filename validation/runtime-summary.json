@@ -1,0 +1,165 @@
+{
+  "buildId": "6ddfef54ed2c518f5435994eccb14cb2b19897da8ee826c179c8b124aac03258",
+  "boardBase": "327b3d30bc798c8f3111c876dce6301834e05510",
+  "scope": "isolated IPA Board compatibility fixture; no production integration",
+  "environment": {
+    "kind": "environment",
+    "identity": "ipa-latinime;abi=1;packet=1;heliboard=4.1;source=9f5bb635c2e8609dcd95dc7506c0c58fba82a52c;dictionary=bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443;build=6ddfef54ed2c518f5435994eccb14cb2b19897da8ee826c179c8b124aac03258",
+    "pageSize": 16384,
+    "sdk": 36,
+    "arch": "x86_64",
+    "supportedAbis": [
+      "x86_64",
+      "arm64-v8a"
+    ],
+    "dictionarySha256": "bd950ef4b57655120eee65cee62a5d216a63f721d9a8bb759ce2022437840443",
+    "dictionaryBytes": 2956881
+  },
+  "compatibilityModeDisabledInCompiledManifest": true,
+  "jvmTests": 37,
+  "instrumentation": {
+    "passed": 55,
+    "failed": 1,
+    "skipped": 0,
+    "classes": [
+      {
+        "class": "com.example.ipa_board.LatinImeSourceBuildTest",
+        "passed": 12,
+        "status": "passed"
+      },
+      {
+        "class": "com.example.ipa_board.MultilingualEngineTest",
+        "passed": 11,
+        "status": "passed"
+      },
+      {
+        "class": "com.example.ipa_board.EngineControlsTest",
+        "passed": 3,
+        "status": "passed"
+      },
+      {
+        "class": "com.example.ipa_board.EngineSettingsContractTest",
+        "passed": 4,
+        "status": "passed"
+      },
+      {
+        "class": "com.example.ipa_board.DiagnosticsContractTest",
+        "passed": 11,
+        "status": "passed"
+      },
+      {
+        "class": "com.example.ipa_board.CompositionControllerTest",
+        "passed": 14,
+        "status": "passed"
+      },
+      {
+        "class": "com.example.ipa_board.EnglishImeIntegrationTest",
+        "passed": 0,
+        "status": "failed"
+      }
+    ]
+  },
+  "coreValidationPassed": true,
+  "allSelectedChecksPassed": false,
+  "imeUiValidation": {
+    "passed": false,
+    "status": "failed",
+    "observedFailurePhase": "await test-owned keyboard before input",
+    "latestReadiness": {
+      "windowFocus": true,
+      "editorFocus": true,
+      "activeEditor": true,
+      "attached": true,
+      "shown": true,
+      "lifecycle": "RESUMED",
+      "testImeSelected": true,
+      "testImeEnabled": true
+    },
+    "rootCauseConfirmed": false
+  },
+  "coreReportId": "cb693c18-f2f2-415c-846e-af36430741e9",
+  "legacyComparisonQueries": 12,
+  "backupRestorationVerified": true,
+  "pendingBackupsAfter": [],
+  "actualRuntimeAbis": [
+    "x86_64"
+  ],
+  "staticOnlyAbis": [
+    "arm64-v8a"
+  ],
+  "fourKbRuntimeRequired": false,
+  "productionPhoneTouched": false,
+  "limitations": [
+    "IME UI flow not validated: owned keyboard failed to appear",
+    "No ARM64 runtime test",
+    "No release/AAB runtime test",
+    "No other API coverage",
+    "No broad editor compatibility claim"
+  ],
+  "attempts": [
+    {
+      "reportId": "1f90cafa-e98b-44ca-ba93-c44310947db7",
+      "success": false,
+      "restored": true,
+      "error": "RegressionError",
+      "apks": [
+        {
+          "package": "com.example.ipa_board",
+          "sha256": "a3d75fc644c7a00a6e7e0f156f7e9fffa6f67c81da190951dbd44980844e8310"
+        },
+        {
+          "package": "com.example.ipa_board.test",
+          "sha256": "4a78b6d91337708473ce322bf66d4c58428b97ceec1b80562b5e39d539aa53a9"
+        }
+      ]
+    },
+    {
+      "reportId": "cb693c18-f2f2-415c-846e-af36430741e9",
+      "success": false,
+      "restored": true,
+      "error": "RegressionError",
+      "apks": [
+        {
+          "package": "com.example.ipa_board",
+          "sha256": "a3d75fc644c7a00a6e7e0f156f7e9fffa6f67c81da190951dbd44980844e8310"
+        },
+        {
+          "package": "com.example.ipa_board.test",
+          "sha256": "1095784d7b14a356c604c8c74d7b0023a223a1f1c8fc528a306410931ab9bc4c"
+        }
+      ]
+    },
+    {
+      "reportId": "6a4d5b27-d0e2-475a-bb38-c5ff7fdd3311",
+      "success": false,
+      "restored": true,
+      "error": "RegressionError",
+      "apks": [
+        {
+          "package": "com.example.ipa_board",
+          "sha256": "a3d75fc644c7a00a6e7e0f156f7e9fffa6f67c81da190951dbd44980844e8310"
+        },
+        {
+          "package": "com.example.ipa_board.test",
+          "sha256": "1095784d7b14a356c604c8c74d7b0023a223a1f1c8fc528a306410931ab9bc4c"
+        }
+      ]
+    },
+    {
+      "reportId": "f853c211-b255-4e7d-b071-f80f9c07f61d",
+      "success": false,
+      "restored": true,
+      "error": "RegressionError",
+      "apks": [
+        {
+          "package": "com.example.ipa_board",
+          "sha256": "a3d75fc644c7a00a6e7e0f156f7e9fffa6f67c81da190951dbd44980844e8310"
+        },
+        {
+          "package": "com.example.ipa_board.test",
+          "sha256": "0b051a9302ddfbf01162e4847d5900f4b39e891831c90af978492d6194434fd1"
+        }
+      ]
+    }
+  ]
+}

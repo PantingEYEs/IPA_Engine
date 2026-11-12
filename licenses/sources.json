@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "notices": [
+    {
+      "path": "licenses/native/HeliBoard-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sizeBytes": 11358,
+      "sourcePath": "LICENSE-Apache-2.0",
+      "source": "HeliBoard@9f5bb635c2e8609dcd95dc7506c0c58fba82a52c",
+      "purpose": "Apache-2.0 text accompanying the selected file-level Apache native code"
+    },
+    {
+      "path": "licenses/dictionary/HeliBoard-GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sizeBytes": 35149,
+      "sourcePath": "LICENSE",
+      "source": "HeliBoard@9f5bb635c2e8609dcd95dc7506c0c58fba82a52c",
+      "purpose": "HeliBoard repository-level context; not applied to every native file"
+    },
+    {
+      "path": "licenses/toolchain/NDK-r29-NOTICE.txt",
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "sizeBytes": 516438,
+      "sourcePath": "NOTICE",
+      "source": "Android NDK 29.0.14206865",
+      "purpose": "Original NDK runtime/component notices"
+    },
+    {
+      "path": "licenses/toolchain/NDK-r29-NOTICE.toolchain.txt",
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "sizeBytes": 799639,
+      "sourcePath": "NOTICE.toolchain",
+      "source": "Android NDK 29.0.14206865",
+      "purpose": "Original NDK toolchain and static C++ notices"
+    },
+    {
+      "path": "licenses/dictionary/OpenBoard-GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sizeBytes": 35149,
+      "sourceUrl": "https://raw.githubusercontent.com/openboard-team/openboard/6c7582aae8577f2953a597a547924bbea3d832f4/LICENSE",
+      "purpose": "Retained repository-level license at the exact original dictionary distribution; no file-level Apache grant was found."
+    }
+  ],
+  "additionalEvidence": [
+    {
+      "path": "licenses/dictionary/main_en_US.source",
+      "sha256": "40858c209be9a676819c08ebc1126a8aa255ac2a239a75f38bc689f7c96b0efe",
+      "sizeBytes": 101
+    }
+  ],
+  "toolchainRevision": "Pkg.Desc = Android NDK\nPkg.Revision = 29.0.14206865\nPkg.BaseRevision = 29.0.14206865\nPkg.ReleaseName = r29",
+  "toolchainProperties": {
+    "sha256": "716f3518a923198cfab037abb32dc3f1b1f7e9a9dcdcda6b66be5906215d2658",
+    "sizeBytes": 107
+  }
+}
