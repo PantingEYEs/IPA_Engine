@@ -1,0 +1,14 @@
+{
+  "classes": 7,
+  "tests": 34,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suiteRegistryValidated": true,
+  "engineAssetsValidated": true,
+  "debugApkBuilt": true,
+  "androidTestApkBuilt": true,
+  "lintPassed": true,
+  "lintWarnings": 295,
+  "existingLintBaselineFilteredErrors": 129
+}

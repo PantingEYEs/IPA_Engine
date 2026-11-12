@@ -1,0 +1,36 @@
+{
+  "suite": "onnx-extensions",
+  "classes": [
+    "com.example.ipa_board.OnnxExtensionsBuildCompatibilityTest",
+    "com.example.ipa_board.SemanticContextIntegrationTest"
+  ],
+  "success": false,
+  "restored": true,
+  "error": "RegressionError",
+  "results": [
+    {
+      "class": "com.example.ipa_board.OnnxExtensionsBuildCompatibilityTest",
+      "status": "passed",
+      "tests": 8,
+      "executed": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 6.669
+    },
+    {
+      "class": "com.example.ipa_board.SemanticContextIntegrationTest",
+      "status": "failed",
+      "tests": 4,
+      "executed": 4,
+      "passed": 2,
+      "failed": 2,
+      "skipped": 0,
+      "error": "RegressionError",
+      "duration_seconds": 51.534
+    }
+  ],
+  "duration_seconds": 67.699,
+  "sourceCommit": "a2e3bc84cc9471831e0dd049c570edd8f4d96d1f",
+  "description": "Original Extensions 0.13.0 AAR on dedicated API35 x86_64 Android with 4096-byte pages; only fixed synthetic inputs."
+}

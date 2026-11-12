@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "validation_scope": "Read-only static ONNX graph/operator inventory; no model execution",
+  "parser": {
+    "onnx": "1.18.0",
+    "python": "3.13.1",
+    "protobuf": "5.29.5",
+    "numpy": "2.2.6"
+  },
+  "asset_source": "IPA_Board/app/src/main/assets/engines/semantic",
+  "asset_manifest_sha256": "c36caee5cd6f7e18acaf270c4aabf94761331fdc04ab870cf7e160240d0ea03e",
+  "all_asset_hashes_match_manifest": true,
+  "model_parts": [
+    {
+      "name": "model.part0",
+      "size_bytes": 41943040,
+      "sha256": "7dd0923fa60b82970fbeba26c264b84507741ea463b670f263b2207b5f902c4f",
+      "matches_manifest": true
+    },
+    {
+      "name": "model.part1",
+      "size_bytes": 41943040,
+      "sha256": "8dce92133bdf354187b396ff5c3d98f3459e659601c017b59fdee86fad1038bc",
+      "matches_manifest": true
+    },
+    {
+      "name": "model.part2",
+      "size_bytes": 34460744,
+      "sha256": "3b5b43def6e8cd95448518c6cb2d4cd3614cffad31dad5b1b9031d337a78caa3",
+      "matches_manifest": true
+    }
+  ],
+  "graphs": [
+    {
+      "label": "tokenizer.onnx",
+      "size_bytes": 5069533,
+      "sha256": "4d28a2a61017a7b222164065d832e51103fbb3a4451c4e4938a2eeb8e83e44e8",
+      "ir_version": 8,
+      "producer_name": "",
+      "producer_version": "",
+      "opset_imports": [
+        {
+          "domain": "ai.onnx",
+          "version": 18
+        },
+        {
+          "domain": "ai.onnx.contrib",
+          "version": 1
+        }
+      ],
+      "top_level_node_count": 1,
+      "inference_graph_node_count_including_subgraphs": 1,
+      "local_function_count": 0,
+      "local_function_node_count": 0,
+      "training_info_count": 0,
+      "external_tensors": [],
+      "operator_inventory": [
+        {
+          "domain": "ai.onnx.contrib",
+          "op_type": "SentencepieceTokenizer",
+          "node_count": 1
+        }
+      ],
+      "nonstandard_domain_operators": [
+        {
+          "domain": "ai.onnx.contrib",
+          "op_type": "SentencepieceTokenizer",
+          "node_count": 1
+        }
+      ],
+      "extensions_domain_operators": [
+        {
+          "domain": "ai.onnx.contrib",
+          "op_type": "SentencepieceTokenizer",
+          "node_count": 1
+        }
+      ]
+    },
+    {
+      "label": "reassembled E5 model",
+      "size_bytes": 118346824,
+      "sha256": "dd476dd0c2514e9b9be83aeb3853fac0763e0bdf4a71645407587d77c48a2d88",
+      "ir_version": 6,
+      "producer_name": "onnx.quantize",
+      "producer_version": "0.1.0",
+      "opset_imports": [
+        {
+          "domain": "",
+          "version": 11
+        }
+      ],
+      "top_level_node_count": 1630,
+      "inference_graph_node_count_including_subgraphs": 1630,
+      "local_function_count": 0,
+      "local_function_node_count": 0,
+      "training_info_count": 0,
+      "external_tensors": [],
+      "operator_inventory": [
+        {
+          "domain": "",
+          "op_type": "Add",
+          "node_count": 172
+        },
+        {
+          "domain": "",
+          "op_type": "Cast",
+          "node_count": 97
+        },
+        {
+          "domain": "",
+          "op_type": "Concat",
+          "node_count": 48
+        },
+        {
+          "domain": "",
+          "op_type": "Constant",
+          "node_count": 284
+        },
+        {
+          "domain": "",
+          "op_type": "DequantizeLinear",
+          "node_count": 3
+        },
+        {
+          "domain": "",
+          "op_type": "Div",
+          "node_count": 49
+        },
+        {
+          "domain": "",
+          "op_type": "DynamicQuantizeLinear",
+          "node_count": 96
+        },
+        {
+          "domain": "",
+          "op_type": "Erf",
+          "node_count": 12
+        },
+        {
+          "domain": "",
+          "op_type": "Gather",
+          "node_count": 100
+        },
+        {
+          "domain": "",
+          "op_type": "MatMulInteger",
+          "node_count": 96
+        },
+        {
+          "domain": "",
+          "op_type": "Mul",
+          "node_count": 242
+        },
+        {
+          "domain": "",
+          "op_type": "Pow",
+          "node_count": 25
+        },
+        {
+          "domain": "",
+          "op_type": "ReduceMean",
+          "node_count": 50
+        },
+        {
+          "domain": "",
+          "op_type": "Reshape",
+          "node_count": 48
+        },
+        {
+          "domain": "",
+          "op_type": "Shape",
+          "node_count": 97
+        },
+        {
+          "domain": "",
+          "op_type": "Slice",
+          "node_count": 1
+        },
+        {
+          "domain": "",
+          "op_type": "Softmax",
+          "node_count": 12
+        },
+        {
+          "domain": "",
+          "op_type": "Sqrt",
+          "node_count": 25
+        },
+        {
+          "domain": "",
+          "op_type": "Sub",
+          "node_count": 26
+        },
+        {
+          "domain": "",
+          "op_type": "Transpose",
+          "node_count": 48
+        },
+        {
+          "domain": "",
+          "op_type": "Unsqueeze",
+          "node_count": 99
+        }
+      ],
+      "nonstandard_domain_operators": [],
+      "extensions_domain_operators": []
+    }
+  ],
+  "required_extensions_operators": [
+    {
+      "domain": "ai.onnx.contrib",
+      "op_type": "SentencepieceTokenizer"
+    }
+  ],
+  "all_required_extensions_operators_in_spm_profile": true,
+  "inference_limit": "This closure applies only to the hashed existing graphs; changing a graph requires a fresh inventory and runtime test. ORT main-library operators were not reduced."
+}

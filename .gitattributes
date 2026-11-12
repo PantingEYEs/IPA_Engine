@@ -1,0 +1,6 @@
+* text=auto eol=lf
+artifacts/** -text
+licenses/** -text -whitespace
+patches/** -text -whitespace
+integration/onnxruntime-1.23.2-headers/** -text -whitespace
+validation/fixtures/*.patch -text -whitespace

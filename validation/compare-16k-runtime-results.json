@@ -1,0 +1,63 @@
+{
+  "suite": "onnx-extensions",
+  "classes": [
+    "com.example.ipa_board.OnnxExtensionsBuildCompatibilityTest",
+    "com.example.ipa_board.SemanticContextIntegrationTest"
+  ],
+  "success": true,
+  "restored": true,
+  "error": null,
+  "results": [
+    {
+      "class": "com.example.ipa_board.OnnxExtensionsBuildCompatibilityTest",
+      "status": "passed",
+      "tests": 8,
+      "executed": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 5.624
+    },
+    {
+      "class": "com.example.ipa_board.SemanticContextIntegrationTest",
+      "status": "passed",
+      "tests": 4,
+      "executed": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 8.949
+    }
+  ],
+  "duration_seconds": 22.595,
+  "build": {
+    "variant": "debug",
+    "apks": [
+      {
+        "package": "com.example.ipa_board",
+        "sha256": "efe63e63b99c2037fe07d4c2a993874c9a587c724a4be9959d26a279369e4362"
+      },
+      {
+        "package": "com.example.ipa_board.test",
+        "sha256": "b18f265d05ce5648193547f601c570ae71f10f43b135a90039f5ad42a001bb03"
+      }
+    ]
+  },
+  "sourceCommit": "a2e3bc84cc9471831e0dd049c570edd8f4d96d1f",
+  "extensionAarSha256": "20620659f2695dc5e36cca7f339e64c606f36413b9a42c144eac0aace73cecc6",
+  "mainOrtAarSha256": "82048d1f462218adae4ba76477089ab0ba76093d84f733540066db1a8ba6b827",
+  "environment": {
+    "pageSize": 16384,
+    "processArchitecture": "x86_64",
+    "apiLevel": 36,
+    "modelSha256": "dd476dd0c2514e9b9be83aeb3853fac0763e0bdf4a71645407587d77c48a2d88",
+    "tokenizerSha256": "4d28a2a61017a7b222164065d832e51103fbb3a4451c4e4938a2eeb8e83e44e8"
+  },
+  "syntheticTokenizerCases": 17,
+  "tokenizerOutputsExactlyEqual": true,
+  "semanticScoreValues": 22,
+  "maximumSemanticScoreAbsoluteDifference": 3.78955841706663e-09,
+  "semanticScoreAbsoluteTolerance": 0.0001,
+  "completeOriginalE5ModelLoaded": true,
+  "jniRegistrationEntryPointResolved": true
+}

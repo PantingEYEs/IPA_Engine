@@ -1,0 +1,948 @@
+{
+  "pageSize": 16384,
+  "zipalign": "build-tools/36.0.0/zipalign",
+  "apks": [
+    {
+      "path": "app/build/outputs/apk/debug/app-debug.apk",
+      "nativeFiles": [
+        {
+          "entry": "lib/arm64-v8a/libipa_rime_batch.so",
+          "bytes": 70960,
+          "sha256": "7bbf74c59443fe803241c1d5437c72ecf73c340cc487431f1baa08c63ea35482",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 67600,
+              "memsz": 67600,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 67600,
+              "vaddr": 83984,
+              "filesz": 1112,
+              "memsz": 2032,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 68712,
+              "vaddr": 101480,
+              "filesz": 40,
+              "memsz": 2168,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 67600,
+              "vaddr": 83984,
+              "filesz": 1112,
+              "memsz": 2032,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libjni_latinime.so",
+          "bytes": 1347040,
+          "sha256": "a97b09fd3de5395023df9fb4ddc2b1eef44162bd6e987b975897d74fc3ee7081",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 1301056,
+              "memsz": 1301056,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 1301056,
+              "vaddr": 1317440,
+              "filesz": 43208,
+              "memsz": 46528,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 1344264,
+              "vaddr": 1377032,
+              "filesz": 504,
+              "memsz": 8520,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 1301056,
+              "vaddr": 1317440,
+              "filesz": 43208,
+              "memsz": 46528,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libjnidispatch.so",
+          "bytes": 165992,
+          "sha256": "ddfc6c965bbe366615c000ec1f06552ddf0bb2b4f9d921d0bff8c75b3cb2ca4c",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 152376,
+              "memsz": 152376,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 162712,
+              "vaddr": 179096,
+              "filesz": 1708,
+              "memsz": 3816,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 162712,
+              "vaddr": 179096,
+              "filesz": 1128,
+              "memsz": 1128,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libmozc.so",
+          "bytes": 5478432,
+          "sha256": "d7cc97611b162e1577dc419811bc4a39b72a9af0be4f380b68597519e64d9b12",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 5259328,
+              "memsz": 5259328,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5275648,
+              "vaddr": 5275648,
+              "filesz": 182304,
+              "memsz": 184320,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5457952,
+              "vaddr": 5474336,
+              "filesz": 17824,
+              "memsz": 147768,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 5275648,
+              "vaddr": 5275648,
+              "filesz": 182304,
+              "memsz": 184320,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libonnxruntime.so",
+          "bytes": 19347616,
+          "sha256": "b67e18edab9f63f8672c2d4843266e226558099f1aaefe66bd033fdbe365987b",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 18898176,
+              "memsz": 18898176,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 18898176,
+              "vaddr": 18914560,
+              "filesz": 439696,
+              "memsz": 443136,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 19337872,
+              "vaddr": 19370640,
+              "filesz": 7216,
+              "memsz": 55320,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 18898176,
+              "vaddr": 18914560,
+              "filesz": 439696,
+              "memsz": 443136,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+          "bytes": 75752,
+          "sha256": "ebe51b6a8781949e6b36973b6c2c630e090b5fdda9626bb7998aae4597fd467d",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 73088,
+              "memsz": 73088,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 73088,
+              "vaddr": 89472,
+              "filesz": 816,
+              "memsz": 4736,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 73088,
+              "vaddr": 89472,
+              "filesz": 816,
+              "memsz": 4736,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/librime_jni.so",
+          "bytes": 5521416,
+          "sha256": "6e2543f874f247016d791c91ab82e53979157f217be80efc472c9537afaff75f",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 5369520,
+              "memsz": 5369520,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5369520,
+              "vaddr": 5385904,
+              "filesz": 146648,
+              "memsz": 147792,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5516168,
+              "vaddr": 5548936,
+              "filesz": 2976,
+              "memsz": 91928,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 5369520,
+              "vaddr": 5385904,
+              "filesz": 146648,
+              "memsz": 147792,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "assets/engines/ipa/bundled/libipa_graph_android.so",
+          "bytes": 789264,
+          "sha256": "bd30ef166d839556790dd93ee60c706cd81f4eaa9d0c628eba970f1dce7ea8ae",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 763440,
+              "memsz": 763440,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 763440,
+              "vaddr": 779824,
+              "filesz": 22632,
+              "memsz": 22992,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 786072,
+              "vaddr": 818840,
+              "filesz": 480,
+              "memsz": 8424,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 763440,
+              "vaddr": 779824,
+              "filesz": 22632,
+              "memsz": 22992,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libonnxruntime_extensions4j_jni.so",
+          "bytes": 917168,
+          "sha256": "8d9a1d9c46b2c3882ca33abc2b2c4f75228d4a36033be1c71c7c2796f2cbf655",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 883264,
+              "memsz": 883264,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 883264,
+              "vaddr": 899648,
+              "filesz": 30184,
+              "memsz": 34240,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 913448,
+              "vaddr": 946216,
+              "filesz": 1296,
+              "memsz": 10728,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 883264,
+              "vaddr": 899648,
+              "filesz": 30184,
+              "memsz": 34240,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/arm64-v8a/libortextensions.so",
+          "bytes": 917000,
+          "sha256": "a3259edbf2fd97d2435e6a67688095f847d30247d84462120cbfc2bf429fad8c",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 883104,
+              "memsz": 883104,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 883104,
+              "vaddr": 899488,
+              "filesz": 30176,
+              "memsz": 34400,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 913280,
+              "vaddr": 946048,
+              "filesz": 1296,
+              "memsz": 10720,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 883104,
+              "vaddr": 899488,
+              "filesz": 30176,
+              "memsz": 34400,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libipa_rime_batch.so",
+          "bytes": 66984,
+          "sha256": "3b14c7c77ef0f8e7ac5636ce064cca6f3c7d502cfb70f677c834ee8d536380b4",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 63792,
+              "memsz": 63792,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 63792,
+              "vaddr": 80176,
+              "filesz": 1016,
+              "memsz": 1744,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 64808,
+              "vaddr": 97576,
+              "filesz": 40,
+              "memsz": 2152,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 63792,
+              "vaddr": 80176,
+              "filesz": 1016,
+              "memsz": 1744,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libjni_latinime.so",
+          "bytes": 1339072,
+          "sha256": "6f85b8fcb378ce0e53bf6df12ec2ad69286c0e61bda21cb2eb565dcbeb2fd0d0",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 1293168,
+              "memsz": 1293168,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 1293168,
+              "vaddr": 1309552,
+              "filesz": 43112,
+              "memsz": 46224,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 1336288,
+              "vaddr": 1369056,
+              "filesz": 512,
+              "memsz": 8560,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 1293168,
+              "vaddr": 1309552,
+              "filesz": 43112,
+              "memsz": 46224,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libjnidispatch.so",
+          "bytes": 116904,
+          "sha256": "288eafff19a70e833498201071c3d724f03f32ee8ff64a14fca50b57d975db70",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 103484,
+              "memsz": 103484,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 113408,
+              "vaddr": 129792,
+              "filesz": 1652,
+              "memsz": 3912,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 6,
+              "offset": 113408,
+              "vaddr": 129792,
+              "filesz": 1280,
+              "memsz": 1280,
+              "align": 64
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libmozc.so",
+          "bytes": 5642432,
+          "sha256": "04831587ad807ba1e26144ae8fb34c67d40e6f9193294500f680a1be7616b3ac",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 5435760,
+              "memsz": 5435760,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5439488,
+              "vaddr": 5439488,
+              "filesz": 182456,
+              "memsz": 184320,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5621952,
+              "vaddr": 5638336,
+              "filesz": 17824,
+              "memsz": 147824,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 5439488,
+              "vaddr": 5439488,
+              "filesz": 182456,
+              "memsz": 184320,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libonnxruntime.so",
+          "bytes": 23181616,
+          "sha256": "c85127fcb089c13937ac25fe2c66713379f9bece7667a4847c316ac2acceae28",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 22739792,
+              "memsz": 22739792,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 22739792,
+              "vaddr": 22756176,
+              "filesz": 431896,
+              "memsz": 435376,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 23171696,
+              "vaddr": 23204464,
+              "filesz": 7392,
+              "memsz": 45824,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 22739792,
+              "vaddr": 22756176,
+              "filesz": 431896,
+              "memsz": 435376,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libonnxruntime4j_jni.so",
+          "bytes": 73432,
+          "sha256": "8519639c0de2701e9b5b02be2e568e43793c12f0a4c452de26d10752ef849233",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 70848,
+              "memsz": 70848,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 70848,
+              "vaddr": 87232,
+              "filesz": 736,
+              "memsz": 2880,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 70848,
+              "vaddr": 87232,
+              "filesz": 736,
+              "memsz": 2880,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libonnxruntime_extensions4j_jni.so",
+          "bytes": 910120,
+          "sha256": "77179c124c88f1862eabdc61dc0a0c0a7ed1605988bdd397b9be65ccb002500b",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 878336,
+              "memsz": 878336,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 878336,
+              "vaddr": 894720,
+              "filesz": 28056,
+              "memsz": 39168,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 906400,
+              "vaddr": 939168,
+              "filesz": 1296,
+              "memsz": 10704,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 878336,
+              "vaddr": 894720,
+              "filesz": 28056,
+              "memsz": 39168,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/libortextensions.so",
+          "bytes": 909912,
+          "sha256": "d3cfd7eab48d1a958a821c5492bb9d11fc657ca54a9d5531df55d39f5b383de9",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 878144,
+              "memsz": 878144,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 878144,
+              "vaddr": 894528,
+              "filesz": 28048,
+              "memsz": 39360,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 906192,
+              "vaddr": 938960,
+              "filesz": 1296,
+              "memsz": 10704,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 878144,
+              "vaddr": 894528,
+              "filesz": 28048,
+              "memsz": 39360,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        },
+        {
+          "entry": "lib/x86_64/librime_jni.so",
+          "bytes": 5516376,
+          "sha256": "98869ae0866f4f5ea452f76cfaa0889b98bf9b11ac33a62d0534d43c14cb9128",
+          "machine": 62,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 5364528,
+              "memsz": 5364528,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5364528,
+              "vaddr": 5380912,
+              "filesz": 146560,
+              "memsz": 148688,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 5511088,
+              "vaddr": 5543856,
+              "filesz": 3016,
+              "memsz": 91888,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 5364528,
+              "vaddr": 5380912,
+              "filesz": 146560,
+              "memsz": 148688,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        }
+      ],
+      "sha256": "efe63e63b99c2037fe07d4c2a993874c9a587c724a4be9959d26a279369e4362",
+      "zipalignExitCode": 0,
+      "zipalignLog": "app-debug.apk.zipalign16k.txt"
+    },
+    {
+      "path": "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk",
+      "nativeFiles": [
+        {
+          "entry": "assets/ipa/v004/libipa_graph_android.so",
+          "bytes": 445344,
+          "sha256": "1aaa80b2df0c1d5211397daa736658a0cf7ec24636df80d06e6a98b675d00d4c",
+          "machine": 183,
+          "loads": [
+            {
+              "type": 1,
+              "flags": 5,
+              "offset": 0,
+              "vaddr": 0,
+              "filesz": 425392,
+              "memsz": 425392,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 425392,
+              "vaddr": 441776,
+              "filesz": 14456,
+              "memsz": 16976,
+              "align": 16384
+            },
+            {
+              "type": 1,
+              "flags": 6,
+              "offset": 439848,
+              "vaddr": 472616,
+              "filesz": 2552,
+              "memsz": 5560,
+              "align": 16384
+            }
+          ],
+          "relro": [
+            {
+              "type": 1685382482,
+              "flags": 4,
+              "offset": 425392,
+              "vaddr": 441776,
+              "filesz": 14456,
+              "memsz": 16976,
+              "align": 1
+            }
+          ],
+          "errors": [],
+          "compressed": true
+        }
+      ],
+      "sha256": "b18f265d05ce5648193547f601c570ae71f10f43b135a90039f5ad42a001bb03",
+      "zipalignExitCode": 0,
+      "zipalignLog": "app-debug-androidTest.apk.zipalign16k.txt"
+    }
+  ],
+  "errors": [],
+  "success": true
+}

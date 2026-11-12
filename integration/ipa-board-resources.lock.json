@@ -1,0 +1,59 @@
+{
+  "ipaBoardRepository": "https://github.com/PantingEYEs/IPA_Board",
+  "ipaBoardCommit": "a2e3bc84cc9471831e0dd049c570edd8f4d96d1f",
+  "onnxRuntime": "1.23.2",
+  "baselineExtensions": "0.13.0",
+  "modelRepository": "https://huggingface.co/intfloat/multilingual-e5-small",
+  "modelRevision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "modelFile": "onnx/model_qint8_avx512_vnni.onnx",
+  "files": [
+    {
+      "path": "app/libs/onnxruntime-android-1.23.2.aar",
+      "bytes": 30241654,
+      "sha256": "82048d1f462218adae4ba76477089ab0ba76093d84f733540066db1a8ba6b827",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/libs/onnxruntime-extensions-android-0.13.0.aar",
+      "bytes": 9040811,
+      "sha256": "cb98c6fbeac1a9707228c4b76cfbb395b4dc4d310900aefaa672561d17fd6d9d",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/src/main/assets/engines/semantic/centering.json",
+      "bytes": 25151,
+      "sha256": "f02c1d01cf2847822c8c11a3b378fb41bff5e056cd9272c6a370ce2ed1d26585",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/src/main/assets/engines/semantic/manifest.json",
+      "bytes": 866,
+      "sha256": "c36caee5cd6f7e18acaf270c4aabf94761331fdc04ab870cf7e160240d0ea03e",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/src/main/assets/engines/semantic/model.part0",
+      "bytes": 41943040,
+      "sha256": "7dd0923fa60b82970fbeba26c264b84507741ea463b670f263b2207b5f902c4f",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/src/main/assets/engines/semantic/model.part1",
+      "bytes": 41943040,
+      "sha256": "8dce92133bdf354187b396ff5c3d98f3459e659601c017b59fdee86fad1038bc",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/src/main/assets/engines/semantic/model.part2",
+      "bytes": 34460744,
+      "sha256": "3b5b43def6e8cd95448518c6cb2d4cd3614cffad31dad5b1b9031d337a78caa3",
+      "role": "reference only; not redistributed in this branch"
+    },
+    {
+      "path": "app/src/main/assets/engines/semantic/tokenizer.onnx",
+      "bytes": 5069533,
+      "sha256": "4d28a2a61017a7b222164065d832e51103fbb3a4451c4e4938a2eeb8e83e44e8",
+      "role": "reference only; not redistributed in this branch"
+    }
+  ]
+}

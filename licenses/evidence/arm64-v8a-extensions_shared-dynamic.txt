@@ -1,0 +1,30 @@
+Dynamic section at offset 0xde200 contains 28 entries:
+  Tag                Type           Name/Value
+  0x0000000000000001 (NEEDED)       Shared library: [liblog.so]
+  0x0000000000000001 (NEEDED)       Shared library: [libm.so]
+  0x0000000000000001 (NEEDED)       Shared library: [libdl.so]
+  0x0000000000000001 (NEEDED)       Shared library: [libc.so]
+  0x000000000000000e (SONAME)       Library soname: [libortextensions.so]
+  0x000000000000001e (FLAGS)        BIND_NOW 
+  0x000000006ffffffb (FLAGS_1)      NOW 
+  0x0000000000000007 (RELA)         0x1318
+  0x0000000000000008 (RELASZ)       77736 (bytes)
+  0x0000000000000009 (RELAENT)      24 (bytes)
+  0x000000006ffffff9 (RELACOUNT)    3236
+  0x0000000000000017 (JMPREL)       0x142c0
+  0x0000000000000002 (PLTRELSZ)     2448 (bytes)
+  0x0000000000000003 (PLTGOT)       0xe2c38
+  0x0000000000000014 (PLTREL)       RELA
+  0x0000000000000006 (SYMTAB)       0x2f8
+  0x000000000000000b (SYMENT)       24 (bytes)
+  0x0000000000000005 (STRTAB)       0xe60
+  0x000000000000000a (STRSZ)        1206 (bytes)
+  0x000000006ffffef5 (GNU_HASH)     0xe38
+  0x0000000000000019 (INIT_ARRAY)   0xe21c8
+  0x000000000000001b (INIT_ARRAYSZ) 56 (bytes)
+  0x000000000000001a (FINI_ARRAY)   0xe21b8
+  0x000000000000001c (FINI_ARRAYSZ) 16 (bytes)
+  0x000000006ffffff0 (VERSYM)       0xd00
+  0x000000006ffffffe (VERNEED)      0xdd8
+  0x000000006fffffff (VERNEEDNUM)   3
+  0x0000000000000000 (NULL)         0x0

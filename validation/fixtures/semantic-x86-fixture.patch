@@ -1,0 +1,47 @@
+diff --git a/app/src/androidTest/java/com/example/ipa_board/SemanticContextIntegrationTest.kt b/app/src/androidTest/java/com/example/ipa_board/SemanticContextIntegrationTest.kt
+index fe01e6d..53ba2c1 100644
+--- a/app/src/androidTest/java/com/example/ipa_board/SemanticContextIntegrationTest.kt
++++ b/app/src/androidTest/java/com/example/ipa_board/SemanticContextIntegrationTest.kt
+@@ -8,6 +8,8 @@ import androidx.test.platform.app.InstrumentationRegistry
+ import com.example.ipa_board.ime.*
+ import org.junit.Assert.*
+ import org.junit.Test
++import org.junit.Before
++import org.junit.After
+ import java.io.File
+ import java.util.concurrent.CountDownLatch
+ import java.util.concurrent.TimeUnit
+@@ -17,6 +19,33 @@ class SemanticContextIntegrationTest {
+     private val instrumentation = InstrumentationRegistry.getInstrumentation()
+     private val context = instrumentation.targetContext
+ 
++    // Isolated build-validation setup: IPA is ARM64-only; retain all EN/ZH/JA backends.
++    // These tests wait for every enabled native backend to become ready.
++    private var changedIpaPreference = false
++    private var hadIpaPreference = false
++    private var previousIpaPreference = true
++
++    @Before fun disableUnsupportedIpaOnlyForThisFixture() {
++        if (System.getProperty("os.arch") in listOf("aarch64", "arm64")) return
++        instrumentation.runOnMainSync {
++            val preferences = EngineSettings.preferences(context)
++            hadIpaPreference = preferences.contains(EngineFeature.IPA_CONVERSION.key)
++            previousIpaPreference = EngineSettings.enabled(context, EngineFeature.IPA_CONVERSION)
++            changedIpaPreference = true
++            assertTrue(preferences.edit().putBoolean(EngineFeature.IPA_CONVERSION.key, false).commit())
++        }
++    }
++
++    @After fun restoreUnsupportedIpaFixturePreference() {
++        if (!changedIpaPreference) return
++        instrumentation.runOnMainSync {
++            assertTrue(EngineSettings.preferences(context).edit().apply {
++                if (hadIpaPreference) putBoolean(EngineFeature.IPA_CONVERSION.key, previousIpaPreference)
++                else remove(EngineFeature.IPA_CONVERSION.key)
++            }.commit())
++        }
++    }
++
+     @Test fun optOutDoesNotDeployOrBindSemanticModel() {
+         val prefs = ContextRankingSettings.preferences(context)
+         val hadPreference = prefs.contains(ContextRankingSettings.KEY_ENABLED)

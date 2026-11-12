@@ -1,0 +1,712 @@
+{
+  "compiledSources": [
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/any_lite.cc",
+      "sourceSha256": "b5970eec3be45152e2a6b5d3d3fab2bc007e0dbb9563eb0af95fb988d43d0fc8",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/any_lite.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arena.cc",
+      "sourceSha256": "b66edef5d588e65ad615ad8b05fbc050e1cb7d324928de18470acf9a51baa0d3",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/arena.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arenastring.cc",
+      "sourceSha256": "d43ca7a06a41b1ca9d0aeee130c48582964a9dbbeb12353910807f9fe319d754",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/arenastring.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arenaz_sampler.cc",
+      "sourceSha256": "cf8f0522dc58c64ad121c1ef26c7c0af1ee153c0ab953c4ef0d85ce53ad00c96",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/arenaz_sampler.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/extension_set.cc",
+      "sourceSha256": "76150ce625cf6b0d881c0c25e450f963c6de1324360a7e99f1025bea9d07367f",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/extension_set.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_enum_util.cc",
+      "sourceSha256": "86c8604ae1d1af8900ba74ca57c6391232c96f5972d69af4453e8be91f3a9e5c",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/generated_enum_util.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_message_tctable_lite.cc",
+      "sourceSha256": "237b23aa37d6bb38c7e76da225915b0e655b018bd046f3a72f93fc49d7943846",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/generated_message_tctable_lite.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_message_util.cc",
+      "sourceSha256": "c2de9adcdd4bee03597b05f3e190b0e94e7c3330c2ce2e078493850ff4b65962",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/generated_message_util.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/implicit_weak_message.cc",
+      "sourceSha256": "9eb0cd7a5b0c86e9a7b0b2773c3cd16b36912d1f02bcff73922f4c817d122182",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/implicit_weak_message.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/inlined_string_field.cc",
+      "sourceSha256": "b0791437fa572082ec9245888126d8fead5a02e2e35c6db5cdc2822ae78883a9",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/inlined_string_field.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/coded_stream.cc",
+      "sourceSha256": "ffc586a32b6497932eaf6992dee72ce31d4e951b022b1c5a23289e2b3a1928c9",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/io/coded_stream.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/io_win32.cc",
+      "sourceSha256": "6f105a72d3884a35c53962836cdd5746da3da6f2073c194c33552a178215a99e",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/io/io_win32.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/strtod.cc",
+      "sourceSha256": "faa0bf528ba3c5ca718462dc370ee96d4a058a33123fa9c96de8ede390830f7f",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/io/strtod.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/zero_copy_stream.cc",
+      "sourceSha256": "43484b2ee715d46bf46015ef98f2f94d401203b9a91ad4c3fbb47d8b7988dad5",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/io/zero_copy_stream.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/zero_copy_stream_impl.cc",
+      "sourceSha256": "a84e47b7c080505d040243bbd2cd94871313d7814a8cef06e0f0508250d72323",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/io/zero_copy_stream_impl.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/zero_copy_stream_impl_lite.cc",
+      "sourceSha256": "813975589adf2e702ef44f50cfced1196ab39989cc62e37956baec31c6ab84bd",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/map.cc",
+      "sourceSha256": "31411dcd5eb63f857b96e819fd0d910989d3219205aaebdcbb5db0bd4032a14f",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/map.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/message_lite.cc",
+      "sourceSha256": "f4b9938f0d0260cdf7f5149b0256f0dc0227a247a3df1faf5173ab004cd33344",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/message_lite.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/parse_context.cc",
+      "sourceSha256": "4c949c15b0fd061519781b583a3dbb6efe6211e12ddf214f794cc12cc6698a91",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/parse_context.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/repeated_field.cc",
+      "sourceSha256": "63ee311c7d55df85c0a95e8b3966cbbc6066ebd915db3454dfd49db26a3bd23b",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/repeated_field.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/repeated_ptr_field.cc",
+      "sourceSha256": "1b96882ebe03a484922cc2f9b201c25cbfd1b259b1587b982098024a63ff2a66",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/repeated_ptr_field.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/bytestream.cc",
+      "sourceSha256": "4bc07348f69b28728216cd3c894ae23dd7646541f27347624a331e492898ea8c",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/bytestream.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/common.cc",
+      "sourceSha256": "bfbc2233240634dd0b0640abc01166cabf64f3ddea3dca36bd74a14f89219058",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/common.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/int128.cc",
+      "sourceSha256": "cda5d230f209584949843ba362114f3a4d056002be07e3e6133d02f8cacda627",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/int128.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/status.cc",
+      "sourceSha256": "e9f8604b3ad040624581c90c4380cc83bfa96f59a324206b726b1e911609ce63",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/status.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/statusor.cc",
+      "sourceSha256": "4f9b4bd22f551afde52ca69afb23efe27f02633f42bc91a2ab710bb9e5502bb2",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/statusor.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/stringpiece.cc",
+      "sourceSha256": "1ef8ea8673379559a4c6510cedd4c4df16c98ac16e19e32550b4e26a9dac8e24",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/stringpiece.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/stringprintf.cc",
+      "sourceSha256": "01e8ee15cd802f8b572183d8493fc3872bc58e681d823723c857a8949515ae21",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/stringprintf.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/structurally_valid.cc",
+      "sourceSha256": "655794a30f79a3b3a16c36def1470ed2028ec53dfe0fd93e80ee3c4f259e4dd5",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/structurally_valid.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/strutil.cc",
+      "sourceSha256": "b91ada799597cab96a060e811aaa6597c33c9bfd330a1997eab7f8d1d1341cca",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/strutil.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/time.cc",
+      "sourceSha256": "51b7cd55529d5ba602304dc1e1c1a1e10d143fc2c4a5edf823b9c6908c67af7f",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/stubs/time.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/wire_format_lite.cc",
+      "sourceSha256": "41a2c2abb3f2320289c1d927c38349f1d3f607fab729f0d516b328bfead48cf6",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/CMakeFiles/libprotobuf-lite.dir/src/google/protobuf/wire_format_lite.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/bpe_model.cc",
+      "sourceSha256": "c91e99231740526d884fecef96c24fdb0efdde2dd061e2538a020fc5db056855",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/bpe_model.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/builtin_pb/sentencepiece.pb.cc",
+      "sourceSha256": "b760ae73b2c0b31b87470c981dbae0e3fa92b80d854e1b5496521bc6549be1ad",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece.pb.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/builtin_pb/sentencepiece_model.pb.cc",
+      "sourceSha256": "9f48a38b236a97a4615caf59b2cd35b11438e31f218d4635adb240e47b789d7f",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/builtin_pb/sentencepiece_model.pb.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/char_model.cc",
+      "sourceSha256": "ef79b77bac615e5a3ddb98f4ae5cdac585801731ffb52405b44ed66539a3ca18",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/char_model.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/error.cc",
+      "sourceSha256": "ef766331864b4bedc1475021e7c0267278297a1175ac02af924d9fcf7a2738f9",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/error.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/filesystem.cc",
+      "sourceSha256": "4e10b00ae2a526b8cd29e223729d85fce6ac634999a17a670abeebd128ab6d6a",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/filesystem.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/model_factory.cc",
+      "sourceSha256": "68005673efb2c866435d936fdee558d8a61826ad98fa6cdd47fe0051bb18cfeb",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/model_factory.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/model_interface.cc",
+      "sourceSha256": "b2676fa475b4ec240dde123c893e55365de25db78e1c610cdb1bf0d63a1948e9",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/model_interface.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/normalizer.cc",
+      "sourceSha256": "d53543a827bf9dcc799200971ce5bfe0b7a0e4d909494d3ce2a91ecb94fa43b0",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/normalizer.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/sentencepiece_processor.cc",
+      "sourceSha256": "5aa58615212c735b727a2caf3a3e53dba98b3d4f364fb3853189f0084f58a57b",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/sentencepiece_processor.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/unigram_model.cc",
+      "sourceSha256": "4687de8de6271ed26ea5ffde6af5bb41ce21e0617bb6766dd68cb29d2f5a89c3",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/unigram_model.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/util.cc",
+      "sourceSha256": "c3b9d1e559eef53746b07f45a736961619cccd46499c6a908889c49d3e6f402e",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/util.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/src/word_model.cc",
+      "sourceSha256": "b655b361e5754ad20486f3c0e852b4cab62e24b03e20688562cf28a5d8e198a4",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir/word_model.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/flags/flag.cc",
+      "sourceSha256": "7c8cae2e48787477b680bd7913f98aaba4fa2b7abd058fb1966f83204a0d2c1e",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir${SOURCE_ROOT}/.work/deps/spm/third_party/absl/flags/flag.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/string_view.cc",
+      "sourceSha256": "bc5fadad56ca93cfb5e019b40af21bdfd2edae3caf97037bae751f7c2fb68dea",
+      "object": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/CMakeFiles/sentencepiece-static.dir${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/string_view.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/base/base64.cc",
+      "sourceSha256": "9128bd012dd86610314b1ecd00edf3ef11695279560281e0e0355417745d83e5",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/noexcep_operators.dir/base/base64.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/base/ocos.cc",
+      "sourceSha256": "575f71bb695676b23c858211e3f7dcdd51ee3666dcd4ca81fd6a779139500651",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/noexcep_operators.dir/base/ocos.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/base/string_tensor.cc",
+      "sourceSha256": "d05be5549603ce721be66ff71c464a3deae2357f4d4d2f3763a830d044ea7ddd",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/noexcep_operators.dir/base/string_tensor.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/base/string_utils.cc",
+      "sourceSha256": "33d6ecd3eb7d46512b7e95e196dbe596cb77d0ce6d3e1c4c3720d9b476a3b4a0",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/noexcep_operators.dir/base/string_utils.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/java/src/main/native/ai_onnxruntime_extensions_OrtxLibrary.c",
+      "sourceSha256": "20ce6af400937ea3278d239a64772a2a6daf23a3e5d4bc11113da6f4f1e9dd61",
+      "object": "${BUILD_ROOT}/arm64-v8a/CMakeFiles/onnxruntime_extensions4j_jni.dir${SOURCE_ROOT}/.work/upstream/java/src/main/native/ai_onnxruntime_extensions_OrtxLibrary.c.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/operators/ocos_operators_placeholder.cc",
+      "sourceSha256": "d9a7729a7cf936bbe2e95dc17e16cdfe467b79f007f109a6b55d310f7d3f2e11",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/ocos_operators.dir/operators/ocos_operators_placeholder.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/operators/tokenizer/sentencepiece_tokenizer.cc",
+      "sourceSha256": "9269af42a6c388d5f8c3b7916a977aa61a6f7c64f14f7749d12219fb2cb86beb",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/ocos_operators.dir/operators/tokenizer/sentencepiece_tokenizer.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/operators/tokenizer/tokenizers.cc",
+      "sourceSha256": "fe6b1958a771607ad19e43b42377010c15691c20d8e8edfc6be44d86c8d29674",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/ocos_operators.dir/operators/tokenizer/tokenizers.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/shared/extensions.cc",
+      "sourceSha256": "47a6e44d58a5b600f69c570539ddf5a1042a5ff52620b41967597bfe6d74aa1c",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/extensions_shared.dir/shared/extensions.cc.o"
+    },
+    {
+      "source": "${SOURCE_ROOT}/.work/upstream/shared/lib/ops_registry.cc",
+      "sourceSha256": "c7833b250acd5f414d101bb1b04469610f83be2840fdb850ca8fc242063e5d96",
+      "object": "${BUILD_ROOT}/arm64-v8a/upstream/CMakeFiles/ortcustomops.dir/shared/lib/ops_registry.cc.o"
+    }
+  ],
+  "projectAndDependencyHeaders": [
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/gsl/include/gsl/assert",
+      "sha256": "5328578de67ac055fcaa8c0903060b5ecc1b869244584db4ce99d2396c5e5a30"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/gsl/include/gsl/narrow",
+      "sha256": "b4278f2c6718568a57be6d084e0594cf6a4c8eec8d9697e567805f05910b15bb"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/gsl/include/gsl/util",
+      "sha256": "111107a99001e89123e792697803f87995d31f0c56014c265a6189fa3bb3074f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/any.h",
+      "sha256": "f440a459a2d937353d5de284df86ea1da1d7a6dab5a370f9d406d12db6e49522"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arena.h",
+      "sha256": "b1137d1a74ef42f95964016ac927a0611618e289ab24fd1366072c4f3b4a918d"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arena_impl.h",
+      "sha256": "50eb084362e39cbb99f578b3620b8d500508a72dc04a08d35ca466982c059741"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arenastring.h",
+      "sha256": "231a557bdc01ddb75f45304a6ea8ab2bbb7d34905c87509bcbe309a5cc4d98e7"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/arenaz_sampler.h",
+      "sha256": "08ef4f5d6a3d2472b2a81f8b5308de2372cf854de0ac8c4f61f0239aaf6e40d7"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/endian.h",
+      "sha256": "da3aca3a7db5708decac3fa6406c5930d55611c82f4dce840240ee2811708c77"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/explicitly_constructed.h",
+      "sha256": "8b156a71c690e0b1e19f65b1dc399680a6ae007fe820b312ab204d0f2fbb6d79"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/extension_set.h",
+      "sha256": "80a69b0b2dc48e6c10b204044e3bc5c5ea1e4de125e5546d38d7fd48f1fdb012"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/extension_set_inl.h",
+      "sha256": "810b75e92dcadfbc1e7f91433c10d1469e5e312d95a92fc137d297fefed49b6a"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_enum_util.h",
+      "sha256": "208df2836b94d55ef30c5f94fcc11f1915523d685e786912a145d14749449f62"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_message_tctable_decl.h",
+      "sha256": "aa3f813c949153818033cac3ccb2ed3dcadd013d5215971d395fe54916bfdde5"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_message_tctable_impl.h",
+      "sha256": "6f3915c636199c8d1937420778db4e9ffb4ddbbcdd36beea17663dd7f2bb862d"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/generated_message_util.h",
+      "sha256": "1062d7c5b794b377b36aaf8a061f7c37b88869d8bf380b45fbcdcf2e18697815"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/has_bits.h",
+      "sha256": "d02a8e6fdc17befb9e756530d1e9a0542c18608a42ea8f814d9c8993a692c0c7"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/implicit_weak_message.h",
+      "sha256": "24b24f722cc87d106a90d2af427790299ecc9483439a89ab5e7b987102c30260"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/inlined_string_field.h",
+      "sha256": "b680352342ec7f596dd30af308911902250295805d911ac2652099fdd271713c"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/coded_stream.h",
+      "sha256": "6f7b21887ca55ee7eefa5add27ed1026567bbf8e7cabe74b9334d7650a527ab6"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/io_win32.h",
+      "sha256": "6f434f9c31be747c90e69ebcc61a39e1bdf4cc29be3e838b5467920d43fd5268"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/strtod.h",
+      "sha256": "ae2d41d0c114d40e6a1f6e30d80af22e46c9c7fe23ec2f5f50688e1be03e06cb"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/zero_copy_stream.h",
+      "sha256": "003def3e3a0ecfb34a110346a94998eb75a977ceed6e5ba7bd027fe1a1f30395"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/zero_copy_stream_impl.h",
+      "sha256": "3e65fbe4b0cb2e469e22c50cf4eaf5e77c4bfc6e306740c76839b0a919ffc493"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/io/zero_copy_stream_impl_lite.h",
+      "sha256": "86d6233ed67deb5709e4fd364f61756e96c657596a139b3ac707c09b1c1df7ba"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/map.h",
+      "sha256": "8b7f70ff6725e2c79f42d4970cc84911ac47ccb42f0acbdf2b7780e6ba1a016b"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/map_type_handler.h",
+      "sha256": "037217301e6b728ff8297e2c3fa9f580c977de4392c33a9777290b19c7fe9281"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/message_lite.h",
+      "sha256": "970d367165ccd5ed0cfc5f036f187cc70e601422ed68cc58afc4ec64c77e5ed8"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/metadata_lite.h",
+      "sha256": "7c000440737f1c26c9bb91f9758163333c7c638f461ef5706b8de372ad886342"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/parse_context.h",
+      "sha256": "d28053688a427604f7e876f37aa9bf96e5efabe3daf984010b30c6dbafcb104e"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/port.h",
+      "sha256": "23fdf26e8fb8dbf4814dea8d4f2c677b2968b6a8348e30b1a9814ea4b56f9ab7"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/port_def.inc",
+      "sha256": "05ec2493d14fc2799ea91c55fe5f3956b85729903ee5935fb9997a15ead6a828"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/port_undef.inc",
+      "sha256": "8585f7a7081fbdaa609f30daeb58893cf076eb938a34bb974105ad04a9fae379"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/repeated_field.h",
+      "sha256": "bcb966814dd6aea71f7df17ab8a0e482efd37f9566d4eeec528a9c314a6deff4"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/repeated_ptr_field.h",
+      "sha256": "02ea28f2d9f77716c08baaaf156a373c5c2f9d04ef872623ebc5a652307da959"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/bytestream.h",
+      "sha256": "acaf1446755d43e3fc1130f8f3d60e733818dda780123747e63561dde3ee181a"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/callback.h",
+      "sha256": "6b345622449e3247cbe5c751ad11758642109c30207aa9ee667dde1a97bd041f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/casts.h",
+      "sha256": "36baac9c13767a576d457fcc63dc5059212c52fa5bc8dcd6a44b9309646358e8"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/common.h",
+      "sha256": "0d67264d1da8cf32ba1a8fa2b86bb1d483d88388c0599766ab338add777b24f8"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/hash.h",
+      "sha256": "3c8d7decf9f16be177ba3f744d874493afa9ca29901eab9f054b1b40446a6fcc"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/int128.h",
+      "sha256": "29a820a21a446ec3c6ed912795261224281cc1a0a7900666fa5d2efa7b3fff5f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/logging.h",
+      "sha256": "688d061b54c109dda561cc5a36d25d83915ad569aecdaa3abc11b5d7b3b77d85"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/macros.h",
+      "sha256": "0c5fd870d557df942b59ad4610937a80e8e9432c45bbd8b7745955369b899229"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/map_util.h",
+      "sha256": "27c58f8e6713a9014775dffde0838e4fa6a39ef7db1a49ddeb83181d02efc208"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/mutex.h",
+      "sha256": "8fb4d68bc2eeab070d0202f83177b100a8de26ccc1ac84d9970bcef21aeb063e"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/once.h",
+      "sha256": "845dba208aeb44fd0bf6e1fe4109b35d066190d0566439cfa686775a9e0c9a04"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/platform_macros.h",
+      "sha256": "4e67d84bd3bb7c693fda08864736827e2f9813e419b1ddaffc8fd30259e597bb"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/port.h",
+      "sha256": "51185a60739a424b58de667f183c6d449e34e3560d3db0a11dc58c87846650ba"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/status.h",
+      "sha256": "c79a26a98f6026a42eb1afa736fbb82d763fb43c8aa6d94e03ba289dc8bf663e"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/statusor.h",
+      "sha256": "c6df3eb410f37953a1818a8a7523d0040a8ab11bbd3505dde41065d01613c5d0"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/stl_util.h",
+      "sha256": "96a434e4fac57bf3e48790a0167b3a30e273ada69b48a9e604eb7b044f2a64e6"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/stringpiece.h",
+      "sha256": "0d4cbad71a6f91891ad5783f5a84a6edc66183340b7609d3a9388968db8e8971"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/stringprintf.h",
+      "sha256": "6a924a8350176621066d819501a8e809544ca739d3ffe842c447d6bb11e25aff"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/strutil.h",
+      "sha256": "ca9f8cb7158f5459d3c155f66526d53d7de13e9396d297950301f1988fb78174"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/stubs/time.h",
+      "sha256": "c1b95e80021e2b793cf88dced8a7ff64353e1af2fa13ea70cb7a7f1efc8733f8"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/protobuf/src/google/protobuf/wire_format_lite.h",
+      "sha256": "2403c97bf3813c5e75f48294f3a8ceee526a8a3ebe7545b23eeac8410e9c406c"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/bpe_model.h",
+      "sha256": "5d2ffbe40206165450ba76b2c9684b2256d2845c543b67ac8db69708e0685288"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/builtin_pb/sentencepiece.pb.h",
+      "sha256": "6c5543edd9d33882131b2faa39dbcbda803481ae25ec1bc056c8a67217178b49"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/builtin_pb/sentencepiece_model.pb.h",
+      "sha256": "af85fdc3009157f1e991814cd625bed60026b5a7ab32ff06129f4e2007ec8420"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/char_model.h",
+      "sha256": "a55b9fc4831671d5421b938ed120c8574331a22026f818fb1f14a2e3eba53297"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/common.h",
+      "sha256": "25eab9cf141318251cb8eb8392fa14e6031f88560e6c4ffb244fdb080f29829f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/filesystem.h",
+      "sha256": "6e3db708ca1d2012af5e8d6e18f7173908e37d722cd72ff5069bfca8d68c0a7c"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/freelist.h",
+      "sha256": "2b3a30e92f4594601c1594cc4bca64ed07e7858347b24c9bba522fe018745c26"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/model_factory.h",
+      "sha256": "ffbc8062c813ffd83337d762a3e0afda76a2636a7eddf5b007e0cd48daf2fef6"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/model_interface.h",
+      "sha256": "e13f64bdf6b76e7b24b630a9ff4300d6f2555019c4099c77d5e82999ededc707"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/normalizer.h",
+      "sha256": "7b423d59f2ec41146f6dda7db87d85355ee2f66aefebcdfad671ea9a5277f7cb"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/sentencepiece_processor.h",
+      "sha256": "22d46a30b459a76f103c2d1e18b6f2c9cacfdebc11a40c46a5315d82714a8232"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/unigram_model.h",
+      "sha256": "be0ce42a87f28fe1e26a3a64dd26ab22c9a618b070e9d1d846275db7e3f0bf51"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/util.h",
+      "sha256": "0f9c865778c624d1531e82862048826bebe50d674a0c0ee1b958162880372a67"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/src/word_model.h",
+      "sha256": "3f5432809fa3ed08b086efa806b1c4554a6493d6b0402bb412a4dda10fa9f04f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/container/flat_hash_map.h",
+      "sha256": "535e7cd5232577c630a9520fe31e43e1fe6786656989b695fd6d2b4361fd869c"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/flags/flag.h",
+      "sha256": "c5536dfa81e4c9449275e30129e3dc00f26730dde6d7059fe32e0ba19f68d8c7"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/memory/memory.h",
+      "sha256": "6103fb54a32204c3ae28f3bcabb0de8ca79f8491f207cc25adab58a7dc608905"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/match.h",
+      "sha256": "dd67f4cb16feecd57c786ddaeb2b4ab88de0fc9c492580cf35f9e4d2f8ac0eaf"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/numbers.h",
+      "sha256": "90abd903b929294e58d54ddc6cf7f341393464140a18623b1c3751dd4c651400"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/str_cat.h",
+      "sha256": "4a4f42b9467991b56c33e97a5ddaef7182906900fde4cba0c2cf667a9465a01c"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/str_format.h",
+      "sha256": "19fb616839a0cd978073612dea4e40738cbb46abc3bd5b82f0e6dc9ffac2a0f4"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/str_join.h",
+      "sha256": "c4a3c47d5214822fde2565b22cdd8afcac4603887b73d4c9767ecc69c97970f1"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/str_replace.h",
+      "sha256": "f23868a10be222bc4a2883a4fa9fa18acda792b829f76a95fe38150abb2fa24c"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/str_split.h",
+      "sha256": "756caa4750be8786d1dca37d2c964f3c5e61b751a1b5dd4ec6e49da68a9bb398"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/string_view.h",
+      "sha256": "bee512c5a8b5b88e951e3ce3ec9899ecf5be242f1b85d6d2b313335b7e62d53b"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/strings/strip.h",
+      "sha256": "0dd3e7eb24589afdb408d7d92feb8d61bdd54145f5a481fa67aa6a8abd526d53"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/deps/spm/third_party/darts_clone/darts.h",
+      "sha256": "e4a6ab3365e7bed89a84a620a2a18265e3a7f8f58e05eed6ddb545cea42ffd31"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/base/base64.h",
+      "sha256": "f70ded59ddedc4b1c65b983451675a5925b9d0838213a8afcc11f7544d8d15de"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/base/narrow.h",
+      "sha256": "65b2a4ff7dac2dcd1990c86815eb237d7fd9a6ccf25f16ae36829b5420ef687e"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/base/string_tensor.h",
+      "sha256": "2787b47f22b2c8a47a954bb80307e704fc460df2c38a76e03f5bddab28500c4f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/base/string_utils.h",
+      "sha256": "7d45481433cc46e511965f9eb087190f9ca774463dcf770568a0aabebc76a9ce"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/base/ustring.h",
+      "sha256": "edca07d417644dc8554fde272d8656d6fe8bbe7994631b20513146bd7d7e3e79"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/custom_op/custom_op_lite.h",
+      "sha256": "b9477b31870a642c40020df6d00abcca480d383be4c52f42c16cf43c4075a64a"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/custom_op/kernel_context.h",
+      "sha256": "49dedb933baabdc41c520d8f87e5b269106ae31680c8683a844f7bc6ce82f7bb"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/custom_op/onnxruntime_f16.h",
+      "sha256": "e2555ad52571cf8f7cb3d0c76576deafdd33f2cdba06e878aa0e829800b5737d"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/custom_op/tensor_api.h",
+      "sha256": "edeb87a9ce81f80356054463e6ad858f0ce29046b4eac1650d66a843a34146be"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/custom_op/tensor_tuple.inc",
+      "sha256": "bc83a00e8e12c2d2bc36b813f3ea388f7f12dd2797f41b2f9578695a799507d2"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/exceptions.h",
+      "sha256": "a5dbb76a7a70783e4a226a9ad0b197052c15ea1bbacb4b8c0f975e9b4ed3bc16"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/ext_status.h",
+      "sha256": "dfdab8336e52d8c3e9d1938e68f6bb963f1e253c5cbc76f08e443e049780bc92"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/ocos.h",
+      "sha256": "2dc7ba514ee1550064070be82f71b33d6e8faa09529169e8dd96dd76fe3f4958"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/onnxruntime_extensions.h",
+      "sha256": "b0a87e7ee39667aaafc98d30ce461ce206b46db6e4c3cb00f95832239f8bfb0e"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/op_def_struct.h",
+      "sha256": "b5fbac933a61e5ab8bfde3cb515093c919358be7468d7a01ba5fffab73ddb2be"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/ort_c_to_cpp.h",
+      "sha256": "17378fe17fe3ad994809cb35f0e1eebb0d482c6333a91249ff94404adc12ea88"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/include/ortx_types.h",
+      "sha256": "8a5ea2fdc6261bd9376387034d78f226eaf78e6f184e21b9e729d6f9aad21094"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/operators/tokenizer/sentencepiece_decoder.hpp",
+      "sha256": "f7bf5a810a00cd50ff298c84447a406e7e28255c726ad7a13f5f5b2c8fc53708"
+    },
+    {
+      "file": "${SOURCE_ROOT}/.work/upstream/operators/tokenizer/sentencepiece_tokenizer.h",
+      "sha256": "596270c5e67aedb7f3d1337369ca6fc4fb1f6aec32c09ae4255e4bf8ced53ee9"
+    },
+    {
+      "file": "${SOURCE_ROOT}/integration/onnxruntime-1.23.2-headers/onnxruntime_c_api.h",
+      "sha256": "71125e66180a991d65c9bdbad4aa20daaa1f7a48c7a5c0fa5f18f250ac839a02"
+    },
+    {
+      "file": "${SOURCE_ROOT}/integration/onnxruntime-1.23.2-headers/onnxruntime_ep_c_api.h",
+      "sha256": "b92778f50c36ecdf53d0344e0129a78b306afed653f81bba8a9597e3e6e9546f"
+    },
+    {
+      "file": "${SOURCE_ROOT}/integration/onnxruntime-1.23.2-headers/onnxruntime_float16.h",
+      "sha256": "6c4db3d1954b266c4febe413351af86cac922e3448538e7e452e51d646e56a4a"
+    }
+  ],
+  "ndkOrGeneratedHeaderCount": 795
+}

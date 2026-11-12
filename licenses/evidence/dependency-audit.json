@@ -1,0 +1,762 @@
+{
+  "schemaVersion": 1,
+  "status": "verified_for_recorded_native_artifacts",
+  "scope": "Build-input and notice inventory, not a formal SPDX/CycloneDX SBOM or legal conclusion",
+  "method": "Inspect actual completed CMake object files, dependency files, link commands, linker maps, ELF dynamic sections and delivered library hashes; no relink performed",
+  "upstreamCommit": "9d5638b0b1f28ed2ca9ef589d5ec3ea86f859432",
+  "sourcesLockSha256": "a3ed8244669279a5402ec7ecbcbad256c8132dc4c1ecc7b6f08a0fc788d4a640",
+  "dependencies": {
+    "spm": {
+      "commit": "d8711f55d9b2cb9c77a00adcc18108482b29b675",
+      "tag": "v0.1.96",
+      "patches": [
+        "cmake/externals/sentencepieceproject_cmake.patch",
+        "cmake/externals/sentencepieceproject_pb.patch"
+      ]
+    },
+    "protobuf": {
+      "commit": "f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c",
+      "tag": "v21.12",
+      "patches": [
+        "cmake/externals/protobuf_cmake.patch"
+      ]
+    },
+    "gsl": {
+      "commit": "a3534567187d2edc428efd3f13466ff75fe5805c",
+      "tag": "v4.0.0",
+      "patches": []
+    }
+  },
+  "licenseComparisons": [
+    {
+      "file": "licenses/ONNX-Runtime-Extensions-0.13.0-MIT.txt",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/ONNX-Runtime-Extensions-0.13.0-ThirdPartyNotices.txt",
+      "sha256": "f5fdecd0efb3ff1b4b619f74fe0cb4991299101853ba9ffe988265f8a067d74a",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/ONNX-Runtime-1.23.2-MIT.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "matchesBuildSource": null
+    },
+    {
+      "file": "licenses/NDK-r29-NOTICE.txt",
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/NDK-r29-NOTICE.toolchain.txt",
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/reference/ndk-r29-source.properties",
+      "sha256": "716f3518a923198cfab037abb32dc3f1b1f7e9a9dcdcda6b66be5906215d2658",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/ONNX-Runtime-1.23.2-Float16-Notice.txt",
+      "sha256": "697c1b54af6267cfc3d86ef41f643dcb291e979109178881a69c508b0e05fcec",
+      "matchesBuildSource": null
+    },
+    {
+      "file": "licenses/Protobuf-21.12-LICENSE.txt",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/SentencePiece-0.1.96-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/SentencePiece-0.1.96-bundled-Abseil-LICENSE.txt",
+      "sha256": "d3e2f59e1d71176dfdb555ece6a41f7a5aa0f52ff21211010ace314f57695f6b",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/SentencePiece-0.1.96-Darts-clone-LICENSE.txt",
+      "sha256": "155f59997298ee336602c49f9c1110f268ac394ca2197eb02647a3555935ad52",
+      "matchesBuildSource": true
+    },
+    {
+      "file": "licenses/GSL-4.0.0-LICENSE.txt",
+      "sha256": "4c21dc82a1c7186ea754fd59d504c00947953a3401fe8e24eaa44109ef8e2555",
+      "matchesBuildSource": true
+    }
+  ],
+  "abis": [
+    {
+      "abi": "arm64-v8a",
+      "compiledSourceCount": 57,
+      "projectAndDependencyHeaderCount": 105,
+      "inputsEvidence": "licenses/evidence/arm64-v8a-compiled-inputs.json",
+      "inputsEvidenceSha256": "1a5af6a6a42b503d2c6677d48e1aa80905cf033f88911b2c623eba6b42b33ff7",
+      "libraries": [
+        {
+          "file": "libortextensions.so",
+          "linkCommand": {
+            "file": "licenses/evidence/arm64-v8a-extensions_shared-link.txt",
+            "sha256": "038a9af42b1770779ea8e84e1456568e0a8effe22fc584730eca62da9e9ed59e",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          },
+          "originalLinkCommandSha256": "b52eeabc071b6b8ac0366706ffa2db8bba2c486ebdc34812bc32f8a52fe5cfb0",
+          "originalLinkMapSha256": "7ac103c59aa156cc246d16f7422ec62b7edc52f759294e47d655fd1e94a2f38e",
+          "contributingArchives": [
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/libprotobuf-lite.a",
+              "members": [
+                "arena.cc.o",
+                "arenastring.cc.o",
+                "coded_stream.cc.o",
+                "common.cc.o",
+                "extension_set.cc.o",
+                "generated_message_util.cc.o",
+                "int128.cc.o",
+                "message_lite.cc.o",
+                "parse_context.cc.o",
+                "repeated_field.cc.o",
+                "repeated_ptr_field.cc.o",
+                "status.cc.o",
+                "stringpiece.cc.o",
+                "strutil.cc.o",
+                "wire_format_lite.cc.o",
+                "zero_copy_stream.cc.o",
+                "zero_copy_stream_impl.cc.o",
+                "zero_copy_stream_impl_lite.cc.o"
+              ],
+              "memberCount": 18
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/libsentencepiece.a",
+              "members": [
+                "bpe_model.cc.o",
+                "char_model.cc.o",
+                "error.cc.o",
+                "filesystem.cc.o",
+                "model_factory.cc.o",
+                "model_interface.cc.o",
+                "normalizer.cc.o",
+                "sentencepiece.pb.cc.o",
+                "sentencepiece_model.pb.cc.o",
+                "sentencepiece_processor.cc.o",
+                "string_view.cc.o",
+                "unigram_model.cc.o",
+                "util.cc.o",
+                "word_model.cc.o"
+              ],
+              "memberCount": 14
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/lib/libnoexcep_operators.a",
+              "members": [
+                "base64.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/lib/libocos_operators.a",
+              "members": [
+                "sentencepiece_tokenizer.cc.o",
+                "tokenizers.cc.o"
+              ],
+              "memberCount": 2
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/lib/libortcustomops.a",
+              "members": [
+                "ops_registry.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/aarch64/libunwind.a",
+              "members": [
+                "UnwindLevel1.c.o",
+                "UnwindRegistersRestore.S.o",
+                "UnwindRegistersSave.S.o",
+                "libunwind.cpp.o"
+              ],
+              "memberCount": 4
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/libclang_rt.builtins-aarch64-android.a",
+              "members": [
+                "aarch64.c.o",
+                "emutls.c.o",
+                "outline_atomic_cas8_3.S.o",
+                "outline_atomic_ldadd4_4.S.o",
+                "outline_atomic_ldadd8_1.S.o",
+                "outline_atomic_ldadd8_4.S.o"
+              ],
+              "memberCount": 6
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_static.a",
+              "members": [
+                "call_once.cpp.o",
+                "condition_variable.cpp.o",
+                "condition_variable_destructor.cpp.o",
+                "error_category.cpp.o",
+                "exception.cpp.o",
+                "functional.cpp.o",
+                "future.cpp.o",
+                "hash.cpp.o",
+                "ios.cpp.o",
+                "ios.instantiations.cpp.o",
+                "iostream.cpp.o",
+                "locale.cpp.o",
+                "memory.cpp.o",
+                "mutex.cpp.o",
+                "mutex_destructor.cpp.o",
+                "new_helpers.cpp.o",
+                "random.cpp.o",
+                "stdexcept.cpp.o",
+                "string.cpp.o",
+                "system_error.cpp.o",
+                "thread.cpp.o"
+              ],
+              "memberCount": 21
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++abi.a",
+              "members": [
+                "abort_message.cpp.o",
+                "cxa_default_handlers.cpp.o",
+                "cxa_demangle.cpp.o",
+                "cxa_exception.cpp.o",
+                "cxa_exception_storage.cpp.o",
+                "cxa_guard.cpp.o",
+                "cxa_handlers.cpp.o",
+                "cxa_personality.cpp.o",
+                "cxa_virtual.cpp.o",
+                "fallback_malloc.cpp.o",
+                "private_typeinfo.cpp.o",
+                "stdlib_exception.cpp.o",
+                "stdlib_new_delete.cpp.o",
+                "stdlib_stdexcept.cpp.o",
+                "stdlib_typeinfo.cpp.o"
+              ],
+              "memberCount": 15
+            }
+          ],
+          "artifact": "artifacts/arm64-v8a/libortextensions.so",
+          "artifactSha256": "a3259edbf2fd97d2435e6a67688095f847d30247d84462120cbfc2bf429fad8c",
+          "neededLibraries": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "elfDynamicEvidence": {
+            "file": "licenses/evidence/arm64-v8a-extensions_shared-dynamic.txt",
+            "sha256": "85b3ee15f71be171709c531aad56b4a236329097ea2405c6af69820a201db65b",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          }
+        },
+        {
+          "file": "libonnxruntime_extensions4j_jni.so",
+          "linkCommand": {
+            "file": "licenses/evidence/arm64-v8a-onnxruntime_extensions4j_jni-link.txt",
+            "sha256": "361f6188bf927b7b52e23b9446ce2d5328062b2b472081e79d06cc069fa1e850",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          },
+          "originalLinkCommandSha256": "a8f89da985af1a7d84189132ac7a893b5367dbcbe69aa032146baf33fa4d9542",
+          "originalLinkMapSha256": "5427a9ef9a5d391664b795001ea2faaeed27d9ace16ac368fb2376b1af388178",
+          "contributingArchives": [
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/_deps/protobuf-build/libprotobuf-lite.a",
+              "members": [
+                "arena.cc.o",
+                "arenastring.cc.o",
+                "coded_stream.cc.o",
+                "common.cc.o",
+                "extension_set.cc.o",
+                "generated_enum_util.cc.o",
+                "generated_message_util.cc.o",
+                "implicit_weak_message.cc.o",
+                "int128.cc.o",
+                "message_lite.cc.o",
+                "parse_context.cc.o",
+                "repeated_field.cc.o",
+                "repeated_ptr_field.cc.o",
+                "status.cc.o",
+                "stringpiece.cc.o",
+                "structurally_valid.cc.o",
+                "strutil.cc.o",
+                "wire_format_lite.cc.o",
+                "zero_copy_stream.cc.o",
+                "zero_copy_stream_impl.cc.o",
+                "zero_copy_stream_impl_lite.cc.o"
+              ],
+              "memberCount": 21
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/_deps/spm-build/src/libsentencepiece.a",
+              "members": [
+                "bpe_model.cc.o",
+                "char_model.cc.o",
+                "error.cc.o",
+                "filesystem.cc.o",
+                "model_factory.cc.o",
+                "model_interface.cc.o",
+                "normalizer.cc.o",
+                "sentencepiece.pb.cc.o",
+                "sentencepiece_model.pb.cc.o",
+                "sentencepiece_processor.cc.o",
+                "string_view.cc.o",
+                "unigram_model.cc.o",
+                "util.cc.o",
+                "word_model.cc.o"
+              ],
+              "memberCount": 14
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/lib/libnoexcep_operators.a",
+              "members": [
+                "base64.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/lib/libocos_operators.a",
+              "members": [
+                "sentencepiece_tokenizer.cc.o",
+                "tokenizers.cc.o"
+              ],
+              "memberCount": 2
+            },
+            {
+              "archive": "${BUILD_ROOT}/arm64-v8a/lib/libortcustomops.a",
+              "members": [
+                "ops_registry.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/aarch64/libunwind.a",
+              "members": [
+                "UnwindLevel1.c.o",
+                "UnwindRegistersRestore.S.o",
+                "UnwindRegistersSave.S.o",
+                "libunwind.cpp.o"
+              ],
+              "memberCount": 4
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/libclang_rt.builtins-aarch64-android.a",
+              "members": [
+                "aarch64.c.o",
+                "emutls.c.o",
+                "outline_atomic_cas8_3.S.o",
+                "outline_atomic_ldadd4_4.S.o",
+                "outline_atomic_ldadd8_1.S.o",
+                "outline_atomic_ldadd8_4.S.o"
+              ],
+              "memberCount": 6
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_static.a",
+              "members": [
+                "call_once.cpp.o",
+                "condition_variable.cpp.o",
+                "condition_variable_destructor.cpp.o",
+                "error_category.cpp.o",
+                "exception.cpp.o",
+                "functional.cpp.o",
+                "future.cpp.o",
+                "hash.cpp.o",
+                "ios.cpp.o",
+                "ios.instantiations.cpp.o",
+                "iostream.cpp.o",
+                "locale.cpp.o",
+                "memory.cpp.o",
+                "mutex.cpp.o",
+                "mutex_destructor.cpp.o",
+                "new_helpers.cpp.o",
+                "random.cpp.o",
+                "stdexcept.cpp.o",
+                "string.cpp.o",
+                "system_error.cpp.o",
+                "thread.cpp.o"
+              ],
+              "memberCount": 21
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++abi.a",
+              "members": [
+                "abort_message.cpp.o",
+                "cxa_default_handlers.cpp.o",
+                "cxa_demangle.cpp.o",
+                "cxa_exception.cpp.o",
+                "cxa_exception_storage.cpp.o",
+                "cxa_guard.cpp.o",
+                "cxa_handlers.cpp.o",
+                "cxa_personality.cpp.o",
+                "cxa_virtual.cpp.o",
+                "fallback_malloc.cpp.o",
+                "private_typeinfo.cpp.o",
+                "stdlib_exception.cpp.o",
+                "stdlib_new_delete.cpp.o",
+                "stdlib_stdexcept.cpp.o",
+                "stdlib_typeinfo.cpp.o"
+              ],
+              "memberCount": 15
+            }
+          ],
+          "artifact": "artifacts/arm64-v8a/libonnxruntime_extensions4j_jni.so",
+          "artifactSha256": "8d9a1d9c46b2c3882ca33abc2b2c4f75228d4a36033be1c71c7c2796f2cbf655",
+          "neededLibraries": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "elfDynamicEvidence": {
+            "file": "licenses/evidence/arm64-v8a-onnxruntime_extensions4j_jni-dynamic.txt",
+            "sha256": "99fa798b43450f5f03bad6a9c0c6bd7735286884962d25ab1c70f35f9b9fda0f",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          }
+        }
+      ],
+      "disabledDependencyHeadersAbsent": [
+        "/third_party/esaxx/",
+        "/third_party/protobuf-lite/",
+        "/third_party/utf8_range/"
+      ]
+    },
+    {
+      "abi": "x86_64",
+      "compiledSourceCount": 57,
+      "projectAndDependencyHeaderCount": 105,
+      "inputsEvidence": "licenses/evidence/x86_64-compiled-inputs.json",
+      "inputsEvidenceSha256": "18440ed843d270709479851579b6b5d14ffb3384ec2ae9d8d068c6824ea149cc",
+      "libraries": [
+        {
+          "file": "libortextensions.so",
+          "linkCommand": {
+            "file": "licenses/evidence/x86_64-extensions_shared-link.txt",
+            "sha256": "966c7ee2ba30eb0311e943947ee5c1b5c69449fe073e93626ae6b21189925294",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          },
+          "originalLinkCommandSha256": "22e3d81377da9c7a4c8de83ff4804ea535b1cfc14aef9b11bcebb92a942fc2f8",
+          "originalLinkMapSha256": "a8b35c974ab41d93c35e6e5b61860829067909d6ff99b031f772838fe54c4159",
+          "contributingArchives": [
+            {
+              "archive": "${BUILD_ROOT}/x86_64/_deps/protobuf-build/libprotobuf-lite.a",
+              "members": [
+                "arena.cc.o",
+                "arenastring.cc.o",
+                "coded_stream.cc.o",
+                "common.cc.o",
+                "extension_set.cc.o",
+                "generated_message_util.cc.o",
+                "int128.cc.o",
+                "message_lite.cc.o",
+                "parse_context.cc.o",
+                "repeated_field.cc.o",
+                "repeated_ptr_field.cc.o",
+                "status.cc.o",
+                "stringpiece.cc.o",
+                "strutil.cc.o",
+                "wire_format_lite.cc.o",
+                "zero_copy_stream.cc.o",
+                "zero_copy_stream_impl.cc.o",
+                "zero_copy_stream_impl_lite.cc.o"
+              ],
+              "memberCount": 18
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/_deps/spm-build/src/libsentencepiece.a",
+              "members": [
+                "bpe_model.cc.o",
+                "char_model.cc.o",
+                "error.cc.o",
+                "filesystem.cc.o",
+                "model_factory.cc.o",
+                "model_interface.cc.o",
+                "normalizer.cc.o",
+                "sentencepiece.pb.cc.o",
+                "sentencepiece_model.pb.cc.o",
+                "sentencepiece_processor.cc.o",
+                "string_view.cc.o",
+                "unigram_model.cc.o",
+                "util.cc.o",
+                "word_model.cc.o"
+              ],
+              "memberCount": 14
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/lib/libnoexcep_operators.a",
+              "members": [
+                "base64.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/lib/libocos_operators.a",
+              "members": [
+                "sentencepiece_tokenizer.cc.o",
+                "tokenizers.cc.o"
+              ],
+              "memberCount": 2
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/lib/libortcustomops.a",
+              "members": [
+                "ops_registry.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/libclang_rt.builtins-x86_64-android.a",
+              "members": [
+                "emutls.c.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/x86_64/libunwind.a",
+              "members": [
+                "UnwindLevel1.c.o",
+                "UnwindRegistersRestore.S.o",
+                "UnwindRegistersSave.S.o",
+                "libunwind.cpp.o"
+              ],
+              "memberCount": 4
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_static.a",
+              "members": [
+                "call_once.cpp.o",
+                "condition_variable.cpp.o",
+                "condition_variable_destructor.cpp.o",
+                "error_category.cpp.o",
+                "exception.cpp.o",
+                "functional.cpp.o",
+                "future.cpp.o",
+                "hash.cpp.o",
+                "ios.cpp.o",
+                "ios.instantiations.cpp.o",
+                "iostream.cpp.o",
+                "locale.cpp.o",
+                "memory.cpp.o",
+                "mutex.cpp.o",
+                "mutex_destructor.cpp.o",
+                "new_helpers.cpp.o",
+                "random.cpp.o",
+                "stdexcept.cpp.o",
+                "string.cpp.o",
+                "system_error.cpp.o",
+                "thread.cpp.o"
+              ],
+              "memberCount": 21
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++abi.a",
+              "members": [
+                "abort_message.cpp.o",
+                "cxa_default_handlers.cpp.o",
+                "cxa_demangle.cpp.o",
+                "cxa_exception.cpp.o",
+                "cxa_exception_storage.cpp.o",
+                "cxa_guard.cpp.o",
+                "cxa_handlers.cpp.o",
+                "cxa_personality.cpp.o",
+                "cxa_virtual.cpp.o",
+                "fallback_malloc.cpp.o",
+                "private_typeinfo.cpp.o",
+                "stdlib_exception.cpp.o",
+                "stdlib_new_delete.cpp.o",
+                "stdlib_stdexcept.cpp.o",
+                "stdlib_typeinfo.cpp.o"
+              ],
+              "memberCount": 15
+            }
+          ],
+          "artifact": "artifacts/x86_64/libortextensions.so",
+          "artifactSha256": "d3cfd7eab48d1a958a821c5492bb9d11fc657ca54a9d5531df55d39f5b383de9",
+          "neededLibraries": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "elfDynamicEvidence": {
+            "file": "licenses/evidence/x86_64-extensions_shared-dynamic.txt",
+            "sha256": "461c0fe1dca44395c76a41aed6f3d89635a5973f6f6e8313659843eb4a8b8e39",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          }
+        },
+        {
+          "file": "libonnxruntime_extensions4j_jni.so",
+          "linkCommand": {
+            "file": "licenses/evidence/x86_64-onnxruntime_extensions4j_jni-link.txt",
+            "sha256": "6515154c7f7d9c0fd57a4114f70671b87910877d3380122d4b516325d0877c2b",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          },
+          "originalLinkCommandSha256": "3baf0ec163e131442808cc4825e4b53b5905a86a7eca73f85c6bf93b1fcedcd0",
+          "originalLinkMapSha256": "f2a954db3ef947bad9ab46d8ce223d06eee1286aad84deea80346902076c1335",
+          "contributingArchives": [
+            {
+              "archive": "${BUILD_ROOT}/x86_64/_deps/protobuf-build/libprotobuf-lite.a",
+              "members": [
+                "arena.cc.o",
+                "arenastring.cc.o",
+                "coded_stream.cc.o",
+                "common.cc.o",
+                "extension_set.cc.o",
+                "generated_enum_util.cc.o",
+                "generated_message_util.cc.o",
+                "implicit_weak_message.cc.o",
+                "int128.cc.o",
+                "message_lite.cc.o",
+                "parse_context.cc.o",
+                "repeated_field.cc.o",
+                "repeated_ptr_field.cc.o",
+                "status.cc.o",
+                "stringpiece.cc.o",
+                "structurally_valid.cc.o",
+                "strutil.cc.o",
+                "wire_format_lite.cc.o",
+                "zero_copy_stream.cc.o",
+                "zero_copy_stream_impl.cc.o",
+                "zero_copy_stream_impl_lite.cc.o"
+              ],
+              "memberCount": 21
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/_deps/spm-build/src/libsentencepiece.a",
+              "members": [
+                "bpe_model.cc.o",
+                "char_model.cc.o",
+                "error.cc.o",
+                "filesystem.cc.o",
+                "model_factory.cc.o",
+                "model_interface.cc.o",
+                "normalizer.cc.o",
+                "sentencepiece.pb.cc.o",
+                "sentencepiece_model.pb.cc.o",
+                "sentencepiece_processor.cc.o",
+                "string_view.cc.o",
+                "unigram_model.cc.o",
+                "util.cc.o",
+                "word_model.cc.o"
+              ],
+              "memberCount": 14
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/lib/libnoexcep_operators.a",
+              "members": [
+                "base64.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/lib/libocos_operators.a",
+              "members": [
+                "sentencepiece_tokenizer.cc.o",
+                "tokenizers.cc.o"
+              ],
+              "memberCount": 2
+            },
+            {
+              "archive": "${BUILD_ROOT}/x86_64/lib/libortcustomops.a",
+              "members": [
+                "ops_registry.cc.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/libclang_rt.builtins-x86_64-android.a",
+              "members": [
+                "emutls.c.o"
+              ],
+              "memberCount": 1
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/x86_64/libunwind.a",
+              "members": [
+                "UnwindLevel1.c.o",
+                "UnwindRegistersRestore.S.o",
+                "UnwindRegistersSave.S.o",
+                "libunwind.cpp.o"
+              ],
+              "memberCount": 4
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_static.a",
+              "members": [
+                "call_once.cpp.o",
+                "condition_variable.cpp.o",
+                "condition_variable_destructor.cpp.o",
+                "error_category.cpp.o",
+                "exception.cpp.o",
+                "functional.cpp.o",
+                "future.cpp.o",
+                "hash.cpp.o",
+                "ios.cpp.o",
+                "ios.instantiations.cpp.o",
+                "iostream.cpp.o",
+                "locale.cpp.o",
+                "memory.cpp.o",
+                "mutex.cpp.o",
+                "mutex_destructor.cpp.o",
+                "new_helpers.cpp.o",
+                "random.cpp.o",
+                "stdexcept.cpp.o",
+                "string.cpp.o",
+                "system_error.cpp.o",
+                "thread.cpp.o"
+              ],
+              "memberCount": 21
+            },
+            {
+              "archive": "${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++abi.a",
+              "members": [
+                "abort_message.cpp.o",
+                "cxa_default_handlers.cpp.o",
+                "cxa_demangle.cpp.o",
+                "cxa_exception.cpp.o",
+                "cxa_exception_storage.cpp.o",
+                "cxa_guard.cpp.o",
+                "cxa_handlers.cpp.o",
+                "cxa_personality.cpp.o",
+                "cxa_virtual.cpp.o",
+                "fallback_malloc.cpp.o",
+                "private_typeinfo.cpp.o",
+                "stdlib_exception.cpp.o",
+                "stdlib_new_delete.cpp.o",
+                "stdlib_stdexcept.cpp.o",
+                "stdlib_typeinfo.cpp.o"
+              ],
+              "memberCount": 15
+            }
+          ],
+          "artifact": "artifacts/x86_64/libonnxruntime_extensions4j_jni.so",
+          "artifactSha256": "77179c124c88f1862eabdc61dc0a0c0a7ed1605988bdd397b9be65ccb002500b",
+          "neededLibraries": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "elfDynamicEvidence": {
+            "file": "licenses/evidence/x86_64-onnxruntime_extensions4j_jni-dynamic.txt",
+            "sha256": "e62818cf5b8ca54903709640bf21eb6c9d2ed7bb4e142ed71647ccbaf85e95bb",
+            "transformation": "absolute build, source and NDK roots replaced with placeholders"
+          }
+        }
+      ],
+      "disabledDependencyHeadersAbsent": [
+        "/third_party/esaxx/",
+        "/third_party/protobuf-lite/",
+        "/third_party/utf8_range/"
+      ]
+    }
+  ]
+}

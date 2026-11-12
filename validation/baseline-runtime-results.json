@@ -1,0 +1,35 @@
+{
+  "sourceCommit": "a2e3bc84cc9471831e0dd049c570edd8f4d96d1f",
+  "extensionAarSha256": "cb98c6fbeac1a9707228c4b76cfbb395b4dc4d310900aefaa672561d17fd6d9d",
+  "mainOrtAarSha256": "82048d1f462218adae4ba76477089ab0ba76093d84f733540066db1a8ba6b827",
+  "pageSize": 4096,
+  "processArchitecture": "x86_64",
+  "apiLevel": 35,
+  "syntheticTokenizerCases": 17,
+  "semanticScoreValues": 22,
+  "runtimeFixtureTests": {
+    "class": "com.example.ipa_board.OnnxExtensionsBuildCompatibilityTest",
+    "status": "passed",
+    "tests": 8,
+    "executed": 8,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 6.669
+  },
+  "semanticIntegrationTests": {
+    "class": "com.example.ipa_board.SemanticContextIntegrationTest",
+    "status": "passed",
+    "tests": 4,
+    "executed": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 8.855
+  },
+  "allRequiredTestsPassedAcrossRecordedRuns": true,
+  "allRunsRestoredAndBackupsDeleted": true,
+  "initialAttempt": "baseline-initial-attempt-results.json",
+  "focusedIntegrationRerun": "baseline-semantic-rerun-results.json",
+  "note": "Initial integration attempt had two native-readiness timeouts because its all-enabled setup included an ARM64-only IPA backend on x86_64. The isolated fixture patch fixes that precondition without changing production engines, test assertions or timeouts."
+}

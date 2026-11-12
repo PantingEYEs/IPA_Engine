@@ -1,0 +1,23 @@
+{
+  "classes": 7,
+  "tests": 34,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "classNames": [
+    "com.example.ipa_board.CandidateRankerTest",
+    "com.example.ipa_board.EngineQueryPolicyTest",
+    "com.example.ipa_board.EnglishContextBoundaryTest",
+    "com.example.ipa_board.EnglishContextTest",
+    "com.example.ipa_board.MixedCompositionCandidatesTest",
+    "com.example.ipa_board.SegmentedCandidatesTest",
+    "com.example.ipa_board.ime.EngineRuntimeStatesTest"
+  ],
+  "suiteRegistryValidated": true,
+  "engineAssetsValidated": true,
+  "debugApkBuilt": true,
+  "androidTestApkBuilt": true,
+  "lintPassed": true,
+  "lintWarnings": 298,
+  "existingLintBaselineFilteredErrors": 129
+}

@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "validated": true,
+  "validation_scope": "static ELF, 16KB LOAD/RELRO, dependencies, exports and AAR/Java interface checks",
+  "runtime_validation_included": false,
+  "apk_zip_alignment_included": false,
+  "page_size_bytes": 16384,
+  "allowed_system_dependencies": [
+    "libandroid.so",
+    "libc.so",
+    "libdl.so",
+    "liblog.so",
+    "libm.so",
+    "libz.so"
+  ],
+  "required_exports": {
+    "libortextensions.so": [
+      "RegisterCustomOps",
+      "GetActiveOrtAPIVersion"
+    ],
+    "libonnxruntime_extensions4j_jni.so": [
+      "RegisterCustomOps",
+      "GetActiveOrtAPIVersion",
+      "Java_ai_onnxruntime_extensions_OrtxLibrary_getNativeExtensionOperatorRegister"
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "arm64-v8a/libortextensions.so",
+      "kind": "shared_library",
+      "size_bytes": 917000,
+      "sha256": "a3259edbf2fd97d2435e6a67688095f847d30247d84462120cbfc2bf429fad8c",
+      "abi": "arm64-v8a",
+      "elf_class": 64,
+      "endianness": "little",
+      "elf_type": "ET_DYN",
+      "machine_id": 183,
+      "machine": "AArch64",
+      "minimum_load_alignment": 16384,
+      "load_segments": [
+        {
+          "program_header_index": 1,
+          "flags": 5,
+          "offset": 0,
+          "virtual_address": 0,
+          "file_size": 883104,
+          "memory_size": 883104,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 2,
+          "flags": 6,
+          "offset": 883104,
+          "virtual_address": 899488,
+          "file_size": 30176,
+          "memory_size": 34400,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 3,
+          "flags": 6,
+          "offset": 913280,
+          "virtual_address": 946048,
+          "file_size": 1296,
+          "memory_size": 10720,
+          "alignment": 16384
+        }
+      ],
+      "relro": {
+        "offset": 883104,
+        "virtual_address": 899488,
+        "file_size": 30176,
+        "memory_size": 34400
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "dynamic_symbol_count": 107,
+      "symbol_hash_format": "gnu",
+      "required_exports": {
+        "RegisterCustomOps": {
+          "value": 263944,
+          "size": 3000
+        },
+        "GetActiveOrtAPIVersion": {
+          "value": 263932,
+          "size": 12
+        }
+      }
+    },
+    {
+      "path": "arm64-v8a/libonnxruntime_extensions4j_jni.so",
+      "kind": "shared_library",
+      "size_bytes": 917168,
+      "sha256": "8d9a1d9c46b2c3882ca33abc2b2c4f75228d4a36033be1c71c7c2796f2cbf655",
+      "abi": "arm64-v8a",
+      "elf_class": 64,
+      "endianness": "little",
+      "elf_type": "ET_DYN",
+      "machine_id": 183,
+      "machine": "AArch64",
+      "minimum_load_alignment": 16384,
+      "load_segments": [
+        {
+          "program_header_index": 1,
+          "flags": 5,
+          "offset": 0,
+          "virtual_address": 0,
+          "file_size": 883264,
+          "memory_size": 883264,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 2,
+          "flags": 6,
+          "offset": 883264,
+          "virtual_address": 899648,
+          "file_size": 30184,
+          "memory_size": 34240,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 3,
+          "flags": 6,
+          "offset": 913448,
+          "virtual_address": 946216,
+          "file_size": 1296,
+          "memory_size": 10728,
+          "alignment": 16384
+        }
+      ],
+      "relro": {
+        "offset": 883264,
+        "virtual_address": 899648,
+        "file_size": 30184,
+        "memory_size": 34240
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "dynamic_symbol_count": 108,
+      "symbol_hash_format": "gnu",
+      "required_exports": {
+        "RegisterCustomOps": {
+          "value": 264116,
+          "size": 3000
+        },
+        "GetActiveOrtAPIVersion": {
+          "value": 264104,
+          "size": 12
+        },
+        "Java_ai_onnxruntime_extensions_OrtxLibrary_getNativeExtensionOperatorRegister": {
+          "value": 263584,
+          "size": 12
+        }
+      }
+    },
+    {
+      "path": "x86_64/libortextensions.so",
+      "kind": "shared_library",
+      "size_bytes": 909912,
+      "sha256": "d3cfd7eab48d1a958a821c5492bb9d11fc657ca54a9d5531df55d39f5b383de9",
+      "abi": "x86_64",
+      "elf_class": 64,
+      "endianness": "little",
+      "elf_type": "ET_DYN",
+      "machine_id": 62,
+      "machine": "AMD x86-64",
+      "minimum_load_alignment": 16384,
+      "load_segments": [
+        {
+          "program_header_index": 1,
+          "flags": 5,
+          "offset": 0,
+          "virtual_address": 0,
+          "file_size": 878144,
+          "memory_size": 878144,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 2,
+          "flags": 6,
+          "offset": 878144,
+          "virtual_address": 894528,
+          "file_size": 28048,
+          "memory_size": 39360,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 3,
+          "flags": 6,
+          "offset": 906192,
+          "virtual_address": 938960,
+          "file_size": 1296,
+          "memory_size": 10704,
+          "alignment": 16384
+        }
+      ],
+      "relro": {
+        "offset": 878144,
+        "virtual_address": 894528,
+        "file_size": 28048,
+        "memory_size": 39360
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "dynamic_symbol_count": 104,
+      "symbol_hash_format": "gnu",
+      "required_exports": {
+        "RegisterCustomOps": {
+          "value": 238448,
+          "size": 3409
+        },
+        "GetActiveOrtAPIVersion": {
+          "value": 238432,
+          "size": 7
+        }
+      }
+    },
+    {
+      "path": "x86_64/libonnxruntime_extensions4j_jni.so",
+      "kind": "shared_library",
+      "size_bytes": 910120,
+      "sha256": "77179c124c88f1862eabdc61dc0a0c0a7ed1605988bdd397b9be65ccb002500b",
+      "abi": "x86_64",
+      "elf_class": 64,
+      "endianness": "little",
+      "elf_type": "ET_DYN",
+      "machine_id": 62,
+      "machine": "AMD x86-64",
+      "minimum_load_alignment": 16384,
+      "load_segments": [
+        {
+          "program_header_index": 1,
+          "flags": 5,
+          "offset": 0,
+          "virtual_address": 0,
+          "file_size": 878336,
+          "memory_size": 878336,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 2,
+          "flags": 6,
+          "offset": 878336,
+          "virtual_address": 894720,
+          "file_size": 28056,
+          "memory_size": 39168,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 3,
+          "flags": 6,
+          "offset": 906400,
+          "virtual_address": 939168,
+          "file_size": 1296,
+          "memory_size": 10704,
+          "alignment": 16384
+        }
+      ],
+      "relro": {
+        "offset": 878336,
+        "virtual_address": 894720,
+        "file_size": 28056,
+        "memory_size": 39168
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "dynamic_symbol_count": 105,
+      "symbol_hash_format": "gnu",
+      "required_exports": {
+        "RegisterCustomOps": {
+          "value": 238624,
+          "size": 3409
+        },
+        "GetActiveOrtAPIVersion": {
+          "value": 238608,
+          "size": 7
+        },
+        "Java_ai_onnxruntime_extensions_OrtxLibrary_getNativeExtensionOperatorRegister": {
+          "value": 238000,
+          "size": 8
+        }
+      }
+    },
+    {
+      "path": "onnxruntime-extensions-android-0.13.0-ipa-e5-16kb.aar",
+      "kind": "android_archive",
+      "size_bytes": 1509753,
+      "sha256": "20620659f2695dc5e36cca7f339e64c606f36413b9a42c144eac0aace73cecc6",
+      "native_members": [
+        "jni/arm64-v8a/libonnxruntime_extensions4j_jni.so",
+        "jni/arm64-v8a/libortextensions.so",
+        "jni/x86_64/libonnxruntime_extensions4j_jni.so",
+        "jni/x86_64/libortextensions.so"
+      ],
+      "native_bytes_match_standalone": true,
+      "java_interfaces": [
+        {
+          "class": "ai/onnxruntime/extensions/OrtxPackage",
+          "classfile_major": 52,
+          "methods": [
+            {
+              "name": "getLibraryPath",
+              "descriptor": "()Ljava/lang/String;",
+              "access_flags": 9
+            },
+            {
+              "name": "getPackage",
+              "descriptor": "()Lai/onnxruntime/extensions/OrtxPackage;",
+              "access_flags": 9
+            },
+            {
+              "name": "close",
+              "descriptor": "()V",
+              "access_flags": 1
+            }
+          ]
+        },
+        {
+          "class": "ai/onnxruntime/extensions/OrtxLibrary",
+          "classfile_major": 52,
+          "methods": [
+            {
+              "name": "getExtractedLibraryPath",
+              "descriptor": "()Ljava/lang/String;",
+              "access_flags": 9
+            },
+            {
+              "name": "getNativeExtensionOperatorRegister",
+              "descriptor": "()J",
+              "access_flags": 265
+            }
+          ]
+        }
+      ],
+      "java_validation_scope": "class identity, signatures, modifiers and native library name; no execution"
+    }
+  ]
+}

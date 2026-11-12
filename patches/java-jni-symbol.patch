@@ -1,0 +1,24 @@
+diff --git a/java/ortx_jni.ver b/java/ortx_jni.ver
+index d4149a9..4dfe1aa 100644
+--- a/java/ortx_jni.ver
++++ b/java/ortx_jni.ver
+@@ -3,6 +3,6 @@ global:
+     RegisterCustomOps;
+     AddExternalCustomOp;
+     GetActiveOrtAPIVersion;
+-    Java_ai_onnxruntime_extensions_Utils_getNativeExtensionOperatorRegister;
++    Java_ai_onnxruntime_extensions_OrtxLibrary_getNativeExtensionOperatorRegister;
+ local: *;
+ };
+diff --git a/java/src/main/native/ai_onnxruntime_extensions_OrtxLibrary.c b/java/src/main/native/ai_onnxruntime_extensions_OrtxLibrary.c
+index d4c6335..d0e2998 100644
+--- a/java/src/main/native/ai_onnxruntime_extensions_OrtxLibrary.c
++++ b/java/src/main/native/ai_onnxruntime_extensions_OrtxLibrary.c
+@@ -6,6 +6,6 @@
+  * Method:    getNativeExtensionOperatorRegister
+  * Signature: ()J
+  */
+-JNIEXPORT jlong JNICALL Java_ai_onnxruntime_extensions_Utils_getNativeExtensionOperatorRegister(JNIEnv* env, jclass cls) {
++JNIEXPORT jlong JNICALL Java_ai_onnxruntime_extensions_OrtxLibrary_getNativeExtensionOperatorRegister(JNIEnv* env, jclass cls) {
+   return (jlong)(&RegisterCustomOps);
+ }

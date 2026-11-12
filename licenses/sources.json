@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "scope": "Source notice inventory for the pinned SPM-only Android build; actual build evidence is maintained separately in the repository licenses/evidence directory",
+  "files": [
+    {
+      "sourcePath": "LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "https://github.com/microsoft/onnxruntime-extensions/blob/9d5638b0b1f28ed2ca9ef589d5ec3ea86f859432/LICENSE",
+      "component": "ONNX Runtime Extensions",
+      "version": "0.13.0",
+      "method": "byte-for-byte copy from pinned source",
+      "file": "ONNX-Runtime-Extensions-0.13.0-MIT.txt",
+      "commit": "9d5638b0b1f28ed2ca9ef589d5ec3ea86f859432",
+      "localSource": "${SOURCE_ROOT}/.work/upstream/LICENSE"
+    },
+    {
+      "sourcePath": "ThirdPartyNotices.txt",
+      "sha256": "f5fdecd0efb3ff1b4b619f74fe0cb4991299101853ba9ffe988265f8a067d74a",
+      "source": "https://github.com/microsoft/onnxruntime-extensions/blob/9d5638b0b1f28ed2ca9ef589d5ec3ea86f859432/ThirdPartyNotices.txt",
+      "component": "ONNX Runtime Extensions upstream broad notice reference",
+      "version": "0.13.0",
+      "method": "byte-for-byte copy from pinned source",
+      "file": "ONNX-Runtime-Extensions-0.13.0-ThirdPartyNotices.txt",
+      "commit": "9d5638b0b1f28ed2ca9ef589d5ec3ea86f859432",
+      "localSource": "${SOURCE_ROOT}/.work/upstream/ThirdPartyNotices.txt"
+    },
+    {
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "sourcePath": "LICENSE",
+      "method": "unmodified download from official tag",
+      "source": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.23.2/LICENSE",
+      "component": "ONNX Runtime API headers",
+      "file": "ONNX-Runtime-1.23.2-MIT.txt",
+      "version": "1.23.2"
+    },
+    {
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "sourcePath": "android-ndk-r29/NOTICE",
+      "method": "byte-for-byte copy from the build NDK",
+      "source": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+      "component": "Android NDK package notices",
+      "file": "NDK-r29-NOTICE.txt",
+      "version": "29.0.14206865",
+      "localSource": "${NDK_ROOT}/NOTICE"
+    },
+    {
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "sourcePath": "android-ndk-r29/NOTICE.toolchain",
+      "method": "byte-for-byte copy from the build NDK",
+      "source": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+      "component": "Android NDK toolchain and runtime notices",
+      "file": "NDK-r29-NOTICE.toolchain.txt",
+      "version": "29.0.14206865",
+      "localSource": "${NDK_ROOT}/NOTICE.toolchain"
+    },
+    {
+      "sha256": "716f3518a923198cfab037abb32dc3f1b1f7e9a9dcdcda6b66be5906215d2658",
+      "sourcePath": "android-ndk-r29/source.properties",
+      "method": "byte-for-byte copy from the build NDK",
+      "source": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+      "component": "Android NDK package identity",
+      "file": "reference/ndk-r29-source.properties",
+      "version": "29.0.14206865",
+      "localSource": "${NDK_ROOT}/source.properties"
+    },
+    {
+      "method": "verbatim comment lines 216-236 extracted from the actual AAR header; line endings normalized to CRLF",
+      "version": "2016; retained in ONNX Runtime 1.23.2",
+      "component": "Fabian Giesen float16 conversion routines (ORT API header)",
+      "sha256": "697c1b54af6267cfc3d86ef41f643dcb291e979109178881a69c508b0e05fcec",
+      "sourcePath": "headers/onnxruntime_float16.h",
+      "file": "ONNX-Runtime-1.23.2-Float16-Notice.txt",
+      "source": "https://github.com/microsoft/onnxruntime/blob/v1.23.2/include/onnxruntime/core/session/onnxruntime_float16.h",
+      "sourceArtifactSha256": "82048d1f462218adae4ba76477089ab0ba76093d84f733540066db1a8ba6b827",
+      "sourceArtifact": "onnxruntime-android-1.23.2.aar"
+    },
+    {
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "source": "https://github.com/protocolbuffers/protobuf/blob/f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c/LICENSE",
+      "file": "Protobuf-21.12-LICENSE.txt",
+      "method": "byte-for-byte copy from actual fetched build source",
+      "commit": "f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c",
+      "version": "21.12",
+      "component": "Protocol Buffers lite runtime",
+      "sourcePath": "LICENSE",
+      "localSource": "${SOURCE_ROOT}/.work/deps/protobuf/LICENSE"
+    },
+    {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "https://github.com/google/sentencepiece/blob/d8711f55d9b2cb9c77a00adcc18108482b29b675/LICENSE",
+      "file": "SentencePiece-0.1.96-LICENSE.txt",
+      "method": "byte-for-byte copy from actual fetched build source",
+      "commit": "d8711f55d9b2cb9c77a00adcc18108482b29b675",
+      "version": "0.1.96",
+      "component": "SentencePiece",
+      "sourcePath": "LICENSE",
+      "localSource": "${SOURCE_ROOT}/.work/deps/spm/LICENSE"
+    },
+    {
+      "sha256": "d3e2f59e1d71176dfdb555ece6a41f7a5aa0f52ff21211010ace314f57695f6b",
+      "source": "https://github.com/google/sentencepiece/blob/d8711f55d9b2cb9c77a00adcc18108482b29b675/third_party/absl/LICENSE",
+      "file": "SentencePiece-0.1.96-bundled-Abseil-LICENSE.txt",
+      "method": "byte-for-byte copy from actual fetched build source",
+      "commit": "d8711f55d9b2cb9c77a00adcc18108482b29b675",
+      "version": "bundled in SentencePiece 0.1.96",
+      "component": "SentencePiece bundled Abseil subset",
+      "sourcePath": "third_party/absl/LICENSE",
+      "localSource": "${SOURCE_ROOT}/.work/deps/spm/third_party/absl/LICENSE"
+    },
+    {
+      "sha256": "155f59997298ee336602c49f9c1110f268ac394ca2197eb02647a3555935ad52",
+      "source": "https://github.com/google/sentencepiece/blob/d8711f55d9b2cb9c77a00adcc18108482b29b675/third_party/darts_clone/LICENSE",
+      "file": "SentencePiece-0.1.96-Darts-clone-LICENSE.txt",
+      "method": "byte-for-byte copy from actual fetched build source",
+      "commit": "d8711f55d9b2cb9c77a00adcc18108482b29b675",
+      "version": "bundled in SentencePiece 0.1.96",
+      "component": "Darts-clone",
+      "sourcePath": "third_party/darts_clone/LICENSE",
+      "localSource": "${SOURCE_ROOT}/.work/deps/spm/third_party/darts_clone/LICENSE"
+    },
+    {
+      "sha256": "4c21dc82a1c7186ea754fd59d504c00947953a3401fe8e24eaa44109ef8e2555",
+      "source": "https://github.com/microsoft/GSL/blob/a3534567187d2edc428efd3f13466ff75fe5805c/LICENSE",
+      "file": "GSL-4.0.0-LICENSE.txt",
+      "method": "byte-for-byte copy from actual fetched build source",
+      "commit": "a3534567187d2edc428efd3f13466ff75fe5805c",
+      "version": "4.0.0",
+      "component": "Microsoft Guidelines Support Library",
+      "sourcePath": "LICENSE",
+      "localSource": "${SOURCE_ROOT}/.work/deps/gsl/LICENSE"
+    }
+  ]
+}

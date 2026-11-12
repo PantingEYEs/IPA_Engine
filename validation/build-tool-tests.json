@@ -1,0 +1,14 @@
+{
+  "environment": "WSL Arch Linux x86_64",
+  "command": "python3 -B -m unittest discover -s tests -v",
+  "tests": 31,
+  "failures": 0,
+  "errors": 0,
+  "scope": [
+    "ELF and AAR structure, alignment and JNI contract",
+    "source pinning and approved-patch integrity",
+    "deterministic packaging and exact license inventory"
+  ],
+  "sourceLockSha256": "a3ed8244669279a5402ec7ecbcbad256c8132dc4c1ecc7b6f08a0fc788d4a640",
+  "finalAarSha256": "20620659f2695dc5e36cca7f339e64c606f36413b9a42c144eac0aace73cecc6"
+}

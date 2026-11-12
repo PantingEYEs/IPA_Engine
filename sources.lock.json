@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/microsoft/onnxruntime-extensions.git",
+    "tag": "v0.13.0",
+    "commit": "9d5638b0b1f28ed2ca9ef589d5ec3ea86f859432",
+    "patch": "patches/java-jni-symbol.patch",
+    "patchSha256": "baeccb0f0b13c71063892dc02aa545780ccf0c3dde9446658352a01000c32b25"
+  },
+  "dependencies": {
+    "protobuf": {
+      "repository": "https://github.com/protocolbuffers/protobuf.git",
+      "tag": "v21.12",
+      "commit": "f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c",
+      "patches": [
+        "cmake/externals/protobuf_cmake.patch"
+      ]
+    },
+    "spm": {
+      "repository": "https://github.com/google/sentencepiece.git",
+      "tag": "v0.1.96",
+      "commit": "d8711f55d9b2cb9c77a00adcc18108482b29b675",
+      "patches": [
+        "cmake/externals/sentencepieceproject_cmake.patch",
+        "cmake/externals/sentencepieceproject_pb.patch"
+      ]
+    },
+    "gsl": {
+      "repository": "https://github.com/microsoft/GSL.git",
+      "tag": "v4.0.0",
+      "commit": "a3534567187d2edc428efd3f13466ff75fe5805c",
+      "patches": []
+    }
+  },
+  "toolchain": {
+    "host": "Linux x86_64",
+    "cmakeVersion": "3.31.6",
+    "cmakeUrl": "https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.tar.gz",
+    "cmakeSha256": "5a1133ff103c71eb5120e2cc3de922733e7d8a26a98ae716397e8676adb367bf",
+    "androidNdk": "r29",
+    "androidNdkRevision": "29.0.14206865",
+    "androidNdkUrl": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+    "androidNdkSha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+    "androidApi": 26,
+    "cxxStandard": 17,
+    "androidStl": "c++_static",
+    "javaRelease": 8,
+    "javaCompilerVersion": "21.0.13"
+  },
+  "abis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "minimumElfLoadAlignment": 16384,
+  "operatorProfile": "SPM_TOKENIZER only (SentencepieceTokenizer and SentencepieceDecoder)",
+  "ortVersion": "1.23.2",
+  "ortAar": {
+    "url": "https://repo.maven.apache.org/maven2/com/microsoft/onnxruntime/onnxruntime-android/1.23.2/onnxruntime-android-1.23.2.aar",
+    "sha256": "82048d1f462218adae4ba76477089ab0ba76093d84f733540066db1a8ba6b827"
+  },
+  "ortHeaders": {
+    "cpu_provider_factory.h": "0de52d129c718c07ee71a16b4953d8d483df019746a11caad77a0650a2f4ed47",
+    "nnapi_provider_factory.h": "49f7e0952e57b7e2942f69d8df61a9d99836f05b49a89700e1f5a16278c945e2",
+    "onnxruntime_c_api.h": "71125e66180a991d65c9bdbad4aa20daaa1f7a48c7a5c0fa5f18f250ac839a02",
+    "onnxruntime_cxx_api.h": "08ae3698d11d90590a0a777ad97e58172b8735fcbe27edcc8a7b94aa018e5de9",
+    "onnxruntime_cxx_inline.h": "226f883503ade7299f9474018a070dc94091c1541bcc6d419599eea0c2ee578e",
+    "onnxruntime_ep_c_api.h": "b92778f50c36ecdf53d0344e0129a78b306afed653f81bba8a9597e3e6e9546f",
+    "onnxruntime_ep_device_ep_metadata_keys.h": "8054d3696514dfda8fcd93d4ec1257837e8ebb43e14d3f7012222d53e66be438",
+    "onnxruntime_float16.h": "6c4db3d1954b266c4febe413351af86cac922e3448538e7e452e51d646e56a4a",
+    "onnxruntime_lite_custom_op.h": "890f4918c1cdb5f8d1180b0c732c263d646d73d947ed69ce96b8047d85ede4c4",
+    "onnxruntime_run_options_config_keys.h": "973037c14b0f1af0854ae25cd676776f79dbcfd2a6791f6ee17a5374c2a62550",
+    "onnxruntime_session_options_config_keys.h": "a7ac653a6cce0b03aea2515685a162d2956a158cf88313f22e8157f098fd6f66"
+  }
+}

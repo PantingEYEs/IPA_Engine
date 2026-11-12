@@ -1,0 +1,7 @@
+{
+  "pageSize": 16384,
+  "processArchitecture": "x86_64",
+  "apiLevel": 36,
+  "modelSha256": "dd476dd0c2514e9b9be83aeb3853fac0763e0bdf4a71645407587d77c48a2d88",
+  "tokenizerSha256": "4d28a2a61017a7b222164065d832e51103fbb3a4451c4e4938a2eeb8e83e44e8"
+}

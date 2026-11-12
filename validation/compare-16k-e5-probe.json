@@ -1,0 +1,56 @@
+{
+  "formatVersion": 1,
+  "modelSha256": "dd476dd0c2514e9b9be83aeb3853fac0763e0bdf4a71645407587d77c48a2d88",
+  "tokenizerSha256": "4d28a2a61017a7b222164065d832e51103fbb3a4451c4e4938a2eeb8e83e44e8",
+  "probes": [
+    {
+      "id": "english-before",
+      "scores": [
+        0.06912275,
+        0.028833305,
+        0.04326441,
+        0.057543885,
+        0.28445935
+      ]
+    },
+    {
+      "id": "chinese-both-sides",
+      "scores": [
+        0.11372323,
+        0.05164624,
+        0.06470463,
+        0.238233,
+        0.45596045
+      ]
+    },
+    {
+      "id": "following-coffee",
+      "scores": [
+        1,
+        0.117628716,
+        0.009106532,
+        0.12819865
+      ]
+    },
+    {
+      "id": "following-咖啡",
+      "scores": [
+        1,
+        0.04251787,
+        0.021484341,
+        0.12526064
+      ]
+    },
+    {
+      "id": "following-コーヒー",
+      "scores": [
+        1,
+        0.06455496,
+        -0.003984711,
+        0.15747404
+      ]
+    }
+  ],
+  "maximumAbsoluteDifference": 3.78955841706663e-09,
+  "scoreAbsoluteTolerance": 0.0001
+}

@@ -1,0 +1,23 @@
+{
+  "targetPageSizeBytes": 16384,
+  "apiLevel": 36,
+  "processArchitecture": "x86_64",
+  "pageSizeCompat": "disabled",
+  "compiledManifestAttributeValue": 64,
+  "unrelatedNativeLibrariesExcluded": false,
+  "allApkElfEntriesInspected": 20,
+  "zipAlignmentVerified": true,
+  "applicationRestoreVerified": true,
+  "backupsDeleted": true,
+  "pendingRecovery": [],
+  "host": {
+    "debugAndTestApksBuilt": true,
+    "lintPassed": true,
+    "lintWarnings": 296,
+    "existingBaselineFilteredLintErrors": 129,
+    "resourceAndSuiteChecksPassed": true,
+    "unitTestsReusedFromUnchanged4kHostBuild": 34
+  },
+  "arm64RuntimeExecuted": false,
+  "fourKbIsSupportRequirement": false
+}
