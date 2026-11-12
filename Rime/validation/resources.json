@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "resourceLockSha256": "15050533f82e860d386a3a8592f7d54bd108d607fc01243f0863e97989c54e4c",
+  "generatorSource": "scripts/prepare_resources.py",
+  "generatorSourceSha256": "a6024581eed157a15f4107fab3c25289c4c9d0f4b0d2a7282ae4b05477c3f804",
+  "baselineBoardCommit": "51072bf3599ea680a50debed527efa02912f96e1",
+  "scope": "Recorded source retrieval, deterministic reconstruction, integrity rejection, and baseline compatibility checks for this unchanged resource lock.",
+  "preparedProfile": {
+    "verified": true,
+    "profile": "ipa-board-chinese-compat-v1",
+    "resources": 24,
+    "licenseFiles": 9,
+    "nativeExecutionIncluded": false
+  },
+  "offlineRebuild": {
+    "verified": true,
+    "profile": "ipa-board-chinese-compat-v1",
+    "resources": 24,
+    "licenseFiles": 9,
+    "nativeExecutionIncluded": false
+  },
+  "officialNetworkRebuild": {
+    "verified": true,
+    "profile": "ipa-board-chinese-compat-v1",
+    "resources": 24,
+    "licenseFiles": 9,
+    "nativeExecutionIncluded": false
+  },
+  "corruptInputRejectedBeforePublication": true,
+  "missingOfflineInputRejectedBeforePublication": true,
+  "baselineByteEquivalentResources": [
+    "default.yaml",
+    "key_bindings.yaml",
+    "punctuation.yaml",
+    "symbols.yaml",
+    "luna_pinyin.dict.yaml",
+    "luna_pinyin.schema.yaml",
+    "pinyin.yaml",
+    "essay.txt",
+    "stroke.dict.yaml",
+    "stroke.schema.yaml",
+    "terra_pinyin.dict.yaml",
+    "terra_pinyin.schema.yaml",
+    "bopomofo.schema.yaml",
+    "zhuyin.yaml",
+    "opencc/STCharacters.txt",
+    "opencc/STPhrases.txt",
+    "opencc/TSCharacters.txt",
+    "opencc/TSPhrases.txt"
+  ],
+  "baselineEquivalentOpenccConfigs": [
+    "opencc/t2s.json",
+    "opencc/s2t.json"
+  ],
+  "baselineOpenccNote": "s2t uses the existing runtime text-config transformation; both configs make the default short_circuit match policy explicit, preserving dictionary priority.",
+  "nativeExecutionIncluded": false
+}

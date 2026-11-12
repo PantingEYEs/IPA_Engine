@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "nativeBuildLock": "../sources.lock.json",
+  "resourceNotices": "resources/README.md",
+  "notices": [
+    {
+      "component": "librime",
+      "output": "native/librime-LICENSE.txt",
+      "license": "BSD-3-Clause",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "LICENSE"
+      },
+      "sourceSha256": "f67d27a6d2d586fcfed4b4c886a83747095396a39b6641e18e855086be2ec400",
+      "extraction": {
+        "kind": "unmodified-file"
+      },
+      "sha256": "f67d27a6d2d586fcfed4b4c886a83747095396a39b6641e18e855086be2ec400",
+      "sizeBytes": 1513
+    },
+    {
+      "component": "Darts-clone embedded in librime",
+      "output": "native/librime-Darts-COPYING.txt",
+      "license": "BSD-3-Clause",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/COPYING.darts-clone"
+      },
+      "sourceSha256": "11bf6ca180d01e60656cd3cbe65cff95b738afe4ca5a8a66b9dd1ec594a41d2f",
+      "extraction": {
+        "kind": "unmodified-file"
+      },
+      "sha256": "11bf6ca180d01e60656cd3cbe65cff95b738afe4ca5a8a66b9dd1ec594a41d2f",
+      "sizeBytes": 1481
+    },
+    {
+      "component": "UTF8-CPP",
+      "output": "native/UTF8-h-NOTICE.txt",
+      "license": "BSL-1.0",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/utf8.h"
+      },
+      "sourceSha256": "90643c1044a58020af389dc8eb73099fc8327a12d0731a1101acb277e03e6a3b",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 1324
+      },
+      "sha256": "1b45829b2934a146274162752708e2f3355aae05e13d78a2cf3a656540a553c1",
+      "sizeBytes": 1324
+    },
+    {
+      "component": "UTF8-CPP",
+      "output": "native/UTF8-checked-NOTICE.txt",
+      "license": "BSL-1.0",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/utf8/checked.h"
+      },
+      "sourceSha256": "fd875c238a032517bdb391a837c9d7d62cb872c59e34f6c2900a24b3903b9d52",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 1329
+      },
+      "sha256": "ebd758544425cf8d60e3c3735807fddcd2bb82996df198547b034affbfb0d1fd",
+      "sizeBytes": 1329
+    },
+    {
+      "component": "UTF8-CPP",
+      "output": "native/UTF8-unchecked-NOTICE.txt",
+      "license": "BSL-1.0",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/utf8/unchecked.h"
+      },
+      "sourceSha256": "906b324e23b63cbcb078352c0ccd3b54bd290d6717898f9c7cfb19d9235934d3",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 1324
+      },
+      "sha256": "1b45829b2934a146274162752708e2f3355aae05e13d78a2cf3a656540a553c1",
+      "sizeBytes": 1324
+    },
+    {
+      "component": "UTF8-CPP",
+      "output": "native/UTF8-core-NOTICE.txt",
+      "license": "BSL-1.0",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/utf8/core.h"
+      },
+      "sourceSha256": "8a7cc39f5e1eb8b96f76c76a23bee1e0a8d8b8b5e246ca3674adb2138ad260c8",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 1324
+      },
+      "sha256": "1b45829b2934a146274162752708e2f3355aae05e13d78a2cf3a656540a553c1",
+      "sizeBytes": 1324
+    },
+    {
+      "component": "UTF8-CPP",
+      "output": "native/UTF8-cpp17-NOTICE.txt",
+      "license": "BSL-1.0",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/utf8/cpp17.h"
+      },
+      "sourceSha256": "e65f59cb4d5f155d632774925f29103f8b3b6515a1e19ebe0be604fea9015c57",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 1324
+      },
+      "sha256": "23887e4a3ef24d8d7fd54f06bad675d730cd135ccbc12fa1f3dfb559844ac387",
+      "sizeBytes": 1324
+    },
+    {
+      "component": "X11 keysym headers",
+      "output": "native/X11-keysym-NOTICE.txt",
+      "license": "MIT-style The Open Group and Digital Equipment Corporation notices",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/X11/keysym.h"
+      },
+      "sourceSha256": "8b20fbcdfa52a6ce5bf8c0c1746e2e47fca02e2534561dde0e085893db2a57ca",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 2281
+      },
+      "sha256": "4beeb94f9530a4e30dcd37d6277a5d3824c140d090323c82c9ccd5e5d9e72a7c",
+      "sizeBytes": 2281
+    },
+    {
+      "component": "X11 keysym headers",
+      "output": "native/X11-keysymdef-NOTICE.txt",
+      "license": "MIT-style The Open Group and Digital Equipment Corporation notices",
+      "source": {
+        "repository": "https://github.com/rime/librime.git",
+        "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+        "path": "include/X11/keysymdef.h"
+      },
+      "sourceSha256": "ff31183de7751c1079b1179fbbcb096f155a3b82c0429dcc8e329be43fb93b72",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 2279
+      },
+      "sha256": "6bbf351a5d24daecee82f85e7cd6db377e43d6f309b259e1feb6cb8aeee3c529",
+      "sizeBytes": 2279
+    },
+    {
+      "component": "leveldb",
+      "output": "native/LevelDB-LICENSE.txt",
+      "license": "BSD-3-Clause",
+      "source": {
+        "repository": "https://github.com/google/leveldb.git",
+        "commit": "99b3c03b3284f5886f9ef9a4ef703d57373e61be",
+        "path": "LICENSE"
+      },
+      "sourceSha256": "ccc19f1da0798ed666609b65a5b44dd8b3abe6fc08b9c0592eb76e82e174db19",
+      "extraction": {
+        "kind": "unmodified-file"
+      },
+      "sha256": "ccc19f1da0798ed666609b65a5b44dd8b3abe6fc08b9c0592eb76e82e174db19",
+      "sizeBytes": 1484
+    },
+    {
+      "component": "leveldb",
+      "output": "native/LevelDB-AUTHORS.txt",
+      "license": "BSD-3-Clause",
+      "source": {
+        "repository": "https://github.com/google/leveldb.git",
+        "commit": "99b3c03b3284f5886f9ef9a4ef703d57373e61be",
+        "path": "AUTHORS"
+      },
+      "sourceSha256": "75cccce858c06397a2736b5018b304a6fe50fce7148c7ea7fd532dd255d264b9",
+      "extraction": {
+        "kind": "unmodified-file"
+      },
+      "sha256": "75cccce858c06397a2736b5018b304a6fe50fce7148c7ea7fd532dd255d264b9",
+      "sizeBytes": 293
+    },
+    {
+      "component": "yaml-cpp",
+      "output": "native/yaml-cpp-LICENSE.txt",
+      "license": "MIT",
+      "source": {
+        "repository": "https://github.com/jbeder/yaml-cpp.git",
+        "commit": "2f86d13775d119edbb69af52e5f566fd65c6953b",
+        "path": "LICENSE"
+      },
+      "sourceSha256": "aa6fcc27be034e41e21dd832f9175bfe694a48491d9e14ff0fa278e19ad14f1b",
+      "extraction": {
+        "kind": "unmodified-file"
+      },
+      "sha256": "aa6fcc27be034e41e21dd832f9175bfe694a48491d9e14ff0fa278e19ad14f1b",
+      "sizeBytes": 1061
+    },
+    {
+      "component": "Dragonbox as embedded in yaml-cpp",
+      "output": "native/yaml-cpp-Dragonbox-NOTICE.txt",
+      "license": "MIT option expressly granted for usage in yaml-cpp",
+      "source": {
+        "repository": "https://github.com/jbeder/yaml-cpp.git",
+        "commit": "2f86d13775d119edbb69af52e5f566fd65c6953b",
+        "path": "src/contrib/dragonbox.h"
+      },
+      "sourceSha256": "3a801f535e2b015ea2c5d7764aac675752bd37875acabfd0a1b2478ca3e038ab",
+      "extraction": {
+        "kind": "exact-byte-range",
+        "offset": 0,
+        "length": 532
+      },
+      "sha256": "d5df5c966079f3000415e2841854060945148334dcb1457fca63d4ba011cc105",
+      "sizeBytes": 532
+    },
+    {
+      "component": "Boost",
+      "output": "native/Boost-LICENSE_1_0.txt",
+      "license": "BSL-1.0",
+      "source": {
+        "archiveUrl": "https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.bz2",
+        "archiveSha256": "85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a",
+        "path": "boost_1_89_0/LICENSE_1_0.txt"
+      },
+      "sourceSha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "extraction": {
+        "kind": "unmodified-archive-member"
+      },
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "sizeBytes": 1338
+    }
+  ],
+  "sharedDependencyNoticeInventory": "../../OpenCC/licenses/sources.json",
+  "sharedNotices": [
+    {
+      "component": "OpenCC",
+      "pathFromRime": "../OpenCC/licenses/OpenCC-1.4.2-LICENSE.txt",
+      "sha256": "b534e465949558eec2597b04f5092b5e161236a68dfbfd04d547592ac3964308",
+      "license": "Apache-2.0",
+      "usage": "runtime and official data"
+    },
+    {
+      "component": "marisa-trie",
+      "pathFromRime": "../OpenCC/licenses/Marisa-0.3.1-COPYING.md",
+      "sha256": "edf58dab34c3dc239ba4ba2d5d3d844d8c5b442aa4dd1149fac81b2d8c6cb8d1",
+      "license": "BSD-2-Clause OR LGPL-2.1-or-later",
+      "usage": "runtime; BSD-2-Clause option selected; original dual notice preserved"
+    },
+    {
+      "component": "Darts-clone",
+      "pathFromRime": "../OpenCC/licenses/Darts-clone-COPYING.md",
+      "sha256": "c6ab19db56ed127201dfb05346ea702ab53c4e387f43eafc343a7f4c2f2ae91e",
+      "license": "BSD-2-Clause",
+      "usage": "runtime legacy dictionary implementation"
+    },
+    {
+      "component": "RapidJSON",
+      "pathFromRime": "../OpenCC/licenses/RapidJSON-1.1.0-license.txt",
+      "sha256": "a140e5d46fe734a1c78f1a3c3ef207871dd75648be71fdda8e309b23ab8b1f32",
+      "license": "MIT and bundled notices",
+      "usage": "runtime headers as vendored by OpenCC; Windows-only msinttypes notices retained"
+    },
+    {
+      "component": "Android NDK r29",
+      "pathFromRime": "../OpenCC/licenses/NDK-r29-NOTICE.txt",
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "license": "see original notice",
+      "usage": "static libc++/libc++abi and compiler runtime; broad toolchain notice retained"
+    },
+    {
+      "component": "Android NDK r29",
+      "pathFromRime": "../OpenCC/licenses/NDK-r29-NOTICE.toolchain.txt",
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "license": "see original notice",
+      "usage": "static libc++/libc++abi and compiler runtime; broad toolchain notice retained"
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "component": "leveldb",
+      "abi": "arm64-v8a",
+      "compileCommandCount": 39,
+      "compileCommandsSha256": "8ce66075ae5bcd2a9cfce6dffcb2a4170302442d9f89a1883d5f13f78514ac3c",
+      "configuration": [
+        "ANDROID_ABI:UNINITIALIZED=arm64-v8a",
+        "ANDROID_PLATFORM:UNINITIALIZED=android-26",
+        "ANDROID_STL:UNINITIALIZED=c++_static",
+        "BUILD_SHARED_LIBS:UNINITIALIZED=OFF",
+        "HAVE_CRC32C:UNINITIALIZED=0",
+        "HAVE_SNAPPY:UNINITIALIZED=0",
+        "HAVE_TCMALLOC:UNINITIALIZED=0",
+        "LEVELDB_BUILD_BENCHMARKS:BOOL=OFF",
+        "LEVELDB_BUILD_TESTS:BOOL=OFF"
+      ],
+      "observedHeaderDependencies": [],
+      "dependencyFilesPresent": 39
+    },
+    {
+      "component": "leveldb",
+      "abi": "x86_64",
+      "compileCommandCount": 39,
+      "compileCommandsSha256": "250ab0c50c1280f747eb26fa61ffbe03aa86f478f30c49f75c13cf8ce1509163",
+      "configuration": [
+        "ANDROID_ABI:UNINITIALIZED=x86_64",
+        "ANDROID_PLATFORM:UNINITIALIZED=android-26",
+        "ANDROID_STL:UNINITIALIZED=c++_static",
+        "BUILD_SHARED_LIBS:UNINITIALIZED=OFF",
+        "HAVE_CRC32C:UNINITIALIZED=0",
+        "HAVE_SNAPPY:UNINITIALIZED=0",
+        "HAVE_TCMALLOC:UNINITIALIZED=0",
+        "LEVELDB_BUILD_BENCHMARKS:BOOL=OFF",
+        "LEVELDB_BUILD_TESTS:BOOL=OFF"
+      ],
+      "observedHeaderDependencies": [],
+      "dependencyFilesPresent": 39
+    },
+    {
+      "component": "yaml",
+      "abi": "arm64-v8a",
+      "compileCommandCount": 30,
+      "compileCommandsSha256": "9963d9d09cb2b1df32726299ecc6935d9d0049644405fb1738a08bea87d8231d",
+      "configuration": [
+        "ANDROID_ABI:UNINITIALIZED=arm64-v8a",
+        "ANDROID_PLATFORM:UNINITIALIZED=android-26",
+        "ANDROID_STL:UNINITIALIZED=c++_static",
+        "BUILD_SHARED_LIBS:UNINITIALIZED=OFF",
+        "YAML_CPP_BUILD_CONTRIB:BOOL=OFF",
+        "YAML_CPP_BUILD_TESTS:BOOL=OFF",
+        "YAML_CPP_BUILD_TOOLS:BOOL=OFF"
+      ],
+      "observedHeaderDependencies": [
+        "src/contrib/dragonbox.h"
+      ],
+      "dependencyFilesPresent": 30
+    },
+    {
+      "component": "yaml",
+      "abi": "x86_64",
+      "compileCommandCount": 30,
+      "compileCommandsSha256": "9fc7a8ba17f87f8475358c24659ddc6ed643c34341aad646b6830aaee7c6827c",
+      "configuration": [
+        "ANDROID_ABI:UNINITIALIZED=x86_64",
+        "ANDROID_PLATFORM:UNINITIALIZED=android-26",
+        "ANDROID_STL:UNINITIALIZED=c++_static",
+        "BUILD_SHARED_LIBS:UNINITIALIZED=OFF",
+        "YAML_CPP_BUILD_CONTRIB:BOOL=OFF",
+        "YAML_CPP_BUILD_TESTS:BOOL=OFF",
+        "YAML_CPP_BUILD_TOOLS:BOOL=OFF"
+      ],
+      "observedHeaderDependencies": [
+        "src/contrib/dragonbox.h"
+      ],
+      "dependencyFilesPresent": 30
+    },
+    {
+      "component": "rime",
+      "abi": "arm64-v8a",
+      "compileCommandCount": 105,
+      "compileCommandsSha256": "52b3ab0b66acd2d3ff9fa4b21cc90e990a75bb34ce0bf0a3ab42e4af93569d05",
+      "configuration": [
+        "ANDROID_ABI:UNINITIALIZED=arm64-v8a",
+        "ANDROID_PLATFORM:UNINITIALIZED=android-26",
+        "ANDROID_STL:UNINITIALIZED=c++_static",
+        "BUILD_SHARED_LIBS:BOOL=OFF",
+        "BUILD_STATIC:BOOL=ON",
+        "BUILD_TEST:BOOL=OFF",
+        "Boost_INCLUDE_DIR:PATH=$BOOST",
+        "ENABLE_ASAN:BOOL=OFF",
+        "ENABLE_EXTERNAL_PLUGINS:BOOL=OFF",
+        "ENABLE_LOGGING:BOOL=OFF",
+        "ENABLE_THREADING:BOOL=ON",
+        "ENABLE_TIMESTAMP:BOOL=OFF",
+        "Marisa_INCLUDE_PATH:PATH=$REPO/OpenCC/artifacts/arm64-v8a/static/include",
+        "Marisa_LIBRARY:FILEPATH=$REPO/OpenCC/artifacts/arm64-v8a/static/lib/libmarisa.a",
+        "Opencc_INCLUDE_PATH:PATH=$REPO/OpenCC/artifacts/arm64-v8a/static/include",
+        "Opencc_LIBRARY:FILEPATH=$REPO/OpenCC/artifacts/arm64-v8a/static/lib/libopencc.a;$REPO/OpenCC/artifacts/arm64-v8a/static/lib/libmarisa.a"
+      ],
+      "observedHeaderDependencies": [
+        "/boost/",
+        "/marisa/",
+        "/opencc/",
+        "include/X11/keysym.h",
+        "include/X11/keysymdef.h",
+        "include/darts.h",
+        "include/utf8.h",
+        "include/utf8/checked.h",
+        "include/utf8/core.h",
+        "include/utf8/cpp17.h",
+        "include/utf8/unchecked.h"
+      ],
+      "dependencyFilesPresent": 105
+    },
+    {
+      "component": "rime",
+      "abi": "x86_64",
+      "compileCommandCount": 105,
+      "compileCommandsSha256": "ad9a41d012f74c3578a52024ff2cd563875a295384c0da7334b0c121413ee32a",
+      "configuration": [
+        "ANDROID_ABI:UNINITIALIZED=x86_64",
+        "ANDROID_PLATFORM:UNINITIALIZED=android-26",
+        "ANDROID_STL:UNINITIALIZED=c++_static",
+        "BUILD_SHARED_LIBS:BOOL=OFF",
+        "BUILD_STATIC:BOOL=ON",
+        "BUILD_TEST:BOOL=OFF",
+        "Boost_INCLUDE_DIR:PATH=$BOOST",
+        "ENABLE_ASAN:BOOL=OFF",
+        "ENABLE_EXTERNAL_PLUGINS:BOOL=OFF",
+        "ENABLE_LOGGING:BOOL=OFF",
+        "ENABLE_THREADING:BOOL=ON",
+        "ENABLE_TIMESTAMP:BOOL=OFF",
+        "Marisa_INCLUDE_PATH:PATH=$REPO/OpenCC/artifacts/x86_64/static/include",
+        "Marisa_LIBRARY:FILEPATH=$REPO/OpenCC/artifacts/x86_64/static/lib/libmarisa.a",
+        "Opencc_INCLUDE_PATH:PATH=$REPO/OpenCC/artifacts/x86_64/static/include",
+        "Opencc_LIBRARY:FILEPATH=$REPO/OpenCC/artifacts/x86_64/static/lib/libopencc.a;$REPO/OpenCC/artifacts/x86_64/static/lib/libmarisa.a"
+      ],
+      "observedHeaderDependencies": [
+        "/boost/",
+        "/marisa/",
+        "/opencc/",
+        "include/X11/keysym.h",
+        "include/X11/keysymdef.h",
+        "include/darts.h",
+        "include/utf8.h",
+        "include/utf8/checked.h",
+        "include/utf8/core.h",
+        "include/utf8/cpp17.h",
+        "include/utf8/unchecked.h"
+      ],
+      "dependencyFilesPresent": 105
+    }
+  ],
+  "excludedFromRimeRuntime": [
+    "Trime code and extracted libraries",
+    "glog",
+    "gflags",
+    "GoogleTest",
+    "external Rime plugins",
+    "Snappy",
+    "external crc32c",
+    "tcmalloc"
+  ],
+  "scopeNote": "Native dependency notice inventory only. Resource and application licenses remain independent. Build inspection is not native compatibility testing."
+}

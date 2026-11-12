@@ -1,0 +1,56 @@
+{
+  "baseCommit": "51072bf3599ea680a50debed527efa02912f96e1",
+  "classes": [
+    {
+      "class": "com.example.ipa_board.CandidateRankerTest",
+      "tests": 4,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "class": "com.example.ipa_board.EngineQueryPolicyTest",
+      "tests": 6,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "class": "com.example.ipa_board.MixedCompositionCandidatesTest",
+      "tests": 12,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "class": "com.example.ipa_board.RimeCandidateBatchTest",
+      "tests": 5,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "class": "com.example.ipa_board.RimePinyinInputTest",
+      "tests": 4,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "class": "com.example.ipa_board.SegmentedCandidatesTest",
+      "tests": 3,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "class": "com.example.ipa_board.ZhuyinCompositionTest",
+      "tests": 3,
+      "failures": 0,
+      "skipped": 0
+    }
+  ],
+  "totalPassed": 37,
+  "tasks": [
+    "testDebugUnitTest (selected classes)",
+    "assembleDebug",
+    "assembleDebugAndroidTest",
+    "lintDebug"
+  ],
+  "offline": true,
+  "productionCheckoutModified": false
+}

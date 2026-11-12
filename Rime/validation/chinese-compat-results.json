@@ -1,0 +1,51 @@
+{
+  "suite": "chinese-compat",
+  "success": true,
+  "restoredAndBackupDeleted": true,
+  "build": {
+    "variant": "debug",
+    "apks": [
+      {
+        "package": "com.example.ipa_board",
+        "sha256": "3a4e73b7ac286579b9e90832dee9026a447e64ae2ef6f15a9cddc2b2344e0c32"
+      },
+      {
+        "package": "com.example.ipa_board.test",
+        "sha256": "8e466d2af5059c66c05a2eb42cb13a0cb369890b6e9aefe02a67d4472fc044db"
+      }
+    ]
+  },
+  "results": [
+    {
+      "class": "com.example.ipa_board.MultilingualEngineTest",
+      "status": "passed",
+      "tests": 11,
+      "executed": 11,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 6.813
+    },
+    {
+      "class": "com.example.ipa_board.ZhuyinEngineTest",
+      "status": "passed",
+      "tests": 9,
+      "executed": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.99
+    },
+    {
+      "class": "com.example.ipa_board.SegmentedCompositionTest",
+      "status": "passed",
+      "tests": 9,
+      "executed": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.563
+    }
+  ],
+  "durationSeconds": 15.791
+}

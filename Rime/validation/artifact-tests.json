@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "buildId": "08a2c62169dfdbea884ac4a3210ead026d1552a43149e5d196f8584e36ab7665",
+  "publishedManifestSha256": "402ffd0d2467905683cb56ba00c066e18a8c0d57b5d02177ae2b87ad25ae8812",
+  "verificationReport": "artifacts.json",
+  "verificationReportSha256": "fc362c59814398fd8d3771f1ffd40088a65231789bc0acda86ea19f67d7890e1",
+  "testSource": "tests/test_verify_artifacts.py",
+  "testSourceSha256": "aff24593838d141765e67ff9f2d92844e3f26ca29fa1121cf8df312c7bd8e4be",
+  "passed": 10,
+  "failed": 0,
+  "coverage": [
+    "published package and pinned inputs",
+    "wrong ABI rejected",
+    "4KB LOAD alignment rejected",
+    "unwanted public API rejected",
+    "AAR/native byte mismatch rejected",
+    "missing Java interface rejected",
+    "extra native dependency rejected",
+    "duplicate ZIP entry rejected",
+    "stale native build ID rejected",
+    "stale Java bytecode rejected"
+  ],
+  "androidRuntimeExecutedByTheseChecks": false
+}

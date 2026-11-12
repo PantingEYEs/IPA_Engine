@@ -1,0 +1,5402 @@
+[
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "a8 ",
+    "status": 0,
+    "count": 7,
+    "limit": 40,
+    "packet_bytes": 194,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "媽",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嬤",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嫲",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妈",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嬷",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "𢳀",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "a86",
+    "status": 0,
+    "count": 22,
+    "limit": 40,
+    "packet_bytes": 548,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "麼",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "麻",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尛",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嫲",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蔴",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "犘",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蟇",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蟆",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "a83",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "a84",
+    "status": 0,
+    "count": 33,
+    "limit": 40,
+    "packet_bytes": 800,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "罵",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嘜",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "榪",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "閁",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "傌",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "禡",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "睰",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鬕",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "sucl",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 1063,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "男一號",
+        "rank": 3,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "女一號",
+        "rank": 4,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 5,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你會",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你還",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "a87",
+    "status": 0,
+    "count": 7,
+    "limit": 40,
+    "packet_bytes": 193,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "嗎",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嘛",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尛",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蟆",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "㕰",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "么",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "麽",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "a87",
+    "status": 0,
+    "count": 7,
+    "limit": 40,
+    "packet_bytes": 193,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "嗎",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嘛",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尛",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蟆",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "㕰",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "么",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "麽",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "6su",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 1016,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "6你",
+        "rank": 0,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6呢",
+        "rank": 1,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6難以",
+        "rank": 2,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6擬",
+        "rank": 3,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6尼",
+        "rank": 4,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6泥",
+        "rank": 5,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6妳",
+        "rank": 6,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      },
+      {
+        "text": "6妮",
+        "rank": 7,
+        "start": 1,
+        "end": 3,
+        "prefix_end": 1,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 1,
+    "limit": 1,
+    "packet_bytes": 58,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihaozzz",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 1042,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好在這種",
+        "rank": 0,
+        "start": 0,
+        "end": 8,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 4,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你好啊",
+        "rank": 5,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你會",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你還",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "?",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao ",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao< ",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao ",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao< ",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao ",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao< ",
+    "status": 0,
+    "count": 0,
+    "limit": 40,
+    "packet_bytes": 32,
+    "sample_limit": 8,
+    "candidates": []
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "no_learning",
+    "user_dictionary_artifacts": 0
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma-",
+    "status": 0,
+    "count": 7,
+    "limit": 40,
+    "packet_bytes": 194,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "媽",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嬤",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嫲",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妈",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嬷",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "𢳀",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma/",
+    "status": 0,
+    "count": 22,
+    "limit": 40,
+    "packet_bytes": 548,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "麼",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "麻",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尛",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嫲",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蔴",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "犘",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蟇",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "蟆",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma\\",
+    "status": 0,
+    "count": 33,
+    "limit": 40,
+    "packet_bytes": 800,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "罵",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嘜",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "榪",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "閁",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "傌",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "禡",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "睰",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鬕",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "呢",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni'hao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "呢",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<'hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 8,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 8,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 8,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 4,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma;",
+    "status": 0,
+    "count": 7,
+    "limit": 40,
+    "packet_bytes": 194,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "媽",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嬤",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嫲",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妈",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嬷",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "𢳀",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma,",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma.",
+    "status": 0,
+    "count": 33,
+    "limit": 40,
+    "packet_bytes": 800,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "罵",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嘜",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "榪",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "閁",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "傌",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "禡",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "睰",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鬕",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "bopomofo",
+    "input": "su3cl3",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ma<",
+    "status": 0,
+    "count": 21,
+    "limit": 40,
+    "packet_bytes": 518,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "馬",
+        "rank": 0,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 1,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嗎",
+        "rank": 2,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "螞",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "獁",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "鰢",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "溤",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "concurrency",
+    "workers": 3,
+    "iterations_per_worker": 6,
+    "native_calls": 24,
+    "all_workers_joined": true
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "ma",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 952,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "嗎",
+        "rank": 0,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "嘛",
+        "rank": 1,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "馬",
+        "rank": 2,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "媽",
+        "rank": 3,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "罵",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "碼",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "麻",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "瑪",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "ni'hao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 6,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<shi\\jie\\",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 974,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好世界",
+        "rank": 0,
+        "start": 0,
+        "end": 15,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "terra_pinyin",
+    "input": "ni<hao<",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 966,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 2,
+        "start": 0,
+        "end": 7,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 3,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 4,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳",
+        "rank": 5,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "伱",
+        "rank": 6,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "旎",
+        "rank": 7,
+        "start": 0,
+        "end": 3,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "'nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 1084,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "‘你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "‘泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      }
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "'nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 1084,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "’你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      },
+      {
+        "text": "’泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 1
+      }
+    ]
+  },
+  {
+    "kind": "environment",
+    "identity": "ipa-rime;abi=1;packet=3;librime=1.17.0;opencc=1.4.2;build=08a2c62169dfdbea884ac4a3210ead026d1552a43149e5d196f8584e36ab7665",
+    "abi_version": 1,
+    "packet_version": 3,
+    "page_size": 16384,
+    "sdk": 36,
+    "supported_abis": [
+      "x86_64",
+      "arm64-v8a"
+    ]
+  },
+  {
+    "kind": "query",
+    "schema": "luna_pinyin",
+    "input": "nihao",
+    "status": 0,
+    "count": 40,
+    "limit": 40,
+    "packet_bytes": 964,
+    "sample_limit": 8,
+    "candidates": [
+      {
+        "text": "你好",
+        "rank": 0,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "妳好",
+        "rank": 1,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "逆號",
+        "rank": 2,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬好",
+        "rank": 3,
+        "start": 0,
+        "end": 5,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "你",
+        "rank": 4,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "擬",
+        "rank": 5,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "尼",
+        "rank": 6,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      },
+      {
+        "text": "泥",
+        "rank": 7,
+        "start": 0,
+        "end": 2,
+        "prefix_end": 0,
+        "committed": 0
+      }
+    ]
+  }
+]

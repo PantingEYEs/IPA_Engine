@@ -1,0 +1,8 @@
+/LatinIME/
+/Mozc/
+/ONNX/
+.work/
+.cache/
+logs/
+__pycache__/
+*.pyc

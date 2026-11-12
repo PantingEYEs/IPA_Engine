@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "025f371dc76b598d77384fbdab90c937471844d8",
+  "toolchain": {
+    "androidNdkRevision": "29.0.14206865",
+    "cmake": "3.31.6",
+    "androidApiLinkBaseline": 26,
+    "androidCxxRuntime": "c++_static",
+    "hostCompiler": "GCC 14.2.1"
+  },
+  "checks": {
+    "officialHostCtestTargets": {"passed": 21, "failed": 0},
+    "compatibilityCApi": {
+      "passed": 7, "failed": 0, "schemaWarnings": 0,
+      "resources": "../Rime/resources/opencc",
+      "resourcePolicy": "Official 1.2.0 dictionaries; text configurations with explicit short_circuit group policy",
+      "coverage": ["traditional to simplified", "simplified to traditional", "mixed Unicode and combining text", "empty input", "missing config rejected"]
+    },
+    "artifactValidatorTests": {
+      "passed": 8, "failed": 0,
+      "coverage": ["both real ABI outputs", "reject 4KB LOAD alignment", "reject wrong ABI", "reject unsafe RELRO boundary", "reject missing RELRO", "reject changed SONAME", "reject non-platform dependency", "reject missing C API entry point"]
+    },
+    "androidArtifactLayout": {
+      "abis": ["arm64-v8a", "x86_64"],
+      "minimumLoadAlignment": 16384,
+      "loadCongruence": "passed",
+      "relroBoundary": "passed",
+      "dynamicDependencies": ["libc.so", "libm.so", "libdl.so"],
+      "cApiExports": "passed",
+      "manifest": "../artifacts/manifest.json"
+    },
+    "sourceAndNoticeFingerprints": "passed",
+    "marisaPublicHeadersMatchOfficial031": true
+  },
+  "androidStandaloneRuntimeExecuted": false,
+  "android4KPageDeviceTested": false,
+  "notes": [
+    "A host native C API test is not an Android 4KB page-device compatibility test.",
+    "Rime's statically integrated OpenCC runtime validation is recorded separately.",
+    "Jieba is exercised only by upstream host test fixtures, not linked into Android artifacts.",
+    "No IPA Board application file or user data was changed by these OpenCC-only checks."
+  ]
+}

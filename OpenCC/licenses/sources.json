@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "notices": [
+    {
+      "component": "OpenCC",
+      "path": "OpenCC-1.4.2-LICENSE.txt",
+      "source": "LICENSE",
+      "sourceCommit": "025f371dc76b598d77384fbdab90c937471844d8",
+      "sha256": "b534e465949558eec2597b04f5092b5e161236a68dfbfd04d547592ac3964308",
+      "license": "Apache-2.0",
+      "usage": "runtime and official data"
+    },
+    {
+      "component": "marisa-trie",
+      "path": "Marisa-0.3.1-COPYING.md",
+      "source": "deps/marisa-0.3.1/COPYING.md",
+      "sourceCommit": "025f371dc76b598d77384fbdab90c937471844d8",
+      "sha256": "edf58dab34c3dc239ba4ba2d5d3d844d8c5b442aa4dd1149fac81b2d8c6cb8d1",
+      "license": "BSD-2-Clause OR LGPL-2.1-or-later",
+      "usage": "runtime; BSD-2-Clause option selected; original dual notice preserved"
+    },
+    {
+      "component": "Darts-clone",
+      "path": "Darts-clone-COPYING.md",
+      "source": "deps/darts-clone-0.32h/COPYING.md",
+      "sourceCommit": "025f371dc76b598d77384fbdab90c937471844d8",
+      "sha256": "c6ab19db56ed127201dfb05346ea702ab53c4e387f43eafc343a7f4c2f2ae91e",
+      "license": "BSD-2-Clause",
+      "usage": "runtime legacy dictionary implementation"
+    },
+    {
+      "component": "GoogleTest",
+      "path": "GoogleTest-1.15.0-LICENSE.txt",
+      "source": "deps/googletest-1.15.0/LICENSE",
+      "sourceCommit": "025f371dc76b598d77384fbdab90c937471844d8",
+      "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "license": "BSD-3-Clause",
+      "usage": "host verification only; not linked into Android libraries"
+    },
+    {
+      "component": "RapidJSON",
+      "path": "RapidJSON-1.1.0-license.txt",
+      "source": "https://raw.githubusercontent.com/Tencent/rapidjson/f54b0e47a08782a6131cc3d60f94d038fa6e0a51/license.txt",
+      "sha256": "a140e5d46fe734a1c78f1a3c3ef207871dd75648be71fdda8e309b23ab8b1f32",
+      "license": "MIT and bundled notices",
+      "usage": "runtime headers as vendored by OpenCC; Windows-only msinttypes notices retained"
+    },
+    {
+      "component": "Android NDK r29",
+      "path": "NDK-r29-NOTICE.txt",
+      "source": "NOTICE",
+      "sourceArchiveSha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "license": "see original notice",
+      "usage": "static libc++/libc++abi and compiler runtime; broad toolchain notice retained"
+    },
+    {
+      "component": "Android NDK r29",
+      "path": "NDK-r29-NOTICE.toolchain.txt",
+      "source": "NOTICE.toolchain",
+      "sourceArchiveSha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "license": "see original notice",
+      "usage": "static libc++/libc++abi and compiler runtime; broad toolchain notice retained"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+--- marisa-v0.3.1/lib/marisa/grimoire/io/mapper.cc
++++ OpenCC-vendor/lib/marisa/grimoire/io/mapper.cc
+@@ -130,12 +130,14 @@
+   MARISA_THROW_SYSTEM_ERROR_IF(origin_ == nullptr, ::GetLastError(),
+                                std::system_category(), "MapViewOfFile");
+ 
++#if defined(_WIN32_WINNT) && _WIN32_WINNT >= 0x0602
+   if (flags & MARISA_MAP_POPULATE) {
+     WIN32_MEMORY_RANGE_ENTRY range_entry;
+     range_entry.VirtualAddress = origin_;
+     range_entry.NumberOfBytes = size_;
+     ::PrefetchVirtualMemory(GetCurrentProcess(), 1, &range_entry, 0);
+   }
++#endif
+ 
+   ptr_ = static_cast<const char *>(origin_);
+   avail_ = size_;
+--- marisa-v0.3.1/lib/marisa/grimoire/vector/bit-vector.cc
++++ OpenCC-vendor/lib/marisa/grimoire/vector/bit-vector.cc
+@@ -22,7 +22,16 @@
+ inline std::size_t countr_zero(uint64_t x) {
+  #ifdef _MSC_VER
+   unsigned long pos;
++  #if defined(_M_X64) || defined(_M_ARM64)
+   ::_BitScanForward64(&pos, x);
++  #else
++  // _BitScanForward64 is not available on 32-bit MSVC targets.
++  if (::_BitScanForward(&pos, static_cast<unsigned long>(x))) {
++    return pos;
++  }
++  ::_BitScanForward(&pos, static_cast<unsigned long>(x >> 32));
++  pos += 32;
++  #endif
+   return pos;
+  #else   // _MSC_VER
+   return __builtin_ctzll(x);
+--- marisa-v0.3.1/lib/marisa/grimoire/vector/flat-vector.h
++++ OpenCC-vendor/lib/marisa/grimoire/vector/flat-vector.h
+@@ -117,10 +117,7 @@
+       num_units += num_units % (64 / MARISA_WORD_SIZE);
+     }
+ 
+-    units_.resize(num_units);
+-    if (num_units > 0) {
+-      units_.back() = 0;
+-    }
++    units_.resize(num_units, 0);
+ 
+     value_size_ = value_size;
+     if (value_size != 0) {

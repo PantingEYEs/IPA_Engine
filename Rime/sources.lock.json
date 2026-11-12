@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/rime/librime.git",
+    "tag": "1.17.0",
+    "commit": "33e78140250125871856cdc5b42ddc6a5fcd3cd4"
+  },
+  "dependencies": {
+    "leveldb": {
+      "repository": "https://github.com/google/leveldb.git",
+      "commit": "99b3c03b3284f5886f9ef9a4ef703d57373e61be",
+      "version": "1.23.0"
+    },
+    "yaml-cpp": {
+      "repository": "https://github.com/jbeder/yaml-cpp.git",
+      "commit": "2f86d13775d119edbb69af52e5f566fd65c6953b",
+      "version": "0.8.0",
+      "versionSource": "CMake project version at pinned commit; not the exact 0.8.0 release tag"
+    },
+    "boost": {
+      "version": "1.89.0",
+      "url": "https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.bz2",
+      "sha256": "85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a",
+      "upstreamMetadata": "https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.bz2.json"
+    },
+    "opencc": {
+      "sourceLock": "../OpenCC/sources.lock.json",
+      "version": "1.4.2",
+      "commit": "025f371dc76b598d77384fbdab90c937471844d8",
+      "linkage": "static",
+      "marisa": "Reuse the same OpenCC-vendored 0.3.1 archive and public headers; do not link a second Marisa implementation."
+    }
+  },
+  "toolchain": {
+    "androidNdkRevision": "29.0.14206865",
+    "cmakeVersion": "3.31.6",
+    "androidApi": 26,
+    "cxxRuntime": "c++_static",
+    "elfMaxPageSize": 16384,
+    "elfCommonPageSize": 16384,
+    "abis": [
+      "arm64-v8a",
+      "x86_64"
+    ]
+  },
+  "configuration": {
+    "externalPlugins": false,
+    "glog": false,
+    "threading": true,
+    "embeddedTimestamps": false,
+    "learningPolicy": "Disabled in the compatibility schemas, independently of the native core."
+  }
+}

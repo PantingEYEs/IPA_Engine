@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.so -text
+*.a -text
+*.aar -text
+*.jar -text
+*.ocd2 -text
+*.bin -text
+**/licenses/** -text -whitespace
+Rime/resources/** -text -whitespace
+**/artifacts/** -text -whitespace
+Rime/resource-sources.lock.json -text -whitespace
+*.patch -text -whitespace

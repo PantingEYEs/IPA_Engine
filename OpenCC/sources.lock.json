@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/BYVoid/OpenCC.git",
+    "tag": "ver.1.4.2",
+    "commit": "025f371dc76b598d77384fbdab90c937471844d8",
+    "tree": "bf365000448597ab0fa57a262e1be4d7335ac071",
+    "patches": []
+  },
+  "dependencies": {
+    "marisa": {
+      "source": "vendored in pinned OpenCC tree",
+      "path": "deps/marisa-0.3.1",
+      "files": 111,
+      "sha256": "59a1f9ea93c728d3db5fe8cce3f49888722b72a38c490f9ba599566510059340",
+      "algorithm": "SHA256(entries sorted by POSIX relative-path component tuples; each entry relative_path + NUL + file_sha256 + LF)",
+      "baseOfficialCommit": "3e87d53b78e15f2f43783d5e376561a8c9722051",
+      "vendorDifferences": "validation/marisa-source-comparison.json"
+    },
+    "rapidjson": {
+      "source": "vendored in pinned OpenCC tree",
+      "path": "deps/rapidjson-1.1.0",
+      "files": 39,
+      "sha256": "5ba0c23d35ff0a847b1fb9d8934f1f82b983078e5111f26d94b312462cb1de78",
+      "algorithm": "SHA256(entries sorted by POSIX relative-path component tuples; each entry relative_path + NUL + file_sha256 + LF)"
+    },
+    "darts": {
+      "source": "vendored in pinned OpenCC tree",
+      "path": "deps/darts-clone-0.32h",
+      "files": 4,
+      "sha256": "7c68e8a3b9c2843e1908e159189e2be23f65a7f0e5ceeb7b0f98573504450732",
+      "algorithm": "SHA256(entries sorted by POSIX relative-path component tuples; each entry relative_path + NUL + file_sha256 + LF)"
+    },
+    "tclap": {
+      "source": "vendored in pinned OpenCC tree",
+      "path": "deps/tclap-1.2.5",
+      "files": 29,
+      "sha256": "4f5d5c7a8de776e5ce20360dd592a995aa7406da06004fceeabd64c814e9984d",
+      "algorithm": "SHA256(entries sorted by POSIX relative-path component tuples; each entry relative_path + NUL + file_sha256 + LF)",
+      "usage": "host CLI tools only; not linked into Android libraries"
+    },
+    "googletest": {
+      "source": "vendored in pinned OpenCC tree",
+      "path": "deps/googletest-1.15.0",
+      "files": 247,
+      "sha256": "389b1fd91a65b473e332269c513d8719389ab12670116edb63ea8e8239569b63",
+      "algorithm": "SHA256(entries sorted by POSIX relative-path component tuples; each entry relative_path + NUL + file_sha256 + LF)",
+      "usage": "host tests only; not linked into Android libraries"
+    }
+  },
+  "toolchain": {
+    "androidNdk": "r29",
+    "androidNdkRevision": "29.0.14206865",
+    "androidNdkUrl": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+    "androidNdkSha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+    "cmakeVersion": "3.31.6",
+    "cmakeUrl": "https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.tar.gz",
+    "cmakeSha256": "5a1133ff103c71eb5120e2cc3de922733e7d8a26a98ae716397e8676adb367bf",
+    "androidApi": 26,
+    "androidStl": "c++_static",
+    "cxxStandard": 17,
+    "minimumElfLoadAlignment": 16384
+  },
+  "abis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "integration": {
+    "cmake": "integration/CMakeLists.txt",
+    "changes": [
+      "Unversioned Android SONAME libopencc.so",
+      "Explicit 16KB max/common-page-size and hide static dependency exports",
+      "Build and install library targets without running Android dictionary tools"
+    ],
+    "algorithmChanges": false
+  }
+}

@@ -1,0 +1,7 @@
+# Copyright (c) 2026 PantingEYEs. All rights reserved.
+# Project-authored policy overlay; no project license has been selected.
+patch:
+  schema_list:
+    - schema: luna_pinyin
+    - schema: terra_pinyin
+    - schema: bopomofo

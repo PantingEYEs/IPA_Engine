@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "buildId": "08a2c62169dfdbea884ac4a3210ead026d1552a43149e5d196f8584e36ab7665",
+  "publishedManifestSha256": "402ffd0d2467905683cb56ba00c066e18a8c0d57b5d02177ae2b87ad25ae8812",
+  "testSource": "tests/test_build_provenance.py",
+  "testSourceSha256": "3d16870d7fb3a8efeb750da24b2f4028bc10ffc8f6aaa4d8ad6f7722c5abe4d8",
+  "passed": 7,
+  "failed": 0,
+  "errors": 0,
+  "tests": [
+    "test_modified_public_proof_digest_is_rejected",
+    "test_modified_recipe_is_rejected",
+    "test_published_proof_verifies_without_any_private_work_directory",
+    "test_rehashed_changed_link_archive_is_not_a_matching_core",
+    "test_rehashed_changed_public_opencc_input_is_rejected",
+    "test_stale_installed_headers_are_rejected",
+    "test_substituted_static_archive_is_rejected"
+  ],
+  "requiresPrivateBuildCache": false,
+  "privateInputFixture": "Synthetic archives and headers; only subsequent compiler/toolchain inspection is stubbed in the two private-input rejection tests.",
+  "actualBuildInputsModified": false,
+  "androidRuntimeExecutedByTheseChecks": false
+}

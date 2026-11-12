@@ -1,0 +1,11 @@
+{
+  "officialCommit": "3e87d53b78e15f2f43783d5e376561a8c9722051",
+  "filesCompared": 41,
+  "sourceAndHeadersIdentical": false,
+  "differences": [
+    "lib/marisa/grimoire/io/mapper.cc",
+    "lib/marisa/grimoire/vector/bit-vector.cc",
+    "lib/marisa/grimoire/vector/flat-vector.h"
+  ],
+  "publicHeadersIdentical": true
+}

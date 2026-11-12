@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "buildId": "08a2c62169dfdbea884ac4a3210ead026d1552a43149e5d196f8584e36ab7665",
+  "native": {
+    "arm64-v8a": {
+      "machine": 183,
+      "loadSegments": [
+        {
+          "type": 1,
+          "flags": 5,
+          "offset": 0,
+          "vaddr": 0,
+          "paddr": 0,
+          "filesz": 3092512,
+          "memsz": 3092512,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 3092512,
+          "vaddr": 3108896,
+          "paddr": 3108896,
+          "filesz": 85216,
+          "memsz": 85984,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 3177728,
+          "vaddr": 3210496,
+          "paddr": 3210496,
+          "filesz": 2784,
+          "memsz": 19512,
+          "align": 16384
+        }
+      ],
+      "relro": [
+        {
+          "type": 1685382482,
+          "flags": 4,
+          "offset": 3092512,
+          "vaddr": 3108896,
+          "paddr": 3108896,
+          "filesz": 85216,
+          "memsz": 85984,
+          "align": 1
+        }
+      ],
+      "needed": [
+        "libdl.so",
+        "libm.so",
+        "libc.so"
+      ],
+      "soname": "libipa_rime.so",
+      "requiredCExports": [
+        "Java_org_ipaboard_rime_RimeNative_abiVersion",
+        "Java_org_ipaboard_rime_RimeNative_close",
+        "Java_org_ipaboard_rime_RimeNative_convert",
+        "Java_org_ipaboard_rime_RimeNative_identity",
+        "Java_org_ipaboard_rime_RimeNative_open",
+        "Java_org_ipaboard_rime_RimeNative_query"
+      ],
+      "exportCount": 6,
+      "identityMatched": true
+    },
+    "x86_64": {
+      "machine": 62,
+      "loadSegments": [
+        {
+          "type": 1,
+          "flags": 5,
+          "offset": 0,
+          "vaddr": 0,
+          "paddr": 0,
+          "filesz": 3103344,
+          "memsz": 3103344,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 3103344,
+          "vaddr": 3119728,
+          "paddr": 3119728,
+          "filesz": 76216,
+          "memsz": 91536,
+          "align": 16384
+        },
+        {
+          "type": 1,
+          "flags": 6,
+          "offset": 3179568,
+          "vaddr": 3212336,
+          "paddr": 3212336,
+          "filesz": 2824,
+          "memsz": 18992,
+          "align": 16384
+        }
+      ],
+      "relro": [
+        {
+          "type": 1685382482,
+          "flags": 4,
+          "offset": 3103344,
+          "vaddr": 3119728,
+          "paddr": 3119728,
+          "filesz": 76216,
+          "memsz": 91536,
+          "align": 1
+        }
+      ],
+      "needed": [
+        "libdl.so",
+        "libm.so",
+        "libc.so"
+      ],
+      "soname": "libipa_rime.so",
+      "requiredCExports": [
+        "Java_org_ipaboard_rime_RimeNative_abiVersion",
+        "Java_org_ipaboard_rime_RimeNative_close",
+        "Java_org_ipaboard_rime_RimeNative_convert",
+        "Java_org_ipaboard_rime_RimeNative_identity",
+        "Java_org_ipaboard_rime_RimeNative_open",
+        "Java_org_ipaboard_rime_RimeNative_query"
+      ],
+      "exportCount": 6,
+      "identityMatched": true
+    }
+  },
+  "aar": {
+    "nativeAbis": [
+      "arm64-v8a",
+      "x86_64"
+    ],
+    "javaClass": "org/ipaboard/rime/RimeNative.class",
+    "minimumAndroidApi": 26,
+    "retainedNoticeFiles": 35
+  },
+  "resourceFiles": 24,
+  "resourceSourceVerification": {
+    "verified": true,
+    "profile": "ipa-board-chinese-compat-v1",
+    "resources": 24,
+    "licenseFiles": 9,
+    "nativeExecutionIncluded": false
+  },
+  "noticeSourceVerification": {
+    "nativeNotices": 14,
+    "sharedNotices": 6
+  },
+  "manifestSha256": "402ffd0d2467905683cb56ba00c066e18a8c0d57b5d02177ae2b87ad25ae8812",
+  "androidRuntimeExecutedByThisCheck": false
+}

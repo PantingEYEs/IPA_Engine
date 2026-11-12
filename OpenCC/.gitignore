@@ -1,0 +1,6 @@
+.work/
+.cache/
+logs/
+__pycache__/
+*.pyc
+artifacts/*/shared/

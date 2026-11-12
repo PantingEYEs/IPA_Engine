@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "profile": "ipa-board-chinese-compat-v1",
+  "description": "Official resource inputs matching existing IPA Board Chinese behavior; independent runtime build versions are recorded separately.",
+  "baselineBoardCommit": "51072bf3599ea680a50debed527efa02912f96e1",
+  "sources": [
+    {
+      "id": "prelude",
+      "repository": "https://github.com/rime/rime-prelude",
+      "commit": "3803f09458072e03b9ed396692ce7e1d35c88c95",
+      "license": "LGPL-3.0",
+      "licenseFile": "licenses/resources/prelude-LICENSE.txt",
+      "role": "schema or lexical resource"
+    },
+    {
+      "id": "luna",
+      "repository": "https://github.com/rime/rime-luna-pinyin",
+      "commit": "46acf03142c12b5aeed7002675046bf7255eed35",
+      "license": "LGPL-3.0",
+      "licenseFile": "licenses/resources/luna-LICENSE.txt",
+      "role": "schema or lexical resource"
+    },
+    {
+      "id": "essay",
+      "repository": "https://github.com/rime/rime-essay",
+      "commit": "0766c929ec3e578c2c80861e988decd3703a1c3d",
+      "license": "LGPL-3.0",
+      "licenseFile": "licenses/resources/essay-LICENSE.txt",
+      "role": "schema or lexical resource"
+    },
+    {
+      "id": "stroke",
+      "repository": "https://github.com/rime/rime-stroke",
+      "commit": "7c9874c6b2e0b94947653e9a7de6f99623ff27e4",
+      "license": "LGPL-3.0",
+      "licenseFile": "licenses/resources/stroke-LICENSE.txt",
+      "role": "schema or lexical resource"
+    },
+    {
+      "id": "terra",
+      "repository": "https://github.com/rime/rime-terra-pinyin",
+      "commit": "723e51bc266cf9464530c1ddedb856aa18e3da34",
+      "license": "LGPL-3.0",
+      "licenseFile": "licenses/resources/terra-LICENSE.txt",
+      "role": "schema or lexical resource"
+    },
+    {
+      "id": "bopomofo",
+      "repository": "https://github.com/rime/rime-bopomofo",
+      "commit": "6085c9a38a4a728047862b33d67eee18aa86f3b9",
+      "license": "LGPL-3.0",
+      "licenseFile": "licenses/resources/bopomofo-LICENSE.txt",
+      "role": "schema or lexical resource"
+    },
+    {
+      "id": "opencc-compat",
+      "repository": "https://github.com/BYVoid/OpenCC",
+      "commit": "907bfcbbd3aae86ff04bc8eaca67c8af03108ddf",
+      "license": "Apache-2.0",
+      "licenseFile": "licenses/resources/opencc-compat-LICENSE.txt",
+      "role": "conversion compatibility data (OpenCC ver.1.2.0)"
+    },
+    {
+      "id": "gpl-3.0-text",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+      "role": "unmodified license text; source hash pins retrieved bytes"
+    },
+    {
+      "id": "cc-by-sa-3.0-text",
+      "url": "https://raw.githubusercontent.com/spdx/license-list-data/31846481de7ea17d92f2f46fad76abe58b2e9bb0/text/CC-BY-SA-3.0.txt",
+      "role": "unmodified license text; source hash pins retrieved bytes"
+    },
+    {
+      "id": "project-policy",
+      "copyright": "Copyright (c) 2026 PantingEYEs. All rights reserved.",
+      "license": null,
+      "role": "Newly authored configuration overlays implementing the application contract; no upstream resource text copied into these overlays."
+    }
+  ],
+  "files": [
+    {
+      "output": "resources/default.yaml",
+      "sourceId": "prelude",
+      "upstreamPath": "default.yaml",
+      "sourceSha256": "dd55653a991f9418eb425ee2112666f82e3e753c5ce3ed5702dd243041a45382",
+      "transform": "copy",
+      "sha256": "dd55653a991f9418eb425ee2112666f82e3e753c5ce3ed5702dd243041a45382",
+      "sizeBytes": 1365
+    },
+    {
+      "output": "resources/key_bindings.yaml",
+      "sourceId": "prelude",
+      "upstreamPath": "key_bindings.yaml",
+      "sourceSha256": "5c484257cccbab899bc874dfeb9257ce7190c99fee3abc33321767c8dac56af9",
+      "transform": "copy",
+      "sha256": "5c484257cccbab899bc874dfeb9257ce7190c99fee3abc33321767c8dac56af9",
+      "sizeBytes": 2954
+    },
+    {
+      "output": "resources/punctuation.yaml",
+      "sourceId": "prelude",
+      "upstreamPath": "punctuation.yaml",
+      "sourceSha256": "d6f89592149098f0a2d0ed3e5c83f49adb6226cdf1d967b0bc0d293f4e5c496a",
+      "transform": "copy",
+      "sha256": "d6f89592149098f0a2d0ed3e5c83f49adb6226cdf1d967b0bc0d293f4e5c496a",
+      "sizeBytes": 2107
+    },
+    {
+      "output": "resources/symbols.yaml",
+      "sourceId": "prelude",
+      "upstreamPath": "symbols.yaml",
+      "sourceSha256": "f2d366c82120d46a4790ed37ca93b687f3c9001c555986a549ddeefb81038c55",
+      "transform": "copy",
+      "sha256": "f2d366c82120d46a4790ed37ca93b687f3c9001c555986a549ddeefb81038c55",
+      "sizeBytes": 28356
+    },
+    {
+      "output": "licenses/resources/prelude-LICENSE.txt",
+      "sourceId": "prelude",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "transform": "copy",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "sizeBytes": 7651
+    },
+    {
+      "output": "resources/luna_pinyin.dict.yaml",
+      "sourceId": "luna",
+      "upstreamPath": "luna_pinyin.dict.yaml",
+      "sourceSha256": "270b0c6879436d7b0b606aa684507ea7e173c62b6d5df3966804637872d520fd",
+      "transform": "copy",
+      "sha256": "270b0c6879436d7b0b606aa684507ea7e173c62b6d5df3966804637872d520fd",
+      "sizeBytes": 891247
+    },
+    {
+      "output": "resources/luna_pinyin.schema.yaml",
+      "sourceId": "luna",
+      "upstreamPath": "luna_pinyin.schema.yaml",
+      "sourceSha256": "df48caa2901ca04d79978af926c79b118b3e6e5b5cf97b9d8c9b9d67d748a744",
+      "transform": "copy",
+      "sha256": "df48caa2901ca04d79978af926c79b118b3e6e5b5cf97b9d8c9b9d67d748a744",
+      "sizeBytes": 2077
+    },
+    {
+      "output": "resources/pinyin.yaml",
+      "sourceId": "luna",
+      "upstreamPath": "pinyin.yaml",
+      "sourceSha256": "22915339d6505d8911edd929b055145235eb4f66ee6d4dbdedb832e31be40c35",
+      "transform": "copy",
+      "sha256": "22915339d6505d8911edd929b055145235eb4f66ee6d4dbdedb832e31be40c35",
+      "sizeBytes": 4820
+    },
+    {
+      "output": "licenses/resources/luna-LICENSE.txt",
+      "sourceId": "luna",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "transform": "copy",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "sizeBytes": 7651
+    },
+    {
+      "output": "resources/essay.txt",
+      "sourceId": "essay",
+      "upstreamPath": "essay.txt",
+      "sourceSha256": "196d508a9bb12fc6d711eed83f5ddc4d5c2d382d92d15b4e51175e4d3802cfab",
+      "transform": "copy",
+      "sha256": "196d508a9bb12fc6d711eed83f5ddc4d5c2d382d92d15b4e51175e4d3802cfab",
+      "sizeBytes": 5887784
+    },
+    {
+      "output": "licenses/resources/essay-LICENSE.txt",
+      "sourceId": "essay",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "transform": "copy",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "sizeBytes": 7651
+    },
+    {
+      "output": "resources/stroke.dict.yaml",
+      "sourceId": "stroke",
+      "upstreamPath": "stroke.dict.yaml",
+      "sourceSha256": "db0b3459545f0299728e14271431b025b58ea530f4d5bf49b7a89dcaf2b9650b",
+      "transform": "copy",
+      "sha256": "db0b3459545f0299728e14271431b025b58ea530f4d5bf49b7a89dcaf2b9650b",
+      "sizeBytes": 2219276
+    },
+    {
+      "output": "resources/stroke.schema.yaml",
+      "sourceId": "stroke",
+      "upstreamPath": "stroke.schema.yaml",
+      "sourceSha256": "6f0bb7aec4eb243011c3958b891d6a719553847a93f20bf7fa820b9185525aa3",
+      "transform": "copy",
+      "sha256": "6f0bb7aec4eb243011c3958b891d6a719553847a93f20bf7fa820b9185525aa3",
+      "sizeBytes": 3043
+    },
+    {
+      "output": "licenses/resources/stroke-LICENSE.txt",
+      "sourceId": "stroke",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "transform": "copy",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "sizeBytes": 7651
+    },
+    {
+      "output": "resources/terra_pinyin.dict.yaml",
+      "sourceId": "terra",
+      "upstreamPath": "terra_pinyin.dict.yaml",
+      "sourceSha256": "2f881a239e09a61e5993e79257655f98f81c3789dc8aeea5f33477f710345b27",
+      "transform": "copy",
+      "sha256": "2f881a239e09a61e5993e79257655f98f81c3789dc8aeea5f33477f710345b27",
+      "sizeBytes": 1799483
+    },
+    {
+      "output": "resources/terra_pinyin.schema.yaml",
+      "sourceId": "terra",
+      "upstreamPath": "terra_pinyin.schema.yaml",
+      "sourceSha256": "d3b5628abfabac615589e8cc7bf6bf2bf63c60d499136592495a21d992b5cc6d",
+      "transform": "copy",
+      "sha256": "d3b5628abfabac615589e8cc7bf6bf2bf63c60d499136592495a21d992b5cc6d",
+      "sizeBytes": 5056
+    },
+    {
+      "output": "licenses/resources/terra-LICENSE.txt",
+      "sourceId": "terra",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "transform": "copy",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "sizeBytes": 7651
+    },
+    {
+      "output": "resources/bopomofo.schema.yaml",
+      "sourceId": "bopomofo",
+      "upstreamPath": "bopomofo.schema.yaml",
+      "sourceSha256": "21301f17f799c4779516d69bb9d80a343c1cc36f06cdcb8607860c80394bb8cc",
+      "transform": "copy",
+      "sha256": "21301f17f799c4779516d69bb9d80a343c1cc36f06cdcb8607860c80394bb8cc",
+      "sizeBytes": 6190
+    },
+    {
+      "output": "resources/zhuyin.yaml",
+      "sourceId": "bopomofo",
+      "upstreamPath": "zhuyin.yaml",
+      "sourceSha256": "77931ab77952fdb2535f8addebc0918453e0220a50ca176380971203f14c48be",
+      "transform": "copy",
+      "sha256": "77931ab77952fdb2535f8addebc0918453e0220a50ca176380971203f14c48be",
+      "sizeBytes": 1132
+    },
+    {
+      "output": "licenses/resources/bopomofo-LICENSE.txt",
+      "sourceId": "bopomofo",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "transform": "copy",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "sizeBytes": 7651
+    },
+    {
+      "output": "resources/opencc/STCharacters.txt",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "data/dictionary/STCharacters.txt",
+      "sourceSha256": "9cedfb8bf13a220087103d9a96d9f56050c341c24a809cbce5c85c9045456557",
+      "transform": "copy",
+      "sha256": "9cedfb8bf13a220087103d9a96d9f56050c341c24a809cbce5c85c9045456557",
+      "sizeBytes": 34615
+    },
+    {
+      "output": "resources/opencc/STPhrases.txt",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "data/dictionary/STPhrases.txt",
+      "sourceSha256": "1ce1869151530b6ea388ace1ae4efb3d51d1faa6e01c957f8d60313083a3969f",
+      "transform": "copy",
+      "sha256": "1ce1869151530b6ea388ace1ae4efb3d51d1faa6e01c957f8d60313083a3969f",
+      "sizeBytes": 1006868
+    },
+    {
+      "output": "resources/opencc/TSCharacters.txt",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "data/dictionary/TSCharacters.txt",
+      "sourceSha256": "ad870b4feeb494cfa7b3b05242bd79af574b22f6b2bdeb89a1633e4b50ed0a3c",
+      "transform": "copy",
+      "sha256": "ad870b4feeb494cfa7b3b05242bd79af574b22f6b2bdeb89a1633e4b50ed0a3c",
+      "sizeBytes": 34889
+    },
+    {
+      "output": "resources/opencc/TSPhrases.txt",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "data/dictionary/TSPhrases.txt",
+      "sourceSha256": "54170de095c6d389d557d0d0b0e1a10033f397d4feca80aaa30a74a67836f43a",
+      "transform": "copy",
+      "sha256": "54170de095c6d389d557d0d0b0e1a10033f397d4feca80aaa30a74a67836f43a",
+      "sizeBytes": 5440
+    },
+    {
+      "output": "resources/opencc/t2s.json",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "data/config/t2s.json",
+      "sourceSha256": "b818534194f27c2d95f01001edb0a5ec49b9050119892cb30a0504bb202cc07c",
+      "transform": "opencc-text-dictionaries-v2",
+      "sha256": "86e322d56b278a6821b9d1444f7a448367de1246fdc7dcf30fb654184fc09c31",
+      "sizeBytes": 442
+    },
+    {
+      "output": "resources/opencc/s2t.json",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "data/config/s2t.json",
+      "sourceSha256": "710bb970e406d9c0a3dd33c609248686cf1c5578d064b7b7fc89e70fbb9ea75d",
+      "transform": "opencc-text-dictionaries-v2",
+      "sha256": "ec0f4b03f7a880b3424cb52edce4f0d8e59819486826a79679346082b3b662f6",
+      "sizeBytes": 442
+    },
+    {
+      "output": "licenses/resources/opencc-compat-LICENSE.txt",
+      "sourceId": "opencc-compat",
+      "upstreamPath": "LICENSE",
+      "sourceSha256": "b534e465949558eec2597b04f5092b5e161236a68dfbfd04d547592ac3964308",
+      "transform": "copy",
+      "sha256": "b534e465949558eec2597b04f5092b5e161236a68dfbfd04d547592ac3964308",
+      "sizeBytes": 9165
+    },
+    {
+      "output": "licenses/resources/GPL-3.0.txt",
+      "sourceId": "gpl-3.0-text",
+      "upstreamPath": null,
+      "sourceSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "transform": "copy",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sizeBytes": 35149
+    },
+    {
+      "output": "licenses/resources/CC-BY-SA-3.0.txt",
+      "sourceId": "cc-by-sa-3.0-text",
+      "upstreamPath": null,
+      "sourceSha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f",
+      "transform": "copy",
+      "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f",
+      "sizeBytes": 22240
+    },
+    {
+      "output": "resources/default.custom.yaml",
+      "sourceId": "project-policy",
+      "policyId": "default.custom.yaml",
+      "transform": "project-policy-v1",
+      "sha256": "5bf80e54531633872fe0dc3881a7c7b977d31f6c2320abfeb0893f39fb6306c1",
+      "sizeBytes": 226
+    },
+    {
+      "output": "resources/luna_pinyin.custom.yaml",
+      "sourceId": "project-policy",
+      "policyId": "luna_pinyin.custom.yaml",
+      "transform": "project-policy-v1",
+      "sha256": "db620abc8dda38d8bd6a06e18dfbf564aaecca43a759e4722f5912e42c11e3bf",
+      "sizeBytes": 233
+    },
+    {
+      "output": "resources/terra_pinyin.custom.yaml",
+      "sourceId": "project-policy",
+      "policyId": "terra_pinyin.custom.yaml",
+      "transform": "project-policy-v1",
+      "sha256": "927cf1bf76c78980a869debab6ec00596f509f28213532d2d4ba26ce8891094b",
+      "sizeBytes": 256
+    },
+    {
+      "output": "resources/bopomofo.custom.yaml",
+      "sourceId": "project-policy",
+      "policyId": "bopomofo.custom.yaml",
+      "transform": "project-policy-v1",
+      "sha256": "927cf1bf76c78980a869debab6ec00596f509f28213532d2d4ba26ce8891094b",
+      "sizeBytes": 256
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+IPA_RIME_1 {
+  global: Java_org_ipaboard_rime_RimeNative_*;
+  local: *;
+};

@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "025f371dc76b598d77384fbdab90c937471844d8",
+  "sourceLockSha256": "d8091f694fe232e8e0ead55183fdd2bdda6cb1d82a91539829d135670f40d073",
+  "integrationSha256": "5e080df6dbf4497b9cbd9f123e822e7bd449a5f6d84dbbbf87a546a1905d008c",
+  "buildScriptSha256": "be5a013c32bcb8799cfb2e45440bd321a61f0a71cc7ff5e0cda1fb5a5d23253b",
+  "minimumElfLoadAlignment": 16384,
+  "androidRuntimeExecuted": false,
+  "files": [
+    {
+      "path": "artifacts/arm64-v8a/libopencc.so",
+      "sizeBytes": 1300656,
+      "sha256": "7971b0106620243e396ee9ec85b90537ee8f059f057792dab384aaedf0fdab7e",
+      "elf": {
+        "machine": 183,
+        "loadSegments": [
+          {
+            "type": 1,
+            "flags": 5,
+            "offset": 0,
+            "vaddr": 0,
+            "paddr": 0,
+            "filesz": 1263568,
+            "memsz": 1263568,
+            "align": 16384
+          },
+          {
+            "type": 1,
+            "flags": 6,
+            "offset": 1263568,
+            "vaddr": 1279952,
+            "paddr": 1279952,
+            "filesz": 34192,
+            "memsz": 47152,
+            "align": 16384
+          },
+          {
+            "type": 1,
+            "flags": 6,
+            "offset": 1297760,
+            "vaddr": 1330528,
+            "paddr": 1330528,
+            "filesz": 472,
+            "memsz": 11192,
+            "align": 16384
+          }
+        ],
+        "relro": [
+          {
+            "type": 1685382482,
+            "flags": 4,
+            "offset": 1263568,
+            "vaddr": 1279952,
+            "paddr": 1279952,
+            "filesz": 34192,
+            "memsz": 47152,
+            "align": 1
+          }
+        ],
+        "needed": [
+          "libdl.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libopencc.so",
+        "requiredCExports": [
+          "opencc_close",
+          "opencc_convert_utf8",
+          "opencc_convert_utf8_free",
+          "opencc_convert_utf8_to_buffer",
+          "opencc_error",
+          "opencc_open"
+        ],
+        "exportCount": 1139
+      }
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/agent.h",
+      "sizeBytes": 1612,
+      "sha256": "0a5da09b97a9a67d382113f55a57ce8d98f6137de323521a4798df7f05247b2c"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/base.h",
+      "sizeBytes": 8135,
+      "sha256": "214d11f660afc8e061995baa825bbd2bead32434fe6edf3ce81c539ac341ebe4"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/iostream.h",
+      "sizeBytes": 404,
+      "sha256": "8c9b9ef869a2678d73f006f91383c6fe236be923d4dc80a8b11324159da33e6a"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/key.h",
+      "sizeBytes": 1724,
+      "sha256": "05c7fb57ca33957afe17bd01c2c0e3a6173e243b275a6a2413f5242a0c292010"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/keyset.h",
+      "sizeBytes": 1973,
+      "sha256": "79bbae39865308f94422c0cade0cdf45615a5ee65667e6f16c1f14663d0ae4f2"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/query.h",
+      "sizeBytes": 1398,
+      "sha256": "aab0ad33bbdbb0d18d36ea47a4bf800d04644c44347c546658e9baf8ef5e68c6"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/stdio.h",
+      "sizeBytes": 248,
+      "sha256": "d884791e3863239bc1250686ad9308fc8f96148506a6b03050275f01af44c92c"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa/trie.h",
+      "sizeBytes": 1377,
+      "sha256": "e71222e2224258f00a2498b041c9f037e3f5d373ff65eb92dad4a2d0c8a5c01b"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/marisa.h",
+      "sizeBytes": 494,
+      "sha256": "f7b005214cfff1d2073dfba6be74bd59b7e2861250632239ec26abd41f6d1695"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Common.hpp",
+      "sizeBytes": 2492,
+      "sha256": "5368f033d5c5986de06376e35aa6733a953501c6d78e74abf0671998d3bba8bb"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Config.hpp",
+      "sizeBytes": 2593,
+      "sha256": "e0adb28c426e711d790c8f4227930cc4e946c5c10eccc325c69a0bf0ac5c121b"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Conversion.hpp",
+      "sizeBytes": 2864,
+      "sha256": "f2e110e541bbb5758c28e75ec2de9e9d6a6247707da8408779dda1a29a5828a0"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/ConversionChain.hpp",
+      "sizeBytes": 2882,
+      "sha256": "899fc1a294dc21185a1871549ee11f69c9b874c07acd4bda5aac9f4537991e86"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/ConversionInspection.hpp",
+      "sizeBytes": 2413,
+      "sha256": "63f1f1a07de2dab7f62bc951bd2b536b153ce4f078a213281978944f17400a5b"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Converter.hpp",
+      "sizeBytes": 4076,
+      "sha256": "0ab21f0877626cf5df56f8fe6e3ef90d30e52f0d61a68e7e92bfd1156f816fcb"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Dict.hpp",
+      "sizeBytes": 4927,
+      "sha256": "985669ee0d8269a5c102f398d8e2420934bce8a281bb8cbee0b3e19f51533b13"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/DictEntry.hpp",
+      "sizeBytes": 5300,
+      "sha256": "d06184a04af3df53f35d94239b3032901601d7fd3db80f24e73c75f271e93561"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/DictGroup.hpp",
+      "sizeBytes": 4638,
+      "sha256": "daef4aa0856de4a9c0bb1b8ec502e4b9948aefc24bd8ea50f73338a3771a70b0"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Exception.hpp",
+      "sizeBytes": 2348,
+      "sha256": "c36d41654b30da2b7f04feed47b546101f6c13c14c934fdb4f2bbfd66361bc87"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Export.hpp",
+      "sizeBytes": 1280,
+      "sha256": "09cda1cc88720442613cf9224ad154114b73b243e013aa11f62ceda4116746b8"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Lexicon.hpp",
+      "sizeBytes": 2110,
+      "sha256": "5c9dc21b81c6abe093196f431c34fc2d9aa8e984c4a99788eb4bb6183ecff5da"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/MarisaDict.hpp",
+      "sizeBytes": 2938,
+      "sha256": "d762a7d81433da47e925968008162fe05d36208320f36e29efb4476d8192b246"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/MaxMatchSegmentation.hpp",
+      "sizeBytes": 1240,
+      "sha256": "c98cc6c08b977b00fdef56c8a4b63f50ef974b1827b47941717f519b7006ab36"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Optional.hpp",
+      "sizeBytes": 1696,
+      "sha256": "d18717765561f9681f2e1c132f4e875411dcdceb56a2de05dcaea1a1c383d402"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/ResourceProvider.hpp",
+      "sizeBytes": 2400,
+      "sha256": "3ff7ad077a5f2c820ee29be3ecef81c7feb0a35b4d2920d0af785319b8d88c7c"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Segmentation.hpp",
+      "sizeBytes": 1656,
+      "sha256": "b77c97fe5f49cc1fe5302c1f6fdc0ac078a277d30c4cba5d74f47d2f87d80801"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/Segments.hpp",
+      "sizeBytes": 3371,
+      "sha256": "b1e1a9b2c8d2ead464316a17660ec691ec4b17b21a3ac8fbf07bd60b8cffdfbc"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/SerializableDict.hpp",
+      "sizeBytes": 2036,
+      "sha256": "356e1497a5c917792727ed3cf380128c5484bb7440d9c6f5fafdd3c332c065ec"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/SimpleConverter.hpp",
+      "sizeBytes": 5924,
+      "sha256": "ca21bdf4e1ee827b8554b08beb9824307219653cd9e0c8e63a87f2b1bd8ee746"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/TextDict.hpp",
+      "sizeBytes": 1653,
+      "sha256": "b059db3c83a8c8df7772c0fd1816b177dce875c93192801a31bbca0f561c5211"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/UTF8Util.hpp",
+      "sizeBytes": 13209,
+      "sha256": "1165091df294978b3f9e6ed060f1b825df9a1d2f97a1310e0d34de76e87a06a0"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/opencc.h",
+      "sizeBytes": 4589,
+      "sha256": "9ca6e15cdf551d6f6a40a41d121c814e3404545f87338c9db4c5c08dcb4a9175"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/include/opencc/plugin/OpenCCPlugin.h",
+      "sizeBytes": 5081,
+      "sha256": "021fd637122ae36afd8011fb198327ceb79070742b74d7bad0a860abb7584482"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/cmake/opencc/OpenCCConfig.cmake",
+      "sizeBytes": 1167,
+      "sha256": "d38b75b48650698fe315cd591235ac5afcd636c6b92a6e421a769fcd4fa62b7e"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/cmake/opencc/OpenCCConfigVersion.cmake",
+      "sizeBytes": 2762,
+      "sha256": "f40a0062b51e13390329dc5960ff4b926dbd40b9f2f6bf1c628359c9eebdeccb"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/cmake/opencc/OpenCCTargets-release.cmake",
+      "sizeBytes": 1308,
+      "sha256": "ee21b8ebfcb3ead2d5d14adfea269c0830d2166c9918fd5f7021355c7ab3dea4"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/cmake/opencc/OpenCCTargets.cmake",
+      "sizeBytes": 4331,
+      "sha256": "82c62b7420822cf0fff115a158b5c5f66b4214fad1ca8a791163780467d28d63"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/libmarisa.a",
+      "sizeBytes": 2677380,
+      "sha256": "29d1ac194e36a6e9d282bc7ac4b4aabef4f2815662d3cf17a732b991208a01ce"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/libopencc.a",
+      "sizeBytes": 19353650,
+      "sha256": "fdb16a4eb89ceae608eb21b80b803ff65227b50ec765d1c2d0ce46a488227011"
+    },
+    {
+      "path": "artifacts/arm64-v8a/static/lib/pkgconfig/opencc.pc",
+      "sizeBytes": 297,
+      "sha256": "62ad315f36e2892d760ec5536397fe196f3aa292a46a31dc89bdae19edd20733"
+    },
+    {
+      "path": "artifacts/x86_64/libopencc.so",
+      "sizeBytes": 1322904,
+      "sha256": "f71e3b4d417aafdbf5b5446be06d7bbae506ca8089e479eab403084c07cad257",
+      "elf": {
+        "machine": 62,
+        "loadSegments": [
+          {
+            "type": 1,
+            "flags": 5,
+            "offset": 0,
+            "vaddr": 0,
+            "paddr": 0,
+            "filesz": 1286800,
+            "memsz": 1286800,
+            "align": 16384
+          },
+          {
+            "type": 1,
+            "flags": 6,
+            "offset": 1286800,
+            "vaddr": 1303184,
+            "paddr": 1303184,
+            "filesz": 33208,
+            "memsz": 40304,
+            "align": 16384
+          },
+          {
+            "type": 1,
+            "flags": 6,
+            "offset": 1320008,
+            "vaddr": 1352776,
+            "paddr": 1352776,
+            "filesz": 472,
+            "memsz": 10504,
+            "align": 16384
+          }
+        ],
+        "relro": [
+          {
+            "type": 1685382482,
+            "flags": 4,
+            "offset": 1286800,
+            "vaddr": 1303184,
+            "paddr": 1303184,
+            "filesz": 33208,
+            "memsz": 40304,
+            "align": 1
+          }
+        ],
+        "needed": [
+          "libdl.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libopencc.so",
+        "requiredCExports": [
+          "opencc_close",
+          "opencc_convert_utf8",
+          "opencc_convert_utf8_free",
+          "opencc_convert_utf8_to_buffer",
+          "opencc_error",
+          "opencc_open"
+        ],
+        "exportCount": 1146
+      }
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/agent.h",
+      "sizeBytes": 1612,
+      "sha256": "0a5da09b97a9a67d382113f55a57ce8d98f6137de323521a4798df7f05247b2c"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/base.h",
+      "sizeBytes": 8135,
+      "sha256": "214d11f660afc8e061995baa825bbd2bead32434fe6edf3ce81c539ac341ebe4"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/iostream.h",
+      "sizeBytes": 404,
+      "sha256": "8c9b9ef869a2678d73f006f91383c6fe236be923d4dc80a8b11324159da33e6a"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/key.h",
+      "sizeBytes": 1724,
+      "sha256": "05c7fb57ca33957afe17bd01c2c0e3a6173e243b275a6a2413f5242a0c292010"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/keyset.h",
+      "sizeBytes": 1973,
+      "sha256": "79bbae39865308f94422c0cade0cdf45615a5ee65667e6f16c1f14663d0ae4f2"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/query.h",
+      "sizeBytes": 1398,
+      "sha256": "aab0ad33bbdbb0d18d36ea47a4bf800d04644c44347c546658e9baf8ef5e68c6"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/stdio.h",
+      "sizeBytes": 248,
+      "sha256": "d884791e3863239bc1250686ad9308fc8f96148506a6b03050275f01af44c92c"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa/trie.h",
+      "sizeBytes": 1377,
+      "sha256": "e71222e2224258f00a2498b041c9f037e3f5d373ff65eb92dad4a2d0c8a5c01b"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/marisa.h",
+      "sizeBytes": 494,
+      "sha256": "f7b005214cfff1d2073dfba6be74bd59b7e2861250632239ec26abd41f6d1695"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Common.hpp",
+      "sizeBytes": 2492,
+      "sha256": "5368f033d5c5986de06376e35aa6733a953501c6d78e74abf0671998d3bba8bb"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Config.hpp",
+      "sizeBytes": 2593,
+      "sha256": "e0adb28c426e711d790c8f4227930cc4e946c5c10eccc325c69a0bf0ac5c121b"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Conversion.hpp",
+      "sizeBytes": 2864,
+      "sha256": "f2e110e541bbb5758c28e75ec2de9e9d6a6247707da8408779dda1a29a5828a0"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/ConversionChain.hpp",
+      "sizeBytes": 2882,
+      "sha256": "899fc1a294dc21185a1871549ee11f69c9b874c07acd4bda5aac9f4537991e86"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/ConversionInspection.hpp",
+      "sizeBytes": 2413,
+      "sha256": "63f1f1a07de2dab7f62bc951bd2b536b153ce4f078a213281978944f17400a5b"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Converter.hpp",
+      "sizeBytes": 4076,
+      "sha256": "0ab21f0877626cf5df56f8fe6e3ef90d30e52f0d61a68e7e92bfd1156f816fcb"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Dict.hpp",
+      "sizeBytes": 4927,
+      "sha256": "985669ee0d8269a5c102f398d8e2420934bce8a281bb8cbee0b3e19f51533b13"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/DictEntry.hpp",
+      "sizeBytes": 5300,
+      "sha256": "d06184a04af3df53f35d94239b3032901601d7fd3db80f24e73c75f271e93561"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/DictGroup.hpp",
+      "sizeBytes": 4638,
+      "sha256": "daef4aa0856de4a9c0bb1b8ec502e4b9948aefc24bd8ea50f73338a3771a70b0"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Exception.hpp",
+      "sizeBytes": 2348,
+      "sha256": "c36d41654b30da2b7f04feed47b546101f6c13c14c934fdb4f2bbfd66361bc87"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Export.hpp",
+      "sizeBytes": 1280,
+      "sha256": "09cda1cc88720442613cf9224ad154114b73b243e013aa11f62ceda4116746b8"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Lexicon.hpp",
+      "sizeBytes": 2110,
+      "sha256": "5c9dc21b81c6abe093196f431c34fc2d9aa8e984c4a99788eb4bb6183ecff5da"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/MarisaDict.hpp",
+      "sizeBytes": 2938,
+      "sha256": "d762a7d81433da47e925968008162fe05d36208320f36e29efb4476d8192b246"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/MaxMatchSegmentation.hpp",
+      "sizeBytes": 1240,
+      "sha256": "c98cc6c08b977b00fdef56c8a4b63f50ef974b1827b47941717f519b7006ab36"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Optional.hpp",
+      "sizeBytes": 1696,
+      "sha256": "d18717765561f9681f2e1c132f4e875411dcdceb56a2de05dcaea1a1c383d402"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/ResourceProvider.hpp",
+      "sizeBytes": 2400,
+      "sha256": "3ff7ad077a5f2c820ee29be3ecef81c7feb0a35b4d2920d0af785319b8d88c7c"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Segmentation.hpp",
+      "sizeBytes": 1656,
+      "sha256": "b77c97fe5f49cc1fe5302c1f6fdc0ac078a277d30c4cba5d74f47d2f87d80801"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/Segments.hpp",
+      "sizeBytes": 3371,
+      "sha256": "b1e1a9b2c8d2ead464316a17660ec691ec4b17b21a3ac8fbf07bd60b8cffdfbc"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/SerializableDict.hpp",
+      "sizeBytes": 2036,
+      "sha256": "356e1497a5c917792727ed3cf380128c5484bb7440d9c6f5fafdd3c332c065ec"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/SimpleConverter.hpp",
+      "sizeBytes": 5924,
+      "sha256": "ca21bdf4e1ee827b8554b08beb9824307219653cd9e0c8e63a87f2b1bd8ee746"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/TextDict.hpp",
+      "sizeBytes": 1653,
+      "sha256": "b059db3c83a8c8df7772c0fd1816b177dce875c93192801a31bbca0f561c5211"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/UTF8Util.hpp",
+      "sizeBytes": 13209,
+      "sha256": "1165091df294978b3f9e6ed060f1b825df9a1d2f97a1310e0d34de76e87a06a0"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/opencc.h",
+      "sizeBytes": 4589,
+      "sha256": "9ca6e15cdf551d6f6a40a41d121c814e3404545f87338c9db4c5c08dcb4a9175"
+    },
+    {
+      "path": "artifacts/x86_64/static/include/opencc/plugin/OpenCCPlugin.h",
+      "sizeBytes": 5081,
+      "sha256": "021fd637122ae36afd8011fb198327ceb79070742b74d7bad0a860abb7584482"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/cmake/opencc/OpenCCConfig.cmake",
+      "sizeBytes": 1167,
+      "sha256": "d38b75b48650698fe315cd591235ac5afcd636c6b92a6e421a769fcd4fa62b7e"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/cmake/opencc/OpenCCConfigVersion.cmake",
+      "sizeBytes": 2762,
+      "sha256": "f40a0062b51e13390329dc5960ff4b926dbd40b9f2f6bf1c628359c9eebdeccb"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/cmake/opencc/OpenCCTargets-release.cmake",
+      "sizeBytes": 1308,
+      "sha256": "ee21b8ebfcb3ead2d5d14adfea269c0830d2166c9918fd5f7021355c7ab3dea4"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/cmake/opencc/OpenCCTargets.cmake",
+      "sizeBytes": 4331,
+      "sha256": "82c62b7420822cf0fff115a158b5c5f66b4214fad1ca8a791163780467d28d63"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/libmarisa.a",
+      "sizeBytes": 2357204,
+      "sha256": "2508af9a8412fbc52f647bbd5d9bdbfd5eb6d87427dd9b2e5506ed5d42d7c294"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/libopencc.a",
+      "sizeBytes": 18595320,
+      "sha256": "836064dbcd24504450dccee5aebe307da61c0c6bf77bb976e9404f48efd6e2e7"
+    },
+    {
+      "path": "artifacts/x86_64/static/lib/pkgconfig/opencc.pc",
+      "sizeBytes": 297,
+      "sha256": "62ad315f36e2892d760ec5536397fe196f3aa292a46a31dc89bdae19edd20733"
+    }
+  ]
+}

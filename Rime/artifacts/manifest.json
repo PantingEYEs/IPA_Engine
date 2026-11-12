@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "interfaceVersion": 1,
+  "candidatePacketVersion": 3,
+  "buildId": "08a2c62169dfdbea884ac4a3210ead026d1552a43149e5d196f8584e36ab7665",
+  "librimeVersion": "1.17.0",
+  "openccVersion": "1.4.2",
+  "androidApi": 26,
+  "pageSize": 16384,
+  "files": {
+    "arm64-v8a/libipa_rime.so": {
+      "sha256": "b86cf58cdfa783df340c3f845466c14da0c6b8aec7b08690909cd98b396b98fa",
+      "size": 3183016
+    },
+    "x86_64/libipa_rime.so": {
+      "sha256": "ebebdf547206b31b18b0e83b858a5a5640a062822c2c3d0915ee571edd65b150",
+      "size": 3184896
+    },
+    "ipa-rime-android-1.17.0-opencc-1.4.2.aar": {
+      "sha256": "aa006bfd082f5862774b0d094be056c9ce3204ec914915279f32da0ff9d6d99e",
+      "size": 2696636
+    },
+    "ipa-rime-resources.zip": {
+      "sha256": "965e8ab6d02d4acd9e96c79f76559dab74d7cb974a103d8cfd6264c4d64f3b33",
+      "size": 4857986
+    }
+  },
+  "resourceLockSha256": "15050533f82e860d386a3a8592f7d54bd108d607fc01243f0863e97989c54e4c",
+  "sourceLockSha256": "58b9a4950ccc53917a89ac71604a6496f58b0ae66a6990ca8203b8e6e2e51a47",
+  "buildProvenance": {
+    "schemaVersion": 1,
+    "core": {
+      "schemaVersion": 1,
+      "recipe": {
+        "Rime/sources.lock.json": {
+          "sha256": "58b9a4950ccc53917a89ac71604a6496f58b0ae66a6990ca8203b8e6e2e51a47",
+          "sizeBytes": 1772
+        },
+        "Rime/scripts/prepare.py": {
+          "sha256": "dab9f058b7b6c4f45be15e510555ace0497768b777f7bf4b16598c4173f7e005",
+          "sizeBytes": 3448
+        },
+        "Rime/scripts/build.sh": {
+          "sha256": "df63dc0da0606d3110012160e7f087608d03e1a7f236a1105624200af538c122",
+          "sizeBytes": 3434
+        },
+        "Rime/scripts/build_provenance.py": {
+          "sha256": "5c1477e061ea90a57c60d51494cf0957a36c43d3eac039c38e9e5335f7b5c35b",
+          "sizeBytes": 13499
+        },
+        "OpenCC/sources.lock.json": {
+          "sha256": "d8091f694fe232e8e0ead55183fdd2bdda6cb1d82a91539829d135670f40d073",
+          "sizeBytes": 3311
+        },
+        "OpenCC/artifacts/manifest.json": {
+          "sha256": "ab834371b3d8597a43e82d4428f0b9c30f6ea116e8e3aef01fc3aed659cd8bd2",
+          "sizeBytes": 19133
+        },
+        "OpenCC/integration/CMakeLists.txt": {
+          "sha256": "5e080df6dbf4497b9cbd9f123e822e7bd449a5f6d84dbbbf87a546a1905d008c",
+          "sizeBytes": 963
+        },
+        "OpenCC/scripts/build.sh": {
+          "sha256": "be5a013c32bcb8799cfb2e45440bd321a61f0a71cc7ff5e0cda1fb5a5d23253b",
+          "sizeBytes": 2798
+        }
+      },
+      "toolchain": {
+        "ndkRevision": "29.0.14206865",
+        "cmakeVersion": "3.31.6",
+        "ndkProperties": {
+          "sha256": "716f3518a923198cfab037abb32dc3f1b1f7e9a9dcdcda6b66be5906215d2658",
+          "sizeBytes": 107
+        },
+        "compiler": {
+          "sha256": "d326ed4fc4f71e5315b9ce388fc23ec792f81652ca7b29e66294de6ed2520844",
+          "sizeBytes": 145095072
+        },
+        "cmake": {
+          "sha256": "c4b3b237dc7a013590db9e90f70fca2dfdedde09521e920d3339569ea364230a",
+          "sizeBytes": 17241856
+        }
+      },
+      "inputs": {
+        "boost-headers": {
+          "kind": "tree",
+          "fileCount": 15965,
+          "sha256": "7ec4cc1f6810c4007858faa6a6ff5cf0301fbd6ca474cd9bfe22b8e850332bee"
+        },
+        "arm64-v8a/librime.a": {
+          "kind": "file",
+          "sha256": "35bb4f88a55d5e068a8e976e711ddede5d2fb8ae2a60e808a4b89fc3d300cc77",
+          "sizeBytes": 99753148
+        },
+        "arm64-v8a/libyaml-cpp.a": {
+          "kind": "file",
+          "sha256": "4f8b9cc2ea9cb4315fa4ed8a1cda5b86530ceb5d2bb98f899e688ee9ff709f1f",
+          "sizeBytes": 8904710
+        },
+        "arm64-v8a/libleveldb.a": {
+          "kind": "file",
+          "sha256": "1b587cb2a8ada713697254e119edfc427bc2c5b04f22ac9d4b69fb094eb96fa0",
+          "sizeBytes": 7965398
+        },
+        "arm64-v8a/dependency-headers": {
+          "kind": "tree",
+          "fileCount": 53,
+          "sha256": "ec749ba2d4ea7d1e64b155c1fbcf88c829cba3116622e72c7363d0287a0dca5e"
+        },
+        "OpenCC/arm64-v8a/libopencc.a": {
+          "kind": "file",
+          "sha256": "fdb16a4eb89ceae608eb21b80b803ff65227b50ec765d1c2d0ce46a488227011",
+          "sizeBytes": 19353650
+        },
+        "OpenCC/arm64-v8a/libmarisa.a": {
+          "kind": "file",
+          "sha256": "29d1ac194e36a6e9d282bc7ac4b4aabef4f2815662d3cf17a732b991208a01ce",
+          "sizeBytes": 2677380
+        },
+        "OpenCC/arm64-v8a/headers": {
+          "kind": "tree",
+          "fileCount": 33,
+          "sha256": "eef32e12638e241e2e7c8f4a6a709c9056f966e6540df2fa469b9b979b076494"
+        },
+        "x86_64/librime.a": {
+          "kind": "file",
+          "sha256": "c38a4ad6db8f5068d91ed7895b6a18c4fb9ec42af83a71e28076606c0262af9a",
+          "sizeBytes": 96763730
+        },
+        "x86_64/libyaml-cpp.a": {
+          "kind": "file",
+          "sha256": "1bd1863fdcf8a0abfb9ffbbb80b9a6dcb951907dd294909d6886f7a2da977555",
+          "sizeBytes": 8668140
+        },
+        "x86_64/libleveldb.a": {
+          "kind": "file",
+          "sha256": "e8824adc747c5686e76c8d35142b887d6b7a12e186751fb06b717eae707ceecc",
+          "sizeBytes": 7672962
+        },
+        "x86_64/dependency-headers": {
+          "kind": "tree",
+          "fileCount": 53,
+          "sha256": "ec749ba2d4ea7d1e64b155c1fbcf88c829cba3116622e72c7363d0287a0dca5e"
+        },
+        "OpenCC/x86_64/libopencc.a": {
+          "kind": "file",
+          "sha256": "836064dbcd24504450dccee5aebe307da61c0c6bf77bb976e9404f48efd6e2e7",
+          "sizeBytes": 18595320
+        },
+        "OpenCC/x86_64/libmarisa.a": {
+          "kind": "file",
+          "sha256": "2508af9a8412fbc52f647bbd5d9bdbfd5eb6d87427dd9b2e5506ed5d42d7c294",
+          "sizeBytes": 2357204
+        },
+        "OpenCC/x86_64/headers": {
+          "kind": "tree",
+          "fileCount": 33,
+          "sha256": "eef32e12638e241e2e7c8f4a6a709c9056f966e6540df2fa469b9b979b076494"
+        }
+      },
+      "compilation": {
+        "leveldb/arm64-v8a": {
+          "settings": {
+            "ANDROID_ABI": "arm64-v8a",
+            "ANDROID_PLATFORM": "android-26",
+            "ANDROID_STL": "c++_static",
+            "BUILD_SHARED_LIBS": "OFF",
+            "LEVELDB_BUILD_TESTS": "OFF",
+            "LEVELDB_BUILD_BENCHMARKS": "OFF",
+            "HAVE_CRC32C": "0",
+            "HAVE_SNAPPY": "0",
+            "HAVE_TCMALLOC": "0"
+          },
+          "commandCount": 39,
+          "commandsSha256": "c36c81db64d5422d0f7151b4bc6a21a5ff7dc581622b4870b5bb903dbe98df77"
+        },
+        "leveldb/x86_64": {
+          "settings": {
+            "ANDROID_ABI": "x86_64",
+            "ANDROID_PLATFORM": "android-26",
+            "ANDROID_STL": "c++_static",
+            "BUILD_SHARED_LIBS": "OFF",
+            "LEVELDB_BUILD_TESTS": "OFF",
+            "LEVELDB_BUILD_BENCHMARKS": "OFF",
+            "HAVE_CRC32C": "0",
+            "HAVE_SNAPPY": "0",
+            "HAVE_TCMALLOC": "0"
+          },
+          "commandCount": 39,
+          "commandsSha256": "875ccd5125a92eab894c3477768a7b96d2fb9b7c2d9d70e1a680c73ac29ae157"
+        },
+        "yaml/arm64-v8a": {
+          "settings": {
+            "ANDROID_ABI": "arm64-v8a",
+            "ANDROID_PLATFORM": "android-26",
+            "ANDROID_STL": "c++_static",
+            "BUILD_SHARED_LIBS": "OFF",
+            "YAML_CPP_BUILD_TESTS": "OFF",
+            "YAML_CPP_BUILD_TOOLS": "OFF",
+            "YAML_CPP_BUILD_CONTRIB": "OFF"
+          },
+          "commandCount": 30,
+          "commandsSha256": "6f0cfc87f68cf97b52b4cd848b4384f07f363662d4129817ea7abffaf9244ef0"
+        },
+        "yaml/x86_64": {
+          "settings": {
+            "ANDROID_ABI": "x86_64",
+            "ANDROID_PLATFORM": "android-26",
+            "ANDROID_STL": "c++_static",
+            "BUILD_SHARED_LIBS": "OFF",
+            "YAML_CPP_BUILD_TESTS": "OFF",
+            "YAML_CPP_BUILD_TOOLS": "OFF",
+            "YAML_CPP_BUILD_CONTRIB": "OFF"
+          },
+          "commandCount": 30,
+          "commandsSha256": "4ca516fa7b991298a88f995affcef94277a89417d3d1eed15917bde42c5c8759"
+        },
+        "rime/arm64-v8a": {
+          "settings": {
+            "ANDROID_ABI": "arm64-v8a",
+            "ANDROID_PLATFORM": "android-26",
+            "ANDROID_STL": "c++_static",
+            "BUILD_SHARED_LIBS": "OFF",
+            "BUILD_STATIC": "ON",
+            "BUILD_TEST": "OFF",
+            "ENABLE_LOGGING": "OFF",
+            "ENABLE_EXTERNAL_PLUGINS": "OFF",
+            "ENABLE_THREADING": "ON",
+            "ENABLE_TIMESTAMP": "OFF"
+          },
+          "commandCount": 105,
+          "commandsSha256": "cacdf1aaa2b76f5bf8fc01e3f5df6730cdac4304ceaba924e71e340d6ec44d9c"
+        },
+        "rime/x86_64": {
+          "settings": {
+            "ANDROID_ABI": "x86_64",
+            "ANDROID_PLATFORM": "android-26",
+            "ANDROID_STL": "c++_static",
+            "BUILD_SHARED_LIBS": "OFF",
+            "BUILD_STATIC": "ON",
+            "BUILD_TEST": "OFF",
+            "ENABLE_LOGGING": "OFF",
+            "ENABLE_EXTERNAL_PLUGINS": "OFF",
+            "ENABLE_THREADING": "ON",
+            "ENABLE_TIMESTAMP": "OFF"
+          },
+          "commandCount": 105,
+          "commandsSha256": "00d489f0bf32b64792b3d2e1ca0d629a14c9306874f45b695b42e842a7901565"
+        }
+      }
+    },
+    "link": {
+      "recipe": {
+        "Rime/sources.lock.json": {
+          "sha256": "58b9a4950ccc53917a89ac71604a6496f58b0ae66a6990ca8203b8e6e2e51a47",
+          "sizeBytes": 1772
+        },
+        "Rime/scripts/prepare.py": {
+          "sha256": "dab9f058b7b6c4f45be15e510555ace0497768b777f7bf4b16598c4173f7e005",
+          "sizeBytes": 3448
+        },
+        "Rime/scripts/build.sh": {
+          "sha256": "df63dc0da0606d3110012160e7f087608d03e1a7f236a1105624200af538c122",
+          "sizeBytes": 3434
+        },
+        "Rime/scripts/build_provenance.py": {
+          "sha256": "5c1477e061ea90a57c60d51494cf0957a36c43d3eac039c38e9e5335f7b5c35b",
+          "sizeBytes": 13499
+        },
+        "OpenCC/sources.lock.json": {
+          "sha256": "d8091f694fe232e8e0ead55183fdd2bdda6cb1d82a91539829d135670f40d073",
+          "sizeBytes": 3311
+        },
+        "OpenCC/artifacts/manifest.json": {
+          "sha256": "ab834371b3d8597a43e82d4428f0b9c30f6ea116e8e3aef01fc3aed659cd8bd2",
+          "sizeBytes": 19133
+        },
+        "OpenCC/integration/CMakeLists.txt": {
+          "sha256": "5e080df6dbf4497b9cbd9f123e822e7bd449a5f6d84dbbbf87a546a1905d008c",
+          "sizeBytes": 963
+        },
+        "OpenCC/scripts/build.sh": {
+          "sha256": "be5a013c32bcb8799cfb2e45440bd321a61f0a71cc7ff5e0cda1fb5a5d23253b",
+          "sizeBytes": 2798
+        },
+        "Rime/scripts/link_bridge.sh": {
+          "sha256": "1eeb9f4554f3b2267d9fe1c7ed0a0b37dc65b9e43a0da5f4bbd16be82997758b",
+          "sizeBytes": 2160
+        },
+        "Rime/bridge/rime_jni.cpp": {
+          "sha256": "8d02137f055cb5887d18e3a31540f5ff42457a89d86c0598abc2379608d19981",
+          "sizeBytes": 20274
+        },
+        "Rime/java/org/ipaboard/rime/RimeNative.java": {
+          "sha256": "357921f5bff213e60fa96c2f8f90b32485605af7583c756b8b26b843216ca1f4",
+          "sizeBytes": 2776
+        },
+        "Rime/bridge-build/CMakeLists.txt": {
+          "sha256": "7c162aeb336413d38ef791a0ea8ed22c35075fbab139ff0633493f5095bb36a6",
+          "sizeBytes": 1651
+        },
+        "Rime/bridge-build/exports.map": {
+          "sha256": "262e2795613f5e94ba3197877d9423e18e3b8469ad97b74c9f52490183450896",
+          "sizeBytes": 75
+        }
+      },
+      "inputs": {
+        "boost-headers": {
+          "kind": "tree",
+          "fileCount": 15965,
+          "sha256": "7ec4cc1f6810c4007858faa6a6ff5cf0301fbd6ca474cd9bfe22b8e850332bee"
+        },
+        "arm64-v8a/librime.a": {
+          "kind": "file",
+          "sha256": "35bb4f88a55d5e068a8e976e711ddede5d2fb8ae2a60e808a4b89fc3d300cc77",
+          "sizeBytes": 99753148
+        },
+        "arm64-v8a/libyaml-cpp.a": {
+          "kind": "file",
+          "sha256": "4f8b9cc2ea9cb4315fa4ed8a1cda5b86530ceb5d2bb98f899e688ee9ff709f1f",
+          "sizeBytes": 8904710
+        },
+        "arm64-v8a/libleveldb.a": {
+          "kind": "file",
+          "sha256": "1b587cb2a8ada713697254e119edfc427bc2c5b04f22ac9d4b69fb094eb96fa0",
+          "sizeBytes": 7965398
+        },
+        "arm64-v8a/dependency-headers": {
+          "kind": "tree",
+          "fileCount": 53,
+          "sha256": "ec749ba2d4ea7d1e64b155c1fbcf88c829cba3116622e72c7363d0287a0dca5e"
+        },
+        "OpenCC/arm64-v8a/libopencc.a": {
+          "kind": "file",
+          "sha256": "fdb16a4eb89ceae608eb21b80b803ff65227b50ec765d1c2d0ce46a488227011",
+          "sizeBytes": 19353650
+        },
+        "OpenCC/arm64-v8a/libmarisa.a": {
+          "kind": "file",
+          "sha256": "29d1ac194e36a6e9d282bc7ac4b4aabef4f2815662d3cf17a732b991208a01ce",
+          "sizeBytes": 2677380
+        },
+        "OpenCC/arm64-v8a/headers": {
+          "kind": "tree",
+          "fileCount": 33,
+          "sha256": "eef32e12638e241e2e7c8f4a6a709c9056f966e6540df2fa469b9b979b076494"
+        },
+        "x86_64/librime.a": {
+          "kind": "file",
+          "sha256": "c38a4ad6db8f5068d91ed7895b6a18c4fb9ec42af83a71e28076606c0262af9a",
+          "sizeBytes": 96763730
+        },
+        "x86_64/libyaml-cpp.a": {
+          "kind": "file",
+          "sha256": "1bd1863fdcf8a0abfb9ffbbb80b9a6dcb951907dd294909d6886f7a2da977555",
+          "sizeBytes": 8668140
+        },
+        "x86_64/libleveldb.a": {
+          "kind": "file",
+          "sha256": "e8824adc747c5686e76c8d35142b887d6b7a12e186751fb06b717eae707ceecc",
+          "sizeBytes": 7672962
+        },
+        "x86_64/dependency-headers": {
+          "kind": "tree",
+          "fileCount": 53,
+          "sha256": "ec749ba2d4ea7d1e64b155c1fbcf88c829cba3116622e72c7363d0287a0dca5e"
+        },
+        "OpenCC/x86_64/libopencc.a": {
+          "kind": "file",
+          "sha256": "836064dbcd24504450dccee5aebe307da61c0c6bf77bb976e9404f48efd6e2e7",
+          "sizeBytes": 18595320
+        },
+        "OpenCC/x86_64/libmarisa.a": {
+          "kind": "file",
+          "sha256": "2508af9a8412fbc52f647bbd5d9bdbfd5eb6d87427dd9b2e5506ed5d42d7c294",
+          "sizeBytes": 2357204
+        },
+        "OpenCC/x86_64/headers": {
+          "kind": "tree",
+          "fileCount": 33,
+          "sha256": "eef32e12638e241e2e7c8f4a6a709c9056f966e6540df2fa469b9b979b076494"
+        },
+        "java/RimeNative.class": {
+          "kind": "file",
+          "sha256": "0bc77a6e2cdd22e777a60d62789e99e73feb526b58221681b3ca3cd91c9e1280",
+          "sizeBytes": 806
+        }
+      }
+    },
+    "coreDigest": "98c05f5282faea3989e9813cff8fe65c9b161512341970dfcd9afd0aa01fa6c2",
+    "linkInputsDigest": "d6ade5a3fea6a0d9d2913d7ab86dd2447df67909027ab0c8f8e79b761211720e",
+    "recipeDigest": "de6bc7eeb93b5c6fec7d0cfcd2dbdf92f6db90cfc00ae67dd8c3bfddf799f151",
+    "buildId": "08a2c62169dfdbea884ac4a3210ead026d1552a43149e5d196f8584e36ab7665"
+  }
+}
