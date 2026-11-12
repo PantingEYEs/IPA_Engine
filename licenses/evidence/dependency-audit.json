@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "auditedOn": "2026-11-11",
+  "mozcCommit": "a4541df29db443b49f81cf54665873b68fde9efa",
+  "status": "verified_for_recorded_native_and_dataset_artifacts",
+  "method": "Inspected completed Bazel response files, real ELF dynamic sections, resolved external MODULE.bazel files, license file hashes, and NDK clang -### driver expansion. No second Bazel command or link was run.",
+  "resolvedRuntimeModules": [
+    {
+      "repository": "abseil-cpp+",
+      "version": "20260107.1",
+      "moduleFile": "licenses/evidence/abseil-cpp-resolved-MODULE.bazel.txt",
+      "moduleSha256": "e33b3801443f5fd64465262084534115db76363df13d2168a42bbfacc747be81"
+    },
+    {
+      "repository": "protobuf+",
+      "version": "34.1",
+      "moduleFile": "licenses/evidence/protobuf-resolved-MODULE.bazel.txt",
+      "moduleSha256": "41b4bf342b86021f7be1ee912cd140ef300fe527c4949b435f037cda74677f90"
+    },
+    {
+      "repository": "zlib+",
+      "version": "1.3.1.bcr.5",
+      "moduleFile": "licenses/evidence/zlib-resolved-MODULE.bazel.txt",
+      "moduleSha256": "eec517b5bbe5492629466e11dae908d043364302283de25581e3eb944326c4ca"
+    }
+  ],
+  "licenseComparisons": [
+    {
+      "repository": "abseil-cpp+",
+      "sourcePath": "LICENSE",
+      "noticeFile": "licenses/Abseil-20260107.1-LICENSE.txt",
+      "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747",
+      "matchesDownloadedBuildSource": true
+    },
+    {
+      "repository": "abseil-cpp+",
+      "sourcePath": "AUTHORS",
+      "noticeFile": "licenses/Abseil-20260107.1-AUTHORS.txt",
+      "sha256": "1fd39030c119b4c97014f59e0ad0ed65f23475bbdf55a52740f31eb82b34b4ee",
+      "matchesDownloadedBuildSource": true
+    },
+    {
+      "repository": "protobuf+",
+      "sourcePath": "LICENSE",
+      "noticeFile": "licenses/Protobuf-34.1-LICENSE.txt",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "matchesDownloadedBuildSource": true
+    },
+    {
+      "repository": "protobuf+",
+      "sourcePath": "third_party/utf8_range/LICENSE",
+      "noticeFile": "licenses/Protobuf-34.1-utf8_range-LICENSE.txt",
+      "sha256": "02de69b64fc36d9e938f418e52723e42f0b2b226d58a9cb3c8dcbdf7059f5074",
+      "matchesDownloadedBuildSource": true
+    },
+    {
+      "repository": "zlib+",
+      "sourcePath": "LICENSE",
+      "noticeFile": "licenses/zlib-1.3.1-LICENSE.txt",
+      "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243",
+      "matchesDownloadedBuildSource": true
+    },
+    {
+      "repository": "+http_archive+ja_usage_dict",
+      "sourcePath": "LICENSE",
+      "noticeFile": "licenses/Japanese-Usage-Dictionary-2025-01-25-LICENSE.txt",
+      "sha256": "91e74c9b189a60a3f5ba13b4aa28f87f25ee9252a64d547784e72752d089631a",
+      "matchesDownloadedBuildSource": true
+    }
+  ],
+  "abis": [
+    {
+      "abi": "arm64-v8a",
+      "artifact": "artifacts/arm64-v8a/libmozc.so",
+      "target": "aarch64-linux-android26",
+      "responseFile": "licenses/evidence/arm64-v8a-link.params",
+      "responseSha256": "6611ad93f1b67cab7fb6a65fc6b097e72b45551b84590f9184de024c9e3bc7e4",
+      "explicitInputCount": 386,
+      "externalRepositories": [
+        "abseil-cpp+",
+        "protobuf+",
+        "rules_android_ndk++android_ndk_repository_extension+androidndk",
+        "zlib+"
+      ],
+      "dynamicDependencies": [
+        "liblog.so",
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ],
+      "staticRuntimeAndStartupFiles": [
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_static.a",
+          "sha256": "e5743581dcb88324662ada5adae6036d8ad3568e834eb0f59d5f4e329764d6ab",
+          "bytes": 24112434
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++abi.a",
+          "sha256": "44ecebe37ac8fe7495d35374aee70273fefc11cacc28fc95a087eaab65a207ae",
+          "bytes": 4877212
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/aarch64/libunwind.a",
+          "sha256": "c52c8462134a1610e93d873e9d992f4804027d0c73115b2ea4c21b0aed5cbe65",
+          "bytes": 92452
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/aarch64/libatomic.a",
+          "sha256": "64247f041b2bab4fc609e5189e9e19f67810a20f2ebec7c86654160ab22e8de1",
+          "bytes": 150
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/libclang_rt.builtins-aarch64-android.a",
+          "sha256": "670aa9076a57337dc8b12f4249464bb6b4e19784ae9462cd431710850d3e5ee2",
+          "bytes": 515368
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/26/crtbegin_so.o",
+          "sha256": "fa3fb9ca0a1597083dc1cc9bc45c1525f67eded1de8bb8dcc488c1a58b9ba583",
+          "bytes": 3632
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/26/crtend_so.o",
+          "sha256": "4a73856c6b87bfaa7b6fc5963796f21941f85f9bb3de36f688f70b5c5ceca44b",
+          "bytes": 832
+        }
+      ],
+      "expandedLinkArguments": "licenses/evidence/arm64-v8a-link-driver-expanded.json",
+      "dynamicSection": "licenses/evidence/arm64-v8a-elf-dynamic.txt",
+      "unstrippedLinkOutputSha256": "3892230678f31fa2d091243ba00c12dd769988866e2dd59d37b7eac63927781f",
+      "unstrippedLinkOutputBytes": 16292800,
+      "distributionArtifactStatus": "stripped release artifact verified",
+      "artifactSha256": "d7cc97611b162e1577dc419811bc4a39b72a9af0be4f380b68597519e64d9b12",
+      "artifactBytes": 5478432,
+      "distributionDynamicSection": "licenses/evidence/arm64-v8a-distribution-elf-dynamic.txt",
+      "retainedUnstrippedArtifact": ".work/symbols/arm64-v8a/libmozc.so"
+    },
+    {
+      "abi": "x86_64",
+      "artifact": "artifacts/x86_64/libmozc.so",
+      "target": "x86_64-linux-android26",
+      "responseFile": "licenses/evidence/x86_64-link.params",
+      "responseSha256": "9b9aba87e5b742c2ef675bb27c49be1d85bae793c1846a0861dc07731a17a447",
+      "explicitInputCount": 386,
+      "externalRepositories": [
+        "abseil-cpp+",
+        "protobuf+",
+        "rules_android_ndk++android_ndk_repository_extension+androidndk",
+        "zlib+"
+      ],
+      "dynamicDependencies": [
+        "liblog.so",
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ],
+      "staticRuntimeAndStartupFiles": [
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_static.a",
+          "sha256": "b087ad7af656e5c0123281d1808d38318017c72aee87572cbff365c0a43b4f65",
+          "bytes": 23515080
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++abi.a",
+          "sha256": "95762a7909a44ab94e1f6b8ae5a50c72d00e6e74312bf9c08bc6c9566b21f0f2",
+          "bytes": 4578890
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/x86_64/libunwind.a",
+          "sha256": "207eb56d84d58efe952c644c885e5e31bbcd5ddb99d8f57a40cba486cdae1d3e",
+          "bytes": 93206
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/x86_64/libatomic.a",
+          "sha256": "64247f041b2bab4fc609e5189e9e19f67810a20f2ebec7c86654160ab22e8de1",
+          "bytes": 150
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/21/lib/linux/libclang_rt.builtins-x86_64-android.a",
+          "sha256": "eb5813d3213d9b92c97930c33c2a32d06bd98fc44a69e7925d418d4d46850f09",
+          "bytes": 305414
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/26/crtbegin_so.o",
+          "sha256": "2fe660ff8f5aecd829b3f80625d60baa1f274993047c5f164e55c49f63232ad2",
+          "bytes": 3248
+        },
+        {
+          "path": "${NDK}/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/26/crtend_so.o",
+          "sha256": "793ea43b5c52399fdc7a4c7bbf04c02abaf59d2c34d0b630ece694110f6f3b2c",
+          "bytes": 696
+        }
+      ],
+      "expandedLinkArguments": "licenses/evidence/x86_64-link-driver-expanded.json",
+      "dynamicSection": "licenses/evidence/x86_64-elf-dynamic.txt",
+      "unstrippedLinkOutputSha256": "441db31e37a6b49ed2d8e8aea1c56a5f060867cd41bd2567755212d11cf762f7",
+      "unstrippedLinkOutputBytes": 15275768,
+      "distributionArtifactStatus": "stripped release artifact verified",
+      "artifactSha256": "04831587ad807ba1e26144ae8fb34c67d40e6f9193294500f680a1be7616b3ac",
+      "artifactBytes": 5642432,
+      "distributionDynamicSection": "licenses/evidence/x86_64-distribution-elf-dynamic.txt",
+      "retainedUnstrippedArtifact": ".work/symbols/x86_64/libmozc.so"
+    }
+  ],
+  "dataset": {
+    "status": "built_and_input_license_checked",
+    "artifact": "artifacts/mozc.data",
+    "artifactBytes": 18955930,
+    "artifactSha256": "26d8d5391e37dba926df23e6f01e90158dd755af111712ce84f065a700a852b5",
+    "externalDataInputs": [
+      {
+        "repository": "+http_archive+ja_usage_dict",
+        "file": "usage_dict.txt",
+        "bytes": 219619,
+        "sha256": "9a5ff4ab0be399e01e6aeb8637a166d421299f92a3c39df93fab6bcbaf3e68b8"
+      },
+      {
+        "repository": "+http_archive+zip_code_ken_all",
+        "file": "KEN_ALL.CSV",
+        "bytes": 12371133,
+        "sha256": "941a1737b13b0c1441525f5baa2915e908f1a00dc1e87f85eeebdf7740bb9922"
+      },
+      {
+        "repository": "+http_archive+zip_code_jigyosyo",
+        "file": "JIGYOSYO.CSV",
+        "bytes": 3121168,
+        "sha256": "3f0be2eee9aef147644ed25c73bf48d5a08d5312e5006a9ebdb006e3602b813a"
+      }
+    ],
+    "selectedGeneratedIntermediates": [
+      {
+        "path": "dictionary/zip_code.tsv",
+        "bytes": 9599281,
+        "sha256": "2a663f2a1fe1559f941803389a862d4ce5cd0f84004156579f045231fbd526bc"
+      },
+      {
+        "path": "data_manager/oss/dictionary.data",
+        "bytes": 14651852,
+        "sha256": "d914c6f7c0b6bd36baf8a98647180fbe1c184f5146dd1f6d9d10c5ad5c46af32"
+      },
+      {
+        "path": "data_manager/oss/usage_item_array.data",
+        "bytes": 34960,
+        "sha256": "ae15e5a8f520838bee0def57950255e3eacd937a3fec76e4e89fe95e0a8bb351"
+      },
+      {
+        "path": "data_manager/oss/usage_string_array.data",
+        "bytes": 221689,
+        "sha256": "5a4f6af2c11e8572059380d8966e02a68e6587fa20c97eb70e56de8d4f057b8c"
+      }
+    ],
+    "provenance": "Dataset BUILD rules from the pinned Mozc commit; actual fetched data and generated postal/usage intermediates were checked after a successful build. See THIRD_PARTY_NOTICES.md for archive pins and original notices."
+  },
+  "moduleLockEvidence": "licenses/evidence/module-lock-runtime-records.json",
+  "limitations": [
+    "This is a build-specific link-input and notice audit, not a formal SPDX/CycloneDX SBOM.",
+    "Static archive inputs are recorded conservatively; individual archive-member retention was not reconstructed.",
+    "No new Bazel query or build was launched for this audit.",
+    "Redistribution must carry the applicable notices; changes to source, toolchain, dependencies or dataset require a new audit."
+  ],
+  "artifactManifestSha256": "f80f9ea3dd5d1226759206826290fb74cf3d29b6e5b38213ee9f74dde0ce5966"
+}

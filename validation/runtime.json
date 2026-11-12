@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "artifacts": [
+    {
+      "path": "arm64-v8a/libmozc.so",
+      "bytes": 5478432,
+      "sha256": "d7cc97611b162e1577dc419811bc4a39b72a9af0be4f380b68597519e64d9b12"
+    },
+    {
+      "path": "x86_64/libmozc.so",
+      "bytes": 5642432,
+      "sha256": "04831587ad807ba1e26144ae8fb34c67d40e6f9193294500f680a1be7616b3ac"
+    },
+    {
+      "path": "mozc.data",
+      "bytes": 18955930,
+      "sha256": "26d8d5391e37dba926df23e6f01e90158dd755af111712ce84f065a700a852b5"
+    }
+  ],
+  "apks": [
+    {
+      "name": "app-debug.apk",
+      "sha256": "6d09cd79757c21082b1e1c74dd5dbc2170f415d25d73f8b2aaacb0a63bd018a9",
+      "zipalign16KiBPassed": true,
+      "nativeElfFilesAudited": 15
+    },
+    {
+      "name": "app-debug-androidTest.apk",
+      "sha256": "d416dd20d46725b95dd149edbe1e47bb7d2902a37debdfe8dca58f3b0d78c066",
+      "zipalign16KiBPassed": true,
+      "nativeElfFilesAudited": 1
+    }
+  ],
+  "runtime": {
+    "api": 36,
+    "abi": "x86_64",
+    "pageSize": 16384,
+    "dataVersion": "24.11.oss",
+    "compatDisabled": true,
+    "environment": "Android official x86_64 16 KiB page-size emulator; ARM64 runtime not executed"
+  },
+  "requiredHostIntegration": {
+    "scope": "Zero-query prediction sessions only",
+    "requestFields": {
+      "zero_query_suggestion": true,
+      "mixed_conversion": true
+    },
+    "incognitoAndNoHistoryUnchanged": true,
+    "nativeAndDictionaryUnchanged": true,
+    "unmodifiedHostFirstRun": {
+      "passed": 4,
+      "failed": 2,
+      "reason": "Zero-query returned no candidates without mixed_conversion; controlled protocol comparison restored dictionary continuations with it enabled"
+    }
+  },
+  "deviceTests": [
+    {
+      "name": "realRomajiConversionIncludesKanjiAndKanaWithoutFixingCandidateRank",
+      "result": "passed"
+    },
+    {
+      "name": "conversionAndPredictionRemainIndependentAcrossTheRealMozcServiceBoundary",
+      "result": "passed"
+    },
+    {
+      "name": "partialSelectionConsumesOnlyItsVerifiedRomajiPrefixAndKeepsAFullChoice",
+      "result": "passed"
+    },
+    {
+      "name": "runtimeUsesTheExpectedPageSizeAndRealDictionaryData",
+      "result": "passed"
+    },
+    {
+      "name": "zeroQueryUsesTransientContextWithoutReinsertingItOrBreakingLaterConversion",
+      "result": "passed"
+    },
+    {
+      "name": "mixedInputPreservesDigitsAndPunctuationAndMathRemainsLiteral",
+      "result": "passed"
+    }
+  ],
+  "hostTests": {
+    "class": "com.example.ipa_board.ProtoWireTest",
+    "passed": 3,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "preeditGroupCanBeReadAlongsideUnknownFields",
+        "result": "passed"
+      },
+      {
+        "name": "roundTripLargeSessionIdAndNestedUnicode",
+        "result": "passed"
+      },
+      {
+        "name": "truncatedPayloadRejected",
+        "result": "passed"
+      }
+    ],
+    "buildPassed": true,
+    "lintPassedWithExistingBaseline": true,
+    "allPackagedNativeElf16KiBChecksPassed": true
+  },
+  "protection": {
+    "restoreVerified": true,
+    "backupDeleted": true,
+    "pendingCount": 0,
+    "dedicatedEmulatorStopped": true
+  },
+  "image": {
+    "package": "system-images;android-36;google_apis_ps16k;x86_64",
+    "url": "https://dl.google.com/android/repository/sys-img/google_apis/x86_64-ps16k-36_r07.zip",
+    "metadataUrl": "https://dl.google.com/android/repository/sys-img/google_apis/sys-img2-3.xml",
+    "revision": 7,
+    "bytes": 1849428145,
+    "sha1": "dd783282e84bf475a02eba6777c79fc5695e1583",
+    "downloadVerified": true
+  }
+}

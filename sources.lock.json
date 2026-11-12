@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "component": "Mozc",
+  "upstream": {
+    "repository": "https://github.com/google/mozc.git",
+    "commit": "a4541df29db443b49f81cf54665873b68fde9efa",
+    "commitDate": "2026-11-09",
+    "patch": "patches/ipa-board-compat.patch",
+    "patchSha256": "ea165ed1a9e929993463570e3da37cd6af36547e47bc5a9bc072f58ac345d8a3"
+  },
+  "toolchain": {
+    "host": "Linux x86_64",
+    "pythonMinimum": "3.12",
+    "bazelVersion": "9.0.2",
+    "bazelUrl": "https://releases.bazel.build/9.0.2/release/bazel-9.0.2-linux-x86_64",
+    "bazelSha256": "422e7a1690b76d7e615c29091d3aca28d0bd3a93fe3c93cbefb8f72d774926d5",
+    "androidNdk": "r29",
+    "androidNdkUrl": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+    "androidNdkSha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
+    "androidApiLevel": 26
+  },
+  "targets": [
+    "//android/jni:mozc.arm64",
+    "//android/jni:mozc.x86_64",
+    "//data_manager/oss:mozc_dataset_for_oss"
+  ],
+  "abis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "minimumElfLoadAlignment": 16384,
+  "applicationProtocol": "Mozc proto2 command bytes; keep IPA Board MozcJNI legacy class entry",
+  "packaging": {
+    "stripTool": "Android NDK r29 llvm-strip",
+    "stripArguments": [
+      "--strip-unneeded"
+    ],
+    "unstrippedLocalDirectory": ".work/symbols",
+    "publishedArtifacts": "stripped JNI libraries paired with the OSS dataset"
+  }
+}

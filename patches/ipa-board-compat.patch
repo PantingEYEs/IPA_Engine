@@ -1,0 +1,45 @@
+diff --git a/src/MODULE.bazel b/src/MODULE.bazel
+index eb74e53..24a120e 100644
+--- a/src/MODULE.bazel
++++ b/src/MODULE.bazel
+@@ -200,6 +200,7 @@ android_ndk_repository_extension = use_extension(
+     "android_ndk_repository_extension",
+ )
+ android_ndk_repository_extension.configure(
++    api_level = 26,  # IPA Board installation and diagnostic baseline.
+     path = "$WORKSPACE_ROOT/third_party/ndk/android-ndk-r29",
+ )
+ use_repo(android_ndk_repository_extension, "androidndk")
+diff --git a/src/android/jni/mozcjni.cc b/src/android/jni/mozcjni.cc
+index 5e9cb9b..d74f8f7 100644
+--- a/src/android/jni/mozcjni.cc
++++ b/src/android/jni/mozcjni.cc
+@@ -204,6 +204,28 @@ Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJni_initialize(
+   return true;
+ }
+ 
++// IPA Board's existing loader declares initialize() as void on MozcJNI.
++// Keep the upstream MozcJni boolean entry intact and register the native methods
++// against the actual calling class, so both Java entry points remain supported.
++JNIEXPORT void JNICALL
++Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJNI_initialize(
++    JNIEnv* env, jclass clazz) {
++  if (env == nullptr) {
++    return;
++  }
++  if (Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJni_initialize(
++          env, clazz) == JNI_TRUE ||
++      env->ExceptionCheck()) {
++    return;
++  }
++  // A void entry cannot report failure as a return value. Preserve any pending
++  // registration exception above; otherwise fail before onPostLoad is called.
++  jclass exception = env->FindClass("java/lang/IllegalStateException");
++  if (exception != nullptr) {
++    env->ThrowNew(exception, "Mozc JNI registration failed");
++  }
++}
++
+ }  // extern "C"
+ 
+ #endif  // __ANDROID__

@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "validated": true,
+  "validation_scope": "static ELF, dependency, JNI-export and nonempty-dictionary checks",
+  "runtime_validation_included": false,
+  "page_size_bytes": 16384,
+  "allowed_system_dependencies": [
+    "libandroid.so",
+    "libc.so",
+    "libdl.so",
+    "liblog.so",
+    "libm.so",
+    "libz.so"
+  ],
+  "required_jni_symbols": [
+    "Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJNI_initialize",
+    "Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJni_initialize"
+  ],
+  "artifacts": [
+    {
+      "path": "arm64-v8a/libmozc.so",
+      "kind": "shared_library",
+      "size_bytes": 5478432,
+      "sha256": "d7cc97611b162e1577dc419811bc4a39b72a9af0be4f380b68597519e64d9b12",
+      "abi": "arm64-v8a",
+      "elf_class": 64,
+      "endianness": "little",
+      "elf_type": "ET_DYN",
+      "machine_id": 183,
+      "machine": "AArch64",
+      "minimum_load_alignment": 16384,
+      "load_segments": [
+        {
+          "program_header_index": 1,
+          "flags": 5,
+          "offset": 0,
+          "virtual_address": 0,
+          "file_size": 5259328,
+          "memory_size": 5259328,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 2,
+          "flags": 6,
+          "offset": 5275648,
+          "virtual_address": 5275648,
+          "file_size": 182304,
+          "memory_size": 184320,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 3,
+          "flags": 6,
+          "offset": 5457952,
+          "virtual_address": 5474336,
+          "file_size": 17824,
+          "memory_size": 147768,
+          "alignment": 16384
+        }
+      ],
+      "needed": [
+        "liblog.so",
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ],
+      "dynamic_symbol_count": 10984,
+      "symbol_hash_format": "gnu",
+      "required_jni_exports": {
+        "Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJNI_initialize": {
+          "value": 2881716,
+          "size": 116
+        },
+        "Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJni_initialize": {
+          "value": 2880568,
+          "size": 92
+        }
+      }
+    },
+    {
+      "path": "x86_64/libmozc.so",
+      "kind": "shared_library",
+      "size_bytes": 5642432,
+      "sha256": "04831587ad807ba1e26144ae8fb34c67d40e6f9193294500f680a1be7616b3ac",
+      "abi": "x86_64",
+      "elf_class": 64,
+      "endianness": "little",
+      "elf_type": "ET_DYN",
+      "machine_id": 62,
+      "machine": "AMD x86-64",
+      "minimum_load_alignment": 16384,
+      "load_segments": [
+        {
+          "program_header_index": 1,
+          "flags": 5,
+          "offset": 0,
+          "virtual_address": 0,
+          "file_size": 5435760,
+          "memory_size": 5435760,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 2,
+          "flags": 6,
+          "offset": 5439488,
+          "virtual_address": 5439488,
+          "file_size": 182456,
+          "memory_size": 184320,
+          "alignment": 16384
+        },
+        {
+          "program_header_index": 3,
+          "flags": 6,
+          "offset": 5621952,
+          "virtual_address": 5638336,
+          "file_size": 17824,
+          "memory_size": 147824,
+          "alignment": 16384
+        }
+      ],
+      "needed": [
+        "liblog.so",
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ],
+      "dynamic_symbol_count": 10989,
+      "symbol_hash_format": "gnu",
+      "required_jni_exports": {
+        "Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJNI_initialize": {
+          "value": 3007803,
+          "size": 80
+        },
+        "Java_com_google_android_apps_inputmethod_libs_mozc_session_MozcJni_initialize": {
+          "value": 3006643,
+          "size": 68
+        }
+      }
+    },
+    {
+      "path": "mozc.data",
+      "kind": "dictionary",
+      "size_bytes": 18955930,
+      "sha256": "26d8d5391e37dba926df23e6f01e90158dd755af111712ce84f065a700a852b5",
+      "validation": "nonempty_file_only"
+    }
+  ]
+}

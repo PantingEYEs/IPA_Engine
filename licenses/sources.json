@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "collectedOn": "2026-11-11",
+  "mozcCommit": "a4541df29db443b49f81cf54665873b68fde9efa",
+  "scope": "License source collection with a completed build-specific input/ELF audit in evidence/dependency-audit.json. Not a formal SPDX/CycloneDX SBOM.",
+  "files": [
+    {
+      "file": "Mozc-LICENSE.txt",
+      "component": "Mozc and IPAdic",
+      "version": "a4541df29db443b49f81cf54665873b68fde9efa",
+      "source": "https://github.com/google/mozc/blob/a4541df29db443b49f81cf54665873b68fde9efa/LICENSE",
+      "sourcePath": "LICENSE",
+      "method": "byte-for-byte copy",
+      "sha256": "44cdd923b91ea9199293abecc2762c70c87dbf1e581c027a94c416368d1a648c"
+    },
+    {
+      "file": "reference/mozc-credits-en.html",
+      "component": "Mozc upstream cross-platform reference",
+      "version": "a4541df29db443b49f81cf54665873b68fde9efa",
+      "source": "https://github.com/google/mozc/blob/a4541df29db443b49f81cf54665873b68fde9efa/src/data/installer/credits_en.html",
+      "sourcePath": "src/data/installer/credits_en.html",
+      "method": "byte-for-byte copy",
+      "sha256": "dd7c566382204f448040095e5d3c2f2b5199a1b85d44f427ceb94277dc04af50"
+    },
+    {
+      "file": "reference/mozc-dictionary-oss-README.txt",
+      "component": "Mozc OSS dictionary source description",
+      "version": "a4541df29db443b49f81cf54665873b68fde9efa",
+      "source": "https://github.com/google/mozc/blob/a4541df29db443b49f81cf54665873b68fde9efa/src/data/dictionary_oss/README.txt",
+      "sourcePath": "src/data/dictionary_oss/README.txt",
+      "method": "byte-for-byte copy",
+      "sha256": "6b1de66bc6fa30e0b45dc45b8c8f6c57bd78aff923c261a3efffac8eb86f7bac"
+    },
+    {
+      "file": "NDK-r29-NOTICE.txt",
+      "component": "Android NDK runtime and platform notices",
+      "version": "29.0.14206865",
+      "source": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+      "sourcePath": "src/third_party/ndk/android-ndk-r29/NOTICE",
+      "method": "byte-for-byte copy",
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e"
+    },
+    {
+      "file": "NDK-r29-NOTICE.toolchain.txt",
+      "component": "Android NDK toolchain notices",
+      "version": "29.0.14206865",
+      "source": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+      "sourcePath": "src/third_party/ndk/android-ndk-r29/NOTICE.toolchain",
+      "method": "byte-for-byte copy",
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a"
+    },
+    {
+      "file": "reference/ndk-r29-source.properties",
+      "component": "Android NDK package identity",
+      "version": "29.0.14206865",
+      "source": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip",
+      "sourcePath": "src/third_party/ndk/android-ndk-r29/source.properties",
+      "method": "byte-for-byte copy",
+      "sha256": "716f3518a923198cfab037abb32dc3f1b1f7e9a9dcdcda6b66be5906215d2658"
+    },
+    {
+      "file": "Abseil-20260107.1-LICENSE.txt",
+      "component": "Abseil",
+      "version": "20260107.1",
+      "source": "https://raw.githubusercontent.com/abseil/abseil-cpp/20260107.1/LICENSE",
+      "method": "unmodified download",
+      "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747"
+    },
+    {
+      "file": "Abseil-20260107.1-AUTHORS.txt",
+      "component": "Abseil",
+      "version": "20260107.1",
+      "source": "https://raw.githubusercontent.com/abseil/abseil-cpp/20260107.1/AUTHORS",
+      "method": "unmodified download",
+      "sha256": "1fd39030c119b4c97014f59e0ad0ed65f23475bbdf55a52740f31eb82b34b4ee"
+    },
+    {
+      "file": "Protobuf-34.1-LICENSE.txt",
+      "component": "Protocol Buffers",
+      "version": "v34.1",
+      "source": "https://raw.githubusercontent.com/protocolbuffers/protobuf/v34.1/LICENSE",
+      "method": "unmodified download",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d"
+    },
+    {
+      "file": "Protobuf-34.1-utf8_range-LICENSE.txt",
+      "component": "utf8_range bundled with Protocol Buffers",
+      "version": "v34.1",
+      "source": "https://raw.githubusercontent.com/protocolbuffers/protobuf/v34.1/third_party/utf8_range/LICENSE",
+      "method": "unmodified download",
+      "sha256": "02de69b64fc36d9e938f418e52723e42f0b2b226d58a9cb3c8dcbdf7059f5074"
+    },
+    {
+      "file": "Japanese-Usage-Dictionary-2025-01-25-LICENSE.txt",
+      "component": "Japanese Usage Dictionary",
+      "version": "2025-01-25",
+      "source": "https://raw.githubusercontent.com/hiroyuki-komatsu/japanese-usage-dictionary/2025-01-25/LICENSE",
+      "method": "unmodified download",
+      "sha256": "91e74c9b189a60a3f5ba13b4aa28f87f25ee9252a64d547784e72752d089631a"
+    },
+    {
+      "file": "zlib-1.3.1-LICENSE.txt",
+      "component": "zlib (resolved module 1.3.1.bcr.5; upstream 1.3.1)",
+      "version": "v1.3.1",
+      "source": "https://raw.githubusercontent.com/madler/zlib/v1.3.1/LICENSE",
+      "method": "unmodified download",
+      "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243"
+    },
+    {
+      "file": "Mozc-engine-and-data-NOTICES.txt",
+      "component": "Mozc, IPAdic, Okinawa dictionary, Tamachi Phonetic Kanji Alphabet, zipcode, zipcode for jigyosyo",
+      "version": "a4541df29db443b49f81cf54665873b68fde9efa",
+      "source": "https://github.com/google/mozc/blob/a4541df29db443b49f81cf54665873b68fde9efa/src/data/installer/credits_en.html",
+      "method": "selected preformatted blocks, HTML entities decoded; added headings and provenance",
+      "sha256": "72871f3b08bfffc821674412db079003fa2ac7f8469cb2baba3e0b40dd5938df"
+    }
+  ],
+  "buildEvidence": "evidence/dependency-audit.json"
+}

@@ -1,0 +1,21 @@
+diff --git a/app/src/main/java/com/example/ipa_board/ime/MozcEngine.kt b/app/src/main/java/com/example/ipa_board/ime/MozcEngine.kt
+--- a/app/src/main/java/com/example/ipa_board/ime/MozcEngine.kt
++++ b/app/src/main/java/com/example/ipa_board/ime/MozcEngine.kt
+@@ -14,7 +14,7 @@
+     init {
+         // DIAGNOSTICS: isolate bundled data deployment from native runtime initialization.
+         val dir = AppDiagnostics.atStage(DiagnosticComponent.MOZC, DiagnosticStage.ASSETS) {
+-            File(context.noBackupFilesDir, "mozc-v0.1.2").apply {
++            File(context.noBackupFilesDir, "mozc-26d8d5391e37").apply {
+                 check(mkdirs() || isDirectory)
+                 val data = File(this, "mozc.data")
+                 if (!data.exists()) {
+@@ -97,7 +97,7 @@
+         // The pinned mobile protocol exposes zero-query suggestions after a commit. Reconstruct
+         // only transient session context by reverse-converting the nearby Japanese phrase.
+         // Incognito remains enabled; this commit is internal and never sent to the editor.
+-        send(n(1, 17) + n(2, id) + m(9, n(1, 1))) // SET_REQUEST: zero_query_suggestion=true
++        send(n(1, 17) + n(2, id) + m(9, n(1, 1) + n(2, 1))) // SET_REQUEST: zero-query mobile prediction
+         send(n(1, 5) + n(2, id) + m(4, n(1, 22) + n(3, 1))) // TURN_ON_IME: Hiragana
+         val reverse = send(n(1, 5) + n(2, id) + m(4, n(1, 8) + m(4, previous.toByteArray(Charsets.UTF_8))) + surrounding)
+         if (reverse.blob(5).isEmpty()) return emptyList()
