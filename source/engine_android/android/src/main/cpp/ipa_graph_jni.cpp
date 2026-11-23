@@ -138,8 +138,8 @@ jstring empty_result(JNIEnv* env, bool unsupported) {
 }
 } // namespace
 
-extern "C" JNIEXPORT jlong JNICALL
-Java_com_ipaengine_graph_GraphEngine_nativeOpen(JNIEnv* env, jclass, jstring path) {
+namespace {
+jlong open_dictionary(JNIEnv* env, jstring path, bool load_defaults) {
     try {
         std::string filename;
         if (!from_java(env, path, filename) || filename.empty() || filename.find('\0') != std::string::npos) {
@@ -148,8 +148,8 @@ Java_com_ipaengine_graph_GraphEngine_nativeOpen(JNIEnv* env, jclass, jstring pat
         }
         IpaGraphEngine* value = nullptr;
         RustString diagnostic;
-        const auto code = ipa_graph_open(reinterpret_cast<const uint8_t*>(filename.data()),
-                filename.size(), &value, diagnostic.output());
+        const auto code = ipa_graph_open_with_defaults(reinterpret_cast<const uint8_t*>(filename.data()),
+                filename.size(), load_defaults ? 1u : 0u, &value, diagnostic.output());
         if (code != IPA_GRAPH_OK || value == nullptr) {
             throw_java(env, "java/io/IOException", "IPA dictionary initialization failed");
             return 0;
@@ -160,6 +160,37 @@ Java_com_ipaengine_graph_GraphEngine_nativeOpen(JNIEnv* env, jclass, jstring pat
         return 0;
     }
 }
+} // namespace
+
+extern "C" JNIEXPORT jlong JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeOpen(JNIEnv* env, jclass, jstring path) {
+    return open_dictionary(env, path, true);
+}
+
+extern "C" JNIEXPORT jlong JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeOpenWithDefaults(JNIEnv* env, jclass, jstring path, jboolean defaults) {
+    return open_dictionary(env, path, defaults != JNI_FALSE);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeAddDictionary(JNIEnv* env, jclass, jlong handle,
+        jstring path, jboolean defaults) {
+    try {
+        auto* value = engine(env, handle);
+        if (value == nullptr) return;
+        std::string filename;
+        if (!from_java(env, path, filename) || filename.empty() || filename.find('\0') != std::string::npos) {
+            throw_java(env, "java/io/IOException", "invalid IPA dictionary path");
+            return;
+        }
+        if (ipa_graph_add_dictionary(value, reinterpret_cast<const uint8_t*>(filename.data()),
+                filename.size(), defaults ? 1u : 0u) != IPA_GRAPH_OK) {
+            throw_java(env, "java/io/IOException", "IPA dictionary attachment failed");
+        }
+    } catch (...) {
+        throw_java(env, "java/io/IOException", "IPA dictionary attachment failed");
+    }
+}
 
 extern "C" JNIEXPORT void JNICALL
 Java_com_ipaengine_graph_GraphEngine_nativeConfigure(JNIEnv* env, jclass, jlong handle,
@@ -168,11 +199,72 @@ Java_com_ipaengine_graph_GraphEngine_nativeConfigure(JNIEnv* env, jclass, jlong 
         auto* value = engine(env, handle);
         const uint32_t mask = (en_us ? 1u : 0u) | (en_gb ? 2u : 0u) | (zh_cn ? 4u : 0u)
                 | (zh_tw ? 8u : 0u) | (ja_jp ? 16u : 0u);
-        if (value != nullptr && ipa_graph_configure(value, mask) != IPA_GRAPH_OK) {
+        if (value != nullptr && ipa_graph_configure_legacy(value, mask) != IPA_GRAPH_OK) {
             throw_java(env, "java/lang/IllegalStateException", "IPA configuration failed");
         }
     } catch (...) {
         throw_java(env, "java/lang/IllegalStateException", "IPA configuration failed");
+    }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeConfigureAll(JNIEnv* env, jclass, jlong handle, jint mask) {
+    try {
+        auto* value = engine(env, handle);
+        if (value != nullptr && (mask < 0 || mask > 255 ||
+                ipa_graph_configure(value, static_cast<uint32_t>(mask)) != IPA_GRAPH_OK)) {
+            throw_java(env, "java/lang/IllegalStateException", "IPA configuration failed");
+        }
+    } catch (...) { throw_java(env, "java/lang/IllegalStateException", "IPA configuration failed"); }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeSetPackMode(JNIEnv* env, jclass, jlong handle,
+        jstring pack_id, jint mode) {
+    try {
+        auto* value = engine(env, handle);
+        std::string id;
+        if (value != nullptr && (!from_java(env, pack_id, id) || mode < 0 || mode > 2 ||
+                ipa_graph_set_pack_mode(value, reinterpret_cast<const uint8_t*>(id.data()), id.size(), mode) != IPA_GRAPH_OK)) {
+            throw_java(env, "java/lang/IllegalStateException", "IPA pack mode change failed");
+        }
+    } catch (...) { throw_java(env, "java/lang/IllegalStateException", "IPA pack mode change failed"); }
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeListPacks(JNIEnv* env, jclass, jlong handle) {
+    try {
+        auto* value = engine(env, handle);
+        if (value == nullptr) return nullptr;
+        RustString output;
+        if (ipa_graph_list_packs(value, output.output()) != IPA_GRAPH_OK || output.get() == nullptr) {
+            throw std::runtime_error("IPA pack inventory unavailable");
+        }
+        return to_java(env, output.get());
+    } catch (...) {
+        throw_java(env, "java/lang/IllegalStateException", "IPA pack inventory unavailable");
+        return nullptr;
+    }
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_ipaengine_graph_GraphEngine_nativeReverseLookup(JNIEnv* env, jclass, jlong handle, jstring word) {
+    try {
+        auto* value = engine(env, handle);
+        if (value == nullptr) return nullptr;
+        std::string text;
+        if (!from_java(env, word, text)) {
+            throw_java(env, "java/lang/IllegalArgumentException", "invalid IPA lookup word");
+            return nullptr;
+        }
+        RustString output;
+        if (ipa_graph_reverse(value, reinterpret_cast<const uint8_t*>(text.data()), text.size(), output.output()) != IPA_GRAPH_OK || output.get() == nullptr) {
+            throw std::runtime_error("IPA reverse lookup failed");
+        }
+        return to_java(env, output.get());
+    } catch (...) {
+        throw_java(env, "java/lang/IllegalStateException", "IPA reverse lookup failed");
+        return nullptr;
     }
 }
 

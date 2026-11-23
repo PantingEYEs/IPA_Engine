@@ -32,8 +32,8 @@ public final class GraphEngine implements AutoCloseable {
     public static final int KIND_CONVERSION = 0;
     public static final int KIND_COMPLETION = 2;
     public static final long RECOMMENDED_DICTIONARY_BYTES = 30_000_000L;
-    // The user permits a larger comparison build; this is an absolute load cap.
-    public static final long MAX_DICTIONARY_BYTES = 40_000_000L;
+    // Absolute container cap; legacy individual graphs retain their 40 MB native cap.
+    public static final long MAX_DICTIONARY_BYTES = 96_000_000L;
     private static final String DICTIONARY_ASSET = "ipa/lexicon.ipad";
     private static final String MANIFEST_ASSET = "ipa/lexicon.manifest.json";
     private static final Throwable LIBRARY_ERROR;
@@ -56,15 +56,35 @@ public final class GraphEngine implements AutoCloseable {
         public final boolean zhTW;
         public final boolean jaJP;
 
-        public Policy() { this(true, true, true, true, true); }
+        public final boolean ruRU;
+        /** Source-default normative Arabic; does not assert a pure MSA corpus. */
+        public final boolean arStandard;
+        public final boolean koKR;
+
+        public Policy() { this(true, true, true, true, true, true, true, true); }
+        /** Existing hosts retain this constructor; new languages default on. */
         public Policy(boolean enUS, boolean enGB, boolean zhCN, boolean zhTW, boolean jaJP) {
+            this(enUS, enGB, zhCN, zhTW, jaJP, true, true, true);
+        }
+        public Policy(boolean enUS, boolean enGB, boolean zhCN, boolean zhTW, boolean jaJP,
+                      boolean ruRU, boolean arStandard, boolean koKR) {
             this.enUS = enUS;
             this.enGB = enGB;
             this.zhCN = zhCN;
             this.zhTW = zhTW;
             this.jaJP = jaJP;
+            this.ruRU = ruRU;
+            this.arStandard = arStandard;
+            this.koKR = koKR;
+        }
+        private int mask() {
+            return (enUS ? 1 : 0) | (enGB ? 2 : 0) | (zhCN ? 4 : 0) | (zhTW ? 8 : 0)
+                | (jaJP ? 16 : 0) | (ruRU ? 32 : 0) | (arStandard ? 64 : 0) | (koKR ? 128 : 0);
         }
     }
+
+    /** OFF releases the pack; REVERSE_ONLY avoids its forward graph arrays. */
+    public enum PackMode { OFF, REVERSE_ONLY, INPUT }
 
     /** Bounded per-query work. Prefix completion is opt-in. */
     public static final class Options {
@@ -177,7 +197,9 @@ public final class GraphEngine implements AutoCloseable {
             long records = root.getLong("matched_records");
             int states = root.getInt("explored_states");
             JSONArray items = root.getJSONArray("candidates");
-            if (!Double.isFinite(elapsed) || elapsed < 0d || keys < 0L || records < 0L || states < 0 || states > 200000
+            // At most eight independent packs may each consume the bounded
+            // omission budget; the engine shares one deadline across them.
+            if (!Double.isFinite(elapsed) || elapsed < 0d || keys < 0L || records < 0L || states < 0 || states > 1600000
                     || items.length() > candidateLimit || (!status.equals("ok") && items.length() != 0)) {
                 throw new JSONException("invalid native result");
             }
@@ -195,10 +217,12 @@ public final class GraphEngine implements AutoCloseable {
     private long nativeHandle;
     private Policy policy;
     private Options options;
-    private final String pattern;
 
     /** Initializes an existing complete compiled dictionary, never a SQLite file. */
-    public GraphEngine(String dictionaryPath) throws IOException {
+    public GraphEngine(String dictionaryPath) throws IOException { this(dictionaryPath, true); }
+
+    /** With false, reads only the container directory; enable packs explicitly. */
+    public GraphEngine(String dictionaryPath, boolean loadDefaultPacks) throws IOException {
         if (LIBRARY_ERROR != null) throw new IOException("native IPA library unavailable", LIBRARY_ERROR);
         if (dictionaryPath == null || dictionaryPath.isEmpty() || !validScalars(dictionaryPath)
                 || dictionaryPath.indexOf('\0') >= 0) {
@@ -206,7 +230,7 @@ public final class GraphEngine implements AutoCloseable {
         }
         final long handle;
         try {
-            handle = nativeOpen(dictionaryPath);
+            handle = nativeOpenWithDefaults(dictionaryPath, loadDefaultPacks);
         } catch (LinkageError | RuntimeException failure) {
             throw new IOException("dictionary initialization failed", failure);
         }
@@ -215,13 +239,12 @@ public final class GraphEngine implements AutoCloseable {
         try {
             loadedPattern = nativeSegmentPattern(handle);
             if (loadedPattern == null || loadedPattern.isEmpty()) throw new IOException("invalid segment pattern");
-            nativeConfigure(handle, true, true, true, true, true);
+            nativeConfigureAll(handle, 255);
         } catch (IOException | RuntimeException | LinkageError failure) {
             nativeClose(handle);
             throw new IOException("dictionary initialization failed", failure);
         }
         nativeHandle = handle;
-        pattern = loadedPattern;
         policy = new Policy();
         options = new Options();
     }
@@ -287,7 +310,7 @@ public final class GraphEngine implements AutoCloseable {
     public synchronized void configure(Policy updated) {
         requireOpen();
         if (updated == null) throw new IllegalArgumentException("policy is required");
-        nativeConfigure(nativeHandle, updated.enUS, updated.enGB, updated.zhCN, updated.zhTW, updated.jaJP);
+        nativeConfigureAll(nativeHandle, updated.mask());
         policy = updated;
     }
 
@@ -300,8 +323,45 @@ public final class GraphEngine implements AutoCloseable {
 
     public synchronized Policy getPolicy() { requireOpen(); return policy; }
     public synchronized Options getOptions() { requireOpen(); return options; }
-    public synchronized String segmentPattern() { requireOpen(); return pattern; }
-    public synchronized String getSegmentPattern() { requireOpen(); return pattern; }
+    public synchronized String segmentPattern() { requireOpen(); return nativeSegmentPattern(nativeHandle); }
+    public synchronized String getSegmentPattern() { return segmentPattern(); }
+
+    /** Attach an independent pack container. Duplicate ids/regions are rejected. */
+    public synchronized void addDictionary(String dictionaryPath, boolean loadDefaultPacks) throws IOException {
+        requireOpen();
+        if (dictionaryPath == null || dictionaryPath.isEmpty() || !validScalars(dictionaryPath)
+                || dictionaryPath.indexOf('\0') >= 0) {
+            throw new IOException("invalid dictionary path");
+        }
+        nativeAddDictionary(nativeHandle, dictionaryPath, loadDefaultPacks);
+    }
+
+    /** Change one pack without reopening or mutating its immutable resource file. */
+    public synchronized void setPackMode(String packId, PackMode mode) {
+        requireOpen();
+        if (packId == null || !packId.matches("[A-Za-z0-9_-]{1,16}") || mode == null) {
+            throw new IllegalArgumentException("valid pack id and mode are required");
+        }
+        nativeSetPackMode(nativeHandle, packId, mode.ordinal());
+    }
+
+    /** Pack inventory and effective load/input/reverse state, serialized by the core. */
+    public synchronized String listPacksJson() {
+        requireOpen();
+        return nativeListPacks(nativeHandle);
+    }
+
+    /** Exact NFC word -> IPA lookup; no IPA-only or 64-unit input restriction. */
+    public synchronized String reverseLookupJson(String text) {
+        requireOpen();
+        if (text == null || text.isEmpty() || text.length() > 1000 || !validScalars(text)
+                || text.indexOf('\0') >= 0) {
+            throw new IllegalArgumentException("word must contain 1..1000 valid UTF-16 units");
+        }
+        String normalized = Normalizer.normalize(text, Normalizer.Form.NFC);
+        if (normalized.length() > 1000) throw new IllegalArgumentException("normalized word is too long");
+        return nativeReverseLookup(nativeHandle, normalized);
+    }
 
     public synchronized boolean acceptsInput(String raw) {
         requireOpen();
@@ -398,8 +458,14 @@ public final class GraphEngine implements AutoCloseable {
     }
 
     private static native long nativeOpen(String path) throws IOException;
+    private static native long nativeOpenWithDefaults(String path, boolean loadDefaultPacks) throws IOException;
+    private static native void nativeAddDictionary(long handle, String path, boolean loadDefaultPacks) throws IOException;
     private static native void nativeConfigure(long handle, boolean enUS, boolean enGB,
                                                boolean zhCN, boolean zhTW, boolean jaJP);
+    private static native void nativeConfigureAll(long handle, int regionMask);
+    private static native void nativeSetPackMode(long handle, String packId, int mode);
+    private static native String nativeListPacks(long handle);
+    private static native String nativeReverseLookup(long handle, String text);
     private static native boolean nativeAcceptsInput(long handle, String raw);
     private static native String nativeSegmentPattern(long handle);
     private static native String nativeQuery(long handle, String raw, String before, String after,

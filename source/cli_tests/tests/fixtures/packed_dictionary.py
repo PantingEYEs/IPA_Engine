@@ -109,11 +109,66 @@ def build(bits: int = 24, entries: dict | None = None) -> bytes:
     return header + b"".join(sections)
 
 
-def build_jni_fixture() -> bytes:
+def jni_entries() -> dict:
     entries = {key: records.copy() for key, records in DEFAULT_ENTRIES.items()}
     entries["a"].extend([("\U00020000", 2, 75, False), ('A"B\\C', 0, 65, False)])
     entries["á"] = [("é", 0, 60, False)]
-    return build(entries=entries)
+    return entries
+
+
+def build_jni_fixture() -> bytes:
+    return build(entries=jni_entries())
+
+
+def build_language_pack_fixture(pack_ids=None) -> bytes:
+    """Small synthetic four-pack resource, independent of the production compiler."""
+    import hashlib
+    packs = [
+        ("core", 31, jni_entries()),
+        ("ru", 32, {"kot": [("кот", 5, 0, False)], "rʲiˈka": [("река", 5, 0, False)]}),
+        ("ar", 64, {"ki.taːb": [("كتاب", 6, 0, False)], "sa.laːm": [("سلام", 6, 0, False)]}),
+        ("ko", 128, {"han.ɡuk̚": [("한국", 7, 0, False)], "an.njʌŋ": [("안녕", 7, 0, False)]}),
+    ]
+    if pack_ids is not None:
+        requested = set(pack_ids)
+        if not requested or requested - {name for name, _, _ in packs}:
+            raise ValueError("unknown or empty fixture pack selection")
+        packs = [pack for pack in packs if pack[0] in requested]
+    alignment = 65536
+    header = struct.Struct("<8sIIIIQQ")
+    entry = struct.Struct("<16sIIQQQQII32s32s")
+    blob = bytearray(header.size + len(packs) * entry.size)
+    directory, total_keys, total_words = [], 0, 0
+    for name, mask, entries in packs:
+        graph = build(entries=entries)
+        words = sorted({row[0] for records in entries.values() for row in records}, key=str.encode)
+        keys = sorted(entries)
+        records = {word: [] for word in words}
+        for rank, key in enumerate(keys):
+            for word, region, frequency, derived in entries[key]:
+                records[word].append((rank, region, frequency, derived))
+        offsets, reverse_records = [0], bytearray()
+        for word in words:
+            for rank, region, frequency, derived in sorted(records[word]):
+                reverse_records.extend(u24(rank) + bytes([region | (8 if derived else 0), frequency]))
+            offsets.append(len(reverse_records) // 5)
+        reverse = (struct.pack("<8sIIII", b"IPAREV01", 1, len(words), len(keys), offsets[-1])
+                   + b"".join(u24(offset) for offset in offsets) + reverse_records)
+        blob.extend(b"\0" * (-len(blob) % alignment))
+        graph_offset = len(blob)
+        blob.extend(graph)
+        blob.extend(b"\0" * (-len(blob) % alignment))
+        reverse_offset = len(blob)
+        blob.extend(reverse)
+        directory.append(entry.pack(name.encode().ljust(16, b"\0"), mask, 7,
+                                    graph_offset, len(graph), reverse_offset, len(reverse), len(keys), len(words),
+                                    hashlib.sha256(graph).digest(), hashlib.sha256(reverse).digest()))
+        total_keys += len(keys)
+        total_words += len(words)
+    blob[:header.size] = header.pack(b"IPAPACK1", 1, len(packs), total_keys, total_words,
+                                    header.size + len(packs) * entry.size, len(blob))
+    blob[header.size:header.size + len(packs) * entry.size] = b"".join(directory)
+    return bytes(blob)
 
 
 if __name__ == "__main__":

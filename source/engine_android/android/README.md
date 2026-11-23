@@ -34,7 +34,7 @@ GraphEngine engine = GraphEngine.openBundled(context);
 // GraphEngine engine = new GraphEngine(dictionaryAbsolutePath);
 ```
 
-`openBundled` 读取完整编译 manifest，要求 `complete=true`、`status=complete`、合法 SHA-256 和小于 40,000,000 字节的绝对体积上限。推荐目标仍为 30,000,000 字节；用户已允许略超该目标的 32 位索引比较包，包装层不因推荐值直接拒绝它。它复制到 `Context.getNoBackupFilesDir()/ipa-graph/lexicon-<sha256>.ipad`，校验字节数和哈希，然后原子替换临时文件并加载。相同哈希文件会复用，但每次初始化仍校验缓存，故首次和再次初始化有文件读取成本；该成本不在每次输入查询中发生。清单和词典缺失、校验失败或原生库不可用时抛出 `IOException`，由宿主转换成自己的初始化故障。
+`openBundled` 读取完整编译 manifest，要求 `complete=true`、`status=complete`、合法 SHA-256。语言包容器的绝对体积上限为小于 96,000,000 字节，各独立图仍须小于 40,000,000 字节；原有单图格式仍采用 40 MB 原生上限。核心中英日词典的推荐目标仍为 30,000,000 字节，新语言包及反查索引单独计入整体体积。它复制到 `Context.getNoBackupFilesDir()/ipa-graph/lexicon-<sha256>.ipad`，校验字节数和哈希，然后原子替换临时文件并加载。相同哈希文件会复用，但每次初始化仍校验缓存，故首次和再次初始化有文件读取成本；该成本不在每次输入查询中发生。清单和词典缺失、校验失败或原生库不可用时抛出 `IOException`，由宿主转换成自己的初始化故障。
 
 映射期间不要修改或覆盖对应词典文件。新版本采用新的哈希文件名；旧文件的清理应由宿主在确认没有使用者后完成。包装层不因服务解绑自动释放实例。所有实例操作和 `close()` 都是同步的，确保关闭不会释放正在查询的句柄；`close()` 可重复调用，关闭后的查询或配置抛出 `IllegalStateException`。宿主确定资源不再使用时调用 `close()`，可用 `try`/`finally` 或 `AutoCloseable`。
 
@@ -43,7 +43,7 @@ GraphEngine engine = GraphEngine.openBundled(context);
 `Policy` 与 `Options` 均为不可变快照：
 
 ```java
-// 地区顺序：en-US、en-GB、zh-CN、zh-TW、ja-JP。
+// 原有五参数构造保留；新增俄、阿、韩默认启用。
 engine.configure(
     new GraphEngine.Policy(true, true, true, true, true),
     new GraphEngine.Options(30, false, 60, 2048, true, 20000)
@@ -63,7 +63,31 @@ GraphEngine.QueryResult diagnostic = engine.queryDetailed("hə", "", "");
 
 候选六个宿主字段是 `text`、`language`、`rank`、`kind`、`nativeScore`、`contextAffinity`。`kind` 为 0（转换）或 2（补全），与现有宿主枚举一致；`contextAffinity` 当前为 0。`matchedIpa`、`frequencyScore`、`region`、`derived` 是单独的观察字段，不能拼进上屏文本。`frequencyScore` 为 Zipf × 20 的单字节量化参考值。状态字符串也不能原样作为 Messenger 的固定故障码，宿主需明确映射。
 
-当前包装只提供五地区开关。派生发音随编译词典加载，尚未提供运行时独立禁用开关。
+`Policy` 还提供八参数构造，顺序为 `enUS, enGB, zhCN, zhTW, jaJP, ruRU, arStandard, koKR`；默认构造及旧五参数构造都默认开启新增三种语言。阿语候选的地区标签为 `ar-001`，资料性质是来源默认规范参考层，并不表示整包经过纯 MSA 认证。地区过滤只影响返回结果；释放语言包资源应使用以下模式接口。
+
+## 语言包与 IPA 反查
+
+同一 `lexicon.ipad` 可以装入 `core`（中英日）、`ru`、`ar`、`ko` 四个独立图与反查索引。默认构造加载并启用全部默认语言包。宿主将来需要节省资源时，可以在工作线程上调用：
+
+```java
+engine.setPackMode("ru", GraphEngine.PackMode.OFF);
+engine.setPackMode("ar", GraphEngine.PackMode.REVERSE_ONLY);
+engine.setPackMode("ko", GraphEngine.PackMode.INPUT);
+String resources = engine.listPacksJson();
+String readings = engine.reverseLookupJson("한국");
+```
+
+`OFF` 释放该包的映射与查询辅助数组；进行中的原生查询持有独立快照，结束后释放。`REVERSE_ONLY` 可反查词汇对应 IPA，不参加正向输入，也不建立省略搜索辅助数组。`INPUT` 同时支持输入和反查。`listPacksJson()` 返回模式、实际加载状态、图／反查索引大小和搜索辅助数组大小；`forward/reverse` 描述包的能力，是否正在参与由 `mode/loaded` 判断。`core` 为现有三语言共享图，因此关闭其中一个地区不会单独卸载该地区的部分图。
+
+OFF 会保留一个共享的只读载体文件句柄，以便再次启用时仍使用同一版本；不会保留该包的图映射和搜索数组。更新可原子替换路径，旧实例仍固定旧文件，新实例读取新文件。
+
+完全按需初始化可用 `new GraphEngine(path, false)`：仅读目录，之后显式启用所需包。例如先 `setPackMode("core", INPUT)`，未来需要俄语反查时再 `setPackMode("ru", REVERSE_ONLY)`。全部正向图关闭时，分段正则为 `(?!)`；每次更改模式后应重新读取 `segmentPattern()`，它随当前正向图的字符表更新。切换模式涉及映射和验证，放在工作线程执行。
+
+未来独立交付的语言包仍使用同一容器格式，只包含对应的一个 pack。可以通过 `addDictionary(packPath, false)` 挂入目录，再按需 `setPackMode`；传 `true` 则立即加载其默认包。重复 pack ID／地区、总包数或总体积超限会拒绝，失败不改变当前可用包。更新已经挂入的包时应创建新的 `GraphEngine`，不覆盖正在映射的文件。本次合并交付无需调用此接口。
+
+`reverseLookupJson` 对完整词形进行 NFC 规范化，允许最多 1,000 个 UTF-16 单元，不受 IPA 输入的 64 单元限制。响应为 `{word, readings, truncated}`；每条读音包含 `ipa, region, frequency_score, frequency_zipf, derived, pack_id`。词汇不存在或相关包关闭／地区被过滤时 `readings=[]`，不会猜测读音；返回上限为 512 条，达到限制时通过 `truncated` 标记。语言包模式与地区 `Policy` 共同生效。
+
+新语言搜索各自采用配置的省略状态预算，所有包共用一次查询截止时间；多语言默认开启会增加实际工作量，不能把旧三语言单图延迟直接当成六语言延迟。派生发音尚未提供独立禁用开关。词典、Java 类和 `.so` 必须使用同一构建批次。
 
 ## 宿主接入边界与后续评分
 
@@ -73,7 +97,7 @@ GraphEngine.QueryResult diagnostic = engine.queryDetailed("hə", "", "");
 
 ## 验证
 
-`engine_android/android/tests/verify_desktop_jni.py` 编译真正的 JNI 共享库，在桌面 JVM 的 `-Xcheck:jni` 下检查 Unicode 文件名、非 BMP 候选、JSON 引号/反斜杠、Java NFC、孤立代理、地区配置和关闭后的句柄保护：
+`engine_android/android/tests/verify_desktop_jni.py` 编译真正的 JNI 共享库，在桌面 JVM 的 `-Xcheck:jni` 下检查 Unicode 文件名、非 BMP 候选、JSON 引号/反斜杠、Java NFC、孤立代理、地区配置和关闭后的句柄保护；还检查四包默认启用、惰性初始化、独立包挂入、模式切换、动态正则与反查的独立长度限制：
 
 ```sh
 python3 engine_android/android/tests/verify_desktop_jni.py \

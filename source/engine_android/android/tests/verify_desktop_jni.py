@@ -19,7 +19,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 from engine_android.scripts.build_rust_core import build as build_rust
-from cli_tests.tests.fixtures.packed_dictionary import build_jni_fixture
+from cli_tests.tests.fixtures.packed_dictionary import build_jni_fixture, build_language_pack_fixture
 
 
 def main():
@@ -65,10 +65,19 @@ def main():
     quoted = 'A' + chr(34) + 'B' + chr(92) + 'C'
     fixture = build / ('fixture-' + chr(0x5b57) + '-' + chr(0x1f600) + '.ipad')
     fixture.write_bytes(build_jni_fixture())
+    bundle = build / 'multilingual.ipad'
+    bundle.write_bytes(build_language_pack_fixture())
+    core = build / 'core-only.ipad'
+    core.write_bytes(build_language_pack_fixture(['core']))
+    russian = build / 'russian-only.ipad'
+    russian.write_bytes(build_language_pack_fixture(['ru']))
     result = subprocess.run([str(java_home / 'bin/java'), '-Xcheck:jni',
                              '-Djava.library.path=' + str(build), '-classpath', str(classes) + os.pathsep + str(jar),
-                             'JniSmoke', str(fixture)], check=True, text=True, capture_output=True)
-    records = [json.loads(line) for line in result.stdout.splitlines()]
+                             'JniSmoke', str(fixture), str(bundle), str(core), str(russian)],
+                            check=True, text=True, capture_output=True)
+    rows = [json.loads(line) for line in result.stdout.splitlines()]
+    records = [row for row in rows if 'jni_case' not in row]
+    packs = {row['jni_case']: row['value'] for row in rows if 'jni_case' in row}
     assert len(records) == 7
     assert records[0]['status'] == 'ok'
     texts = {candidate['text'] for candidate in records[0]['candidates']}
@@ -79,11 +88,28 @@ def main():
     assert records[3]['status'] == records[4]['status'] == 'unsupported_input'
     assert all(candidate['region'] == 'zh-CN' for candidate in records[5]['candidates'])
     assert any(c['text'] == 'about' and c['omitted_symbols'] == 1 for c in records[6]['candidates']), 'JNI omission option not applied'
+    assert all(p['loaded'] and p['mode'] == 'input' for p in packs['default-packs']['packs'])
+    for name, region in [('russian', 'ru-RU'), ('arabic', 'ar-001'), ('korean', 'ko-KR')]:
+        assert packs[name]['readings'][0]['region'] == region
+    assert packs['reverse-nfc']['word'] == 'é'
+    reverse_only = packs['reverse-only']['packs'][1]
+    assert reverse_only['mode'] == 'reverse' and reverse_only['search_index_bytes'] == 0
+    assert packs['reverse-only-reading']['readings'][0]['ipa'] == 'kot'
+    assert packs['legacy-policy']['readings'] and packs['five-argument-policy']['readings']
+    assert packs['disabled-policy']['readings'] == packs['off-reading']['readings'] == []
+    for state in ('all-off', 'lazy', 'attached-lazy'):
+        assert all(not p['loaded'] and p['search_index_bytes'] == 0 for p in packs[state]['packs'])
+    assert packs['attached-reading']['readings'][0]['ipa'] == 'kot'
     print(result.stderr.strip())
     print(json.dumps({'status': 'passed', 'platform': platform.system(), 'queries': len(records),
                       'checks': ['Unicode filename', 'standard UTF-8 supplementary output', 'JSON escaping',
                                  'NFC', 'invalid UTF-16', 'region policy', 'closed handle', 'missing dictionary',
-                                 'omission option and diagnostics'],
+                                 'omission option and diagnostics', 'default six-language packs',
+                                 'lazy startup and independent pack attachment', 'off/reverse/input modes',
+                                 'reverse lookup Unicode/NFC and separate length guard',
+                                 'legacy policy preserves new languages', 'dynamic segment pattern',
+                                 'duplicate attachment leaves state unchanged'],
+                      'pack_checks': len(packs),
                       'android_device_execution': False}, indent=2))
 
 

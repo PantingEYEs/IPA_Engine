@@ -1,11 +1,15 @@
 # IPA Engine
 
-供 Android 输入法接入的 **IPA → 中英日文字候选** 引擎，采用 Rust DAFSA 图查询、
+供 Android 输入法接入的 **IPA → 中英日俄阿韩文字候选** 引擎，采用 Rust DAFSA 图查询、
 顺序省略匹配与词频排序。键盘 UI、编辑器提交、资源下载和更新切换由宿主实现。
 
 `main` / `develop` 仅提供白名单源码、合成测试和接入文档，不承担客户端更新分发。
 运行时词典、DEX、JNI 及安装包全部存放在 [GitHub Releases](https://github.com/PantingEYEs/IPA_Engine/releases)。
 本 README 是输入法 UI 开发者的接入手册；不会要求客户端读取某个源码分支。
+
+本文新增的语言包、按需加载及引擎反查接口属于 **v0.0.5-dev 开发版本**。
+当前 Latest 正式版本仍为 **v0.0.4**，其 Release 附件不会被开发构建替换。
+新增接口须使用本次配套 DEX/JNI，不能对旧 v0.0.4 类直接调用；安装能力以选中 Release 的 `client.json` 为准。
 
 ## 1. 从 Release 获取引擎与词典
 
@@ -18,7 +22,7 @@
 | --- | --- |
 | releaseVersion / engineVersion / dictionaryVersion | 发布、引擎、词典各自的版本。相同词典哈希可复用。 |
 | abi / minSdk / entryPoint | ABI、最低 Android API、Java 入口类。当前 arm64-v8a / 26 / com.ipaengine.graph.GraphEngine。 |
-| dictionaryFormat / dictionaryIndexBits / dictionaryKeys | 本批词典格式、位宽及 IPA 键数。当前 IPADWG01 v2 / 24 位。 |
+| dictionaryFormat / dictionaryIndexBits / dictionaryKeys | 本批词典格式、位宽及 IPA 键数。v0.0.4 是 IPADWG01 v2 / 24 位；本次开发包为 IPAPACK1 容器、格式号 4，内部各图仍为 24 位。 |
 | assets.enginePackage | 仅含 classes.dex、libipa_graph_android.so 和 engine.json 的引擎 ZIP。 |
 | assets.dex / assets.native | 配套引擎裸文件，可分别下载，DEX/JNI 必须一起切换。 |
 | assets.dictionary / assets.dictionaryManifest | 独立裸词典及编译/来源 manifest。 |
@@ -38,7 +42,7 @@
 
 ## 2. Android / Gradle 要求
 
-要求 **Android API 26+、arm64-v8a、Java 8 语言支持或更高**。原生 ELF 支持 16 KiB 页对齐。AAR 已包含 Rust 图核心与 JNI 薄层；宿主使用 Android 平台提供的 `org.json`，无需额外运行时依赖，也不需要在手机安装 Python、SQLite、PyTorch、OpenFst 或联网。
+要求 **Android API 26+、arm64-v8a、Java 8 语言支持或更高**。原生 ELF 支持 16 KiB 页对齐。JNI 共享库包含 Rust 图核心与 UTF-16 转换薄层；宿主使用 Android 平台提供的 `org.json`，无需额外运行时依赖，也不需要在手机安装 Python、SQLite、PyTorch、OpenFst 或联网。
 
 宿主按 Release 清单加载配套 DEX 和 SO，并将已校验词典放在应用私有目录。
 若静态集成，可从源码构建 classes.jar/JNI，并自行打包到宿主工程；不再提供新的 AAR。
@@ -89,14 +93,16 @@ context.noBackupFilesDir/ipa-graph/lexicon-<sha256>.ipad
 
 映射期间保持对应文件不可变。新词典使用新的哈希文件名；确认旧实例不再使用后才能清理旧文件。库不持有编辑器、剪贴板或输入法 UI。
 
+本次默认只需一个 `lexicon.ipad`：容器内含 `core`、`ru`、`ar`、`ko` 四个独立语言包及反查索引，`GraphEngine(path)` 默认全部加载并启用。当前完整开发词典为 **65,466,387 字节**；其中原中英日核心图仍为 **28,986,769 字节，字节内容未变**，新增体积包括俄阿韩图与各包反查索引。单图必须小于 40,000,000 字节，容器及一个实例挂入的词典总量必须小于 96,000,000 字节；30 MB 是原核心图的推荐目标，不再用于拒绝这份完整多语言交付。旧 IPADWG01 v2 单图仍可直接打开，自动作为 `core` 包处理。
+
 ## 4. 地区和查询选项
 
 `Policy`、`Options` 都是不可变配置快照：
 
 ~~~kotlin
-// 顺序：en-US、en-GB、zh-CN、zh-TW、ja-JP。
+// 八参数顺序：en-US、en-GB、zh-CN、zh-TW、ja-JP、ru-RU、ar-001、ko-KR。
 engine.configure(
-    GraphEngine.Policy(true, true, true, true, true),
+    GraphEngine.Policy(true, true, true, true, true, true, true, true),
     // 保留四参数构造器，默认开启省略匹配。
     GraphEngine.Options(30, false, 60, 2048)
 )
@@ -109,21 +115,107 @@ engine.configure(
 | `zhCN` | 大陆普通话/简体，标签 `简` | true |
 | `zhTW` | 台湾国语/繁体，标签 `繁` | true |
 | `jaJP` | 日语标准语，标签 `日` | true |
+| `ruRU` | 俄语，地区 `ru-RU`，标签 `RU` | true |
+| `arStandard` | 阿语规范参考层，地区 `ar-001`，标签 `AR` | true |
+| `koKR` | 韩国标准语参考，地区 `ko-KR`，标签 `KO` | true |
 
-`new GraphEngine.Policy()` 开启全部地区。关闭某地区后不产生该地区候选；全部关闭则返回空列表。派生发音随词典加载，目前没有单独禁用派生层的运行开关。
+`new GraphEngine.Policy()` 开启全部八个地区。旧五参数构造 `Policy(enUS, enGB, zhCN, zhTW, jaJP)` 保留，新增俄阿韩默认均为 true；要关闭全部地区必须传八个 false。关闭某地区后不产生该地区候选／反查读音；Policy 只过滤输出，不卸载图、反查索引或省略搜索辅助数组。资源开关使用下一节的 PackMode。
+
+阿语暂使用现有来源默认规范音位资料，保留来源与变体标记，不宣称整包是纯净、逐条认证的 MSA；以后找到更干净的 MSA 来源再评估替换。`ar-001` 只是地区标识，不构成 MSA 认证。派生发音暂时没有独立禁用开关。
 
 | Options 字段 | 范围 | 默认及含义 |
 | --- | --- | --- |
 | `candidateLimit` | 1–180 | 30；去重后的输出上限。 |
 | `prefix` | Boolean | false；显式开启 IPA 前缀补全。 |
-| `deadlineMs` | 1–60 | 60；原生查询预算。省略搜索已有结果时保留候选并标记截断，否则超时为空。 |
-| `prefixKeyBudget` | 1–65,536 | 2,048；显式前缀补全最多访问的接受键数。 |
+| `deadlineMs` | 1–60 | 60；所有正向图共用的原生查询截止预算。省略搜索已有结果时保留候选并标记截断，否则超时为空。 |
+| `prefixKeyBudget` | 1–65,536 | 2,048；各正向图显式前缀补全最多访问的接受键数。 |
 | `allowOmissions` | Boolean | true；允许漏输词典符号，仍消费全部输入。 |
-| `omissionStateBudget` | 1–200,000 | 20,000；省略搜索最多创建的路径状态数。 |
+| `omissionStateBudget` | 1–200,000 | 20,000；每个正向图的省略搜索状态预算，所有图仍共用同一个截止时间。 |
 
 六参数构造器 `Options(30, false, 60, 2048, true, 20000)` 可控制省略匹配。对照严格模式使用 `Options(30, false, 60, 2048, false, 20000)`；数字调值转换在两种模式下都生效。四参数构造器与 `Options()` 默认开启省略。
 
 越界选项抛出 `IllegalArgumentException`。`configure(policy)` 只更新地区，保留当前 Options；`configure(policy, options)` 同时更新二者。`getPolicy()`、`getOptions()` 返回当前快照。查询预算与诊断耗时针对原生核心，不是整个 Java 调用或 UI 调度的硬性墙钟上限。
+
+### 4.1 语言包模式与真正按需加载
+
+| Pack ID | 包含内容 |
+| --- | --- |
+| `core` | 原有美国／英国英语、大陆普通话／台湾国语、日语共享图。 |
+| `ru` | 俄语图和反查索引。 |
+| `ar` | 阿语规范参考图和反查索引。 |
+| `ko` | 韩语图和反查索引。 |
+
+| PackMode | 正向输入 | 反查 | 资源 |
+| --- | --- | --- | --- |
+| `INPUT` | 参与 | 可用 | 映射该包并建立正向搜索辅助数组；本次四包默认模式。 |
+| `REVERSE_ONLY` | 不参与 | 可用 | 映射图和反查索引，不建立正向省略搜索辅助数组。 |
+| `OFF` | 不参与 | 不可用 | 释放该包映射和辅助数组；在途原生快照结束后完成释放。 |
+
+可以直接在现有实例的工作线程上切换：
+
+~~~kotlin
+engine.setPackMode("ru", GraphEngine.PackMode.REVERSE_ONLY)
+engine.setPackMode("ar", GraphEngine.PackMode.OFF)
+engine.setPackMode("ko", GraphEngine.PackMode.INPUT)
+val packStateJson: String = engine.listPacksJson()
+// 模式改变后重新读取字符表正则。
+val segmentRegex = Regex(engine.segmentPattern())
+~~~
+
+如果希望初始化时也不加载暂未使用的包，调用双参数构造器 `GraphEngine(path, false)`。
+下面是可直接调用的初始化函数，仅读取目录，然后启用中英日输入和俄语反查；阿语和韩语保持 OFF：
+
+~~~kotlin
+fun openCoreWithRussianLookup(dictionaryPath: String): GraphEngine {
+    val engine = GraphEngine(dictionaryPath, false)
+    try {
+        engine.setPackMode("core", GraphEngine.PackMode.INPUT)
+        engine.setPackMode("ru", GraphEngine.PackMode.REVERSE_ONLY)
+        return engine
+    } catch (failure: RuntimeException) {
+        engine.close()
+        throw failure
+    }
+}
+// 在工作线程调用；返回的实例由宿主持有并在不再使用时 close()。
+~~~
+
+`listPacksJson()` 返回 `{format_version, packs}`；各项有 `id`、`region_mask`、`mode`（`off/reverse/input`）、`loaded`、`forward`、`reverse`、`graph_bytes`、`reverse_bytes`、`search_index_bytes`。`forward/reverse` 表示包的能力，实际是否使用看 `mode/loaded`；图与索引字节数是资源尺寸，`search_index_bytes` 是当前正向辅助数组占用，不是整个进程 PSS 或一次查询临时内存。关闭所有正向图时 `segmentPattern()` 返回 `(?!)`，`acceptsInput` 不接受非空输入，反查专用包仍可返回读音。
+
+Policy 和 PackMode 独立生效：允许俄语地区但把 `ru` 设 OFF，仍不会产生俄语结果；只关闭 Policy 不会释放包资源。`core` 是三语言共享图，不能靠单个地区开关卸载其中某一语言；只启用 `core` 时保留原单图查询路径。默认四包一起启用会增加实际查询和常驻资源成本，不能套用旧三语言的耗时。
+
+### 4.2 词汇反查 IPA
+
+反查现在属于同一个 Android 引擎，支持 INPUT 和 REVERSE_ONLY 包，使用词形索引定位读音，不需要读取原始资料库：
+
+~~~kotlin
+import org.json.JSONObject
+
+val result = JSONObject(engine.reverseLookupJson("кот"))
+val readings = result.getJSONArray("readings")
+for (i in 0 until readings.length()) {
+    val reading = readings.getJSONObject(i)
+    val ipa = reading.getString("ipa")
+    val region = reading.getString("region")
+    val packId = reading.getString("pack_id")
+    // 将 ipa / region / packId 显示在宿主的读音查询界面。
+}
+val incomplete = result.getBoolean("truncated")
+~~~
+
+`reverseLookupJson(word)` 先做 NFC，按完整词形精确匹配，最多允许 1,000 个 UTF-16 单元，不受正向 IPA 的 64 单元限制；不自动改大小写、简繁或生成未知读音。空串、孤立代理和超长词形抛出 `IllegalArgumentException`。响应为 `{word, readings, truncated}`；每项含 `ipa, region, frequency_score, frequency_zipf, derived, pack_id`。不存在的词、OFF 包及 Policy 禁用的读音不返回，结果为 `readings=[]`；最多返回 512 条，通过 `truncated` 标记未完整返回。旧 v2 图没有反查索引时采用兼容扫描，新格式使用预编译反查索引。
+
+### 4.3 未来独立交付语言包
+
+本次一个容器已经包含四包，宿主无需添加第二个文件。未来单独发布时，各文件仍采用相同容器格式，只包含自己的语言包。新 API 可在原实例挂入另一个不重复的包：
+
+~~~kotlin
+// 前提：当前实例尚未包含 ru；文件已经由宿主校验大小、SHA-256 和来源。
+engine.addDictionary(russianPackAbsolutePath, false)
+engine.setPackMode("ru", GraphEngine.PackMode.REVERSE_ONLY)
+~~~
+
+第二参数为 true 则加载附加文件的默认包，false 仅读目录。重复 Pack ID／地区、超过八个包或总量达到 96 MB 会拒绝，失败不改变当前实例；加载失败抛出 `IOException`。更新已挂入的包时创建新实例并切换，不能覆盖仍在映射的文件。模式切换和挂入均在工作线程执行。以上能力已在引擎中保留，应用侧语言包入口可后续再接。
 
 ## 5. 输入、判定与分段
 
@@ -139,7 +231,7 @@ engine.configure(
 
 `acceptsInput(raw)` 使用相同的 UTF-16/NFC 规则及词典字符表。它表示能处理整串，不保证有词典命中；关闭所有地区也不会使字符判定变成命中判定。空串和纯空白不接受。
 
-`segmentPattern()` 与 `getSegmentPattern()` 返回由词典字符表生成的 Java 正则，使用 Unicode 码点字符类与 `+` 匹配非空字符段。宿主用 `Pattern.compile(engine.segmentPattern())` 或 Kotlin `Regex` 编译，并覆盖原先只识别拉丁字母/撇号的分段规则。IPA 音段、组合符号、重音、调值和内部界限应作为完整段处理，不能把有效 IPA 拆断。
+`segmentPattern()` 与 `getSegmentPattern()` 返回由当前 INPUT 包字符表生成的 Java 正则，使用 Unicode 码点字符类与 `+` 匹配非空字符段；没有正向图时为 `(?!)`。宿主用 `Pattern.compile(engine.segmentPattern())` 或 Kotlin `Regex` 编译，并覆盖原先只识别拉丁字母/撇号的分段规则，切换包后重新读取。IPA 音段、组合符号、重音、调值和内部界限应作为完整段处理，不能把有效 IPA 拆断。
 
 输入先做 NFC。数字 1–5 分别转换为 `˩˨˧˦˥`，表示 Chao 音高值，不是普通话声调类别；0、6–9、全角数字不转换。完整匹配保留已经输入的声调、重音、长音、分节和空格。
 
@@ -179,7 +271,7 @@ val withContext = engine.queryDetailed("həˈloʊ", "", "")
 | 六个宿主字段 | 内容与约束 |
 | --- | --- |
 | `text` | 实际上屏文字，非空白、完整 Unicode、最多 1,000 个 UTF-16 单元。不能附加读音、标签、解释或省略号。 |
-| `language` | `EN`、`简`、`繁`、`日`；同文来源可能合并为斜线分隔标签。 |
+| `language` | `EN`、`简`、`繁`、`日`、`RU`、`AR`、`KO`；同文来源可能合并为斜线分隔标签。 |
 | `rank` | 从 0 开始，越小越靠前。 |
 | `kind` | 0=`KIND_CONVERSION`，2=`KIND_COMPLETION`。命中精确 IPA 键的转换仍是 CONVERSION，不是宿主原文 EXACT。 |
 | `nativeScore` | 整数参考排序分，公式见下一节；不是概率，也未与其他引擎的分数尺度校准。 |
@@ -194,7 +286,7 @@ val withContext = engine.queryDetailed("həˈloʊ", "", "")
 | `elapsedMs` | 原生查询耗时；不包括 Java JSON 解析、候选对象构造和宿主调度。 |
 | `exactFound` | 完整 IPA 键存在；地区禁用后仍可能为 true。 |
 | `truncated` | 候选上限、前缀键预算、省略状态预算或宽松搜索截止导致未完整返回；部分候选仍有效。 |
-| `exploredStates` | 本次省略搜索已处理的路径状态数。 |
+| `exploredStates` | 各正向图省略搜索已处理的路径状态数之和。 |
 | `matchedKeys` | 已访问候选表的接受键数。 |
 | `matchedRecords` | 去重前、通过地区开关的候选记录数。 |
 
@@ -212,7 +304,7 @@ nativeScore = (完整匹配 ? 10000 : 显式前缀补全 ? 1000 : 5000 - omitted
               - (派生发音 ? 5 : 0)
 ~~~
 
-只取可用、有限且合法的频率值；词形存在多个兼容来源时取最大参考值，不相加各语料计数。没有可用词频时评分项为 0，原始缺失信息仍在离线资料中。量化步长为 0.05 Zipf；派生罚分 5 相当于 0.25 Zipf 的参考差。同分按词形确定排序。
+只取可用、有限且合法的频率值；词形存在多个兼容来源时取最大参考值，不相加各语料计数。没有可用词频时评分项为 0，原始缺失信息仍在离线资料中。新增俄阿韩当前没有接入已验证的可分发词频，参考分为 0。量化步长为 0.05 Zipf；派生罚分 5 相当于 0.25 Zipf 的参考差。单图同分按词形排序；跨图同分保持包次序及各图原排名，相同文字合并语言标签后只返回一次。
 
 词频属于词形或词汇素，不能把这套参考分当成某条读音的真实概率。完整匹配优先，省略匹配扣除漏输罚分；显式前缀补全使用较低基分；首选质量、同音词选择仍需按产品场景评估。
 
@@ -297,7 +389,7 @@ fun makeReply(
 
 正常无匹配、地区关闭、空预测和 `unsupported_input` 是空结果，不应触发故障熔断。`timeout` 清空候选并可记诊断；如果宿主需要把它作为故障回复，使用已登记的超时代码。`error`、初始化 IOException 和意外生命周期异常由宿主捕获并映射固定码。不要把库的状态字符串、异常文字或自行拼出的 IPA 错误码直接放进 `error`；本文未提供宿主的注册表，因此不声称任何新码已获宿主认可。
 
-宿主目前的服务路由、功能开关和诊断只识别 ZH/JA/EN，须增加 IPA 路由及对应映射；返回语言标签不能自动注册组件。地区选择映射到本库五个 Policy 布尔值。原生运行建议按既有合同放入独立引擎服务进程，初始化/查询故障不会终止输入法主进程或改变原文提交。以上为宿主接入所需合同；合同原文留在本地开发项目的 `engine_android/docs/引擎开发规范.md`。
+宿主负责服务路由、功能开关和诊断映射；返回语言标签不能自动注册组件。地区选择映射到本库八个 Policy 布尔值，资源模式选择映射到 PackMode。原生运行建议按既有合同放入独立引擎服务进程，初始化/查询故障不会终止输入法主进程或改变原文提交。以上为宿主接入所需合同；合同原文留在本地开发项目的 `engine_android/docs/引擎开发规范.md`。本次只实现引擎 API，应用侧入口后续接入。
 
 ## 10. 在终端观察输入和输出
 
@@ -323,6 +415,9 @@ python3 cli_tests/scripts/engine_cli.py cases cli_tests/cases/graph_cases.jsonl 
 python3 cli_tests/scripts/engine_cli.py test
 python3 cli_tests/scripts/engine_cli.py reverse 'hello' --region en-US
 python3 cli_tests/scripts/engine_cli.py reverse '学校' --json
+python3 cli_tests/scripts/engine_cli.py packs --json
+python3 cli_tests/scripts/engine_cli.py reverse '한국' --json
+python3 cli_tests/scripts/engine_cli.py repl --no-default-packs --pack-mode core:input --pack-mode ru:reverse
 ~~~
 
 可重复 `--region` 开启多个地区；不指定则全部开启。全局 `--dictionary PATH`、`--cli PATH` 放在子命令前。文本输出显示匹配、耗时、扫描量、截断和每条候选的 IPA、地区、词频、类型、派生属性；`--json` 用于程序读取。原生 Rust/C 入口要求调用方提供 NFC，Python 包装负责规范化。
@@ -335,10 +430,14 @@ python3 cli_tests/scripts/engine_cli.py reverse '学校' --json
 | `hello`、`学校` 等词汇 | 没有正向 IPA 命中时，反查词典中实际收录的 IPA，附地区、派生标记和词频参考值。 |
 | `reverse 词汇` | 强制词汇反查；用于同串也是 IPA 键或词汇本身为 `test` 等有歧义的情况。 |
 | `ipa 输入` | 强制正向查询，并保留无匹配、不支持等详细诊断。 |
+| `packs` | 查看包 ID、模式、加载状态与资源尺寸。 |
+| `pack ru off` / `pack ru reverse` / `pack ru input` | 立即更改当前会话的俄语包模式；其他包使用对应 ID。 |
 
-普通输入优先显示正向 IPA 命中或补全，没有完整 IPA 命中时优先反查实际存在的词汇；其他输入展示省略匹配候选；两者都没有结果时不输出内容。强制反查不存在的词汇也没有输出，JSON 模式同样不输出一行空结果。反查按 NFC 后的完整词形精确匹配，不自动改大小写或转换简繁；返回全部已收录读音，遵守 `--region`，不受正向候选 limit 限制。反查直接读取所选 `.ipad` 的词形池和候选映射，不使用原始 SQLite、不猜测读音。找到词形后需要扫描候选映射，速度可能慢于正向查询；该功能只用于桌面 CLI。
+普通输入优先显示正向 IPA 命中或补全，没有完整 IPA 命中时优先反查实际存在的词汇；其他输入展示省略匹配候选；两者都没有结果时不输出内容。强制反查不存在的词汇也没有输出，JSON 模式同样不输出一行空结果。反查与 Android 使用同一个 Rust 引擎，遵守 `--region` 与语言包模式，最多 512 条，截断时明确标记，不受正向候选 limit 限制。容器格式使用预编译反查索引，旧单图兼容扫描；两者都不读取原始 SQLite、不猜测读音。
 
-随机用例默认来自 `cli_tests/cases/graph_cases.jsonl`，包含正常命中与拒绝/无结果边界；可通过 `repl --cases PATH` 或 `test --cases PATH` 改用其他用例文件。`test --json` 返回用例、实际输出和断言结果，`reverse WORD --json` 返回 `word` 与 `pronunciations`；相同 IPA 的不同地区记录分别展示。合成测试用例与 CLI 源码也在公开的 `source/` 中提供；从完整资料库抽样用例属于本地数据准备工作，不包含在公开源码快照。
+`--no-default-packs` 实现真正的惰性初始化，可重复 `--pack-mode ID:off|reverse|input` 指定模式；`--extra-dictionary PATH` 可附加未来独立交付的包容器，同样遵守默认加载选项。当前四包合并文件不需要再附加同名包。反查和 pack 切换在同一 REPL 实例执行，修改后立即生效。
+
+随机用例默认来自 `cli_tests/cases/graph_cases.jsonl`，包含正常命中与拒绝/无结果边界；可通过 `repl --cases PATH` 或 `test --cases PATH` 改用其他用例文件。`test --json` 返回用例、实际输出和断言结果，`reverse WORD --json` 返回 `word`、`pronunciations` 和 `truncated`；相同 IPA 的不同地区记录分别展示。合成测试用例与 CLI 源码也在公开的 `source/` 中提供；从完整资料库抽样用例属于本地数据准备工作，不包含在公开源码快照。
 
 用例为 JSONL，每行一条。例如：
 
@@ -353,6 +452,12 @@ python3 cli_tests/scripts/engine_cli.py reverse '学校' --json
 source 快照不含来源数据库和抽样/预处理工具。普通 query/repl/cases 只需要随 source 提供的编译词典与手写测试用例；来源观测检查属于完整本地项目工作流，不能替代音系核验或同音词首选准确率。
 
 ## 11. 已完成验证与实际边界
+
+本次完整词典在开发机固定抽样中，限定原五地区的 1,023 个输入与加包前本地基线（3ee3135）的目标召回及目标排序一致；1 个查询在旧基线触发预算截断而多返回结果存在差异，单项复查结果一致；默认六语言开启后，前 30 目标召回由 77.61% 变为 77.52%（1 个原目标降出前 30），p95 由 6.58 ms 变为 11.13 ms。该样本含大量人工省略压力输入，不能当作真实使用准确率或手机延迟。新增三语言各 100 个完整 IPA 查询及反查全部回收目标；20% 音段省略压力样本前 30 回收率为 91.33%。新增语言尚无可靠词频时使用 0 分参考值，完整 IPA 可减少跨语言歧义。
+
+本次 v0.0.5-dev 已在桌面合成四包上验证 CLI 查询／反查、默认加载、OFF／REVERSE_ONLY／INPUT 切换、真正惰性初始化及独立文件挂入；桌面 JVM 的真实 JNI 验证覆盖 Unicode/NFC、旧五参数配置保持新增语言、反查独立长度限制、动态分段正则与关闭保护。**这些不是 Android 实机执行或新多语言包的耗电验证。** 当前开发包没有新版 S21 Ultra 性能结论。
+
+以下迁移与手机数字均为历史版本记录，不代表本次六语言、容器及反查索引的内存或延迟：
 
 v0.0.3-dev 的词典校验、精确/顺序省略/补全查询、排序、C ABI、原生 CLI 和图最小化器已迁移到 Rust；Python 离线数据处理、Java 接口及 C++ JNI 的 UTF-16 转换薄层保留。24/32 位格式和 Android 类名、方法、候选字段保持兼容。迁移期间曾以旧 C++ 引擎作逐字段对照，公开源码中的旧引擎和比较程序现已移除。完整24位词典的五地区5,000条来源用例，严格与省略两种模式当时均与旧实现零差异、预期词全部保留；部分查询有预算截断。图最小化器24/32位输出逐字节一致，Unicode、损坏文件、并发、JNI及不带原始数据的独立源码构建检查通过。
 
@@ -393,3 +498,5 @@ python3 -m unittest cli_tests.tests.test_engine_cli cli_tests.tests.test_graph_o
 
 开发源码位于 develop；main 通过 no-ff 合并更新。客户端不读取任一分支寻找版本。
 当前未选定项目级软件许可证；数据许可由每版附件中的来源声明分别说明。
+
+语言包生命周期：OFF 会保留一个共享的只读载体文件句柄，以便再次启用时仍使用同一版本；不会保留该包的图映射和搜索数组。更新可原子替换路径，旧实例仍固定旧文件，新实例读取新文件。

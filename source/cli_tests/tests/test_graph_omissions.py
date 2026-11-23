@@ -31,6 +31,8 @@ ENTRIES = {
     "ni˨˩˦ xɑʊ̯˨˩˦": [("你好", 2, 110, False)],
     "in˧˥ xɑŋ˧˥": [("银行", 2, 180, False)],
     "ɕoː.ɡa": [("fixture-japanese", 4, 100, False)],
+    "nan na": [("onset-repeated", 2, 10, False)],
+    "nana": [("coda-repeated", 2, 180, False)],
 }
 TONES = str.maketrans("12345", "˩˨˧˦˥")
 
@@ -119,6 +121,19 @@ class GraphOmissionsTest(unittest.TestCase):
         self.assertTrue(limited["truncated"])
         self.assertLessEqual(limited["explored_states"], 1)
 
+    def test_matching_coda_cannot_steal_a_later_syllable_onset(self):
+        compact = self.query("nn", "--region", "zh-CN")
+        self.assert_valid_candidates("nn", compact)
+        hits = {c["text"]: c for c in compact["candidates"]}
+        self.assertGreater(hits["onset-repeated"]["native_score"], 6000)
+        self.assertLess(hits["coda-repeated"]["native_score"], 6000)
+        self.assertLess(hits["onset-repeated"]["rank"], hits["coda-repeated"]["rank"])
+        spaced = self.query("n n", "--region", "zh-CN")
+        target = next(c for c in spaced["candidates"] if c["text"] == "onset-repeated")
+        self.assertEqual(target["native_score"], hits["onset-repeated"]["native_score"])
+        self.assertNotIn("coda-repeated", [c["text"] for c in spaced["candidates"]])
+        self.assertEqual(self.query("nn", "--strict", "--region", "zh-CN")["candidates"], [])
+
     def test_complete_input_cannot_be_replaced_dropped_or_reordered(self):
         for raw, forbidden in (("ɪam", "my"), ("maɪz", "my"),
                                ("zaɪ", "my"), ("xɑʊni", "你好"),
@@ -199,6 +214,23 @@ class GraphOmissionsTest(unittest.TestCase):
         self.assertEqual(target["kind"], "conversion")
         self.assertEqual(target["matched_ipa"], "bab")
         self.assertFalse(target["matched_ipa"].startswith("a"))
+
+    def test_ordered_reachability_avoids_false_order_frontier_starvation(self):
+        # Every distractor contains a,b,c,d, but its order cannot accept abcd.
+        # Independent fixture construction produces thousands of cheap prefixes
+        # sharing one DAWG suffix; unordered presence alone cannot rule them out.
+        entries = {"a" + "".join(chars) + "dcba": [("noise", 0, 0, False)]
+                   for chars in itertools.product("efghijklmnopqrsu", repeat=3)}
+        entries["zzabcd"] = [("ordered-target", 0, 100, False)]
+        dictionary = self.directory / "ordered-starvation.ipad"
+        dictionary.write_bytes(build(24, entries=entries))
+        process = subprocess.run([str(self.cli), "query", str(dictionary), "abcd",
+                                  "--omission-budget", "4096", "--limit", "30"],
+                                 text=True, capture_output=True, check=True)
+        result = json.loads(process.stdout)
+        self.assertEqual([c["text"] for c in result["candidates"]], ["ordered-target"])
+        self.assertLessEqual(result["explored_states"], 4096)
+        self.assertTrue(is_subsequence("abcd", result["candidates"][0]["matched_ipa"]))
 
     def test_exhaustive_small_inputs_equal_independent_subsequence_oracle(self):
         # Repeated letters and shared DAWG suffixes exercise rank addressing and

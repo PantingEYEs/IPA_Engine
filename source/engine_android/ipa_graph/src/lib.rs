@@ -2,18 +2,18 @@
 //! no external runtime dependencies. Candidate behavior matches IPADWG01 v2/v3.
 pub mod ffi;
 mod mapping;
+mod packs;
+mod runtime;
 mod unicode;
+pub use runtime::{Engine, PackInfo, PackMode, Pronunciation, ReverseResult};
 
 use mapping::Mapping;
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
-use std::path::Path;
 use std::rc::Rc;
-use std::sync::{
-    atomic::{AtomicU8, Ordering as AtomicOrdering},
-    Arc,
-};
-use std::time::{Duration, Instant};
+#[cfg(test)]
+use std::time::Duration;
+use std::time::Instant;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum QueryStatus {
@@ -46,6 +46,9 @@ pub enum Region {
     ZhCN = 2,
     ZhTW = 3,
     JaJP = 4,
+    RuRU = 5,
+    ArStandard = 6,
+    KoKR = 7,
 }
 impl Region {
     pub fn as_str(self) -> &'static str {
@@ -55,6 +58,9 @@ impl Region {
             Self::ZhCN => "zh-CN",
             Self::ZhTW => "zh-TW",
             Self::JaJP => "ja-JP",
+            Self::RuRU => "ru-RU",
+            Self::ArStandard => "ar-001",
+            Self::KoKR => "ko-KR",
         }
     }
     fn from_code(code: u8) -> Self {
@@ -63,7 +69,10 @@ impl Region {
             1 => Self::EnGB,
             2 => Self::ZhCN,
             3 => Self::ZhTW,
-            _ => Self::JaJP,
+            4 => Self::JaJP,
+            5 => Self::RuRU,
+            6 => Self::ArStandard,
+            _ => Self::KoKR,
         }
     }
 }
@@ -192,6 +201,15 @@ fn labels(mask: u8) -> String {
     if mask & 16 != 0 {
         parts.push("日");
     }
+    if mask & 32 != 0 {
+        parts.push("RU");
+    }
+    if mask & 64 != 0 {
+        parts.push("AR");
+    }
+    if mask & 128 != 0 {
+        parts.push("KO");
+    }
     parts.join("/")
 }
 
@@ -213,7 +231,7 @@ struct Graph {
     // comparison symbols, so every validated suffix needs at most 192.
     max_match_depth: Vec<u8>,
     match_presence: Vec<u64>,
-    mask: AtomicU8,
+    present_regions: u8,
 }
 impl Graph {
     #[inline]
@@ -379,7 +397,23 @@ impl Graph {
         }
         String::from_utf8(value).map_err(|_| "word pool changed".into())
     }
-    fn load(mapping: Mapping) -> Result<Self, String> {
+    fn word_id(&self, text: &str) -> Result<Option<u32>, String> {
+        let (mut lo, mut hi) = (0, self.words);
+        while lo < hi {
+            let mid = lo + (hi - lo) / 2;
+            if self.word(mid)?.as_str() < text {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        Ok(if lo < self.words && self.word(lo)? == text {
+            Some(lo)
+        } else {
+            None
+        })
+    }
+    fn load_mode(mapping: Mapping, search_indexes: bool) -> Result<Self, String> {
         let bytes = mapping.bytes();
         if bytes.len() < 108 || &bytes[..8] != b"IPADWG01" {
             return Err("invalid graph magic/header".into());
@@ -454,9 +488,17 @@ impl Graph {
             root,
             pattern: String::new(),
             match_alphabet: Vec::new(),
-            max_match_depth: vec![0; nodes as usize],
-            match_presence: vec![0; nodes as usize],
-            mask: AtomicU8::new(31),
+            max_match_depth: if search_indexes {
+                vec![0; nodes as usize]
+            } else {
+                Vec::new()
+            },
+            match_presence: if search_indexes {
+                vec![0; nodes as usize]
+            } else {
+                Vec::new()
+            },
+            present_regions: 0,
         };
         graph.validate(blocks as u32)?;
         Ok(graph)
@@ -526,15 +568,17 @@ impl Graph {
                 total += u64::from(self.count(child));
                 let cp = self.cp(label);
                 depth = depth.max(depths[child as usize] + if cp >= 0x10000 { 2 } else { 1 });
-                let (parts, count) = unicode::expansion(cp);
-                let match_depth = self.max_match_depth[child as usize]
-                    .checked_add(count as u8)
-                    .ok_or("graph comparison depth exceeds byte bound")?;
-                self.max_match_depth[n as usize] =
-                    self.max_match_depth[n as usize].max(match_depth);
-                self.match_presence[n as usize] |= self.match_presence[child as usize];
-                for &part in &parts[..count] {
-                    self.match_presence[n as usize] |= symbol_bit(part);
+                if !self.max_match_depth.is_empty() {
+                    let (parts, count) = unicode::expansion(cp);
+                    let match_depth = self.max_match_depth[child as usize]
+                        .checked_add(count as u8)
+                        .ok_or("graph comparison depth exceeds byte bound")?;
+                    self.max_match_depth[n as usize] =
+                        self.max_match_depth[n as usize].max(match_depth);
+                    self.match_presence[n as usize] |= self.match_presence[child as usize];
+                    for &part in &parts[..count] {
+                        self.match_presence[n as usize] |= symbol_bit(part);
+                    }
                 }
             }
             if total == 0
@@ -558,6 +602,7 @@ impl Graph {
         if self.index(4, 0) != 0 || self.index(4, self.keys) as usize != post_len {
             return Err("invalid posting directory".into());
         }
+        let mut present_regions = 0;
         for key in 0..self.keys {
             let start = self.index(4, key) as usize;
             let end = self.index(4, key + 1) as usize;
@@ -579,11 +624,12 @@ impl Graph {
                 let region = code & 7;
                 if prev_word >= self.words
                     || delta >= self.words - prev_word
-                    || region > 4
+                    || region > 7
                     || freq > 180
                 {
                     return Err("invalid posting word/region/score".into());
                 }
+                present_regions |= 1 << region;
                 let id = prev_word + delta;
                 if record != 0 && id == prev_word && region <= prev_region {
                     return Err("unordered or duplicate posting record".into());
@@ -634,85 +680,22 @@ impl Graph {
                 return Err("trailing word block bytes".into());
             }
         }
+        self.present_regions = present_regions;
         Ok(())
     }
 }
 
-/// A cheap clone shares the validated read-only graph and atomic region policy.
-/// The file must remain immutable; replacing its path with a new file is safe.
-#[derive(Clone)]
-pub struct Engine {
-    graph: Arc<Graph>,
+// The search oracle tests inspect an immutable single graph directly.
+#[cfg(test)]
+struct SingleEngine {
+    graph: std::sync::Arc<Graph>,
 }
-impl Engine {
-    /// Loads and validates a packed graph without expanding the dictionary.
-    ///
-    /// # Safety
-    /// On Unix 64-bit targets the file is memory-mapped. Callers must ensure
-    /// nobody modifies or truncates this file until the last Engine clone is
-    /// dropped. Atomic replacement of the path with a different file is safe;
-    /// in-place overwrite of the active file is not. This contract also applies
-    /// to processes outside Rust, including the host's dictionary updater.
-    pub unsafe fn load(path: impl AsRef<Path>) -> Result<Self, String> {
+#[cfg(test)]
+impl SingleEngine {
+    unsafe fn load(path: impl AsRef<std::path::Path>) -> Result<Self, String> {
         Ok(Self {
-            graph: Arc::new(Graph::load(Mapping::open(path.as_ref())?)?),
+            graph: std::sync::Arc::new(Graph::load_mode(Mapping::open(path.as_ref())?, true)?),
         })
-    }
-    pub fn configure(&self, mask: u8) {
-        self.graph.mask.store(mask & 31, AtomicOrdering::Relaxed);
-    }
-    pub fn accepts_input(&self, raw: &str) -> bool {
-        self.graph.input(raw).is_some()
-    }
-    pub fn segment_pattern(&self) -> &str {
-        &self.graph.pattern
-    }
-    pub fn dictionary_bytes(&self) -> usize {
-        self.graph.mapping.bytes().len()
-    }
-    pub fn node_count(&self) -> u32 {
-        self.graph.nodes
-    }
-    pub fn arc_count(&self) -> u32 {
-        self.graph.arcs
-    }
-    pub fn key_count(&self) -> u32 {
-        self.graph.keys
-    }
-    pub fn word_count(&self) -> u32 {
-        self.graph.words
-    }
-    pub fn alphabet_count(&self) -> u32 {
-        self.graph.alphabet
-    }
-    pub fn format_version(&self) -> u32 {
-        self.graph.version
-    }
-    pub fn index_bits(&self) -> u32 {
-        self.graph.width as u32 * 8
-    }
-    pub fn arc_record_bytes(&self) -> u32 {
-        self.graph.width as u32 + 1
-    }
-    pub fn query(&self, raw: &str, options: QueryOptions) -> QueryResult {
-        let start = Instant::now();
-        let mut query = Search {
-            graph: &self.graph,
-            result: QueryResult::default(),
-            deadline: start + Duration::from_millis(u64::from(options.deadline_ms.clamp(1, 60))),
-            timeout: false,
-            candidate_overflow: false,
-            limit: options.candidate_limit.min(180) as usize,
-            mask: self.graph.mask.load(AtomicOrdering::Relaxed),
-            consumed: HashSet::new(),
-            hits: Vec::new(),
-        };
-        if query.run(raw, options).is_err() {
-            query.result.status = QueryStatus::Error;
-            query.result.candidates.clear();
-        }
-        query.result.elapsed_ms = start.elapsed().as_secs_f64() * 1000.0;
-        query.result
     }
 }
 
@@ -740,6 +723,10 @@ struct State {
     cost: u32,
     at_onset: bool,
     onset_aligned: bool,
+    // Independent alignment for abbreviations: an earlier matching coda must
+    // not steal a symbol that can match the next explicit syllable onset.
+    // At most 64 UTF-16 input units expand to at most 192 comparison symbols.
+    onset_position: u8,
 }
 impl Ord for State {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -922,14 +909,9 @@ impl Search<'_> {
         }
         self.check_time();
         if self.timeout {
-            if !options.allow_omissions {
-                self.result.status = QueryStatus::Timeout;
-                return Ok(());
-            }
             self.result.truncated = true;
-            if self.hits.is_empty() {
+            if !options.allow_omissions || self.hits.is_empty() {
                 self.result.status = QueryStatus::Timeout;
-                return Ok(());
             }
         }
         if self.candidate_overflow {
@@ -1034,6 +1016,126 @@ impl Search<'_> {
         }
         Ok(())
     }
+    // Bounded phonemic-exact probe: when only annotations are missing, the
+    // existing cheap search is usually sufficient. This probe only selects a
+    // search strategy; it never supplies candidates or discards a valid path.
+    fn annotation_only_match(&mut self, input: &[u32]) -> Result<bool, String> {
+        let mut pending = vec![(self.graph.root, 0u32, 0usize)];
+        let mut work = 0u32;
+        while let Some((node, rank, position)) = pending.pop() {
+            if work >= 1024 || self.check_time() {
+                return Ok(false);
+            }
+            let mut child_rank = rank;
+            if self.graph.terminal(node) {
+                if position == input.len() {
+                    let start = self.graph.index(4, rank) as usize;
+                    let end = self.graph.index(4, rank + 1) as usize;
+                    let bytes = &self.graph.section(5)[start..end];
+                    let mut cursor = 0;
+                    let records = varint(bytes, &mut cursor)?;
+                    for record in 0..records {
+                        if work == 1024 {
+                            return Ok(false);
+                        }
+                        work += 1;
+                        if record & 31 == 0 && self.check_time() {
+                            return Ok(false);
+                        }
+                        let code = varint(bytes, &mut cursor)?;
+                        cursor += 1;
+                        if self.mask & (1 << (code & 7)) != 0 {
+                            return Ok(true);
+                        }
+                    }
+                }
+                child_rank += 1;
+            }
+            for arc in self.graph.begin(node)..self.graph.end(node) {
+                if work == 1024 {
+                    return Ok(false);
+                }
+                work += 1;
+                let (label, child) = self.graph.arc(arc);
+                let (parts, count) = unicode::expansion(self.graph.cp(label));
+                let mut matched = position;
+                let mut valid = true;
+                for &part in &parts[..count] {
+                    if matched < input.len() && input[matched] == part {
+                        matched += 1;
+                    } else if !unicode::annotation(part) {
+                        valid = false;
+                        break;
+                    }
+                }
+                if valid {
+                    pending.push((child, child_rank, matched));
+                }
+                child_rank += self.graph.count(child);
+            }
+        }
+        Ok(false)
+    }
+    // Minimum input suffix start accepted below each DAG node. Child IDs are
+    // smaller than parent IDs, so one bottom-up pass gives exact ordered
+    // feasibility without enumerating pronunciations or storing extra paths.
+    fn suffix_requirements(&mut self, input: &[u32]) -> Option<Vec<u8>> {
+        // Keep at least three quarters of the remaining deadline available
+        // for ordinary search if analysis is too expensive on this device.
+        let analysis_deadline =
+            Instant::now() + self.deadline.saturating_duration_since(Instant::now()) / 4;
+        self.suffix_requirements_before(input, analysis_deadline)
+    }
+    fn suffix_requirements_before(
+        &mut self,
+        input: &[u32],
+        analysis_deadline: Instant,
+    ) -> Option<Vec<u8>> {
+        let stride = input.len() + 1;
+        let mut reverse_step = vec![0u8; (self.graph.alphabet as usize + 1) * stride];
+        for label in 1..=self.graph.alphabet {
+            let (parts, count) = unicode::expansion(self.graph.cp(label as u8));
+            for start in 0..stride {
+                let mut position = start;
+                for &part in parts[..count].iter().rev() {
+                    if position > 0 && input[position - 1] == part {
+                        position -= 1;
+                    }
+                }
+                reverse_step[label as usize * stride + start] = position as u8;
+            }
+        }
+        let mut required = vec![input.len() as u8; self.graph.nodes as usize];
+        let last = input.last().copied().map(symbol_bit);
+        for node in 0..self.graph.nodes {
+            if node & 1023 == 0 {
+                if self.check_time() || Instant::now() >= analysis_deadline {
+                    // No partial array is used: unknown analysis must never
+                    // be treated as proof that a candidate is unreachable.
+                    return None;
+                }
+            }
+            // Empty query suffix is a subsequence of every accepted path.
+            // If even its last symbol is absent, no nonempty suffix can fit.
+            if last.is_some_and(|bit| self.graph.match_presence[node as usize] & bit == 0) {
+                continue;
+            }
+            let lower = input
+                .len()
+                .saturating_sub(self.graph.max_match_depth[node as usize] as usize);
+            let mut best = input.len() as u8;
+            for arc in self.graph.begin(node)..self.graph.end(node) {
+                let (label, child) = self.graph.arc(arc);
+                let start = required[child as usize];
+                best = best.min(reverse_step[label as usize * stride + start as usize]);
+                if best as usize == lower {
+                    break;
+                }
+            }
+            required[node as usize] = best;
+        }
+        Some(required)
+    }
     fn omissions(
         &mut self,
         cps: &[u32],
@@ -1054,6 +1156,20 @@ impl Search<'_> {
         for i in (0..input.len()).rev() {
             remaining[i] = remaining[i + 1] | symbol_bit(input[i]);
         }
+        let requirements = if input.len() >= 4
+            && !self.result.exact_found
+            && options.deadline_ms >= 10
+            && options.omission_state_budget >= 4096
+            && !self.annotation_only_match(&input)?
+        {
+            self.suffix_requirements(&input)
+        } else {
+            None
+        };
+        if self.timeout {
+            return Ok(());
+        }
+        let budget = options.omission_state_budget.clamp(1, 200_000);
         let mut pending = BinaryHeap::new();
         pending.push(State {
             node: self.graph.root,
@@ -1063,12 +1179,18 @@ impl Search<'_> {
             cost: 0,
             at_onset: true,
             onset_aligned: true,
+            onset_position: 0,
         });
-        let budget = options.omission_state_budget.clamp(1, 200_000);
         let mut created = 1;
         while !pending.is_empty() && !self.check_time() {
             let current = pending.pop().expect("pending state");
             self.result.explored_states += 1;
+            if requirements
+                .as_ref()
+                .is_some_and(|required| current.position < required[current.node as usize] as usize)
+            {
+                continue;
+            }
             if input.len() - current.position
                 > usize::from(self.graph.max_match_depth[current.node as usize])
                 || self.graph.match_presence[current.node as usize] & remaining[current.position]
@@ -1091,7 +1213,9 @@ impl Search<'_> {
                             &ipa,
                             false,
                             current.omitted,
-                            initials && current.onset_aligned,
+                            initials
+                                && current.onset_aligned
+                                && usize::from(current.onset_position) == input.len(),
                         )?;
                     }
                 }
@@ -1103,31 +1227,39 @@ impl Search<'_> {
                 let (mut position, mut omitted, mut cost) =
                     (current.position, current.omitted, current.cost);
                 let (mut at_onset, mut onset_aligned) = (current.at_onset, current.onset_aligned);
+                let mut onset_position = usize::from(current.onset_position);
                 let (parts, count) = unicode::expansion(cp);
                 for &part in &parts[..count] {
                     let boundary = whitespace(part) || part == 0x2e;
                     let sound = !unicode::annotation(part) && !boundary;
+                    let onset_match = initials
+                        && onset_position < input.len()
+                        && part == input[onset_position]
+                        && (boundary || (sound && at_onset));
+                    if onset_match {
+                        onset_position += 1;
+                    } else if initials && sound && at_onset {
+                        onset_aligned = false;
+                    }
+                    if initials {
+                        cost += if onset_match {
+                            0
+                        } else if boundary || unicode::annotation(part) {
+                            1
+                        } else if at_onset {
+                            256
+                        } else if vowel(part) {
+                            16
+                        } else {
+                            64
+                        };
+                    }
                     if position < input.len() && part == input[position] {
-                        if initials && sound && !at_onset {
-                            cost += 256;
-                            onset_aligned = false;
-                        }
                         position += 1;
                     } else {
                         omitted += 1;
-                        cost += if unicode::annotation(part) {
-                            1
-                        } else if initials && at_onset {
-                            256
-                        } else if initials && vowel(part) {
-                            16
-                        } else if initials {
-                            64
-                        } else {
-                            128
-                        };
-                        if sound && at_onset {
-                            onset_aligned = false;
+                        if !initials {
+                            cost += if unicode::annotation(part) { 1 } else { 128 };
                         }
                     }
                     if boundary {
@@ -1136,7 +1268,11 @@ impl Search<'_> {
                         at_onset = false;
                     }
                 }
-                if input.len() - position <= usize::from(self.graph.max_match_depth[child as usize])
+                if requirements
+                    .as_ref()
+                    .is_none_or(|required| position >= required[child as usize] as usize)
+                    && input.len() - position
+                        <= usize::from(self.graph.max_match_depth[child as usize])
                     && self.graph.match_presence[child as usize] & remaining[position]
                         == remaining[position]
                 {
@@ -1151,6 +1287,7 @@ impl Search<'_> {
                             cost,
                             at_onset,
                             onset_aligned,
+                            onset_position: onset_position as u8,
                         });
                         created += 1;
                     }
@@ -1162,5 +1299,180 @@ impl Search<'_> {
             self.result.truncated = true;
         }
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod search_tests {
+    use super::*;
+
+    fn search(graph: &Graph, deadline: Instant) -> Search<'_> {
+        Search {
+            graph,
+            result: QueryResult::default(),
+            deadline,
+            timeout: false,
+            candidate_overflow: false,
+            limit: 30,
+            mask: 31,
+            consumed: HashSet::new(),
+            hits: Vec::new(),
+        }
+    }
+
+    #[test]
+    fn annotation_probe_respects_sounds_regions_and_expansion() {
+        let path =
+            std::env::temp_dir().join(format!("ipa-annotation-probe-{}.ipad", std::process::id()));
+        std::fs::write(&path, include_bytes!("../tests/fixtures/omissions.ipad")).unwrap();
+        {
+            // SAFETY: the test owns an immutable fixture for the engine lifetime.
+            let engine = unsafe { SingleEngine::load(&path).unwrap() };
+            let mut probe = search(&engine.graph, Instant::now() + Duration::from_secs(60));
+            let input = |raw: &str| {
+                raw.chars()
+                    .flat_map(|cp| {
+                        let (parts, count) = unicode::expansion(cp as u32);
+                        parts[..count].to_vec()
+                    })
+                    .collect::<Vec<_>>()
+            };
+            assert!(probe.annotation_only_match(&input("maɪ")).unwrap());
+            assert!(probe.annotation_only_match(&input("ni xɑʊ")).unwrap());
+            assert!(!probe.annotation_only_match(&input("maˈɪ")).unwrap());
+            assert!(!probe.annotation_only_match(&input("nx")).unwrap());
+            assert!(!probe.annotation_only_match(&input("nn")).unwrap());
+            probe.mask = 1;
+            assert!(!probe.annotation_only_match(&input("ni xɑʊ")).unwrap());
+        }
+        std::fs::remove_file(path).unwrap();
+    }
+
+    #[test]
+    fn unfinished_analysis_is_unknown_and_preserves_search_deadline() {
+        let path =
+            std::env::temp_dir().join(format!("ipa-analysis-limit-{}.ipad", std::process::id()));
+        std::fs::write(&path, include_bytes!("../tests/fixtures/synthetic-24.ipad")).unwrap();
+        {
+            // SAFETY: immutable test fixture owned until engine drop.
+            let engine = unsafe { SingleEngine::load(&path).unwrap() };
+            let mut bounded = search(&engine.graph, Instant::now() + Duration::from_secs(60));
+            let required = bounded.suffix_requirements_before(
+                &[97, 98, 99, 100],
+                Instant::now() - Duration::from_secs(1),
+            );
+            assert!(required.is_none());
+            assert!(!bounded.timeout);
+            bounded.run("ab", QueryOptions::default()).unwrap();
+            assert_eq!(bounded.result.status, QueryStatus::Ok);
+            assert!(bounded
+                .result
+                .candidates
+                .iter()
+                .any(|candidate| candidate.text == "about"));
+        }
+        std::fs::remove_file(path).unwrap();
+    }
+
+    #[test]
+    fn suffix_requirements_equal_independent_path_enumeration() {
+        let path =
+            std::env::temp_dir().join(format!("ipa-ordered-prune-{}.ipad", std::process::id()));
+        std::fs::write(&path, include_bytes!("../tests/fixtures/synthetic-24.ipad")).unwrap();
+        {
+            // SAFETY: immutable uniquely owned test dictionary until drop.
+            let engine = unsafe { SingleEngine::load(&path).unwrap() };
+            for raw in ["", "a", "ab", "ba", "aaa", "ni", "ɕoː", "ni˨˩˦", "é"] {
+                let query: Vec<_> = raw
+                    .chars()
+                    .flat_map(|cp| {
+                        let (parts, n) = unicode::expansion(cp as u32);
+                        parts[..n].to_vec()
+                    })
+                    .collect();
+                let mut search = search(&engine.graph, Instant::now() + Duration::from_secs(60));
+                let required = search.suffix_requirements(&query).unwrap();
+                for node in 0..engine.graph.nodes {
+                    let mut paths = vec![(node, Vec::<u32>::new())];
+                    let mut oracle = query.len();
+                    while let Some((at, symbols)) = paths.pop() {
+                        if engine.graph.terminal(at) {
+                            for start in 0..=query.len() {
+                                let mut matched = start;
+                                for cp in &symbols {
+                                    if matched < query.len() && query[matched] == *cp {
+                                        matched += 1;
+                                    }
+                                }
+                                if matched == query.len() {
+                                    oracle = oracle.min(start);
+                                    break;
+                                }
+                            }
+                        }
+                        for arc in engine.graph.begin(at)..engine.graph.end(at) {
+                            let (label, child) = engine.graph.arc(arc);
+                            let (parts, n) = unicode::expansion(engine.graph.cp(label));
+                            let mut next = symbols.clone();
+                            next.extend_from_slice(&parts[..n]);
+                            paths.push((child, next));
+                        }
+                    }
+                    assert_eq!(
+                        required[node as usize] as usize, oracle,
+                        "{raw:?} node {node}"
+                    );
+                }
+            }
+        }
+        std::fs::remove_file(path).unwrap();
+    }
+
+    #[test]
+    fn timeout_retains_completed_hits_and_reports_partial_search() {
+        let path =
+            std::env::temp_dir().join(format!("ipa-graph-deadline-{}.ipad", std::process::id()));
+        std::fs::write(&path, include_bytes!("../tests/fixtures/synthetic-24.ipad")).unwrap();
+        {
+            // SAFETY: the uniquely owned fixture is unchanged until the engine
+            // and every borrowed Search have been dropped below.
+            let engine = unsafe { SingleEngine::load(&path).unwrap() };
+            let (_, rank) = engine.graph.walk(&[u32::from(b'a')]).unwrap();
+            for allow_omissions in [false, true] {
+                let options = QueryOptions {
+                    prefix: true,
+                    allow_omissions,
+                    ..QueryOptions::default()
+                };
+                let mut partial = search(&engine.graph, Instant::now() + Duration::from_secs(60));
+                partial.consume(rank, "a", false, 0, false).unwrap();
+                assert!(!partial.hits.is_empty());
+                // Deterministically expire after the exact lookup completed,
+                // rather than depending on hardware speed or a 1 ms race.
+                partial.deadline = Instant::now() - Duration::from_secs(1);
+                partial.run("a", options).unwrap();
+                assert!(partial.result.exact_found);
+                assert!(partial.result.truncated);
+                assert!(partial.result.candidates.iter().any(|c| c.text == "alpha"));
+                assert_eq!(
+                    partial.result.status,
+                    if allow_omissions {
+                        QueryStatus::Ok
+                    } else {
+                        QueryStatus::Timeout
+                    }
+                );
+
+                let mut empty = search(&engine.graph, Instant::now() - Duration::from_secs(1));
+                empty.run("a", options).unwrap();
+                assert!(empty.result.truncated);
+                assert!(empty.result.candidates.is_empty());
+                assert_eq!(empty.result.status, QueryStatus::Timeout);
+            }
+            // The extra alignment cursor occupies existing padding, preserving
+            // the per-state memory bound on desktop and Android ARM64.
+            assert!(std::mem::size_of::<State>() <= 32);
+        }
+        std::fs::remove_file(path).unwrap();
     }
 }

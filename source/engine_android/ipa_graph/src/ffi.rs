@@ -6,7 +6,7 @@
 //! The host must keep each mapped dictionary inode unchanged until the last
 //! handle closes; replacing its path atomically with a new inode is allowed.
 
-use crate::{CandidateKind, Engine, QueryOptions, QueryResult};
+use crate::{CandidateKind, Engine, PackMode, QueryOptions, QueryResult, ReverseResult};
 use std::ffi::{c_char, CString};
 use std::fmt::Write;
 use std::panic::{catch_unwind, AssertUnwindSafe};
@@ -98,9 +98,18 @@ pub fn serialize_query(result: &QueryResult, raw: Option<&str>, accepts: bool) -
     let mut text = String::new();
     text.push('{');
     if let Some(raw) = raw {
-        let _ = write!(text, "\"raw\":{},\"accepts_input\":{},", json_string(raw), accepts);
+        let _ = write!(
+            text,
+            "\"raw\":{},\"accepts_input\":{},",
+            json_string(raw),
+            accepts
+        );
     }
-    let elapsed = if result.elapsed_ms.is_finite() { result.elapsed_ms.max(0.0) } else { 0.0 };
+    let elapsed = if result.elapsed_ms.is_finite() {
+        result.elapsed_ms.max(0.0)
+    } else {
+        0.0
+    };
     let _ = write!(text,
         "\"status\":{},\"elapsed_ms\":{},\"exact_found\":{},\"truncated\":{},\"matched_keys\":{},\"explored_states\":{},\"matched_records\":{},",
         json_string(result.status.as_str()), elapsed, result.exact_found,
@@ -110,9 +119,15 @@ pub fn serialize_query(result: &QueryResult, raw: Option<&str>, accepts: bool) -
     }
     text.push_str("\"candidates\":[");
     for (i, candidate) in result.candidates.iter().enumerate() {
-        if i != 0 { text.push(','); }
+        if i != 0 {
+            text.push(',');
+        }
         let kind = if raw.is_some() {
-            json_string(if candidate.kind == CandidateKind::Conversion { "conversion" } else { "completion" })
+            json_string(if candidate.kind == CandidateKind::Conversion {
+                "conversion"
+            } else {
+                "completion"
+            })
         } else {
             (candidate.kind as u32).to_string()
         };
@@ -123,7 +138,11 @@ pub fn serialize_query(result: &QueryResult, raw: Option<&str>, accepts: bool) -
             candidate.frequency_score, json_string(candidate.region.as_str()),
             candidate.derived, candidate.omitted_symbols);
         if raw.is_some() {
-            let _ = write!(text, ",\"frequency_zipf\":{}", f64::from(candidate.frequency_score) / 20.0);
+            let _ = write!(
+                text,
+                ",\"frequency_zipf\":{}",
+                f64::from(candidate.frequency_score) / 20.0
+            );
         }
         text.push('}');
     }
@@ -137,7 +156,7 @@ pub fn serialize_metadata(engine: &Engine, load_ms: Option<f64>) -> String {
         engine.dictionary_bytes(), engine.format_version(), engine.index_bits(),
         engine.arc_record_bytes(), engine.node_count(), engine.arc_count(),
         engine.key_count(), engine.word_count(), engine.alphabet_count(),
-        json_string(engine.segment_pattern()));
+        json_string(&engine.segment_pattern()));
     if let Some(load_ms) = load_ms {
         let _ = write!(text, ",\"load_ms\":{}", load_ms);
     }
@@ -147,23 +166,47 @@ pub fn serialize_metadata(engine: &Engine, load_ms: Option<f64>) -> String {
 
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_open(
-    path: *const u8, path_length: usize, handle: *mut *mut Engine,
+    path: *const u8,
+    path_length: usize,
+    handle: *mut *mut Engine,
     diagnostic: *mut *mut c_char,
 ) -> i32 {
-    if !handle.is_null() { *handle = ptr::null_mut(); }
-    if !diagnostic.is_null() { *diagnostic = ptr::null_mut(); }
+    ipa_graph_open_with_defaults(path, path_length, 1, handle, diagnostic)
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ipa_graph_open_with_defaults(
+    path: *const u8,
+    path_length: usize,
+    load_defaults: u32,
+    handle: *mut *mut Engine,
+    diagnostic: *mut *mut c_char,
+) -> i32 {
+    if !handle.is_null() {
+        *handle = ptr::null_mut();
+    }
+    if !diagnostic.is_null() {
+        *diagnostic = ptr::null_mut();
+    }
     boundary(|| {
-        if handle.is_null() { return INVALID_ARGUMENT; }
+        if handle.is_null() || load_defaults > 1 {
+            return INVALID_ARGUMENT;
+        }
         let path = match input(path, path_length) {
             Ok(path) if !path.is_empty() && !path.contains('\0') => path,
             _ => return INVALID_ARGUMENT,
         };
         // The C ABI host promises the mapped inode is immutable until close.
         // Android installs dictionaries under verified, content-hash filenames.
-        match unsafe { Engine::load(path) } {
-            Ok(engine) => { *handle = Box::into_raw(Box::new(engine)); OK }
+        match unsafe { Engine::load_with_defaults(path, load_defaults != 0) } {
+            Ok(engine) => {
+                *handle = Box::into_raw(Box::new(engine));
+                OK
+            }
             Err(error) => {
-                if !diagnostic.is_null() { let _ = output(diagnostic, error); }
+                if !diagnostic.is_null() {
+                    let _ = output(diagnostic, error);
+                }
                 LOAD_ERROR
             }
         }
@@ -173,7 +216,9 @@ pub unsafe extern "C" fn ipa_graph_open(
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_close(handle: *mut Engine) -> i32 {
     boundary(|| {
-        if !handle.is_null() { drop(Box::from_raw(handle)); }
+        if !handle.is_null() {
+            drop(Box::from_raw(handle));
+        }
         OK
     })
 }
@@ -181,71 +226,258 @@ pub unsafe extern "C" fn ipa_graph_close(handle: *mut Engine) -> i32 {
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_configure(handle: *const Engine, region_mask: u32) -> i32 {
     boundary(|| {
-        let Some(engine) = handle.as_ref() else { return INVALID_ARGUMENT; };
-        if region_mask & !31 != 0 { return INVALID_ARGUMENT; }
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        if region_mask & !255 != 0 {
+            return INVALID_ARGUMENT;
+        }
         engine.configure(region_mask as u8);
         OK
     })
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn ipa_graph_accepts_input(
-    handle: *const Engine, raw: *const u8, raw_length: usize, accepts: *mut u32,
+pub unsafe extern "C" fn ipa_graph_configure_legacy(
+    handle: *const Engine,
+    region_mask: u32,
 ) -> i32 {
-    if !accepts.is_null() { *accepts = 0; }
     boundary(|| {
-        let Some(engine) = handle.as_ref() else { return INVALID_ARGUMENT; };
-        if accepts.is_null() { return INVALID_ARGUMENT; }
-        let raw = match input(raw, raw_length) { Ok(raw) => raw, Err(code) => return code };
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        if region_mask & !31 != 0 {
+            return INVALID_ARGUMENT;
+        }
+        engine.configure_legacy(region_mask as u8);
+        OK
+    })
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ipa_graph_add_dictionary(
+    handle: *const Engine,
+    path: *const u8,
+    length: usize,
+    load_defaults: u32,
+) -> i32 {
+    boundary(|| {
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        if load_defaults > 1 {
+            return INVALID_ARGUMENT;
+        }
+        let path = match input(path, length) {
+            Ok(path) if !path.is_empty() && !path.contains('\0') => path,
+            _ => return INVALID_ARGUMENT,
+        };
+        match engine.add_dictionary(path, load_defaults != 0) {
+            Ok(()) => OK,
+            Err(_) => LOAD_ERROR,
+        }
+    })
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ipa_graph_set_pack_mode(
+    handle: *const Engine,
+    id: *const u8,
+    length: usize,
+    mode: i32,
+) -> i32 {
+    boundary(|| {
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        let id = match input(id, length) {
+            Ok(id) => id,
+            Err(code) => return code,
+        };
+        let mode = match mode {
+            0 => PackMode::Off,
+            1 => PackMode::ReverseOnly,
+            2 => PackMode::Input,
+            _ => return INVALID_ARGUMENT,
+        };
+        match engine.set_pack_mode(id, mode) {
+            Ok(()) => OK,
+            Err(_) => LOAD_ERROR,
+        }
+    })
+}
+
+pub fn serialize_packs(engine: &Engine) -> String {
+    let records:Vec<_> = engine.list_packs().into_iter().map(|p| format!(
+        "{{\"id\":{},\"region_mask\":{},\"mode\":{},\"loaded\":{},\"forward\":{},\"reverse\":{},\"graph_bytes\":{},\"reverse_bytes\":{},\"mapped_bytes\":{},\"search_index_bytes\":{}}}",
+        json_string(&p.id), p.region_mask, json_string(p.mode.as_str()), p.loaded, p.forward, p.reverse,
+        p.graph_bytes, p.reverse_bytes, p.mapped_bytes, p.search_index_bytes)).collect();
+    format!(
+        "{{\"format_version\":{},\"packs\":[{}]}}",
+        engine.format_version(),
+        records.join(",")
+    )
+}
+
+/// Words are exact NFC surface forms. Java/Python normalize at their boundary.
+pub fn serialize_reverse(word: &str, result: &ReverseResult) -> String {
+    let records:Vec<_> = result.readings.iter().map(|r| format!(
+        "{{\"ipa\":{},\"region\":{},\"frequency_score\":{},\"frequency_zipf\":{},\"derived\":{},\"pack_id\":{}}}",
+        json_string(&r.ipa), json_string(r.region.as_str()), r.frequency_score,
+        f64::from(r.frequency_score)/20.0, r.derived, json_string(&r.pack_id))).collect();
+    format!(
+        "{{\"word\":{},\"readings\":[{}],\"truncated\":{}}}",
+        json_string(word),
+        records.join(","),
+        result.truncated
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ipa_graph_list_packs(
+    handle: *const Engine,
+    text: *mut *mut c_char,
+) -> i32 {
+    if !text.is_null() {
+        *text = ptr::null_mut();
+    }
+    boundary(|| {
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        output(text, serialize_packs(engine))
+    })
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ipa_graph_reverse(
+    handle: *const Engine,
+    word: *const u8,
+    length: usize,
+    text: *mut *mut c_char,
+) -> i32 {
+    if !text.is_null() {
+        *text = ptr::null_mut();
+    }
+    boundary(|| {
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        let word = match input(word, length) {
+            Ok(word) => word,
+            Err(code) => return code,
+        };
+        match engine.reverse(word) {
+            Ok(result) => output(text, serialize_reverse(word, &result)),
+            Err(_) => INVALID_ARGUMENT,
+        }
+    })
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ipa_graph_accepts_input(
+    handle: *const Engine,
+    raw: *const u8,
+    raw_length: usize,
+    accepts: *mut u32,
+) -> i32 {
+    if !accepts.is_null() {
+        *accepts = 0;
+    }
+    boundary(|| {
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        if accepts.is_null() {
+            return INVALID_ARGUMENT;
+        }
+        let raw = match input(raw, raw_length) {
+            Ok(raw) => raw,
+            Err(code) => return code,
+        };
         *accepts = u32::from(engine.accepts_input(raw));
         OK
     })
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn ipa_graph_segment_pattern(handle: *const Engine, text: *mut *mut c_char) -> i32 {
-    if !text.is_null() { *text = ptr::null_mut(); }
+pub unsafe extern "C" fn ipa_graph_segment_pattern(
+    handle: *const Engine,
+    text: *mut *mut c_char,
+) -> i32 {
+    if !text.is_null() {
+        *text = ptr::null_mut();
+    }
     boundary(|| {
-        let Some(engine) = handle.as_ref() else { return INVALID_ARGUMENT; };
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
         output(text, engine.segment_pattern().to_owned())
     })
 }
 
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_query(
-    handle: *const Engine, raw: *const u8, raw_length: usize,
-    options: *const CQueryOptions, text: *mut *mut c_char,
+    handle: *const Engine,
+    raw: *const u8,
+    raw_length: usize,
+    options: *const CQueryOptions,
+    text: *mut *mut c_char,
 ) -> i32 {
-    if !text.is_null() { *text = ptr::null_mut(); }
+    if !text.is_null() {
+        *text = ptr::null_mut();
+    }
     boundary(|| {
-        let Some(engine) = handle.as_ref() else { return INVALID_ARGUMENT; };
-        let raw = match input(raw, raw_length) { Ok(raw) => raw, Err(code) => return code };
-        let options = options.as_ref().copied().map(QueryOptions::from).unwrap_or_default();
-        output(text, serialize_query(&engine.query(raw, options), None, false))
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
+        let raw = match input(raw, raw_length) {
+            Ok(raw) => raw,
+            Err(code) => return code,
+        };
+        let options = options
+            .as_ref()
+            .copied()
+            .map(QueryOptions::from)
+            .unwrap_or_default();
+        output(
+            text,
+            serialize_query(&engine.query(raw, options), None, false),
+        )
     })
 }
 
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_metadata(handle: *const Engine, text: *mut *mut c_char) -> i32 {
-    if !text.is_null() { *text = ptr::null_mut(); }
+    if !text.is_null() {
+        *text = ptr::null_mut();
+    }
     boundary(|| {
-        let Some(engine) = handle.as_ref() else { return INVALID_ARGUMENT; };
+        let Some(engine) = handle.as_ref() else {
+            return INVALID_ARGUMENT;
+        };
         output(text, serialize_metadata(engine, None))
     })
 }
 
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_empty_result(unsupported: u32, text: *mut *mut c_char) -> i32 {
-    if !text.is_null() { *text = ptr::null_mut(); }
-    boundary(|| output(text, format!(
+    if !text.is_null() {
+        *text = ptr::null_mut();
+    }
+    boundary(|| {
+        output(text, format!(
         "{{\"status\":\"{}\",\"elapsed_ms\":0,\"exact_found\":false,\"truncated\":false,\"matched_keys\":0,\"explored_states\":0,\"matched_records\":0,\"candidates\":[]}}",
-        if unsupported != 0 { "unsupported_input" } else { "error" })))
+        if unsupported != 0 { "unsupported_input" } else { "error" }))
+    })
 }
 
 #[no_mangle]
 pub unsafe extern "C" fn ipa_graph_string_free(text: *mut c_char) {
     let _ = boundary(|| {
-        if !text.is_null() { drop(CString::from_raw(text)); }
+        if !text.is_null() {
+            drop(CString::from_raw(text));
+        }
         OK
     });
 }
@@ -265,7 +497,10 @@ mod tests {
             let result = std::ffi::CStr::from_ptr(text).to_str().unwrap();
             assert!(result.contains("unsupported_input"));
             ipa_graph_string_free(text);
-            assert_eq!(ipa_graph_query(ptr::null(), ptr::null(), 0, ptr::null(), &mut text), INVALID_ARGUMENT);
+            assert_eq!(
+                ipa_graph_query(ptr::null(), ptr::null(), 0, ptr::null(), &mut text),
+                INVALID_ARGUMENT
+            );
             assert!(text.is_null());
         }
     }

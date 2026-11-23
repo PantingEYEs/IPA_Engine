@@ -31,8 +31,18 @@ enum IpaGraphStatus {
 
 int32_t ipa_graph_open(const uint8_t* path, size_t path_length,
         IpaGraphEngine** handle, char** diagnostic);
+int32_t ipa_graph_open_with_defaults(const uint8_t* path, size_t path_length, uint32_t load_defaults,
+                                     IpaGraphEngine** handle, char** diagnostic);
 int32_t ipa_graph_close(IpaGraphEngine* handle);
+int32_t ipa_graph_add_dictionary(const IpaGraphEngine* handle,
+        const uint8_t* path, size_t path_length, uint32_t load_defaults);
 int32_t ipa_graph_configure(const IpaGraphEngine* handle, uint32_t region_mask);
+int32_t ipa_graph_configure_legacy(const IpaGraphEngine* handle, uint32_t region_mask);
+int32_t ipa_graph_set_pack_mode(const IpaGraphEngine* handle,
+        const uint8_t* pack_id, size_t pack_id_length, int32_t mode);
+int32_t ipa_graph_list_packs(const IpaGraphEngine* handle, char** text);
+int32_t ipa_graph_reverse(const IpaGraphEngine* handle,
+        const uint8_t* word, size_t word_length, char** text);
 int32_t ipa_graph_accepts_input(const IpaGraphEngine* handle,
         const uint8_t* raw, size_t raw_length, uint32_t* accepts);
 int32_t ipa_graph_segment_pattern(const IpaGraphEngine* handle, char** text);

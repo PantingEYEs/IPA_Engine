@@ -11,6 +11,7 @@ import platform
 import os
 import shutil
 import subprocess
+import struct
 import sys
 import tempfile
 import zipfile
@@ -33,6 +34,41 @@ def zip_add(archive,path,name):
     info.compress_type=zipfile.ZIP_DEFLATED
     info.external_attr=0o100644<<16
     archive.writestr(info,Path(path).read_bytes())
+
+
+def validate_dictionary_input(dictionary, manifest):
+    metadata = json.loads(Path(manifest).read_text())
+    if metadata.get('complete') is not True or metadata.get('status') != 'complete':
+        raise ValueError('bundling a limited or incomplete lexicon is forbidden')
+    version = metadata.get('version')
+    cap = 96_000_000 if version == 4 else 40_000_000
+    if version not in (2, 4) or not 108 <= Path(dictionary).stat().st_size < cap:
+        raise ValueError('dictionary format or size exceeds the runtime bounds')
+    data = Path(dictionary).read_bytes()
+    if len(data) != metadata.get('bytes') or hashlib.sha256(data).hexdigest() != metadata.get('sha256'):
+        raise ValueError('dictionary bytes/SHA-256 differ from manifest')
+    if version == 4:
+        from engine_android.scripts.dictionary_validation import validate_container
+        validate_container(data, metadata['ipa_keys'])
+    else:
+        if data[:8] != b'IPADWG01' or struct.unpack_from('<I', data, 8)[0] != 2:
+            raise ValueError('expected a 24-bit IPADWG01 v2 graph')
+        values = struct.unpack_from('<8s7I9Q', data)
+        _, _, nodes, arcs, keys, words, alphabet, root, *offsets = values
+        sizes = {0: alphabet * 4, 1: (nodes + 1) * 3, 2: nodes * 3,
+                 3: arcs * 4, 4: (keys + 1) * 3, 6: ((words + 15) // 16 + 1) * 3}
+        if (not nodes or not words or not 1 <= alphabet <= 255 or root >= nodes
+                or keys != metadata['ipa_keys'] or offsets[0] != 108 or offsets[-1] != len(data)
+                or any(a > b for a, b in zip(offsets, offsets[1:]))
+                or any(offsets[i + 1] - offsets[i] != size for i, size in sizes.items())):
+            raise ValueError('invalid dictionary header, sections or counts')
+    return metadata
+
+
+def required_jni_methods():
+    return ('nativeOpen', 'nativeConfigure', 'nativeAcceptsInput', 'nativeSegmentPattern',
+            'nativeQuery', 'nativeClose', 'nativeOpenWithDefaults', 'nativeConfigureAll',
+            'nativeSetPackMode', 'nativeListPacks', 'nativeReverseLookup', 'nativeAddDictionary')
 
 
 def main():
@@ -58,10 +94,10 @@ def main():
     javac=shutil.which('javac')
     if not javac:parser.error('JDK javac required')
     if not args.core_only:
-        metadata=json.loads(args.manifest.read_text())
-        if not metadata.get('complete'):parser.error('bundling an explicitly limited smoke lexicon is forbidden')
-        if args.dictionary.stat().st_size>=40_000_000:parser.error('dictionary exceeds40MB comparison safety limit')
-        if digest(args.dictionary)!=metadata['sha256']:parser.error('dictionary SHA256 differs from manifest')
+        try:
+            metadata=validate_dictionary_input(args.dictionary,args.manifest)
+        except ValueError as error:
+            parser.error(str(error))
     rust_output = build_rust('aarch64-linux-android', args.ndk, args.api)
     rust_library = rust_output / 'libipa_graph.a'
     args.output_dir.mkdir(parents=True,exist_ok=True)
@@ -85,10 +121,13 @@ def main():
         readelf=compiler.parent/'llvm-readelf'
         elf=subprocess.run([str(readelf),'-h','-d','-l',str(library)],check=True,capture_output=True,text=True).stdout
         if 'AArch64' not in elf:raise AssertionError('wrong Android ABI')
-        required=['Java_com_ipaengine_graph_GraphEngine_nativeOpen','Java_com_ipaengine_graph_GraphEngine_nativeQuery']
-        symbols=subprocess.run([str(readelf),'--dyn-syms',str(library)],check=True,capture_output=True,text=True).stdout
+        required=['Java_com_ipaengine_graph_GraphEngine_'+name for name in required_jni_methods()]
+        symbols=subprocess.run([str(readelf),'--dyn-syms','--wide',str(library)],check=True,capture_output=True,text=True).stdout
+        defined={parts[-1].split('@')[0] for line in symbols.splitlines()
+                 if len(parts:=line.split())>=8 and parts[0].rstrip(':').isdigit()
+                 and parts[-2]!='UND' and parts[3]=='FUNC' and parts[4] in ('GLOBAL','WEAK')}
         for symbol in required:
-            if symbol not in symbols:raise AssertionError(f'missing JNI export {symbol}')
+            if symbol not in defined:raise AssertionError(f'missing JNI export {symbol}')
 
         outputs={'classes.jar':jar,'libipa_graph_android.so':library,
                  'ipa_graph-arm64-v8a':cli}
@@ -129,6 +168,9 @@ def main():
                     so_bytes=library.stat().st_size,cli_bytes=cli.stat().st_size,
                     dictionary_bytes=0 if args.core_only else args.dictionary.stat().st_size,
                     dictionary_sha256=None if args.core_only else metadata['sha256'],
+                    dictionary_format=None if args.core_only else metadata['version'],
+                    dictionary_index_bits=24,
+                    supported_dictionary_formats=[2,4],
                     android_platform=android_jar.parent.name,
                     jni_exports_verified=True,aarch64_elf_verified=True,
                     native_device_verified=native_verified,

@@ -23,3 +23,6 @@
 {"id": "reject-tone-digit-six", "raw": "ni6", "expected_status": "unsupported_input", "expected_empty": true}
 
 {"id": "nihao-ipa-initials", "raw": "nx", "regions": ["zh-CN"], "limit": 5, "expected_any": ["你好"]}
+{"id": "ordered-reachability-meatless", "raw": "mtɫs", "regions": ["en-US"], "limit": 30, "expected_any": ["meatless"]}
+{"id": "ordered-reachability-startling", "raw": "stɹtlŋ", "regions": ["en-US"], "limit": 30, "expected_any": ["startling"]}
+{"id": "ordered-reachability-contranym", "raw": "knɹnm", "regions": ["en-US"], "limit": 30, "expected_any": ["contranym"]}

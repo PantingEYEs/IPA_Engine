@@ -144,6 +144,30 @@ fn ordered_omissions_numeric_tones_unicode_and_limits() {
         );
     }
     assert!(engine.query("maɪ", strict()).candidates.is_empty());
+    let repeated = engine.query("nn", options);
+    let onset = repeated
+        .candidates
+        .iter()
+        .find(|c| c.text == "onset-repeated")
+        .unwrap();
+    let coda = repeated
+        .candidates
+        .iter()
+        .find(|c| c.text == "coda-repeated")
+        .unwrap();
+    assert!(onset.native_score > 6000);
+    assert!(coda.native_score < 6000);
+    assert!(onset.rank < coda.rank);
+    let spaced = engine.query("n n", options);
+    assert_eq!(
+        spaced
+            .candidates
+            .iter()
+            .find(|c| c.text == "onset-repeated")
+            .unwrap()
+            .native_score,
+        onset.native_score
+    );
     let exact = engine.query(
         "a",
         QueryOptions {
